@@ -71,6 +71,15 @@ p{
   background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
   color: #333;
 }
+#spin{
+  animation-name: spin;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+@keyframes spin{
+  0%{transform: rotate(360deg);}
+  100%{transform: rotate(0deg);}
+}
 </style>
 </head>
 <body>
@@ -83,6 +92,6 @@ p{
 </div>
 <p>WELCOME TO THE VOID hope you dont mind the wait</p>
 <div id="fly"><p id="paragraph">the new renovations may take a while</p></div>
-<div><h1 id="main">dont mind the noise we are renovating</h1></div>
+<div id="spin"><h1 id="main">dont mind the noise we are renovating</h1></div>
 </body>
 </html>
