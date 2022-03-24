@@ -9,14 +9,28 @@ body {
   background: rgb(66, 66, 66);
 }
 
+p{
+  visibility: hidden;
+}
+
 @media screen and (max-width: 600px) {
   body{
-    background: linear-gradient(90deg, rgba(230,25,224,1) 0%, rgba(59,254,255,1) 50%, rgba(25,230,28,1) 100%);
+    background-color: rgb(0, 0, 0);
   }
 
   .topnav a {
     float: none;
     width: 100%;
+  }
+
+  .topnav{
+    visibility: hidden;
+  }
+
+  p{
+    visibility: visible;
+    text-align: center;
+    color: aqua;
   }
 }
 
@@ -54,6 +68,6 @@ body {
   <a href="#contact">null</a>
   <a href="#about">null</a>
 </div>
-
+<p>WELCOME TO THE VOID</p>
 </body>
 </html>
