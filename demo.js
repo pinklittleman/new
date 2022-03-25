@@ -1,58 +1,93 @@
-let Engine = Matter.Engine,
+
+var Engine = Matter.Engine,
     Render = Matter.Render,
-    World = Matter.World,
-    Bodies = Matter.Bodies,
-    Composites = Matter.Composites;
-	
-let engine = Engine.create();
-let render = Render.create({
+    Runner = Matter.Runner,
+    Composites = Matter.Composites,
+    Common = Matter.Common,
+    MouseConstraint = Matter.MouseConstraint,
+    Mouse = Matter.Mouse,
+    Composite = Matter.Composite,
+    Bodies = Matter.Bodies;
+// create engine
+var engine = Engine.create(),
+    world = engine.world;
+// create renderer
+var render = Render.create({
     element: document.body,
     engine: engine,
-	options: {
-		hasBounds: true,
-        width:700,
-        height:300,
-	}
+    options: {
+        width: 800,
+        height: 600,
+        showAngleIndicator: false,
+        wireframes: false
+    }
 });
-
-
-Engine.run(engine);
 Render.run(render);
-
-let ball= Bodies.circle(65, 50, 20, 10)
-
-//                          x    y   width  height
-let floor=Bodies.rectangle(0, 300, 3500, 50,{
-	isStatic: true
+// create runner
+var runner = Runner.create();
+Runner.run(runner, engine);
+// add bodies
+var offset = 10,
+    options = { 
+        isStatic: true
+    };
+world.bodies = [];
+// these static walls will not be rendered in this sprites example, see options
+Composite.add(world, [
+    Bodies.rectangle(400, -offset, 800.5 + 2 * offset, 50.5, options),
+    Bodies.rectangle(400, 600 + offset, 800.5 + 2 * offset, 50.5, options),
+    Bodies.rectangle(800 + offset, 300, 50.5, 600.5 + 2 * offset, options),
+    Bodies.rectangle(-offset, 300, 50.5, 600.5 + 2 * offset, options)
+]);
+var stack = Composites.stack(30, 10, 5, 5, 0, 0, function(x, y) {
+    if (Common.random() > 0.35) {
+        return Bodies.rectangle(x, y, 64, 64, {
+            render: {
+                strokeStyle: '#ffffff',
+                sprite: {
+                     texture: 'download.png'
+                }
+            }
+        });
+    } else {
+        return Bodies.circle(x, y, 46, {
+            density: 0.0005,
+            frictionAir: 0.06,
+            restitution: 0.3,
+            friction: 0.01,
+            render: {
+                sprite: {
+                     texture: 'download.png'
+                }
+            }
+        });
+    }
 });
-//creates a rectangle to act as a roof border
-let roof=Bodies.rectangle(100, 0, 3500, 50,{
-	isStatic: true
-});
-//creates a rectangle to act as a left wall border
-let lwall=Bodies.rectangle(0, 600, 50, 3500,{
-	isStatic: true
-});
-//creates a rectangle to act as a right wall border
-let rwall=Bodies.rectangle(700, 600, 50, 3500,{
-	isStatic: true
-});
-//creates a realy coool stack that has pysics and cool stuff
-let stackk=Composites.stack(65, 50, 50, 50, 1, 10, function(x, y){
-    //                       radius
-	return Bodies.circle(x, y, 5, 10, 1,{
-        isStatic:true
+Composite.add(world, stack);
+// add mouse control
+var mouse = Mouse.create(render.canvas),
+    mouseConstraint = MouseConstraint.create(engine, {
+        mouse: mouse,
+        constraint: {
+            stiffness: 0.2,
+            render: {
+                visible: false
+            }
+        }
     });
+Composite.add(world, mouseConstraint);
+// keep the mouse in sync with rendering
+render.mouse = mouse;
+// fit the render viewport to the scene
+Render.lookAt(render, {
+    min: { x: 0, y: 0 },
+    max: { x: 800, y: 600 }
 });
-//adds all defined shapes to the world
-World.add(engine.world, [stackk, floor, roof, lwall, rwall, ball]);
+// context for MatterTools.Demo
 
-let world = engine.world;
-let Mouse= Matter.Mouse;
-let MouseConstraint=Matter.MouseConstraint;
-let mouse = Mouse.create(render.canvas);
-let mouseConstraint = MouseConstraint.create(engine, {mouse: mouse});
-World.add(world, mouseConstraint);
+Example.sprites.title = 'Sprites';
+Example.sprites.for = '>=0.14.2';
 
-World.add(engine.world, [mouseConstraint])
-
+if (typeof module !== 'undefined') {
+    module.exports = Example.sprites;
+}
