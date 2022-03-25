@@ -38,7 +38,7 @@ let rwall=Bodies.rectangle(700, 600, 50, 3500,{
 	isStatic: true
 });
 //creates a realy coool stack that has pysics and cool stuff
-let stackk=Composites.stack(65, 50, 15, 20, 20, 10, function(x, y){
+let stackk=Composites.stack(65, 50, 50, 50, 1, 10, function(x, y){
     //                       radius
 	return Bodies.circle(x, y, 5, 10, 1,{
         isStatic:true
