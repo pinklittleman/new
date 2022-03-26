@@ -41,7 +41,7 @@ Composite.add(world, [
 ]);
 var stack = Composites.stack(30, 10, 5, 5, 0, 0, function(x, y) {
     if (Common.random() > 0.35) {
-        return Bodies.rectangle(x, y, 64, 64, {
+        return Bodies.rectangle(x, y, 100, 100, {
             render: {
                 strokeStyle: '#ffffff',
                 sprite: {
@@ -49,18 +49,18 @@ var stack = Composites.stack(30, 10, 5, 5, 0, 0, function(x, y) {
                 }
             }
         });
-    } else {
-        return Bodies.circle(x, y, 46, {
-            density: 0.0005,
-            frictionAir: 0.06,
-            restitution: 0.3,
-            friction: 0.01,
-            render: {
-                sprite: {
-                     texture: 'download.png'
-                }
-            }
-        });
+    // } else {
+    //     return Bodies.circle(x, y, 46, {
+    //         density: 0.0005,
+    //         frictionAir: 0.06,
+    //         restitution: 0.3,
+    //         friction: 0.01,
+    //         render: {
+    //             sprite: {
+    //                  texture: 'download.png'
+    //             }
+    //         }
+    //     });
     }
 });
 Composite.add(world, stack);
