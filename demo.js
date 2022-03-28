@@ -39,29 +39,24 @@ Composite.add(world, [
     Bodies.rectangle(800 + offset, 300, 50.5, 600.5 + 2 * offset, options),
     Bodies.rectangle(-offset, 300, 50.5, 600.5 + 2 * offset, options)
 ]);
-var stack = Composites.stack(30, 10, 5, 5, 0, 0, function(x, y) {
-    if (Common.random() > 0.35) {
-        return Bodies.rectangle(x, y, 100, 100, {
-            render: {
-                strokeStyle: '#ffffff',
-                sprite: {
-                     texture: 'download.png'
-                }
+
+// var cloth = Example.cloth.cloth(200, 200, 20, 12, 5, 5, false, 8);
+// for (var i = 0; i < 20; i++) {
+//     cloth.bodies[i].isStatic = true;
+// }
+
+var stack = Composites.stack(30, 10, 10, 10, 0, 0, function(x, y) {
+    
+    return Bodies.rectangle(x, y, 50, 50, {
+        render: {
+            strokeStyle: '#ffffff',
+            sprite: {
+                texture: 'smollbeans.png'
             }
-        });
-    // } else {
-    //     return Bodies.circle(x, y, 46, {
-    //         density: 0.0005,
-    //         frictionAir: 0.06,
-    //         restitution: 0.3,
-    //         friction: 0.01,
-    //         render: {
-    //             sprite: {
-    //                  texture: 'download.png'
-    //             }
-    //         }
-    //     });
-    }
+        }
+    });
+    
+    
 });
 Composite.add(world, stack);
 // add mouse control
