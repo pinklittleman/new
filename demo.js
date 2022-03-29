@@ -82,19 +82,48 @@ $('.scale').on('click', function () {
     Matter.Body.scale( ball, scales2, scales2);
 });
 
-$('.stat').on('click', function () {
-    Matter.Body.setStatic(ball,true);
-});
+// $('.stat').on('click', function freeze() {
+//     Matter.Body.setStatic(ball,true);
+// });
 
-$('.unstat').on('click', function () {
-    Matter.Body.setStatic(ball,false);
-});
+// $('.unstat').on('click', function unfreeze() {
+//     Matter.Body.setStatic(ball,false);
+// });
 
 $('.descale').on('click', function () {
     ball.render.sprite.xScale = ball.render.sprite.xScale * scales;
     ball.render.sprite.yScale = ball.render.sprite.yScale * scales;
     Matter.Body.scale( ball, scales, scales);
 });
+
+window.onload = function(){
+    var demo = document.getElementById('canvas');
+    var value = 0;
+    var space_bar = 32;
+    var right_arrow = 101;
+    var up1 = 38;
+    var down = 40;
+  
+    window.onkeypress= function(event){
+        if(event.which === space_bar){
+            Matter.Body.setStatic(ball,true);
+        };
+        if(event.which === right_arrow)
+       {
+        Matter.Body.setStatic(ball,false);
+       };
+       if(event.which === up1){
+        ball.render.sprite.xScale = ball.render.sprite.xScale * scales2;
+        ball.render.sprite.yScale = ball.render.sprite.yScale * scales2;
+        Matter.Body.scale( ball, scales2, scales2);
+       }
+       if(event.which === down){
+        ball.render.sprite.xScale = ball.render.sprite.xScale * scales;
+        ball.render.sprite.yScale = ball.render.sprite.yScale * scales;
+        Matter.Body.scale( ball, scales, scales);
+       }
+    };
+};    
 
 let world = engine.world;
 let Mouse= Matter.Mouse;
