@@ -94,6 +94,9 @@ function myFunction(event){
         ball.render.sprite.yScale = ball.render.sprite.yScale * scales;
         Matter.Body.scale( ball, scales, scales);
     }
+    if(event.key === "d"){
+        Matter.Body.rotate(ball, 360)
+    }
 }
 
 let world = engine.world;
