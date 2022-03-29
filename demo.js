@@ -28,7 +28,14 @@ function cl(){
 Engine.run(engine);
 Render.run(render);
 
-let ball= Bodies.circle(500, 0, 20, {frictionAir:0.03, friction: 0.00001})
+let ball= Bodies.circle(500, 0, 20,{
+    render: {
+        strokeStyle: '#ffffff',
+        sprite: {
+            texture: 'circlebeans.png'
+        }
+    }
+})
 
 //                          x    y   width  height
 let floor=Bodies.rectangle(0, 600, 3500, 50,{
