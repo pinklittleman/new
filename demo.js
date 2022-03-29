@@ -59,7 +59,7 @@ let stack = Composites.stack(30, 10, 10, 10, 0, 0, function(x, y) {
         }
     });
 });
-let stackk = Composites.stack(620,400,10,25,0,0,function(x,y){
+let stackk = Composites.stack(620,400,10,5,0,0,function(x,y){
     return Bodies.rectangle(x,y,10,10)
 })
 //adds all defined shapes to the world
