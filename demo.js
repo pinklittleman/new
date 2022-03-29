@@ -65,6 +65,12 @@ let stackk = Composites.stack(620,400,10,5,0,0,function(x,y){
 //adds all defined shapes to the world
 World.add(engine.world, [stack, stackk, floor, roof, lwall, rwall, ball]);
 
+$('.scale').on('click', function () {
+    ball.render.sprite.xScale = ball.render.sprite.xScale * 2;
+    ball.render.sprite.yScale = ball.render.sprite.yScale * 2;
+    Matter.Body.scale( ball, 2, 2);
+});
+
 let world = engine.world;
 let Mouse= Matter.Mouse;
 let MouseConstraint=Matter.MouseConstraint;
