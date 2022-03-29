@@ -59,6 +59,10 @@ let stack = Composites.stack(50, 220, 7, 7, 0, 0, function(x, y) {
         }
     });
 });
+
+let scales = 0.25
+let scales2 = 1.5
+
 let stackk = Composites.stack(600,60,10,10,0,0,function(x,y){
     return Bodies.rectangle(x,y,15,15,{restitution:norm})
 })
@@ -66,15 +70,15 @@ let stackk = Composites.stack(600,60,10,10,0,0,function(x,y){
 World.add(engine.world, [stack, stackk, floor, roof, lwall, rwall, ball]);
 
 $('.scale').on('click', function () {
-    ball.render.sprite.xScale = ball.render.sprite.xScale * 1.5;
-    ball.render.sprite.yScale = ball.render.sprite.yScale * 1.5;
-    Matter.Body.scale( ball, 1.5, 1.5);
+    ball.render.sprite.xScale = ball.render.sprite.xScale * scales2;
+    ball.render.sprite.yScale = ball.render.sprite.yScale * scales2;
+    Matter.Body.scale( ball, scales2, scales2);
 });
 
 $('.descale').on('click', function () {
-    ball.render.sprite.xScale = ball.render.sprite.xScale * 0.25;
-    ball.render.sprite.yScale = ball.render.sprite.yScale * 0.25;
-    Matter.Body.scale( ball, 0.25, 0.25);
+    ball.render.sprite.xScale = ball.render.sprite.xScale * scales;
+    ball.render.sprite.yScale = ball.render.sprite.yScale * scales;
+    Matter.Body.scale( ball, scales, scales);
 });
 
 let world = engine.world;
