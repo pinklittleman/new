@@ -28,7 +28,7 @@ function cl(){
 Engine.run(engine);
 Render.run(render);
 
-let ball= Bodies.circle(600, 0, 20, {frictionAir:0.03, friction: 0.00001, restitution: 3, density: 0.01 })
+let ball= Bodies.circle(500, 0, 20, {frictionAir:0.03, friction: 0.00001, restitution: 3, density: 0.01 })
 
 //                          x    y   width  height
 let floor=Bodies.rectangle(0, 600, 3500, 50,{
@@ -47,7 +47,7 @@ let rwall=Bodies.rectangle(800, 100, 50, 3500,{
     isStatic: true
 });
 //creates a realy coool stack that has pysics and cool stuff
-let stack = Composites.stack(30, 10, 10, 10, 0, 0, function(x, y) {
+let stack = Composites.stack(50, 220, 7, 7, 0, 0, function(x, y) {
     
     return Bodies.rectangle(x, y, 50, 50, {
         restitution:norm,
@@ -59,16 +59,22 @@ let stack = Composites.stack(30, 10, 10, 10, 0, 0, function(x, y) {
         }
     });
 });
-let stackk = Composites.stack(620,400,10,5,0,0,function(x,y){
-    return Bodies.rectangle(x,y,10,10,{restitution:norm})
+let stackk = Composites.stack(600,60,10,10,0,0,function(x,y){
+    return Bodies.rectangle(x,y,15,15,{restitution:norm})
 })
 //adds all defined shapes to the world
 World.add(engine.world, [stack, stackk, floor, roof, lwall, rwall, ball]);
 
 $('.scale').on('click', function () {
-    ball.render.sprite.xScale = ball.render.sprite.xScale * 2;
-    ball.render.sprite.yScale = ball.render.sprite.yScale * 2;
-    Matter.Body.scale( ball, 2, 2);
+    ball.render.sprite.xScale = ball.render.sprite.xScale * 1.5;
+    ball.render.sprite.yScale = ball.render.sprite.yScale * 1.5;
+    Matter.Body.scale( ball, 1.5, 1.5);
+});
+
+$('.descale').on('click', function () {
+    ball.render.sprite.xScale = ball.render.sprite.xScale * 0.25;
+    ball.render.sprite.yScale = ball.render.sprite.yScale * 0.25;
+    Matter.Body.scale( ball, 0.25, 0.25);
 });
 
 let world = engine.world;
