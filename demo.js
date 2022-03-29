@@ -82,6 +82,14 @@ $('.scale').on('click', function () {
     Matter.Body.scale( ball, scales2, scales2);
 });
 
+$('.stat').on('click', function () {
+    Matter.Body.setStatic(ball,true);
+});
+
+$('.unstat').on('click', function () {
+    Matter.Body.setStatic(ball,false);
+});
+
 $('.descale').on('click', function () {
     ball.render.sprite.xScale = ball.render.sprite.xScale * scales;
     ball.render.sprite.yScale = ball.render.sprite.yScale * scales;
