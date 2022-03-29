@@ -16,7 +16,7 @@ let render = Render.create({
     }
 });
 
-var norm = 1.5
+var norm = 1.1
 
 function cl(){
     console.log(norm)
