@@ -25,14 +25,15 @@ function cl(){
 
 }
 
-Engine.run(engine);
+Matter.Runner.run(engine);
 Render.run(render);
 
 let ball= Bodies.circle(500, 0, 20,{
+    friction:0.1,
     render: {
         strokeStyle: '#ffffff',
         sprite: {
-            texture: 'hole.png'
+            texture: 'circlebeans.png'
         }
     }
 })
@@ -96,8 +97,29 @@ function myFunction(event){
     }
     if(event.key === "d"){
         Matter.Body.rotate(ball, 360)
+        ball.restitution=1.2;
     }
 }
+
+// if(ball.position.x > 500){
+//     alert("ball moved")
+// }
+// while(true){
+//     console.log(ball.position.x)
+// }
+setInterval(() => {
+    // if(ball.position.x > 500){
+    //     alert("no satisfying cubes for you")
+    // }
+    // console.log(ball.position.x +"  and  "+ ball.position.y)
+    if(ball.position.y > 560 || ball.position.y < 30){
+        setTimeout(() => {
+            Matter.Body.setStatic(ball,false)
+            Matter.Body.set(ball,"position",{x:500,y:500})
+        }, 250);
+        Matter.Body.setStatic(ball,true)
+    }
+}, 500);
 
 let world = engine.world;
 let Mouse= Matter.Mouse;
@@ -110,6 +132,8 @@ World.add(engine.world, [mouseConstraint])
 
 function myFunction2(event){
     if(event.key === "h"){
-        alert("secrets")
+        for(let i = 0; i <5; i++){
+            console.log(ball.position)
+        }
     }
 }
