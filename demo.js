@@ -1,3 +1,14 @@
+const socket = new WebSocket('ws://localhost:8080');
+
+socket.onmessage = ({ data }) =>{
+    console.log('message from server', data);
+}
+
+function clicky(){
+    alert('clicked')
+    socket.send('hello');
+}
+
 let Engine = Matter.Engine,
     Render = Matter.Render,
     World = Matter.World,
