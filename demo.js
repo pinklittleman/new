@@ -30,6 +30,7 @@ Render.run(render);
 
 let ball= Bodies.circle(500, 0, 20,{
     friction:0.1,
+    mass:10,
     render: {
         strokeStyle: '#ffffff',
         sprite: {
@@ -85,22 +86,32 @@ function myFunction(event){
     if(event.key === "e"){
         Matter.Body.setStatic(ball,false);
     }
-    if(event.key === "w"){
+    if(event.key === "ArrowRight"){
         ball.render.sprite.xScale = ball.render.sprite.xScale * scales2;
         ball.render.sprite.yScale = ball.render.sprite.yScale * scales2;
         Matter.Body.scale( ball, scales2, scales2);
     }
-    if(event.key === "s"){
+    if(event.key === "ArrowLeft"){
         ball.render.sprite.xScale = ball.render.sprite.xScale * scales;
         ball.render.sprite.yScale = ball.render.sprite.yScale * scales;
         Matter.Body.scale( ball, scales, scales);
     }
     if(event.key === "d"){
-        Matter.Body.rotate(ball, 360)
-        ball.restitution=1.2;
-        Matter.Body.rotate(stack, 90)
+        // dddddMatter.Body.rotate(ball, 360)
+        // ball.restitution=1.2;
+        // Matter.Body.rotate(stack, 90)
         console.log(ball.options)
+        Matter.Body.setVelocity(ball,{x:5,y:-1});
     }
+    if(event.key === "a"){
+        console.log(ball.options)
+        Matter.Body.setVelocity(ball,{x:-5,y:-1});
+    }
+    if(event.key === "w"){
+        console.log(ball.options)
+        Matter.Body.setVelocity(ball,{x:0,y:-5});
+    }
+
 }
 
 // if(ball.position.x > 500){
