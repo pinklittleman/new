@@ -79,7 +79,7 @@ World.add(engine.world, [stack, stackk, floor, roof, lwall, rwall, ball]);
 
 function myFunction(event){
     console.log(event.key)
-    if(event.key === " "){
+    if(event.key === " " && ball.isStatic == false){
         Matter.Body.setStatic(ball,true);
     }
     if(event.key === "e"){
@@ -98,6 +98,8 @@ function myFunction(event){
     if(event.key === "d"){
         Matter.Body.rotate(ball, 360)
         ball.restitution=1.2;
+        Matter.Body.rotate(stack, 90)
+        console.log(ball.options)
     }
 }
 
@@ -133,7 +135,7 @@ World.add(engine.world, [mouseConstraint])
 function myFunction2(event){
     if(event.key === "h"){
         for(let i = 0; i <5; i++){
-            console.log(ball.position)
+            console.log(ball)
         }
     }
 }
