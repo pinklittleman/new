@@ -107,3 +107,9 @@ let mouseConstraint = MouseConstraint.create(engine, {mouse: mouse});
 World.add(world, mouseConstraint);
 
 World.add(engine.world, [mouseConstraint])
+
+function myFunction2(event){
+    if(event.key === "h"){
+        alert("secrets")
+    }
+}
