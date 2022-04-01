@@ -12,7 +12,8 @@ let render = Render.create({
         width: 800,
         height: 600,
         showAngleIndicator: false,
-        wireframes: false
+        wireframes: false,
+        showDebug: true
     }
 });
 
@@ -72,6 +73,14 @@ let stack = Composites.stack(50, 220, 7, 7, 0, 0, function(x, y) {
 let scales = 0.25
 let scales2 = 1.5
 
+var addCircle = function () {
+    return Bodies.circle(Math.random()*800 + 30, 30, Math.random()*10+8,{
+        render: {
+            strokeStyle: '#ffffff'
+        }
+    });
+   };
+
 let stackk = Composites.stack(600,60,10,10,0,0,function(x,y){
     return Bodies.rectangle(x,y,15,15,{restitution:norm})
 })
@@ -111,8 +120,28 @@ function myFunction(event){
         console.log(ball.options)
         Matter.Body.setVelocity(ball,{x:0,y:-5});
     }
+    if(event.key === "n"){
+        setInterval(() => {
+        World.add(engine.world, addCircle());
+        }, 0.1);
+    }
+    if(event.key === "h"){
+        
+    }
+
 
 }
+
+function coordinate(event) {
+ 
+    // clientX gives horizontal coordinate
+    var x = event.clientX - 70;
+
+    // clientY gives vertical coordinates
+    var y = event.clientY - 265;
+
+    // console.log(y)
+ }
 
 // if(ball.position.x > 500){
 //     alert("ball moved")
