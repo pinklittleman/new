@@ -2,34 +2,29 @@ let Engine = Matter.Engine,
     Render = Matter.Render,
     World = Matter.World,
     Bodies = Matter.Bodies,
-    Composites = Matter.Composites;
+    Composites = Matter.Composites,
+    Constraint = Matter.Constraint;
 	
-let engine = Engine.create();
-let render = Render.create({
-    element: document.body,
-    engine: engine,
-	options: {
-        width: 800,
-        height: 600,
-        showAngleIndicator: false,
-        wireframes: false,
-        showDebug: true
-    }
-});
+    let engine = Engine.create();
+    let render = Render.create({
+        element: document.body,
+        engine: engine,
+        options: {
+            width: 800,
+            height: 600,
+            showAngleIndicator: false,
+            wireframes: false,
+            
+        }
+    }   
+);
 
 var norm = 1.2
-
-function cl(){
-    console.log(norm)
-    norm = 2
-    console.log(norm)
-
-}
 
 Matter.Runner.run(engine);
 Render.run(render);
 
-let ball= Bodies.circle(500, 0, 20,{
+let ball= Bodies.circle(500, 500, 20,{
     friction:0.1,
     mass:10,
     render: {
@@ -70,6 +65,51 @@ let stack = Composites.stack(50, 220, 7, 7, 0, 0, function(x, y) {
     });
 });
 
+var body = Bodies.polygon(150, 200, 5, 30);
+
+var constraint = Constraint.create({
+    bodyA: ball,
+    pointA: { x: 1, y: 1},
+    bodyB: body,
+    pointB: { x: -1, y: -1},
+    stiffness: 0.001
+});
+
+
+
+// var ropeA = Composites.stack(300, 50, 6, 1, 10, 10, function(x, y) {
+//     return Bodies.rectangle(x, y, 50, 20,{
+//         render: {
+//             strokeStyle: '#ffffff',
+//             sprite: {
+//                 texture: 'smollbeans.png'
+//             }
+//         }
+//     });
+// });
+
+// var constraint2 = Constraint.create({
+//     pointA: { x: 10, y: 10 },
+//     bodyB: ropeA,
+//     pointB: { x: 0, y: 0 }
+// });
+
+// Composites.chain(
+//     ropeA, 
+//     0.6, 
+//     0, 
+//     -0.5, 
+//     0, 
+//     { stiffness: 0.8,
+//         length: 2,
+//         render: { 
+//             type: 'line' 
+//         } 
+//     }
+// );
+
+
+
 let scales = 0.25
 let scales2 = 1.5
 
@@ -79,13 +119,17 @@ var addCircle = function () {
             strokeStyle: '#ffffff'
         }
     });
-   };
+};
 
-let stackk = Composites.stack(600,60,10,10,0,0,function(x,y){
+let stackk = Composites.stack(600,400,10,10,0,0,function(x,y){
     return Bodies.rectangle(x,y,15,15,{restitution:norm})
 })
 //adds all defined shapes to the world
-World.add(engine.world, [stack, stackk, floor, roof, lwall, rwall, ball]);
+World.add(engine.world, [
+//     bodyB:ropeA[0],
+//     pointB: { x: -20, y: 0 },
+//     pointA: { x: ropeA.bodies[0].position.x, y: ropeA.bodies[0].position.y }
+body, constraint, stack, stackk, floor, roof, lwall, rwall, ball]);
 
 function myFunction(event){
     console.log(event.key)
@@ -132,6 +176,9 @@ function myFunction(event){
 
 }
 
+
+// World.add(world, [body, constraint]);
+
 function coordinate(event) {
  
     // clientX gives horizontal coordinate
@@ -150,10 +197,6 @@ function coordinate(event) {
 //     console.log(ball.position.x)
 // }
 setInterval(() => {
-    // if(ball.position.x > 500){
-    //     alert("no satisfying cubes for you")
-    // }
-    // console.log(ball.position.x +"  and  "+ ball.position.y)
     if(ball.position.y > 560 || ball.position.y < 30){
         setTimeout(() => {
             Matter.Body.setStatic(ball,false)
