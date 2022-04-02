@@ -42,6 +42,7 @@ let mouseConstraint = MouseConstraint.create(engine, {mouse: mouse});
 // make it rain function that adds many circles to the screen
 var addCircle = function () {
     return Bodies.circle(Math.random()*800 + 30, 30, Math.random()*10+8,{
+        collisionFilter: { group: floorColl },
         render: {
             strokeStyle: '#ffffff'
         }
@@ -90,15 +91,18 @@ function myFunction(event){
     }
     if(event.key === "h"){
         console.log(ball)
+        floorColl = true
     }
 
 }
 
 // groups all the bodies in the stack
 group = Body.nextGroup(true);
+//adds a group for the floor and rain
+floorColl = Body.nextGroup(true);
 
-// make a stack with one row
-var ropeC = Composites.stack(250, 50, 10, 1, 10, 10, function(x, y) {
+// make a stack with one row and a collison filter with the rest of the bodies
+var ropeC = Composites.stack(200, 50, 11, 1, 10, 10, function(x, y) {
     return Bodies.rectangle(x - 20, 0, 50, 50, { collisionFilter: { group: group },
         render: {
             strokeStyle: '#ffffff',
@@ -121,9 +125,9 @@ Composite.add(ropeC, Constraint.create({
 
 // adds a second constraint 
 let constraint1 = Constraint.create({ 
-    bodyB: ropeC.bodies[9],
+    bodyB: ropeC.bodies[10],
     pointB: { x: 20, y: 0 },
-    pointA: { x: ropeC.bodies[9].position.x, y: ropeC.bodies[9].position.y },
+    pointA: { x: ropeC.bodies[10].position.x, y: ropeC.bodies[10].position.y },
     stiffness: 0.5
 })
 
@@ -135,8 +139,8 @@ let stackk = Composites.stack(600,400,10,10,0,0,function(x,y){
 // add to the world the containing walls and any other bodies
 Composite.add(engine.world,[
     ball,
-    Bodies.rectangle(0, 600, 3500, 50,{isStatic: true}),
-    Bodies.rectangle(100, 0, 3500, 50,{isStatic: true}),
+    Bodies.rectangle(0, 600, 3500, 50,{isStatic: true, collisionFilter: { group: floorColl }}),
+    Bodies.rectangle(100, 0, 3500, 50,{isStatic: true, collisionFilter: { group: group }}),
     Bodies.rectangle(0, 600, 50, 3500,{isStatic: true}),
     Bodies.rectangle(800, 100, 50, 3500,{isStatic: true}),
     mouseConstraint,
