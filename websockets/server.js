@@ -19,8 +19,9 @@ io.on('connection', (socket) => {
   console.log('a user connected: ' + socket.id);
   users = users + 1
 
-  socket.on('message', (data) =>{
+  socket.on('username', (data) =>{
     console.log(data)
+    let username = data;
     socket.broadcast.emit('message', data)
   })
 
@@ -29,3 +30,5 @@ io.on('connection', (socket) => {
     users = users - 1
   });
 });
+
+console.log(username)
