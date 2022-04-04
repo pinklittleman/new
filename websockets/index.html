@@ -3,6 +3,7 @@
 
 <body>
   <h1 id="message"></h1>
+  
   <h2 id="message2"></h2>
 
 
@@ -15,7 +16,7 @@
       document.getElementById("message").innerHTML = msg;
     });
 
-    socket.on('message2', function(count){
+    socket.on('message', function(count){
       console.log(count);
       document.getElementById("message2").innerHTML = count;
     });
