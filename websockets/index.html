@@ -9,15 +9,19 @@
   <script>
     var socket = io();
 
-    socket.on('message', function(msg){
-      console.log(msg);
-      document.getElementById("message").innerHTML = msg;
-    });
+  socket.on('message', function(msg){
+    console.log(msg);
+    document.getElementById("message").innerHTML = msg;
+  });
 
-    socket.on('users', function(users){
-      console.log(users);
-      document.getElementById("message2").innerHTML = users;
-    });
+  socket.on('users', function(users){
+    console.log(users);
+    document.getElementById("message2").innerHTML = users;
+  });
+
+  var sendserver = ("hello server");
+  io.emit('hello', sendserver);
+  console.log (sendserver);
 
     function user(){
       let username = prompt("enter a username")
