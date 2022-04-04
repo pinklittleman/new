@@ -36,7 +36,7 @@ io.on('connection', (socket) => {
     // if(decide2>1){
     //   usernames.push(data)
     // }
-    console.log(mad)
+    console.log("this is mad: "+mad)
     socket.broadcast.emit('message', data)
     console.log(usernames)
   })
