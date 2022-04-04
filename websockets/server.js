@@ -21,7 +21,7 @@ io.on('connection', (socket) => {
 
   socket.on('username', (data) =>{
     console.log(data)
-    let username = data;
+    let data = username
     socket.broadcast.emit('message', data)
   })
 
