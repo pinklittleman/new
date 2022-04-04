@@ -11,7 +11,7 @@
   var socket = io();
 
   function myFunction(){
-    socket.emit('message', 'holo')
+    socket.emit('message', username)
   }
 
   socket.on('message', (data)=>{

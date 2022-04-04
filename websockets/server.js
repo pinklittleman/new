@@ -16,7 +16,7 @@ server.listen(5000, function(){
 });
 let users = 0
 io.on('connection', (socket) => {
-  console.log('a user connected' + socket.id);
+  console.log('a user connected: ' + socket.id);
   users = users + 1
 
   socket.on('message', (data) =>{
