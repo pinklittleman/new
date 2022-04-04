@@ -1,6 +1,6 @@
 var app = require('express')();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 
 app.get('/', function(req, res){
 
@@ -9,7 +9,7 @@ app.get('/', function(req, res){
 
 });
 
-http.listen(5000, function(){
+server.listen(5000, function(){
 
   console.log('listening on *:5000');
 
