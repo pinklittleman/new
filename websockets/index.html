@@ -4,6 +4,7 @@
 <body onload="user()">
   <h1 id="message"></h1>
   <h2 id="message2"></h2>
+  <button onclick="myFunction()">Click me</button> 
 
   <script src="/socket.io/socket.io.js"></script>
   <script>
@@ -18,10 +19,12 @@
     console.log(users);
     document.getElementById("message2").innerHTML = users;
   });
-
-  var sendserver = ("hello server");
-  io.emit('hello', sendserver);
-  console.log (sendserver);
+  
+  function myFunction(){
+    var sendserver = ("hello server");
+    io.emit('hello', sendserver);
+    console.log (sendserver);
+  }
 
     function user(){
       let username = prompt("enter a username")
