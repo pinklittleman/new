@@ -28,10 +28,10 @@ io.on('connection', (socket) => {
 
   
   var x = 0
-  let decide = data + x
+  let decide = decide + data
   socket.on('username', (data) =>{
     console.log(data)
-    decide+1
+    decide = decide + 1
     if(decide>1){
       usernames.push(data)
     }
