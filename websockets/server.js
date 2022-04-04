@@ -22,9 +22,17 @@ io.on('connection', (socket) => {
   users = users + 1
   socket.broadcast.emit('message', socket.id)
 
+  socket.on('num', (data) =>{
+    console.log("x = :  " + data)
+  })
+
+  var x = 0
   socket.on('username', (data) =>{
     console.log(data)
-    usernames.push(data)
+    x+1
+    if(x>1){
+      usernames.push(data)
+    }
     socket.broadcast.emit('message', data)
     console.log(usernames)
   })
