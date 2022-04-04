@@ -33,9 +33,11 @@ setInterval( function() {
     number that we generate on the server
   */
 
+  setTimeout(() => {
   var msg = ("users:  " + users);
   io.emit('message', msg);
   console.log (msg);
+  }, 1000);
 
   var count = (x = x+1);
   io.emit('message', count);
