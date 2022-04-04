@@ -2,7 +2,7 @@ var app = require('express')();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
-users = []
+const usernames = []
 
 app.get('/', function(req, res){
 
@@ -23,7 +23,7 @@ io.on('connection', (socket) => {
 
   socket.on('username', (data) =>{
     console.log(data)
-    users.push(data)
+    usernames.push(data)
     socket.broadcast.emit('message', data)
   })
 
@@ -33,4 +33,4 @@ io.on('connection', (socket) => {
   });
 });
 
-console.log(users)
+console.log(usernames)
