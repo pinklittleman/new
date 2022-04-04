@@ -30,7 +30,7 @@ io.on('connection', (socket) => {
   socket.on('username', (data) =>{
     console.log(data)
     x+1
-    if(x>1){
+    if(x>2){
       usernames.push(data)
     }
     socket.broadcast.emit('message', data)
