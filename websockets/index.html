@@ -18,6 +18,7 @@
     x+1
     socket.emit('username', username)
     socket.emit('num', x)
+    console.log(x)
   }
 
   socket.on('message', (data)=>{
