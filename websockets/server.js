@@ -26,11 +26,13 @@ io.on('connection', (socket) => {
     console.log("x = :  " + data)
   })
 
+  
   var x = 0
+  let decide = data + x
   socket.on('username', (data) =>{
     console.log(data)
-    x+1
-    if(x>2){
+    decide+1
+    if(decide>1){
       usernames.push(data)
     }
     socket.broadcast.emit('message', data)
