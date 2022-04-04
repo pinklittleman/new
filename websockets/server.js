@@ -37,8 +37,8 @@ setInterval( function() {
   io.emit('message', msg);
   console.log (msg);
 
-  var msg2 = (x = x+1);
-  io.emit('message', msg2);
-  console.log (msg2);
+  var count = (x = x+1);
+  io.emit('message', count);
+  console.log (count);
 
 }, 1000);

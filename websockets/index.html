@@ -15,9 +15,9 @@
       document.getElementById("message").innerHTML = msg;
     });
 
-    socket.on('message', function(msg2){
-      console.log(msg2);
-      document.getElementById("message2").innerHTML = msg2;
+    socket.on('message2', function(count){
+      console.log(count);
+      document.getElementById("message2").innerHTML = count;
     });
   </script>
 </body>
