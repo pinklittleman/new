@@ -14,11 +14,13 @@ http.listen(5000, function(){
   console.log('listening on *:3001');
 
 });
-
+let users = 0
 io.on('connection', (socket) => {
   console.log('a user connected');
+  users+1
   socket.on('disconnect', () => {
     console.log('user disconnected');
+    users-1
   });
 });
 
@@ -31,7 +33,7 @@ setInterval( function() {
     number that we generate on the server
   */
 
-  var msg = (x = x + 1);
+  var msg = (x = x + 1, "users:  " + users);
   io.emit('message', msg);
   console.log (msg);
 
