@@ -24,6 +24,7 @@ io.on('connection', (socket) => {
   });
 });
 
+let x = 0
 //for testing, we're just going to send data to the client every second
 setInterval( function() {
 
@@ -35,5 +36,9 @@ setInterval( function() {
   var msg = ("users:  " + users);
   io.emit('message', msg);
   console.log (msg);
+
+  var msg2 = (x = x+1);
+  io.emit('message', msg2);
+  console.log (msg2);
 
 }, 1000);
