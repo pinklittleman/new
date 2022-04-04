@@ -1,7 +1,7 @@
 <html>
 <head></head>
 
-<body>
+<body onload="user()">
   <h1 id="message"></h1>
   <h2 id="message2"></h2>
 
@@ -18,6 +18,10 @@
       console.log(users);
       document.getElementById("message2").innerHTML = users;
     });
+
+    function user(){
+      let username = prompt("enter a username")
+    }
 
   </script>
 </body>
