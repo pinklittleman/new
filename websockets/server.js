@@ -32,10 +32,11 @@ io.on('connection', (socket) => {
   console.log(mad)
   socket.on('username', (data) =>{
     console.log(data)
-    decide2 = decide2 + 1
-    if(decide2>1){
-      usernames.push(data)
-    }
+    // decide2 = decide2 + 1
+    // if(decide2>1){
+    //   usernames.push(data)
+    // }
+    console.log(mad)
     socket.broadcast.emit('message', data)
     console.log(usernames)
   })
