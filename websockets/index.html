@@ -14,6 +14,10 @@
     socket.emit('message', 'holo')
   }
 
+  socket.on('message', (data)=>{
+    document.getElementById('message').innerHTML = data
+  })
+
   function user(){
     let username = prompt("enter a username")
   }
