@@ -20,6 +20,7 @@ let users = 0
 io.on('connection', (socket) => {
   console.log('a user connected: ' + socket.id);
   users = users + 1
+  socket.broadcast.emit('message', socket.id)
 
   socket.on('username', (data) =>{
     console.log(data)
