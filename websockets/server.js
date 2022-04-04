@@ -17,15 +17,14 @@ http.listen(5000, function(){
 let users = 0
 io.on('connection', (socket) => {
   console.log('a user connected');
-  users+1
+  users = users + 1
   socket.on('disconnect', () => {
     console.log('user disconnected');
-    users-1
+    users = users - 1
   });
 });
 
 //for testing, we're just going to send data to the client every second
-let x = 1
 setInterval( function() {
 
   /*
@@ -33,7 +32,7 @@ setInterval( function() {
     number that we generate on the server
   */
 
-  var msg = (x = x + 1, "users:  " + users);
+  var msg = ("users:  " + users);
   io.emit('message', msg);
   console.log (msg);
 
