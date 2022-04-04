@@ -25,6 +25,10 @@ io.on('connection', (socket) => {
   });
 });
 
+io.on('hello', function(users){
+  console.log(hello);
+});
+
 let x = 0
 //for testing, we're just going to send data to the client every second
 setInterval( function() {
