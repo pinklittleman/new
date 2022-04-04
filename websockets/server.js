@@ -17,6 +17,7 @@ server.listen(5000, function(){
 
 });
 let users = 0
+let mad = 0
 io.on('connection', (socket) => {
   console.log('a user connected: ' + socket.id);
   users = users + 1
@@ -24,12 +25,11 @@ io.on('connection', (socket) => {
 
   socket.on('num', (data) =>{
     console.log("x = :  " + data)
+    mad = mad + data
   })
 
   
-  var x = 0
-  var decide = 0
-  var decide2 = decide + data
+  console.log(mad)
   socket.on('username', (data) =>{
     console.log(data)
     decide2 = decide2 + 1
