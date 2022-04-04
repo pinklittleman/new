@@ -11,13 +11,14 @@ app.get('/', function(req, res){
 
 http.listen(5000, function(){
 
-  console.log('listening on *:3001');
+  console.log('listening on *:5000');
 
 });
 let users = 0
 io.on('connection', (socket) => {
   console.log('a user connected');
   users = users + 1
+
   socket.on('disconnect', () => {
     console.log('user disconnected');
     users = users - 1
@@ -33,14 +34,12 @@ setInterval( function() {
     number that we generate on the server
   */
 
-  setTimeout(() => {
-  var msg = ("users:  " + users);
+  var users2 = ("users:  " + users);
+  io.emit('users', users2);
+  console.log (users2);
+
+  var msg = (x = x+1);
   io.emit('message', msg);
   console.log (msg);
-  }, 1000);
-
-  var count = (x = x+1);
-  io.emit('message', count);
-  console.log (count);
 
 }, 1000);
