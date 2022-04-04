@@ -8,6 +8,10 @@
 
   <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
   <script>
+  function user(){
+    let username = prompt("enter a username")
+  }
+  
   var socket = io();
 
   function myFunction(){
@@ -17,11 +21,6 @@
   socket.on('message', (data)=>{
     document.getElementById('message').innerHTML = data
   })
-
-  function user(){
-    let username = prompt("enter a username")
-  }
-
   </script>
 </body>
 </html>
