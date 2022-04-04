@@ -8,27 +8,15 @@
 
   <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
   <script>
-    var socket = io();
+  var socket = io();
 
-  socket.on('message', function(msg){
-    console.log(msg);
-    document.getElementById("message").innerHTML = msg;
-  });
-
-  socket.on('users', function(users){
-    console.log(users);
-    document.getElementById("message2").innerHTML = users;
-  });
-  
-  function myFunction(){
-    var hello = ("hello server");
-    socket.emit('hello', hello);
-    console.log (hello);
+  function onclick(){
+    socket.emit('message', 'holo')
   }
 
-    function user(){
-      let username = prompt("enter a username")
-    }
+  function user(){
+    let username = prompt("enter a username")
+  }
 
   </script>
 </body>
