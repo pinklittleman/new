@@ -27,7 +27,9 @@ io.on('connection', (socket) => {
   socket.broadcast.emit('message', socket.id)
 
   socket.on('num', (data) =>{
-    console.log("x = :  " + data)
+    setInterval(() => {
+      console.log("x = :  " + data)
+    }, 2000);
   })
 
   
