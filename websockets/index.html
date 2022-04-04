@@ -1,16 +1,15 @@
 <html>
 <head></head>
 
-<body onload="user()">
+<body>
   <h1 id="message"></h1>
   <h2 id="message2"></h2>
   <button onclick="myFunction()">Click me</button> 
 
   <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
   <script>
-  function user(){
-    let username = prompt("enter a username")
-  }
+
+  let username = prompt("enter a username")
   
   var socket = io();
 
