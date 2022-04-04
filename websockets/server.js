@@ -1,3 +1,5 @@
+const { countReset } = require('console');
+
 var app = require('express')();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
@@ -17,7 +19,8 @@ server.listen(5000, function(){
 
 });
 let users = 0
-let mad = 0
+let mad = false
+let count = 0
 io.on('connection', (socket) => {
   console.log('a user connected: ' + socket.id);
   users = users + 1
@@ -25,16 +28,17 @@ io.on('connection', (socket) => {
 
   socket.on('num', (data) =>{
     console.log("x = :  " + data)
-    mad = mad + data
   })
 
   
   console.log(mad)
   socket.on('username', (data) =>{
     console.log(data)
-    mad = mad + 1
-    if(mad<1){
-      usernames.push(data)
+    if(mad === "true"){
+      if(count<1){
+        usernames.push(data)
+      }
+      count++
     }
     console.log("this is mad: "+mad)
     socket.broadcast.emit('message', data)
