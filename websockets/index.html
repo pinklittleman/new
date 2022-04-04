@@ -11,17 +11,15 @@
 
   let username = prompt("enter a username")
   
-  setTimeout(() => {
-    var socket = io();
+  var socket = io();
 
-    function myFunction(){
-    socket.emit('username', username)
+  function myFunction(){
+  socket.emit('username', username)
   }
 
-    socket.on('message', (data)=>{
-    document.getElementById('message').innerHTML = data
+  socket.on('message', (data)=>{
+  document.getElementById('message').innerHTML = data
   })
-  }, 2000);
   </script>
 </body>
 </html>
