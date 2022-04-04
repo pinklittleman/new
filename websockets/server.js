@@ -33,7 +33,7 @@ io.on('connection', (socket) => {
   socket.on('username', (data) =>{
     console.log(data)
     mad = mad + 1
-    if(mad>1){
+    if(mad<1){
       usernames.push(data)
     }
     console.log("this is mad: "+mad)
