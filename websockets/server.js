@@ -25,6 +25,7 @@ io.on('connection', (socket) => {
     console.log(data)
     usernames.push(data)
     socket.broadcast.emit('message', data)
+    console.log(usernames)
   })
 
   socket.on('disconnect', () => {
@@ -32,5 +33,3 @@ io.on('connection', (socket) => {
     users = users - 1
   });
 });
-
-console.log(usernames)
