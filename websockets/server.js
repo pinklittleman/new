@@ -2,6 +2,8 @@ var app = require('express')();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
+users = []
+
 app.get('/', function(req, res){
 
   //send the index.html file for all requests
@@ -21,7 +23,7 @@ io.on('connection', (socket) => {
 
   socket.on('username', (data) =>{
     console.log(data)
-    let data = username
+    users.push(data)
     socket.broadcast.emit('message', data)
   })
 
@@ -31,4 +33,4 @@ io.on('connection', (socket) => {
   });
 });
 
-console.log(username)
+console.log(users)
