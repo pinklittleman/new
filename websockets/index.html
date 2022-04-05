@@ -14,7 +14,6 @@
   
   var socket = io();
   function myFunction(){
-    clicked = true
     socket.emit('username', username)
   }
 
@@ -25,7 +24,12 @@
   document.addEventListener("mousemove", () => {
   let mousex = event.clientX; // Gets Mouse X
   let mousey = event.clientY; // Gets Mouse Y
-  console.log([mousex, mousey]); // Prints data
+  let cords = {
+    x: mousex,
+    y: mousey
+  }
+  console.log(cords); // Prints data
+  socket.emit('cords', cords)
 });
 
   </script>
