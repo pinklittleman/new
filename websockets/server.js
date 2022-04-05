@@ -24,19 +24,11 @@ io.on('connection', (socket) => {
   users = users + 1
   socket.broadcast.emit('message', socket.id)
   
-  socket.on('username', (data) =>{
-    console.log(data)
-    socket.broadcast.emit('message', data)
-    console.log(usernames)
-  })
+  socket.on('mouse', mouseMsg)
 
-  socket.on('cords', (data) => {
-    console.log(data)
-    socket.broadcast.emit('ncords', data)
-    console.log(data)
-    // usernames.push(data.user)
-    console.log(usernames)
-  })
+  function mouseMsg(data){
+    socket.broadcast.emit('incords', data)
+  }
 
   socket.on('disconnect', () => {
     console.log('user disconnected' + socket.io);

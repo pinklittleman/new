@@ -25,12 +25,25 @@ function setup(){
 }
 
 function mouseDragged(){
+  console.log()
 
-}
+  var data = {
+    x: mouseX,
+    y: mouseY
+  }
 
-function draw(){
+  socket.emit('mouse', data)
+
   noStroke()
   fill(255)
+  ellipse(mouseX, mouseY, 36, 36)
+}
+
+socket.on('incords', drawing2)
+
+function drawing2(){
+  noStroke()
+  fill(100)
   ellipse(mouseX, mouseY, 36, 36)
 }
 
