@@ -33,7 +33,7 @@ io.on('connection', (socket) => {
   socket.on('cords', (data) => {
     console.log(data)
     socket.broadcast.emit('ncords', data)
-    console.log(data.x)
+    console.log(data)
   })
 
   socket.on('disconnect', () => {
