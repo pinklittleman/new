@@ -22,8 +22,16 @@
   socket.on('message', (data)=>{
   document.getElementById('message').innerHTML = data
   })
+
+  const h1 = document.getElementById("h1");
+  document.addEventListener("mousemove",
+  function(e){
+    var x = e.clientX;
+    var y = e.clientY;
+    h1.style.left = x + "px";
+    h1.style.top = y + "px";
+})
   </script>
   <h1 id="h1" class="gee">YES</h1>
-  <script id="jk" src="jk.js"></script>
 </body>
 </html>
