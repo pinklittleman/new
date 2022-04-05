@@ -24,7 +24,6 @@ io.on('connection', (socket) => {
   users = users + 1
   socket.broadcast.emit('message', socket.id)
   
-  console.log(mad)
   socket.on('username', (data) =>{
     console.log(data)
     socket.broadcast.emit('message', data)
