@@ -27,7 +27,13 @@ io.on('connection', (socket) => {
   
   socket.on('mouse', mouseMsg)
 
+  socket.on('refresh', aler)
+
   socket.on('clear', arrayclear)
+
+  function aler(data){
+    socket.broadcast.emit('reload', data)
+  }
 
   function arrayclear(){
     currentSketch.length = 0;

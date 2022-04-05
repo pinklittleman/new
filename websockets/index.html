@@ -22,6 +22,8 @@ function myFunction(){
   background(51)
 
   socket.emit('clear', clear2)
+
+  socket.emit('refresh', 'refresh please')
 }
 
 function setup(){
@@ -31,6 +33,11 @@ function setup(){
   socket = io.connect('http://pinky.uk.to:5000')
   socket.on('incords', Pinky)
   socket.on('sketch', start)
+  socket.on('reload', yes)
+}
+
+function yes(data){
+  alert(data)
 }
 
 function start(data){
