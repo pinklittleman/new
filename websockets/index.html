@@ -32,6 +32,10 @@
   socket.emit('cords', cords)
 });
 
+  socket.on('ncords', (data) => {
+    console.log(data)
+  })
+
   </script>
 </body>
 </html>
