@@ -3,55 +3,37 @@
 </head>
 
 <body>
-  <h1 id="message"></h1>
-  <h2 id="message2"></h2>
-  <button onclick="myFunction()">Click me</button> 
+<h1 id="message"></h1>
 
-  <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
-  <script>
+<h2 id="message2"></h2>
 
-function setup() {
-  createCanvas(400, 400);
+<button onclick="myFunction()">Click me</button> 
+
+<script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
+
+<script>
+
+var socket;
+
+function setup(){
+  createCanvas(600, 400);
+  background(51)
+
+  socket = io.connect('http://pinky.uk.to:5000')
 }
 
-function draw() {
-  if (mouseIsPressed) {
-    fill(0);
-  } else {
-    fill(255);
-  }
-  ellipse(mouseX, mouseY, 80, 80);
+function mouseDragged(){
+
 }
 
-  let username = prompt("enter a username")
-  
-  var socket = io();
-  function myFunction(){
-    socket.emit('username', username)
-  }
+function draw(){
+  noStroke()
+  fill(255)
+  ellipse(mouseX, mouseY, 36, 36)
+}
 
-  socket.on('message', (data)=>{
-  document.getElementById('message').innerHTML = data
-  })
-
-  document.addEventListener("mousemove", () => {
-  let mousex = event.clientX; // Gets Mouse X
-  let mousey = event.clientY; // Gets Mouse Y
-  let cords = {
-    user: username,
-    x: mousex,
-    y: mousey
-  }
-  console.log(cords); // Prints data
-  socket.emit('cords', cords)
-});
-
-  socket.on('ncords', (data) => {
-    console.log(data)
-  })
-
-  </script>
+</script>
 </body>
 </html>
