@@ -12,12 +12,9 @@
   let username = prompt("enter a username")
   
   var socket = io();
-  let clicked = false
   function myFunction(){
     clicked = true
     socket.emit('username', username)
-    socket.emit('num', clicked)
-    console.log(clicked)
   }
 
   socket.on('message', (data)=>{
