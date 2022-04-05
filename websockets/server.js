@@ -27,6 +27,12 @@ io.on('connection', (socket) => {
   
   socket.on('mouse', mouseMsg)
 
+  socket.on('clear', arrayclear)
+
+  function arrayclear(data){
+    currentSketch.length(data)
+  }
+
   function mouseMsg(data){
     socket.broadcast.emit('incords', data)
     currentSketch.push(data)
