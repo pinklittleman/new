@@ -30,8 +30,9 @@ function start(data){
   console.log(data[i]);
   noStroke()
   fill(255,0,100)
-  ellipse(data[i].x, data[i].y, 36, 36)
-
+  setTimeout(() => {
+    ellipse(data[i].x, data[i].y, 36, 36)
+  }, 1000);
 }}
 
 function Pinky(data){
