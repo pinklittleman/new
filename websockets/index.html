@@ -28,8 +28,11 @@ function setup(){
 function start(data){
   for (let i = 0; i < data.length; i++) {
   console.log(data[i]);
-}
-}
+  noStroke()
+    fill(255,0,100)
+    ellipse(data.x, data.y, 36, 36)
+
+}}
 
 function Pinky(data){
     noStroke()
