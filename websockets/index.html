@@ -39,12 +39,10 @@ function mouseDragged(){
   ellipse(mouseX, mouseY, 36, 36)
 }
 
-socket.on('incords', drawing2)
+socket.on('incords', Pinky)
 
-function drawing2(){
-  noStroke()
-  fill(100)
-  ellipse(mouseX, mouseY, 36, 36)
+function Pinky(data){
+  console.log(data)
 }
 
 </script>
