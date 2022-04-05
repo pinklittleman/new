@@ -34,7 +34,7 @@ io.on('connection', (socket) => {
     console.log(data)
     socket.broadcast.emit('ncords', data)
     console.log(data)
-    usernames.push(data.user)
+    // usernames.push(data.user)
     console.log(usernames)
   })
 
