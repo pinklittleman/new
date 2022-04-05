@@ -24,7 +24,6 @@ function setup(){
 }
 
 function mouseDragged(){
-  console.log()
 
   var data = {
     x: mouseX,
@@ -40,7 +39,9 @@ function mouseDragged(){
   socket.on('incords', Pinky)
 
   function Pinky(data){
-    console.log(data)
+    noStroke()
+    fill(100)
+    ellipse(mouseX, mouseY, 36, 36)
 }
 }
 
