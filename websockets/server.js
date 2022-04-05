@@ -30,6 +30,10 @@ io.on('connection', (socket) => {
     console.log(usernames)
   })
 
+  socket.on('cords', (data) => {
+    console.log(data)
+  })
+
   socket.on('disconnect', () => {
     console.log('user disconnected' + socket.io);
     users = users - 1
