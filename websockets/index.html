@@ -22,6 +22,13 @@ function setup(){
 
   socket = io.connect('http://pinky.uk.to:5000')
   socket.on('incords', Pinky)
+  socket.on('sketch', start)
+}
+
+function start(){
+  for (let i = 0; i < start.length; i++) {
+  console.log(start[i]);
+}
 }
 
 function Pinky(data){

@@ -4,7 +4,7 @@ var app = require('express')();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
-const usernames = []
+var currentSketch = []
 
 app.get('/', function(req, res){
 
@@ -23,11 +23,13 @@ io.on('connection', (socket) => {
   console.log('a user connected: ' + socket.id);
   users = users + 1
   socket.broadcast.emit('message', socket.id)
+  socket.emit('sketch', currentSketch)
   
   socket.on('mouse', mouseMsg)
 
   function mouseMsg(data){
     socket.broadcast.emit('incords', data)
+    currentSketch.push(data)
   }
 
   socket.on('disconnect', () => {
