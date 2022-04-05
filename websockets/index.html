@@ -28,8 +28,9 @@ function setup(){
 function start(data){
   for (let i = 0; i < data.length; i++) {
   // console.log(data[i]);
+  console.log(i)
   noStroke()
-  fill(255,0,i)
+  fill(255,0,[i])
   setTimeout(() => {
     ellipse(data[i].x, data[i].y, 36, 36)
   }, 1000);
