@@ -31,7 +31,7 @@ io.on('connection', (socket) => {
 
   function arrayclear(){
     currentSketch.length = 0;
-    array;
+    currentSketch;
   }
 
   function mouseMsg(data){
