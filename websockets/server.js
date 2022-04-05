@@ -34,6 +34,8 @@ io.on('connection', (socket) => {
     console.log(data)
     socket.broadcast.emit('ncords', data)
     console.log(data)
+    username.push(data.user)
+    console.log(usernames)
   })
 
   socket.on('disconnect', () => {
