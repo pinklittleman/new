@@ -22,6 +22,12 @@
   document.getElementById('message').innerHTML = data
   })
 
+  document.addEventListener("mousemove", () => {
+  let mousex = event.clientX; // Gets Mouse X
+  let mousey = event.clientY; // Gets Mouse Y
+  console.log([mousex, mousey]); // Prints data
+});
+
   </script>
 </body>
 </html>
