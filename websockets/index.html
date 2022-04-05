@@ -21,6 +21,13 @@ function setup(){
   background(51)
 
   socket = io.connect('http://pinky.uk.to:5000')
+  socket.on('incords', Pinky)
+}
+
+function Pinky(data){
+    noStroke()
+    fill(255,0,100)
+    ellipse(data.x, data.y, 36, 36)
 }
 
 function mouseDragged(){
@@ -35,14 +42,6 @@ function mouseDragged(){
   noStroke()
   fill(255)
   ellipse(mouseX, mouseY, 36, 36)
-
-  socket.on('incords', Pinky)
-
-  function Pinky(data){
-    noStroke()
-    fill(255,0,100)
-    ellipse(data.x, data.y, 36, 36)
-}
 }
 
 
