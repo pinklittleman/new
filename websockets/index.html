@@ -42,6 +42,11 @@ function setup(){
   socket.on('incords', Pinky)
   socket.on('sketch', start)
   socket.on('reload', yes)
+  socket.on('userdata', printthis)
+}
+
+function printthis(data){
+  console.log(data)
 }
 
 function yes(data){

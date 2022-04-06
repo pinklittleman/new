@@ -39,6 +39,7 @@ io.on('connection', (socket) => {
       socketId: socket.id
     }
     socket.emit('userdata', username)
+    console.log(username)
   }
 
   function aler(data){
