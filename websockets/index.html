@@ -44,7 +44,7 @@ function start(data){
   for (let i = 0; i < data.length; i++) {
   // console.log(data[i]);
   noStroke()
-  fill(100,0,100,80)
+  fill(100,0,100)
   setTimeout(() => {
     ellipse(data[i].x, data[i].y, 36, 36)
   }, 1000);
@@ -52,7 +52,7 @@ function start(data){
 
 function Pinky(data){
     noStroke()
-    fill(150)
+    fill(255)
     ellipse(data.x, data.y, 36, 36)
 }
 
