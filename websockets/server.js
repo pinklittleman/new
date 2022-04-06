@@ -38,7 +38,7 @@ io.on('connection', (socket) => {
       user:data,
       socketId: socket.id
     }
-    socket.emit(username)
+    socket.emit('userdata', username)
   }
 
   function aler(data){
