@@ -27,20 +27,9 @@ io.on('connection', (socket) => {
   
   socket.on('mouse', mouseMsg)
 
-  socket.on('user', user2)
-
   socket.on('refresh', aler)
 
   socket.on('clear', arrayclear)
-
-  function user2(data){
-    var username ={
-      user:data,
-      socketId: socket.id
-    }
-    socket.emit('userdata', username)
-    console.log(username)
-  }
 
   function aler(data){
     socket.broadcast.emit('reload', data)

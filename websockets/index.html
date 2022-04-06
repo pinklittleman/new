@@ -18,12 +18,6 @@ let user = prompt('Enter a username')
 
 var socket;
 
-function send(){
-  socket.emit('user', user)
-}
-
-
-
 function myFunction(){
   var clear2 = 0
   clear();
@@ -42,7 +36,6 @@ function setup(){
   socket.on('incords', Pinky)
   socket.on('sketch', start)
   socket.on('reload', yes)
-  socket.on('userdata', printthis)
 }
 
 function printthis(data){
