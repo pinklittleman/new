@@ -21,9 +21,9 @@ io.on('connect', (socket) => {
   socket.on('disconnect', () => {
     var search_term = user;
 
-    for (var i=array.length-1; i>=0; i--) {
-      if (array[i] === search_term) {
-        array.splice(i, 1);
+    for (var i=users.length-1; i>=0; i--) {
+      if (users[i] === search_term) {
+        users.splice(i, 1);
         break;
     }}
     console.log("disconnecting: "+search_term)
