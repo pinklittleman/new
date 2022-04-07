@@ -24,6 +24,7 @@ io.on('connect', (socket) => {
   socket.emit('users', users )
   
   socket.on('disconnect', () => {
+    socket.emit('usersdc', 'users')
 
     var search_term = user;
 
@@ -34,7 +35,6 @@ io.on('connect', (socket) => {
     }}
     console.log("disconnecting: "+search_term)
     console.log(users)
-    socket.emit('usersdc', 'users')
 
   });
 })
