@@ -19,7 +19,9 @@ socket.on('init', hell)
 
 function listusr(data){
   console.log(data)
-  document.getElementById('hello').innerHTML = data
+  setInterval(() => {
+    document.getElementById('hello').innerHTML = data
+  }, 1000);
 }
 
 function hell(data){
