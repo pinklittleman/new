@@ -24,9 +24,7 @@ io.on('connect', (socket) => {
   socket.emit('users', users )
   
   socket.on('disconnect', () => {
-    setInterval(() => {
-      socket.emit('usersdc', users )
-    }, 2000);
+    
     var search_term = user;
 
     for (var i=users.length-1; i>=0; i--) {
