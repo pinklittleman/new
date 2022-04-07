@@ -32,7 +32,7 @@ io.on('connect', (socket) => {
     }}
     console.log("disconnecting: "+search_term)
     console.log(users)
-    socket.emit('users', users )
+    socket.emit('usersdc', users )
 
   });
 })
