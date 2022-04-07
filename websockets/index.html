@@ -18,9 +18,14 @@ socket.on('users', listusr)
 
 socket.on('init', hell)
 
+io.on('connection', (socket)=>{
+    console.log(socket.id)
+  })
+
 function listusr(data){
   console.log(data)
   document.getElementById('hello').innerHTML = data
+
 }
 
 function hell(data){
