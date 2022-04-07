@@ -12,4 +12,5 @@ server.listen(5000);
 
 io.on('connect', (socket) => {
   console.log(socket.id)
+  socket.emit('init', 'holo')
 })

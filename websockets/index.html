@@ -12,6 +12,12 @@
 
 var socket = io.connect('pinky.uk.to:5000')
 
+socket.on('init', hell)
+
+function hell(data){
+  console.log(data)
+}
+
 </script>
 
 </body>
