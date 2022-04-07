@@ -10,6 +10,7 @@ app.get('/', function(req, res) {
 
 var users = []
 
+
 server.listen(5000);
 
 io.on('connect', (socket) => {
@@ -17,12 +18,15 @@ io.on('connect', (socket) => {
   console.log("connecting: "+user)
   users.push(user)
   console.log(users)
-
+  
   socket.emit('id', user)
-
+  
   socket.emit('users', users )
-
+  
   socket.on('disconnect', () => {
+    setInterval(() => {
+      socket.emit('usersdc', users )
+    }, 2000);
     var search_term = user;
 
     for (var i=users.length-1; i>=0; i--) {
@@ -36,6 +40,3 @@ io.on('connect', (socket) => {
 
   });
 })
-setInterval(() => {
-  socket.emit('usersdc', users )
-}, 2000);
