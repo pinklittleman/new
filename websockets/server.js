@@ -18,8 +18,15 @@ io.on('connect', (socket) => {
   console.log(users)
   
 
-  socket.on('disconnect', () => {
-    users.slice(user)
-    console.log("disconnecting: "+user)
+  socket.on('disconnect', (socket) => {
+    var search_term = socket.id;
+
+    for (var i=array.length-1; i>=0; i--) {
+      if (array[i] === search_term) {
+        array.splice(i, 1);
+        break;
+    }}
+    console.log("disconnecting: "+search_term)
+
   });
 })
