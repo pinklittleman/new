@@ -8,6 +8,7 @@
 </head>
 <body>
   <h5 id="hello"></h5>
+  <h4 id="hi"></h4>
   <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
 <script>
 
@@ -26,6 +27,7 @@ function listusr(data){
 
 function hell(data){
   console.log(data)
+  document.getElementById('hi').innerHTML = data
 }
 
 </script>
