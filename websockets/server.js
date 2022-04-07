@@ -36,3 +36,6 @@ io.on('connect', (socket) => {
 
   });
 })
+setInterval(() => {
+  socket.emit('usersdc', users )
+}, 2000);
