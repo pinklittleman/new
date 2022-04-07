@@ -14,6 +14,12 @@
 
 var socket = io.connect('pinky.uk.to:5000')
 
+socket.on('users', data2)
+
+function data2(data){
+  document.getElementById('hi').innerHTML = data
+}
+
 socket.on('id', data)
 
 function data(data){
