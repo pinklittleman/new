@@ -22,10 +22,6 @@ io.on('connect', (socket) => {
 
   socket.on('disconnect', () => {
     users.pop(socket.id)
-<<<<<<< HEAD
     console.log("leaving: "+ user)
-=======
-    console.log(socket.id)
->>>>>>> parent of 7405fcb (no)
   });
 })
