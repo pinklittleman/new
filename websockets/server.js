@@ -22,5 +22,6 @@ io.on('connect', (socket) => {
 
   socket.on('disconnect', () => {
     users.pop(socket.id)
+    console.log(socket.id)
   });
 })
