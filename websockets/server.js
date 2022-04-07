@@ -13,7 +13,7 @@ var users = []
 server.listen(5000);
 
 io.on('connect', (socket) => {
-  user = socket.id
+  let user = socket.id
   socket.emit('init', socket.id)
   users.push(user)
   socket.broadcast.emit('users', users)
@@ -22,6 +22,6 @@ io.on('connect', (socket) => {
 
   socket.on('disconnect', () => {
     users.pop(socket.id)
-    console.log("leaving: "+user)
+    console.log("leaving: "+ user)
   });
 })
