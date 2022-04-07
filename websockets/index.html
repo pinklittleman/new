@@ -33,6 +33,9 @@ function setup(){
   background(51)
 
   socket = io.connect('http://pinky.uk.to:5000')
+  socket.on('connection', (socket)=>{
+    console.log(socket.id)
+  })
   socket.on('incords', Pinky)
   socket.on('sketch', start)
   socket.on('reload', yes)
