@@ -13,7 +13,13 @@
 
 var socket = io.connect('pinky.uk.to:5000')
 
+socket.on('users', listusr)
+
 socket.on('init', hell)
+
+function listusr(data){
+  console.log(data)
+}
 
 function hell(data){
   console.log(data)
