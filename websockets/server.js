@@ -16,7 +16,8 @@ io.on('connect', (socket) => {
   let user = socket.id
   users.push(user)
   console.log(users)
-  
+
+  socket.emit('id', user)  
 
   socket.on('disconnect', () => {
     var search_term = user;
