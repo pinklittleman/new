@@ -13,7 +13,7 @@ var users = []
 server.listen(5000);
 
 io.on('connect', (socket) => {
-  let user = socket.id
+  user = socket.id
   socket.emit('init', socket.id)
   users.push(user)
   socket.emit('users', users)
