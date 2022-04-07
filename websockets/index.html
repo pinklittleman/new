@@ -7,6 +7,7 @@
   <title>Document</title>
 </head>
 <body>
+  <h1 id="hello"></h1>
   <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
 <script>
 
@@ -16,6 +17,7 @@ socket.on('init', hell)
 
 function hell(data){
   console.log(data)
+  document.getElementById('hello').data = data
 }
 
 </script>
