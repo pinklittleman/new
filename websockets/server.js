@@ -17,4 +17,10 @@ io.on('connect', (socket) => {
   socket.emit('init', socket.id)
   users.push(user)
   socket.emit('users', users)
+  console.log(users)
+  
+
+  socket.on('disconnect', () => {
+    users.pop(socket.id)
+  });
 })
