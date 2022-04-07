@@ -16,7 +16,7 @@ io.on('connect', (socket) => {
   user = socket.id
   socket.emit('init', socket.id)
   users.push(user)
-  socket.emit('users', users)
+  socket.broadcast.emit('users', users)
   console.log(users)
   
 
