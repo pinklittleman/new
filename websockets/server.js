@@ -29,6 +29,7 @@ io.on('connect', (socket) => {
         break;
     }}
     console.log("disconnecting: "+search_term)
+    console.log(users)
 
   });
 })
