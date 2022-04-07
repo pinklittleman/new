@@ -14,6 +14,7 @@ server.listen(5000);
 
 io.on('connect', (socket) => {
   let user = socket.id
+  console.log("connecting: "+user)
   users.push(user)
   console.log(users)
 
