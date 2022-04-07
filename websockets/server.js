@@ -18,8 +18,8 @@ io.on('connect', (socket) => {
   console.log(users)
   
 
-  socket.on('disconnect', (socket) => {
-    var search_term = socket.id;
+  socket.on('disconnect', () => {
+    var search_term = user;
 
     for (var i=array.length-1; i>=0; i--) {
       if (array[i] === search_term) {
