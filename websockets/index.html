@@ -31,8 +31,11 @@ let RED = prompt('Enter a red rgb value')
 while(RED > 255){
   RED = prompt('nonono enter a number between 1 and 255')
 }
-if(typeof RED !="number"){
+if(typeof RED == "number"){
   RED = prompt('enter a number between 0 and 255')
+}
+else{
+  alert('not a number')
 }
 
 let GREEN = prompt('Enter a green rgb value')
