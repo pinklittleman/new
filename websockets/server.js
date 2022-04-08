@@ -17,7 +17,7 @@ app.get('/', function(req, res){
 
 server.listen(5000, function(){
 
-  console.log('listening on *:5000');
+  console.log('listening on :5000');
 
 });
 var usr = {}
@@ -33,8 +33,8 @@ io.on('connection', (socket) => {
     console.log(number1,number2,number3)
     setInterval(() => {
       socket.broadcast.emit('newrgb',number1,number2,number3)
-      
-    }, 3000);
+      console.log(number1,number2,number3)
+    }, 1000);
   })
 
   socket.on('username', logname)
