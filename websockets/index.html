@@ -16,10 +16,12 @@
 
 let user = prompt('Enter a username')
 
+let colour = prompt('Enter an rgb value RGB: 255, 10, 40 in that format')
+
 // socket.emit('')
 
-var colour = (Math.random()*255)
-console.log(colour)
+// var colour = (Math.random()*255)
+// console.log(colour)
 
 var socket;
 
@@ -89,7 +91,7 @@ function mouseDragged(){
   socket.emit('mouse', data)
 
   noStroke()
-  fill(255)
+  fill(colour)
   ellipse(mouseX, mouseY, 36, 36)
 }
 
