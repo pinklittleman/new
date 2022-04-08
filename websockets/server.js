@@ -39,14 +39,15 @@ io.on('connection', (socket) => {
   }
 
   function logname(data){
-    var usr = {
+    let usr = {
       username: data,
       id: socket.id,
     }
     console.log(usr)
+    socket.emit('users', usr)
   }
 
-  socket.emit('users', usr)
+  
 
   function arrayclear(){
     currentSketch.length = 0;
