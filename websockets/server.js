@@ -49,6 +49,7 @@ io.on('connection', (socket) => {
     usercount.push(usr.username)
     setInterval(() => {
       socket.broadcast.emit('users', usr)
+      console.log(usercount)
     }, 1000);
   }
 
