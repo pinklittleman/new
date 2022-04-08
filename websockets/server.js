@@ -59,7 +59,7 @@ io.on('connection', (socket) => {
       console.log(usercount)
       setTimeout(() => {
         console.clear()
-      }, 1000);
+      }, 3000);
     }, 2000);
   }
 
