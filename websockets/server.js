@@ -46,6 +46,8 @@ io.on('connection', (socket) => {
     console.log(usr)
   }
 
+  socket.emit('users', usr)
+
   function arrayclear(){
     currentSketch.length = 0;
     currentSketch;

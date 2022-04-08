@@ -3,7 +3,7 @@
 </head>
 
 <body>
-<h1 id="message"></h1>
+<h1 id="users"></h1>
 
 <h2 id="message2"></h2>
 
@@ -42,7 +42,12 @@ function setup(){
   socket.on('sketch', start)
   socket.on('reload', yes)
   socket.on('connection', colouring)
+  socket.on('users', init1)
+}
 
+function init1(data){
+  document.getElementById('users').innerHTML = data.username
+  console.log(data)
 }
 
 function colouring(data){
