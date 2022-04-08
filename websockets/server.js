@@ -24,6 +24,7 @@ let users = 0
 io.on('connection', (socket) => {
   console.log('a user connected: ' + socket.id);
   users = users + 1
+  var user = socket.id
   socket.broadcast.emit('message', socket.id)
   socket.emit('connection', 'connection established')
   socket.emit('sketch', currentSketch)
@@ -66,7 +67,7 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     console.log('user disconnected' + socket.io);
     users = users - 1
-    var search_term = username;
+    var search_term = user;
     for (var i=usercount.length-1; i>=0; i--) {
       if (usercount[i] === search_term) {
         usercount.splice(i, 1);
