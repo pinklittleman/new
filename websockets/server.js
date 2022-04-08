@@ -25,6 +25,8 @@ io.on('connection', (socket) => {
   socket.broadcast.emit('message', socket.id)
   socket.emit('connection', 'connection established')
   socket.emit('sketch', currentSketch)
+
+  socket.on('username', logname)
   
   socket.on('mouse', mouseMsg)
 
@@ -34,6 +36,13 @@ io.on('connection', (socket) => {
 
   function aler(data){
     socket.broadcast.emit('reload', data)
+  }
+
+  function logname(data){
+    var usr = {
+      username: data
+    }
+    console.log(usr)
   }
 
   function arrayclear(){
