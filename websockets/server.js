@@ -8,6 +8,10 @@ let currentSketch = []
 
 let usercount = []
 
+var temp1
+var temp2
+var temp3
+
 app.get('/', function(req, res){
 
   //send the index.html file for all requests
@@ -30,8 +34,11 @@ io.on('connection', (socket) => {
   socket.emit('sketch', currentSketch)
 
   socket.on('rgb', (number1, number2, number3) => {
+    number1 = temp1
+    number2 = temp2
+    number3 = temp3
     setInterval(() => {
-      socket.broadcast.emit('newrgb',number1,number2,number3)
+      socket.broadcast.emit('newrgb',temp1,temp2,temp3)
     }, 1000);
   })
 
