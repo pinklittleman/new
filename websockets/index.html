@@ -58,7 +58,7 @@ document.getElementById("red").oninput = function() {
 
 function myFunction2() {
    var val = document.getElementById("red").value //gets the oninput value
-   console.log(val)
+  //  console.log(val)
    RED = val
 }
 
@@ -68,7 +68,7 @@ document.getElementById("blue").oninput = function() {
 
 function myFunction3() {
    var val = document.getElementById("blue").value //gets the oninput value
-   console.log(val)
+  //  console.log(val)
    BLUE = val
 }
 
@@ -78,7 +78,7 @@ document.getElementById("green").oninput = function() {
 
 function myFunction4() {
    var val = document.getElementById("green").value //gets the oninput value
-   console.log(val)
+  //  console.log(val)
    GREEN = val
 }
 
@@ -125,7 +125,7 @@ function colouring(data){
   setInterval(() => {
     socket.emit('rgb', RED, GREEN, BLUE)
     
-  }, 1000);
+  }, 1500);
 }
 
 function printthis(data){
