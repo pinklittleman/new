@@ -29,6 +29,10 @@ io.on('connection', (socket) => {
   socket.emit('connection', 'connection established')
   socket.emit('sketch', currentSketch)
 
+  socket.on('rgb', (number1, number2, number3) => {
+    console.log(number1,number2,number3)
+  })
+
   socket.on('username', logname)
   
   socket.on('mouse', mouseMsg)
@@ -51,7 +55,7 @@ io.on('connection', (socket) => {
     setInterval(() => {
       socket.broadcast.emit('users', usr)
       console.log(usercount)
-    }, 1000);
+    }, 2000);
   }
 
   function arrayclear(){

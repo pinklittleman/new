@@ -61,6 +61,7 @@ function init1(data){
 function colouring(data){
   console.log(data)
   socket.emit('username', user)
+  socket.emit('rgb', RED, GREEN, BLUE)
 }
 
 function printthis(data){
@@ -81,12 +82,14 @@ function start(data){
   }, 1000);
 }}
 
+// websocket data
 function Pinky(data){
     noStroke()
-    fill(255,0,colour)
+    fill(sred,sgreen,sblue)
     ellipse(data.x, data.y, 36, 36)
 }
 
+// client drawing
 function mouseDragged(){
 
   var data = {
