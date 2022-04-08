@@ -40,9 +40,10 @@ io.on('connection', (socket) => {
 
   function logname(data){
     var usr = {
-      username: data
+      username: data,
+      id: socket.id,
     }
-    console.log(usr.username)
+    console.log(usr)
   }
 
   function arrayclear(){
