@@ -44,9 +44,9 @@ io.on('connection', (socket) => {
       id: socket.id,
     }
     console.log(usr)
-    socket.emit('users', usr)
   }
-
+  
+  socket.emit('users', usr)
   
 
   function arrayclear(){
