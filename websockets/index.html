@@ -122,10 +122,10 @@ function init1(data){
 function colouring(data){
   console.log(data)
   socket.emit('username', user)
-  setInterval(() => {
-    socket.emit('rgb', RED, GREEN, BLUE)
+//   setInterval(() => {
+//     socket.emit('rgb', RED, GREEN, BLUE)
     
-  }, 1500);
+//   }, 1500);
 }
 
 function printthis(data){
@@ -166,6 +166,7 @@ function mouseDragged(){
   noStroke()
   fill(RED,GREEN,BLUE)
   ellipse(mouseX, mouseY, 36, 36)
+  socket.emit()
 }
 
 
