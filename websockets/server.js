@@ -42,7 +42,7 @@ io.on('connection', (socket) => {
     var usr = {
       username: data
     }
-    console.log(usr)
+    console.log(usr.username)
   }
 
   function arrayclear(){
