@@ -16,7 +16,11 @@
 
 let user = prompt('Enter a username')
 
-let colour = prompt('Enter an rgb value RGB: 255, 10, 40 in that format')
+let RED = prompt('Enter a red rgb value')
+
+let GREEN = prompt('Enter a green rgb value')
+
+let BLUE = prompt('Enter a blue rgb value')
 
 // socket.emit('')
 
@@ -92,7 +96,7 @@ function mouseDragged(){
 
   noStroke()
   console.log(colour)
-  fill(colour)
+  fill(RED,GREEN,BLUE)
   ellipse(mouseX, mouseY, 36, 36)
 }
 
