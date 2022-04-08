@@ -6,6 +6,8 @@ var io = require('socket.io')(server);
 
 let currentSketch = []
 
+let usercount = []
+
 app.get('/', function(req, res){
 
   //send the index.html file for all requests
@@ -44,12 +46,11 @@ io.on('connection', (socket) => {
       id: socket.id,
     }
     console.log(usr)
+    usercount.push(usr.username)
     setInterval(() => {
       socket.broadcast.emit('users', usr)
     }, 1000);
   }
-  
-  
 
   function arrayclear(){
     currentSketch.length = 0;
