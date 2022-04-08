@@ -23,7 +23,7 @@ io.on('connection', (socket) => {
   console.log('a user connected: ' + socket.id);
   users = users + 1
   socket.broadcast.emit('message', socket.id)
-  socket.emit('connection')
+  socket.emit('connection', 'connection established')
   socket.emit('sketch', currentSketch)
   
   socket.on('mouse', mouseMsg)
