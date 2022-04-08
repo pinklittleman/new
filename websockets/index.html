@@ -12,6 +12,10 @@
 <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+<input type="range" min="1" max="255" value="50" class="slider" id="myRange">
+<input type="range" min="1" max="255" value="50" class="slider" id="myRange">
+<input type="range" min="1" max="255" value="50" class="slider" id="myRange">
+
 <script>
 
 let user = prompt('Enter a username')
@@ -31,32 +35,17 @@ let RED = prompt('Enter a red rgb value')
 while(RED > 255){
   RED = prompt('nonono enter a number between 1 and 255')
 }
-if(typeof RED == "number"){}
-else{
-  alert('not a number')
-  RED = prompt('enter a number between 0 and 255')
-}
 
 let GREEN = prompt('Enter a green rgb value')
 while(GREEN > 255){
   GREEN = prompt('nonono enter a number between 1 and 255')
 }
-if(typeof GREEN == "number"){}
-else{
-  alert('not a number')
-  GREEN = prompt('enter a number between 0 and 255')
-}
-
 
 let BLUE = prompt('Enter a blue rgb value')
 while(BLUE > 255){
   BLUE = prompt('nonono enter a number between 1 and 255')
 }
-if(typeof BLUE == "number"){}
-else{
-  alert('not a number')
-  BLUE = prompt('enter a number between 0 and 255')
-}
+
 
 // socket.emit('')
 
