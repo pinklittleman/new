@@ -41,6 +41,12 @@ function setup(){
   socket.on('incords', Pinky)
   socket.on('sketch', start)
   socket.on('reload', yes)
+  socket.on('connection', colour)
+
+}
+
+function colour(){
+  console.log('connection established')
 }
 
 function printthis(data){
