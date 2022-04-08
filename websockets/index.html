@@ -59,6 +59,27 @@ document.getElementById("red").oninput = function() {
 function myFunction2() {
    var val = document.getElementById("red").value //gets the oninput value
    console.log(val)
+   RED = val
+}
+
+document.getElementById("blue").oninput = function() {
+    myFunction2()
+};
+
+function myFunction2() {
+   var val = document.getElementById("blue").value //gets the oninput value
+   console.log(val)
+   BLUE = val
+}
+
+document.getElementById("green").oninput = function() {
+    myFunction2()
+};
+
+function myFunction2() {
+   var val = document.getElementById("green").value //gets the oninput value
+   console.log(val)
+   GREEN = val
 }
 
 var socket;
