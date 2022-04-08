@@ -20,6 +20,7 @@ server.listen(5000, function(){
   console.log('listening on *:5000');
 
 });
+var usr = {}
 var user = {}
 io.on('connection', (socket) => {
   console.log('a user connected: ' + socket.id);
@@ -49,7 +50,7 @@ io.on('connection', (socket) => {
   }
 
   function logname(data){
-    let usr = {
+    usr = {
       username: data,
       id: socket.id,
     }
@@ -72,8 +73,8 @@ io.on('connection', (socket) => {
   }
 
   socket.on('disconnect', () => {
-    console.log('user disconnected' + socket.io);
-    var search_term = user;
+    console.log('user disconnected' + usr);
+    var search_term = usr;
     for (var i=usercount.length-1; i>=0; i--) {
       if (usercount[i] === search_term) {
         usercount.splice(i, 1);
