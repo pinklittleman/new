@@ -53,24 +53,13 @@ while(BLUE > 255){
 }
 
 document.getElementById("red").oninput = function() {
-    myFunction()
+    myFunction2()
 };
 
-function myFunction() {
+function myFunction2() {
    var val = document.getElementById("red").value //gets the oninput value
    console.log(val)
 }
-
-// setInterval(() => {
-//   console.log('rgb: '+RED2+GREEN2+BLUE2)
-//   console.log('yes: '+RED2.value)
-// }, 2000);
-
-
-// socket.emit('')
-
-// var colour = (Math.random()*255)
-// console.log(colour)
 
 var socket;
 
