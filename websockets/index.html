@@ -91,7 +91,8 @@ function mouseDragged(){
   socket.emit('mouse', data)
 
   noStroke()
-  fill(255,0,255)
+  console.log(colour)
+  fill(colour)
   ellipse(mouseX, mouseY, 36, 36)
 }
 
