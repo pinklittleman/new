@@ -51,6 +51,14 @@ function setup(){
   socket.on('reload', yes)
   socket.on('connection', colouring)
   socket.on('users', init1)
+  socket.on('newrgb', rgb)
+}
+
+function rgb(number1,number2,number3){
+  var sred = number1
+  var sgreen = number2
+  var sblue = number3
+  console.log(number1+" "+number2+" "+number3)
 }
 
 function init1(data){
