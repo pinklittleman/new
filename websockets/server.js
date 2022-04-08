@@ -34,7 +34,7 @@ io.on('connection', (socket) => {
     setInterval(() => {
       socket.broadcast.emit('newrgb',number1,number2,number3)
       
-    }, 1000);
+    }, 3000);
   })
 
   socket.on('username', logname)
