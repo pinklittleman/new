@@ -44,7 +44,9 @@ io.on('connection', (socket) => {
       id: socket.id,
     }
     console.log(usr)
-    socket.broadcast.emit('users', usr)
+    setInterval(() => {
+      socket.broadcast.emit('users', usr)
+    }, 1000);
   }
   
   
