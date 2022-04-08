@@ -30,10 +30,8 @@ io.on('connection', (socket) => {
   socket.emit('sketch', currentSketch)
 
   socket.on('rgb', (number1, number2, number3) => {
-    console.log(number1,number2,number3)
     setInterval(() => {
       socket.broadcast.emit('newrgb',number1,number2,number3)
-      console.log(number1,number2,number3)
     }, 1000);
   })
 
