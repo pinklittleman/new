@@ -15,6 +15,9 @@
 <script>
 
 let user = prompt('Enter a username')
+while(user === "null"){
+  user = prompt('')
+}
 
 var colour = 0
 
@@ -25,17 +28,17 @@ var sgreen
 var sblue
 
 let RED = prompt('Enter a red rgb value')
-while(RED > 255){
+while(RED > 255 && typeof RED !== 'number'){
   RED = prompt('nonono enter a number between 1 and 255')
 }
 
 let GREEN = prompt('Enter a green rgb value')
-while(GREEN > 255){
+while(GREEN > 255 && typeof GREEN !== 'number'){
   GREEN = prompt('nonono enter a number between 1 and 255')
 }
 
 let BLUE = prompt('Enter a blue rgb value')
-while(BLUE > 255){
+while(BLUE > 255 && typeof BLUE !== 'number'){
   BLUE = prompt('nonono enter a number between 1 and 255')
 }
 // socket.emit('')
