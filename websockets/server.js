@@ -23,7 +23,6 @@ server.listen(5000, function(){
 var user = {}
 io.on('connection', (socket) => {
   console.log('a user connected: ' + socket.id);
-  users = users + 1
   user = socket.id
   socket.broadcast.emit('message', socket.id)
   socket.emit('connection', 'connection established')
