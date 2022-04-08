@@ -39,10 +39,16 @@ let GREEN = prompt('Enter a green rgb value')
 while(GREEN > 255 && typeof GREEN != 'number'){
   GREEN = prompt('nonono enter a number between 1 and 255')
 }
+while(typeof GREEN != 'number'){
+  GREEN = prompt('enter a number betwixt 0 nad 255')
+}
 
 let BLUE = prompt('Enter a blue rgb value')
 while(BLUE > 255 && typeof BLUE != 'number'){
   BLUE = prompt('nonono enter a number between 1 and 255')
+}
+while(typeof BLUE != 'number'){
+  BLUE = prompt('enter a number betwixt 0 nad 255')
 }
 // socket.emit('')
 
