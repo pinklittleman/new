@@ -66,7 +66,7 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     console.log('user disconnected' + socket.io);
     users = users - 1
-    var search_term = socket.id;
+    var search_term = usr.username;
     for (var i=usercount.length-1; i>=0; i--) {
       if (usercount[i] === search_term) {
         usercount.splice(i, 1);
