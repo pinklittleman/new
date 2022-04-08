@@ -33,6 +33,10 @@ var sred
 var sgreen
 var sblue
 
+var RED2
+var GREEN2
+var BLUE2
+
 let RED = prompt('Enter a red rgb value')
 while(RED > 255){
   RED = prompt('nonono enter a number between 1 and 255')
@@ -48,9 +52,15 @@ while(BLUE > 255){
   BLUE = prompt('nonono enter a number between 1 and 255')
 }
 
-RED = document.getElementById(r);
-GREEN = document.getElementById(g);
-BLUE = document.getElementById(b);
+RED2 = document.getElementById(r);
+GREEN2 = document.getElementById(g);
+BLUE2 = document.getElementById(b);
+
+setInterval(() => {
+  console.log(RED2)
+  
+}, 1000);
+
 
 // socket.emit('')
 
