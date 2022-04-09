@@ -58,7 +58,9 @@ function sendxy(){
     x: mouseX,
     y: mouseY
   }
-  socket.emit('dummy',cords)
+
+  console.log("cords: "+cords.x+" "+cords.y)
+  // socket.emit('dummy',cords)
 }
 
 document.getElementById("blue").oninput = function() {
