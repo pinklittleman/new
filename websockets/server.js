@@ -21,7 +21,9 @@ io.on('connect', (socket) => {
   
   socket.emit('id', user)
   
-  socket.emit('users', users )
+  setInterval(() => {
+    socket.emit('users', users )
+  }, 1000);
   
   socket.on('disconnect', () => {
     socket.emit('usersdc', 'users')
