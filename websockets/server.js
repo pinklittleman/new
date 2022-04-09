@@ -46,9 +46,15 @@ io.on('connection', (socket) => {
   
   socket.on('mouse', mouseMsg)
 
+  socket.on('dummy', movestuff)
+
   socket.on('refresh', aler)
 
   socket.on('clear', arrayclear)
+
+  function movestuff(data){
+    socket.broadcast.emit('newpos',data)
+  }
 
   function aler(data){
     socket.broadcast.emit('reload', data)

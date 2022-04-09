@@ -13,9 +13,9 @@
 
 <h1 id="users"></h1>
 
-<h2 id="message2">dummy</h2>
+<h2 id="message2"></h2>
 
-<button onload="send()" onclick="myFunction()">Clear the canvas</button> 
+<button onmousemove="sendxy()" onload="send()" onclick="myFunction()">Clear the canvas</button> 
 
 <input type="range" min="1" max="255" value="50" class="slider" id="red">
 <input type="range" min="1" max="255" value="50" class="slider2" id="green">
@@ -51,6 +51,14 @@ function myFunction2() {
    var val = document.getElementById("red").value //gets the oninput value
   //  console.log(val)
    RED = val
+}
+
+function sendxy(){
+  var cords = {
+    x: mouseX,
+    y: mouseY
+  }
+  socket.emit('dummy',cords)
 }
 
 document.getElementById("blue").oninput = function() {
@@ -96,6 +104,12 @@ function setup(){
   socket.on('connection', colouring)
   socket.on('users', init1)
   socket.on('newrgb', rgb)
+  socket.on('newpos', update)
+}
+function update(){
+  var element = document.getElementById("message2");
+  element.style.left = data.x + "px";
+  element.style.top = data.y + "px";
 }
 
 function rgb(number1,number2,number3){
@@ -156,10 +170,6 @@ function mouseDragged(){
     x: mouseX,
     y: mouseY
   }
-
-  var element = document.getElementById("message2");
-  element.style.left = data.x + "px";
-  element.style.top = data.y + "px";
 
 
   socket.emit('mouse', data)
