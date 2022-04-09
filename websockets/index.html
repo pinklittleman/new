@@ -45,6 +45,7 @@ let GREEN
 let BLUE
 
 let size
+let newsize
 
 document.getElementById("size").oninput = function() {
     myFunction6()
@@ -109,7 +110,7 @@ function setup(){
   socket.on('connection', colouring)
   socket.on('users', init1)
   socket.on('newrgb', rgb)
-  socket.on('newsize', newsize)
+  socket.on('newsize', newsize2)
 }
 
 function rgb(number1,number2,number3){
@@ -118,6 +119,10 @@ function rgb(number1,number2,number3){
   sgreen = number2
   sblue = number3
   // console.log("client: "+number1+" "+number2+" "+number3)
+}
+
+function newsize2(data){
+  newsize = data
 }
 
 function init1(data){
@@ -152,16 +157,12 @@ setInterval(() => {
   // console.log('ah: '+sred+sgreen+sblue)
 }, 2000);
 
-function newsize(data){
-  console.log(data)
-}
-
 // websocket data
 function Pinky(data){
     noStroke()
     fill(sred,sgreen,sblue)
     console.log('data: '+data)
-    ellipse(data.x, data.y, 36, 36)
+    ellipse(data.x, data.y, newsize, newsize)
     var element = document.getElementById('message2')
     element.style.left = data.x + "px";
     element.style.top = data.y + "px";
