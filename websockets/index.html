@@ -96,17 +96,10 @@ function setup(){
   socket.on('connection', colouring)
   socket.on('users', init1)
   socket.on('newrgb', rgb)
-  socket.on('newpos', update)
-}
-function update(data){
-  // var element = document.getElementById("message2");
-  // element.style.left = data.x + "px";
-  // element.style.top = data.y + "px";
-  console.log(data.x+" "+data.y)
 }
 
 function rgb(number1,number2,number3){
-  console.log(number1,number2,number3)
+  // console.log(number1,number2,number3)
   sred = number1
   sgreen = number2
   sblue = number3
