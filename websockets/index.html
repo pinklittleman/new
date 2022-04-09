@@ -157,6 +157,7 @@ setInterval(() => {
 function Pinky(data){
     noStroke()
     fill(sred,sgreen,sblue)
+    console.log('data: '+data)
     ellipse(data.x, data.y, data, data)
     var element = document.getElementById('message2')
     element.style.left = data.x + "px";
