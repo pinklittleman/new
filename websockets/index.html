@@ -107,9 +107,10 @@ function setup(){
   socket.on('newpos', update)
 }
 function update(data){
-  var element = document.getElementById("message2");
-  element.style.left = data.x + "px";
-  element.style.top = data.y + "px";
+  // var element = document.getElementById("message2");
+  // element.style.left = data.x + "px";
+  // element.style.top = data.y + "px";
+  console.log(data.x+" "+data.y)
 }
 
 function rgb(number1,number2,number3){
