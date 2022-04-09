@@ -10,12 +10,12 @@ app.get('/', function(req, res) {
 
 var users = []
 
-var userl
+var user
 
 server.listen(5000);
 
 io.on('connect', (socket) => {
-  let user = socket.id
+  user = socket.id
   console.log("connecting: "+user)
   users.push(user)
   console.log(users)
@@ -26,9 +26,8 @@ io.on('connect', (socket) => {
     socket.emit('users', users )
   }, 1000);
   
-  socket.on('disconnect', (socket) => {
-    userl = socket.id
-    console.log("userl: "+userl)
+  socket.on('disconnect', () => {
+    console.log("userl: "+user)
     // socket.emit('usersdc', 'users')
 
     var search_term = user;
