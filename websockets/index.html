@@ -15,7 +15,7 @@
 
 <h2 id="message2"></h2>
 
-<button onmousemove="sendxy()" onload="send()" onclick="myFunction()">Clear the canvas</button> 
+<button onload="send()" onclick="myFunction()">Clear the canvas</button> 
 
 <input type="range" min="1" max="255" value="50" class="slider" id="red">
 <input type="range" min="1" max="255" value="50" class="slider2" id="green">
@@ -51,16 +51,6 @@ function myFunction2() {
    var val = document.getElementById("red").value //gets the oninput value
   //  console.log(val)
    RED = val
-}
-
-function sendxy(){
-  var cords = {
-    x: mouseX,
-    y: mouseY
-  }
-
-  console.log("cords: "+cords.x+" "+cords.y)
-  // socket.emit('dummy',cords)
 }
 
 document.getElementById("blue").oninput = function() {
@@ -125,6 +115,7 @@ function rgb(number1,number2,number3){
 
 function init1(data){
   document.getElementById('users').innerHTML = data.username
+  document.getElementById('message2').innerHTML = data.username
   // console.log(data)
 }
 
@@ -164,6 +155,9 @@ function Pinky(data){
     noStroke()
     fill(sred,sgreen,sblue)
     ellipse(data.x, data.y, 36, 36)
+    var element = document.getElementById(message2)
+    element.style.left = x + "px";
+    element.style.top = y + "px";
 }
 
 // client drawing
