@@ -106,7 +106,7 @@ function setup(){
   socket.on('newrgb', rgb)
   socket.on('newpos', update)
 }
-function update(){
+function update(data){
   var element = document.getElementById("message2");
   element.style.left = data.x + "px";
   element.style.top = data.y + "px";
