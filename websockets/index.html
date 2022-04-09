@@ -3,7 +3,13 @@
 </head>
 
 <body>
+<style>
 
+#message2{
+  position: absolute;
+}
+
+</style>
 
 <h1 id="users"></h1>
 
@@ -150,6 +156,11 @@ function mouseDragged(){
     x: mouseX,
     y: mouseY
   }
+
+  var element = document.getElementById("message2");
+  element.style.left = data.x + "px";
+  element.style.top = data.y + "px";
+
 
   socket.emit('mouse', data)
 
