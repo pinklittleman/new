@@ -27,7 +27,6 @@ io.on('connect', (socket) => {
   }, 1000);
   
   socket.on('disconnect', () => {
-    console.log("userl: "+user)
     // socket.emit('usersdc', 'users')
 
     var search_term = user;

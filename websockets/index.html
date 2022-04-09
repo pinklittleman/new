@@ -14,11 +14,14 @@
 
 var socket = io.connect('pinky.uk.to:5000')
 
+var user
+
 socket.on('users', data2)
 
 function data2(data){
+  user = data
   setInterval(() => {
-    document.getElementById('hi').innerHTML = data
+    document.getElementById('hi').innerHTML = user
   }, 1000);
 }
 
