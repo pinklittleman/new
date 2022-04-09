@@ -10,6 +10,7 @@ app.get('/', function(req, res) {
 
 var users = []
 
+var userl
 
 server.listen(5000);
 
@@ -25,7 +26,9 @@ io.on('connect', (socket) => {
     socket.emit('users', users )
   }, 1000);
   
-  socket.on('disconnect', () => {
+  socket.on('disconnect', (socket) => {
+    userl = socket.id
+    console.log(userl)
     socket.emit('usersdc', 'users')
 
     var search_term = user;
@@ -35,7 +38,7 @@ io.on('connect', (socket) => {
         users.splice(i, 1);
         break;
     }}
-    console.log("disconnecting: "+search_term)
+    console.log("disconnecting: " + search_term)
     console.log(users)
 
   });
