@@ -12,6 +12,8 @@ var temp1
 var temp2
 var temp3
 
+var newval
+
 app.get('/', function(req, res){
 
   //send the index.html file for all requests
@@ -54,8 +56,9 @@ io.on('connection', (socket) => {
 
   function size(data){
     socket.broadcast.emit('newsize', data)
+    newval = data
     setInterval(() => {
-      console.log("data: "+data)
+      console.log("data: "+newval)
     }, 2000);
   }
 
