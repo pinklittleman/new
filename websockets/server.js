@@ -46,8 +46,6 @@ io.on('connection', (socket) => {
   
   socket.on('mouse', mouseMsg)
 
-  socket.on('dummy', movestuff)
-
   socket.on('refresh', aler)
 
   socket.on('clear', arrayclear)
