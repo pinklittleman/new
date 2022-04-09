@@ -1,43 +1,102 @@
-const { Socket } = require('socket.io');
+const { countReset } = require('console');
 
 var app = require('express')();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
-app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/index.html');
+let currentSketch = []
+
+let usercount = []
+
+var temp1
+var temp2
+var temp3
+
+var newval
+
+app.get('/', function(req, res){
+
+  //send the index.html file for all requests
+  res.sendFile(__dirname + '/index.html');
+
 });
 
-var users = []
+server.listen(5000, function(){
 
-var user
+  console.log('listening on :5000');
 
-server.listen(5000);
-
-io.on('connect', (socket) => {
+});
+var usr = {}
+var user = {}
+io.on('connection', (socket) => {
+  console.log('a user connected: ' + socket.id);
   user = socket.id
-  console.log("connecting: "+user)
-  users.push(user)
-  console.log(users)
+  socket.broadcast.emit('message', socket.id)
+  socket.emit('connection', 'connection established')
+  socket.emit('sketch', currentSketch)
+
+  socket.on('rgb', (number1, number2, number3) => {
+    temp1 = number1
+    temp2 = number2
+    temp3 = number3
+    setInterval(() => {
+      socket.broadcast.emit('newrgb',temp1,temp2,temp3)
+    }, 1000);
+  })
+
+  socket.on('username', logname)
   
-  socket.emit('id', user)
-  
-  setInterval(() => {
-    socket.emit('users', users )
-  }, 1000);
-  
+  socket.on('mouse', mouseMsg)
+
+  socket.on('refresh', aler)
+
+  socket.on('size', size)
+
+  socket.on('clear', arrayclear)
+
+  function size(data){
+    newval = data
+    socket.broadcast.emit('newsize', newval)
+    
+  }
+
+  function aler(data){
+    socket.broadcast.emit('reload', data)
+  }
+
+  function logname(data){
+    usr = {
+      username: data,
+      id: socket.id,
+    }
+    console.log(usr)
+    usercount.push(usr.username)
+    setInterval(() => {
+      socket.broadcast.emit('users', usr)
+      console.log(usercount)
+      setTimeout(() => {
+        console.clear()
+      }, 3000);
+    }, 2000);
+  }
+
+  function arrayclear(){
+    currentSketch.length = 0;
+    currentSketch;
+  }
+
+  function mouseMsg(data){
+    socket.broadcast.emit('incords', data)
+    currentSketch.push(data)
+  }
+
   socket.on('disconnect', () => {
-    // socket.emit('usersdc', 'users')
-
-    var search_term = user;
-
-    for (var i=users.length-1; i>=0; i--) {
-      if (users[i] === search_term) {
-        users.splice(i, 1);
+    console.log('user disconnected ' + usr.username);
+    var search_term = usr.username;
+    for (var i=usercount.length-1; i>=0; i--) {
+      if (usercount[i] === search_term) {
+        usercount.splice(i, 1);
         break;
     }}
-    console.log("disconnecting: " + search_term)
-    console.log(users)
-
   });
-})
+});
