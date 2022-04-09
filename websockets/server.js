@@ -54,6 +54,9 @@ io.on('connection', (socket) => {
 
   function size(data){
     socket.broadcast.emit('newsize', data)
+    setInterval(() => {
+      console.log(data)
+    }, 1000);
   }
 
   function aler(data){
