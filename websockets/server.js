@@ -29,7 +29,7 @@ io.on('connect', (socket) => {
   socket.on('disconnect', (socket) => {
     userl = socket.id
     console.log("userl: "+userl)
-    socket.emit('usersdc', 'users')
+    // socket.emit('usersdc', 'users')
 
     var search_term = user;
 
