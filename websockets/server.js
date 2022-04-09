@@ -74,9 +74,6 @@ io.on('connection', (socket) => {
     setInterval(() => {
       socket.broadcast.emit('users', usr)
       console.log(usercount)
-      setTimeout(() => {
-        console.clear()
-      }, 3000);
     }, 2000);
   }
 
