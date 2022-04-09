@@ -20,6 +20,7 @@
 <input type="range" min="1" max="255" value="50" class="slider" id="red">
 <input type="range" min="1" max="255" value="50" class="slider2" id="green">
 <input type="range" min="1" max="255" value="50" class="slider3" id="blue">
+<input type="range" min="1" max="300" value="50" class="size" id="size">
 
 <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -42,6 +43,19 @@ var sblue = 255
 let RED 
 let GREEN 
 let BLUE
+
+let size
+
+document.getElementById("size").oninput = function() {
+    myFunction6()
+};
+
+function myFunction2() {
+   var val = document.getElementById("size").value //gets the oninput value
+  //  console.log(val)
+   size = val
+}
+
 
 document.getElementById("red").oninput = function() {
     myFunction2()
@@ -96,6 +110,7 @@ function setup(){
   socket.on('connection', colouring)
   socket.on('users', init1)
   socket.on('newrgb', rgb)
+  socket.on('newsize', Pinky)
 }
 
 function rgb(number1,number2,number3){
@@ -142,7 +157,7 @@ setInterval(() => {
 function Pinky(data){
     noStroke()
     fill(sred,sgreen,sblue)
-    ellipse(data.x, data.y, 36, 36)
+    ellipse(data.x, data.y, data, data)
     var element = document.getElementById('message2')
     element.style.left = data.x + "px";
     element.style.top = data.y + "px";
@@ -161,7 +176,8 @@ function mouseDragged(){
 
   noStroke()
   fill(RED,GREEN,BLUE)
-  ellipse(mouseX, mouseY, 100, 100)
+  ellipse(mouseX, mouseY, size, size)
+  socket.emit('size',size)
   socket.emit('rgb', RED, GREEN, BLUE)
 }
 

@@ -48,7 +48,13 @@ io.on('connection', (socket) => {
 
   socket.on('refresh', aler)
 
+  socket.on('size', size)
+
   socket.on('clear', arrayclear)
+
+  function size(data){
+    socket.broadcast.emit('newsize', data)
+  }
 
   function aler(data){
     socket.broadcast.emit('reload', data)
