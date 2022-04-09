@@ -110,7 +110,7 @@ function setup(){
   socket.on('connection', colouring)
   socket.on('users', init1)
   socket.on('newrgb', rgb)
-  socket.on('newsize', Pinky)
+  socket.on('newsize', newsize)
 }
 
 function rgb(number1,number2,number3){
@@ -152,6 +152,10 @@ function start(data){
 setInterval(() => {
   // console.log('ah: '+sred+sgreen+sblue)
 }, 2000);
+
+function newsize(data){
+  console.log(data)
+}
 
 // websocket data
 function Pinky(data){
