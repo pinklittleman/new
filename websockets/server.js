@@ -65,12 +65,11 @@ io.on('connection', (socket) => {
   }
 
   function logname(data){
-    setInterval(() => {
       usr = {
         username: data,
         id: socket.id,
       }
-    }, 1000);
+    
     console.log(usr)
     usercount.push(usr.username)
     setInterval(() => {
