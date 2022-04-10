@@ -26,7 +26,7 @@ server.listen(5000, function(){
   console.log('listening on :5000');
 
 });
-var usr = {}
+var usr
 var user = {}
 io.on('connection', (socket) => {
   console.log('a user connected: ' + socket.id);
@@ -65,10 +65,12 @@ io.on('connection', (socket) => {
   }
 
   function logname(data){
-    usr = {
-      username: data,
-      id: socket.id,
-    }
+    setInterval(() => {
+      usr = {
+        username: data,
+        id: socket.id,
+      }
+    }, 1000);
     console.log(usr)
     usercount.push(usr.username)
     setInterval(() => {
