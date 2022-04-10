@@ -89,7 +89,7 @@ io.on('connection', (socket) => {
   }
 
   socket.on('disconnect', () => {
-    console.log('user disconnected ' + usr.username+" "+socket.id);
+    console.log('user disconnected ' + usr.username+" "+user.id);
     var search_term = usr.username;
     for (var i=usercount.length-1; i>=0; i--) {
       if (usercount[i] === search_term) {
