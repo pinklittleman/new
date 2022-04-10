@@ -132,7 +132,9 @@ function init1(data){
 }
 
 function colouring(data){
-  socket.emit('username', user)
+  setInterval(() => {
+    socket.emit('username', user)
+  }, 1000);
 }
 
 function printthis(data){
