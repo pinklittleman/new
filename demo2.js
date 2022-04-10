@@ -120,7 +120,7 @@ Composite.add(ropeC, Constraint.create({
     bodyB: ropeC.bodies[0],
     pointB: { x: -20, y: 0 },
     pointA: { x: ropeC.bodies[0].position.x, y: ropeC.bodies[0].position.y },
-    stiffness: 0.5
+    stiffness: 0.05
 }))
 
 // adds a second constraint 
