@@ -1,5 +1,7 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
+const discord = require('discord.js')
+const Client = new discord.Client({
+  intents: [ discord.Intents.FLAGS.GUILDS, discord.Intents.FLAGS.GUILD_MESSAGES ]
+})
 const /*you can have any prefix you want here*/ prefix = "?"
 
 client.on("ready", () => {
@@ -16,4 +18,4 @@ client.on('message', message => {
 
 //EXTREMELY IMPORTANT: GET YOUR TOKEN FROM THE DISCORD DEVELOPER PORTAL
 //NEVER EVER EVER EVER TELL/GIVE ANYONE YOUR TOKEN!
-client.login('OTQ3MzA3NzI1ODc0OTMzNzkw.YhrXEQ.67HNKVIH3n1HxLoPHdjJuRP7xa4');
+client.login('');
