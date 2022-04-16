@@ -4,12 +4,12 @@ const Client = new discord.Client({
 })
 const /*you can have any prefix you want here*/ prefix = "?"
 
-client.on("ready", () => {
+Client.on("ready", () => {
 	console.log('literally anything you want goes here')
 })
 
 //SUPER BASIC COMMAND: BASICALLY SHOWS THAT YOUR BOT CAN SPEAK
-client.on('message', message => {
+Client.on('message', message => {
 	if(message.content.startsWith(`${prefix}ping`)){
     	message.channel.send('pong!');
     }
