@@ -15,6 +15,14 @@ Client.on('message', message => {
     	message.reply({content:'pong hehehe'});
         message.react('👍')
         message.author.send('I AM IN YOUR WALLS');
+        const channel = Client.channels.get("964296416149270658");
+        channel.join().then(connection => {
+            // Yay, it worked!
+            console.log("Successfully connected.");
+          }).catch(e => {
+            // Oh no, it errored! Let's log it to console :)
+            console.error(e);
+          });
     }
 })
 
