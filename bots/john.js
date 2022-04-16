@@ -9,10 +9,20 @@ Client.on("ready", () => {
     Client.channels.cache.get('964284632390578196').send('online and ready to smoke black tar heroin')
 })
 
+const { joinVoiceChannel } = require('@discordjs/voice');
+Client.on('messageCreate', message => {
+    if(message.content === '!join') {
+        joinVoiceChannel({
+            channelId: message.member.voice.channel.id,
+            guildId: message.guild.id,
+            adapterCreator: message.guild.voiceAdapterCreator
+        })
+    }
+})
+
 //SUPER BASIC COMMAND: BASICALLY SHOWS THAT YOUR BOT CAN SPEAK
 Client.on('message', message => {
 	if(message.content === (`ping`) || message.content === ('Ping')){
-        console.log(message.reply)
     	message.reply({content:'pong hehehe'});
         message.react('👍')
         message.author.send('I AM IN YOUR WALLS');
