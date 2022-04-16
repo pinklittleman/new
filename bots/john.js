@@ -15,8 +15,7 @@ Client.on('message', message => {
     	message.reply({content:'pong hehehe'});
         message.react('👍')
         message.author.send('I AM IN YOUR WALLS');
-        const channel = Client.channels.cache.get("964296416149270658");
-        channel.join()
+        message.member.voice.channel.join()
     }
 })
 
