@@ -18,4 +18,4 @@ Client.on('message', message => {
 
 //EXTREMELY IMPORTANT: GET YOUR TOKEN FROM THE DISCORD DEVELOPER PORTAL
 //NEVER EVER EVER EVER TELL/GIVE ANYONE YOUR TOKEN!
-client.login('');
+Client.login('');
