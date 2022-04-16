@@ -6,6 +6,7 @@ const /*you can have any prefix you want here*/ prefix = "?"
 
 Client.on("ready", () => {
 	console.log('literally anything you want goes here')
+    client.channels.cache.get('964284632390578196').send('online and ready to smoke black tar heroin')
 })
 
 //SUPER BASIC COMMAND: BASICALLY SHOWS THAT YOUR BOT CAN SPEAK
