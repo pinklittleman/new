@@ -11,7 +11,7 @@ Client.on("ready", () => {
 
 //SUPER BASIC COMMAND: BASICALLY SHOWS THAT YOUR BOT CAN SPEAK
 Client.on('message', message => {
-	if(message.content === (`ping`)){
+	if(message.content === (`ping`) || message.content === ('Ping')){
     	message.channel.send('pong hehehe');
         message.author.send('I AM IN YOUR WALLS');
     }
