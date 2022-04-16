@@ -13,6 +13,7 @@ Client.on("ready", () => {
 Client.on('message', message => {
 	if(message.content === (`ping`) || message.content === ('Ping')){
     	message.reply({content:'pong hehehe'});
+        message.react('👍')
         message.author.send('I AM IN YOUR WALLS');
     }
 })
