@@ -20,17 +20,6 @@ Client.on('messageCreate', message => {
     }
 })
 
-const { leaveVoiceChannel } = require('@discordjs/voice');
-Client.on('messageCreate', message =>{
-    if(message.content === 'oi bingus gtfo'){
-        leaveVoiceChannel({
-            channelId: message.member.voice.channel.id,
-            guildId: message.guild.id,
-            adapterCreator: message.guild.voiceAdapterCreator
-        })
-    }
-})
-
 //SUPER BASIC COMMAND: BASICALLY SHOWS THAT YOUR BOT CAN SPEAK
 Client.on('message', message => {
 	if(message.content === (`ping`) || message.content === ('Ping')){
