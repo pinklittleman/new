@@ -1,6 +1,6 @@
 const discord = require('discord.js')
 const Client = new discord.Client({
-  intents: [ discord.Intents.FLAGS.GUILDS, discord.Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_VOICE_STATES ]
+  intents: [ discord.Intents.FLAGS.GUILDS, discord.Intents.FLAGS.GUILD_MESSAGES, discord.Intents.FLAGS.GUILD_VOICE_STATES ]
 })
 const /*you can have any prefix you want here*/ prefix = "?"
 
