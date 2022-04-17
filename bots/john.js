@@ -21,7 +21,7 @@ Client.on('messageCreate', message => {
 })
 
 //SUPER BASIC COMMAND: BASICALLY SHOWS THAT YOUR BOT CAN SPEAK
-Client.on('message', message => {
+Client.on('messageCreate', message => {
 	if(message.content === (`ping`) || message.content === ('Ping')){
     	message.reply({content:'pong hehehe'});
         message.react('👍')
