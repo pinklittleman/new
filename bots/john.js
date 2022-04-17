@@ -11,7 +11,7 @@ Client.on("ready", () => {
 
 const { joinVoiceChannel } = require('@discordjs/voice');
 Client.on('messageCreate', message => {
-    if(message.content === 'oi bingus come on in') {
+    if(message.content === `${prefix}bingus join`) {
         joinVoiceChannel({
             channelId: message.member.voice.channel.id,
             guildId: message.guild.id,
