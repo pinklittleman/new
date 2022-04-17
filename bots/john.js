@@ -26,7 +26,6 @@ Client.on('message', message => {
     	message.reply({content:'pong hehehe'});
         message.react('👍')
         message.author.send('I AM IN YOUR WALLS');
-        message.member.voice.guild.join()
     }
 })
 
