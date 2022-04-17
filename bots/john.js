@@ -1,6 +1,6 @@
 const discord = require('discord.js')
 const Client = new discord.Client({
-  intents: [ discord.Intents.FLAGS.GUILDS, discord.Intents.FLAGS.GUILD_MESSAGES ]
+  intents: [ discord.Intents.FLAGS.GUILDS, discord.Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_VOICE_STATES ]
 })
 const /*you can have any prefix you want here*/ prefix = "?"
 
@@ -8,6 +8,9 @@ Client.on("ready", () => {
 	console.log('literally anything you want goes here')
     Client.channels.cache.get('964284632390578196').send('online and ready to smoke black tar heroin')
 })
+
+let resource = createAudioResource(createReadStream(join(__dirname, 'hell.mp3')));
+const player = createAudioPlayer();
 
 const { joinVoiceChannel } = require('@discordjs/voice');
 Client.on('messageCreate', message => {
@@ -17,6 +20,10 @@ Client.on('messageCreate', message => {
             guildId: message.guild.id,
             adapterCreator: message.guild.voiceAdapterCreator
         })
+
+        connection.subscribe(player);
+            player.play(resource)
+            console.log("done");
     }
 })
 
