@@ -8,6 +8,8 @@ let currentSketch = []
 
 let usercount = []
 
+let colours = []
+
 var temp1
 var temp2
 var temp3
@@ -39,6 +41,7 @@ io.on('connection', (socket) => {
     temp1 = number1
     temp2 = number2
     temp3 = number3
+    colours.push(number1,number2,number3)
     setInterval(() => {
       socket.broadcast.emit('newrgb',temp1,temp2,temp3)
     }, 1000);
