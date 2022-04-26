@@ -42,8 +42,10 @@ io.on('connection', (socket) => {
     temp2 = number2
     temp3 = number3
     colours.push(number1,number2,number3)
+    
     setInterval(() => {
       socket.broadcast.emit('newrgb',temp1,temp2,temp3)
+      console.log(colours)
     }, 1000);
   })
 
