@@ -43,7 +43,7 @@ io.on('connection', (socket) => {
     temp3 = number3
     setInterval(() => {
       setTimeout(() => {
-        colours.push(number1,number2,number3)
+        // colours.push(number1,number2,number3)
       }, 1000);
     }, 2000);
     
