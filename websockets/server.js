@@ -1,5 +1,5 @@
 const { countReset } = require('console');
-
+// does stuff
 var app = require('express')();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
@@ -41,7 +41,11 @@ io.on('connection', (socket) => {
     temp1 = number1
     temp2 = number2
     temp3 = number3
-    colours.push(number1,number2,number3)
+    setInterval(() => {
+      setTimeout(() => {
+        colours.push(number1,number2,number3)
+      }, 1000);
+    }, 2000);
     
     setInterval(() => {
       socket.broadcast.emit('newrgb',temp1,temp2,temp3)
