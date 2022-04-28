@@ -2,25 +2,26 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
-
+//listen for the socket on port 5000
 socket = io.connect('http://pinky.uk.to:5000')
+//when the socket recives 'hello' from the server the executes the function newinstance
 socket.on('hello', newinstance)
-
+//just logg the data from the server
 function newinstance(data){
     console.log(data)
 }
-
+//setup the canvas with borders and size
 function setup(){
     createCanvas(500,500)
     background(50)
 }
-
+// when the mouse is dragged across the screen get the x and y cords
 function mouseDragged(){
     var data = {
         x: mouseX,
         y: mouseY
     }
-
+    // send the cords to the server 
     socket.emit('cordinates', data)
 }
 
