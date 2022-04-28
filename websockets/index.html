@@ -186,7 +186,7 @@ function mouseDragged(){
 
   noStroke()
   fill(RED,GREEN,BLUE)
-  ellipse(mouseX, mouseY, size, size)
+  line(data.x, data.y, size, size)
   socket.emit('size',size)
   socket.emit('rgb', RED, GREEN, BLUE)
 }
