@@ -27,5 +27,5 @@ io.on('connection', (socket) => {
 // this function adds the cordinates to the array cords
 function logging(data){
     cords.push(data)
-    //console.log(cords) dont uncomment if you want laggggggg
+    //console.log(cords) uncomment if you want laggggggg
 }
