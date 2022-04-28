@@ -17,9 +17,9 @@ server.listen(5000, function(){
 io.on('connection', (socket) => {
     socket.emit('hello',"socket connected")
     console.log('a user connected: ' + socket.id);
+    socket.on('cordinates', logging)
 })
 
-socket.on('cordinates', logging)
 
 function logging(data){
     cords.push(data)
