@@ -15,4 +15,13 @@ function setup(){
     background(50)
 }
 
+function mouseDragged(){
+    var data = {
+        x: mouseX,
+        y: mouseY
+    }
+
+    socket.emit('cordinates', data)
+}
+
 </script>
