@@ -4,7 +4,7 @@
 <script>
 
 socket = io.connect('http://pinky.uk.to:5000')
-socket.on(hello, newinstance)
+socket.on('hello', newinstance)
 
 function newinstance(data){
     console.log(data)
