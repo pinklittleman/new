@@ -35,7 +35,7 @@ io.on('connection', (socket) => {
 
     socket.on('disconnect', () => {
         console.log('leaving: '+socket.id)
-        pos = usr.indexOf(socket.id)
+        var pos = usr.indexOf(socket.id)
         console.log(pos)
         console.log(user)
     })
