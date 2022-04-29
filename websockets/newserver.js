@@ -22,11 +22,14 @@ io.on('connection', (socket) => {
     console.log('a user connected: ' + socket.id);
     // when the socket recives files from the client about mouse position call the logging function
     socket.on('cordinates', logging)
+
+    // this function adds the cordinates to the array cords
+    function logging(data){
+        cords.push(data)
+        socket.broadcast.emit('newcords',data)
+        //console.log(cords) uncomment if you want laggggggg
+    }
+
+
 })
 
-// this function adds the cordinates to the array cords
-function logging(data){
-    cords.push(data)
-    socket.broadcast.emit('newcords',data)
-    //console.log(cords) uncomment if you want laggggggg
-}
