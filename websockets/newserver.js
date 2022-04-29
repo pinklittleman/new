@@ -5,6 +5,7 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 //save the cords to an array
 let cords = []
+let user = []
 //get the index file for connection
 app.get('/', function(req, res){
     //send the index.html file for all requests
@@ -20,6 +21,8 @@ io.on('connection', (socket) => {
     socket.emit('hello',"socket connected")
     // log the user that has connected and their socketID
     console.log('a user connected: ' + socket.id);
+    user.push(socket.id)
+    console.log(user)
     // when the socket recives files from the client about mouse position call the logging function
     socket.on('cordinates', logging)
 
@@ -30,6 +33,9 @@ io.on('connection', (socket) => {
         //console.log(cords) uncomment if you want laggggggg
     }
 
+    socket.on('disconnect', (socket) => {
+        console.log('leaving'+socket.id)
+    })
 
 })
 
