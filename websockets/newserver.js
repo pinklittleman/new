@@ -37,7 +37,6 @@ io.on('connection', (socket) => {
         console.log('leaving: '+socket.id)
         var pos = user.indexOf(socket.id)
         user.splice(pos,pos+1)
-        console.log(pos)
         console.log(user)
     })
 
