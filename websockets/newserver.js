@@ -34,7 +34,7 @@ io.on('connection', (socket) => {
     }
 
     socket.on('disconnect', () => {
-        console.log('leaving'+socket.id)
+        console.log('leaving: '+socket.id)
     })
 
 })
