@@ -33,7 +33,7 @@ io.on('connection', (socket) => {
         //console.log(cords) uncomment if you want laggggggg
     }
 
-    socket.on('disconnect', (socket) => {
+    socket.on('disconnect', () => {
         console.log('leaving'+socket.id)
     })
 
