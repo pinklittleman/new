@@ -38,7 +38,7 @@ canvas{
     margin: 0%;
 }
 
-.ids :not(p.active){
+.ids{
     background-color: rgb(247, 181, 181);
     color: black;
     display: block;
@@ -48,8 +48,7 @@ canvas{
     width: 250px;
     margin-right: 20px;
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding:0%;
 }
 
 .ids p.active{
@@ -58,6 +57,11 @@ canvas{
 
 .ids p{
     margin: 0%;
+}
+
+:not(p.active){
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .container{
