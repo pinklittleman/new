@@ -49,7 +49,7 @@ canvas{
     font-size: small;
 }
 
-.vertical-menu active{
+.vertical-menu p.active{
     background-color: #2bff83;
 }
     
@@ -89,9 +89,13 @@ function users(data){
     console.log(user)
     var num1 = user.slice(0,1)
     var num2 = user.slice(1,2)
+    var num3 = user.slice(2,3)
+    var num3 = user.slice(3,4)
     // console.log('num1: '+num1)
     document.getElementById('list1').innerHTML = num1
     document.getElementById('list2').innerHTML = num2
+    document.getElementById('list3').innerHTML = num3
+    document.getElementById('list4').innerHTML = num4
 }
 
 function lengtharr(data){
