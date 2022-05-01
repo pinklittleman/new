@@ -51,10 +51,10 @@ canvas{
 <div class="container">
     <div class="vertical-menu">
         <p >Users:</p>
-        <p id="list1">Link 1</p>
-        <p id="list2">Link 2</p>
-        <p id="list3">Link 3</p>
-        <p id="list4">Link 4</p>
+        <p id="list1">1</p>
+        <p id="list2">2</p>
+        <p id="list3">3</p>
+        <p id="list4">4</p>
     </div>
 </div>
 <div class="users">
@@ -82,8 +82,10 @@ function users(data){
     user = data
     console.log(user)
     var num1 = user.slice(0,1)
-    console.log('num1: '+num1)
+    var num2 = user.slice(1,2)
+    // console.log('num1: '+num1)
     document.getElementById('list1').innerHTML = num1
+    document.getElementById('list2').innerHTML = num2
 }
 
 function lengtharr(data){
