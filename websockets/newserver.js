@@ -18,8 +18,6 @@ server.listen(5000, function(){
 });
 //on connection to the socket do stuff
 io.on('connection', (socket) => {
-    // send the clients connected 'socket connected'
-    socket.emit('hello',"socket connected")
     // log the user that has connected and their socketID
     console.log('a user connected: ' + socket.id);
     user.push(socket.id)
