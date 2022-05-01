@@ -20,6 +20,7 @@ server.listen(5000, function(){
 io.on('connection', (socket) => {
     // log the user that has connected and their socketID
     console.log('a user connected: ' + socket.id);
+    socket.emit('ID', socket.id)
     user.push(socket.id)
     console.log(user)
     // when the socket recives files from the client about mouse position call the logging function
