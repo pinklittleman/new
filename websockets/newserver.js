@@ -27,6 +27,7 @@ io.on('connection', (socket) => {
     // when the socket recives files from the client about mouse position call the logging function
     socket.on('cordinates', logging)
     setInterval(() => {
+        count =  user.length
         socket.emit('userarray', count)
         console.log(count)
     }, 2000);
