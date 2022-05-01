@@ -131,8 +131,8 @@ function newdraw(data){
     fill(255,255,0)
     ellipse(data.x,data.y,10,10)
     var element = document.getElementById('message2')
-    element.style.left = data.x + "px";
-    element.style.top = data.y + "px";
+    element.style.left = data.x + 2 + "px";
+    element.style.top = data.y + 2 + "px";
     document.getElementById('message2').innerHTML = data.id
 }
 
