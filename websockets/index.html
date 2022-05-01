@@ -24,9 +24,19 @@ canvas{
     width: 200px;
 }
 
+.ids{
+    background-color: rgb(247, 181, 181);
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    float: right;
+    width: 200px;
+}
+
 .container{
     float: right;
-    padding-right: 700px;
+    padding-right: 500px;
     padding-left: 100px;
 }
 
@@ -68,6 +78,12 @@ canvas{
     <p class="insideusr">current users:</p>
     <p id="users">null</p>
 </div>
+
+<div class="ids">
+    <p>Current socket ID:</p>
+    <p id="ID"></p>
+</div>
+
 <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
@@ -78,12 +94,15 @@ socket.on('hello', newinstance)
 socket.on('newcords', newdraw)
 socket.on('userarray', lengtharr)
 socket.on('userarrayimp', users)
+socket.on('ID', getsocid)
 //just logg the data from the server
 
 let user = []
 let temp
 
-
+function getsocid(data){
+    document.getElementById('ID').innerHTML = data
+}
 
 function users(data){
     user = data
