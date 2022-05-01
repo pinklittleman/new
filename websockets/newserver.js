@@ -6,6 +6,7 @@ var io = require('socket.io')(server);
 //save the cords to an array
 let cords = []
 let user = []
+let count = user.length
 //get the index file for connection
 app.get('/', function(req, res){
     //send the index.html file for all requests
@@ -25,6 +26,9 @@ io.on('connection', (socket) => {
     console.log(user)
     // when the socket recives files from the client about mouse position call the logging function
     socket.on('cordinates', logging)
+    setInterval(() => {
+        socket.emit('userarray', count)
+    }, 2000);
 
     // this function adds the cordinates to the array cords
     function logging(data){

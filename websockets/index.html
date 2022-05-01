@@ -69,7 +69,15 @@ socket = io.connect('http://pinky.uk.to:5000')
 //when the socket recives 'hello' from the server the executes the function newinstance
 socket.on('hello', newinstance)
 socket.on('newcords', newdraw)
+socket.on('userarray', lengtharr)
 //just logg the data from the server
+
+let temp
+
+function lengtharr(data){
+    console.log(data)
+}
+
 function newinstance(data){
     console.log(data)
 }
