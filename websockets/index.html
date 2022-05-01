@@ -70,9 +70,16 @@ socket = io.connect('http://pinky.uk.to:5000')
 socket.on('hello', newinstance)
 socket.on('newcords', newdraw)
 socket.on('userarray', lengtharr)
+socket.on('userarrayimp', users)
 //just logg the data from the server
 
+let user = []
 let temp
+
+function users(data){
+    user = data
+    console.log(user)
+}
 
 function lengtharr(data){
     console.log(data)
