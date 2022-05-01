@@ -50,11 +50,11 @@ canvas{
 </style>
 <div class="container">
     <div class="vertical-menu">
-        <a href="#">link 0</a>
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-        <a href="#">Link 4</a>
+        <p >Users:</p>
+        <p id="list1">Link 1</p>
+        <p id="list2">Link 2</p>
+        <p id="list3">Link 3</p>
+        <p id="list4">Link 4</p>
     </div>
 </div>
 <div class="users">
@@ -75,6 +75,10 @@ socket.on('userarrayimp', users)
 
 let user = []
 let temp
+
+var num1 = user.slice(1,1)
+document.getElementById('list1').innerHTML = num1
+
 
 function users(data){
     user = data
