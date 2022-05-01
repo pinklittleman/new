@@ -30,6 +30,7 @@ io.on('connection', (socket) => {
         count =  user.length
         socket.emit('userarray', count)
         // console.log(count)
+        socket.emit('userarrayimp', user)
     }, 2000);
 
     // this function adds the cordinates to the array cords
