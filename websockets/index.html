@@ -1,4 +1,4 @@
-<body onkeydown="myFunction(event)"></body>
+<body onload="playmusic()" onkeydown="myFunction(event)"></body>
 <h2 id="message2"></h2>
 <style>
 
@@ -114,6 +114,11 @@ canvas{
 <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
+function playmusic(){
+    var audio = new Audio('Synthwave4.mp3');
+    audio.loop = false;
+    audio.play(); 
+}  
 //listen for the socket on port 5000
 socket = io.connect('http://pinky.uk.to:5000')
 //when the socket recives 'hello' from the server the executes the function newinstance
