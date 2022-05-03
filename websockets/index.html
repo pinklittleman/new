@@ -89,7 +89,13 @@ canvas{
 .vertical-menu p.active{
     background-color: #2bff83;
 }
-    
+
+.brush{
+    background-color: black;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
 </style>
 <div class="container">
     <div class="vertical-menu">
@@ -110,6 +116,8 @@ canvas{
     <p class="active">Current socket ID:</p>
     <p id="ID"></p>
 </div>
+
+<div class="brush"></div>
 
 <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
