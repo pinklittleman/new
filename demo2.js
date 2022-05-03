@@ -90,9 +90,9 @@ function myFunction(event){
         Matter.Body.setVelocity(ball,{x:0,y:-5});
     }
     if(event.key === "n"){
+        time = time + 1
         setInterval(() => {
         Composite.add(engine.world, addCircle());
-        time = time + 1
         console.log(time)
         }, time);
     }
