@@ -52,6 +52,8 @@ var addCircle = function () {
     });
 };
 
+let time = 0
+
 // for the resize
 let scales = 0.25
 let scales2 = 1.5
@@ -90,7 +92,11 @@ function myFunction(event){
     if(event.key === "n"){
         setInterval(() => {
         Composite.add(engine.world, addCircle());
-        }, 0.1);
+        time = time + 1
+        }, time);
+    }
+    if(event.key === "c"){
+        time = time - 1
     }
     if(event.key === "h"){
         console.log(ball)
