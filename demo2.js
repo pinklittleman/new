@@ -91,13 +91,13 @@ function myFunction(event){
     }
     if(event.key === "n"){
         time = time + 1
-        setInterval(() => {
+        var rain = setInterval(() => {
         Composite.add(engine.world, addCircle());
         console.log(time)
         }, time);
     }
     if(event.key === "c"){
-        time = 0
+        clearInterval(rain)
     }
     if(event.key === "h"){
         console.log(ball)
