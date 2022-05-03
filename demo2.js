@@ -96,7 +96,7 @@ function myFunction(event){
         }, time);
     }
     if(event.key === "c"){
-        time = time - 1
+        time = 0
     }
     if(event.key === "h"){
         console.log(ball)
