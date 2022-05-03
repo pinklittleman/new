@@ -93,6 +93,7 @@ function myFunction(event){
         setInterval(() => {
         Composite.add(engine.world, addCircle());
         time = time + 1
+        console.log(time)
         }, time);
     }
     if(event.key === "c"){
