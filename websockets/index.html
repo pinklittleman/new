@@ -61,7 +61,7 @@ canvas{
 
 .container{
     float: right;
-    padding-right: 665px;
+    padding-right: 300px;
     padding-left: 20px;
     margin: 0%;
 }
@@ -176,16 +176,17 @@ function setup(){
 }
 // when the mouse is dragged across the screen get the x and y cords
 function mouseDragged(){
-    var data = {
+    let data2 = {
         x: mouseX,
         y: mouseY,
         id: socket.id,
     }
     // send the cords to the server 
-    socket.emit('cordinates', data)
+    socket.emit('cordinates', data2)
+    console.log(data2)
     noStroke()
     fill(2,255,0)
-    ellipse(data.x,data.y,10,10)
+    ellipse(data2.x,data2.y,10,10)
 }
 
 function newdraw(data){
