@@ -211,7 +211,7 @@ function newdraw(data){
     element.style.left = data.x + 1 + "px";
     element.style.top = data.y + 1 + "px";
     document.getElementById('message2').innerHTML = data.id
-    document.getElementById('xy').innerHTML = test
+    // document.getElementById('xy').innerHTML = test
 }
 
 function myFunction(event){
@@ -220,5 +220,9 @@ function myFunction(event){
         console.log('<body>hello</body>')
     }
 }
+
+setInterval(() => {
+    console.log(test)
+}, 2000);
 
 </script>
