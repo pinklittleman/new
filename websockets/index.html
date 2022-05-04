@@ -187,9 +187,9 @@ function mouseDragged(){
     }
     // send the cords to the server 
     socket.emit('cordinates', data2)
-    setTimeout(() => {
-        console.log(data2)
-    }, 2000);
+    // setTimeout(() => {
+    //     console.log(data2)
+    // }, 2000);
     noStroke()
     fill(2,255,0)
     ellipse(data2.x,data2.y,10,10)
@@ -199,9 +199,9 @@ function newdraw(data){
     noStroke()
     fill(255,255,0)
     ellipse(data.x,data.y,10,10)
-    setTimeout(() => {
-        console.log(data)
-    }, 2000);
+    // setTimeout(() => {
+    //     console.log(data)
+    // }, 2000);
     // console.log('x: '+data.x)
     // console.log('y: '+data.y)
     var element = document.getElementById('message2')
