@@ -237,7 +237,9 @@ function newdraw(data){
 
 }
 
-if(test[test.length - 1].id === num1){
+var stuff = test[test.length - 1].id
+
+if(stuff == num1){
     document.getElementById('testing').innerHTML = test[test.length - 1].x
     document.getElementById('testing').innerHTML = test[test.length - 1].y    
 }
