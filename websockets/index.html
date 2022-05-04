@@ -110,6 +110,14 @@ canvas{
     </div>
 </div>
 
+<div>
+    <p></p>
+</div>
+
+<div>
+    <p></p>
+</div>
+
 <div class="users">
     <p class="insideusr">current users:</p>
     <p id="users">null</p>
@@ -129,6 +137,7 @@ yes
 <div id="xyzu" class="xy">
     yes
 </div>
+<div id="testing">test</div>
 
 <div class="brush">iro.js</div>
 
@@ -221,6 +230,11 @@ function newdraw(data){
     document.getElementById('xyz').innerHTML = test[test.length - 1].x
     document.getElementById('xyzu').innerHTML = test[test.length - 1].y
 
+}
+
+if(test[test.length - 1].id === num1){
+    document.getElementById('testing').innerHTML = test[test.length - 1].x
+    document.getElementById('testing').innerHTML = test[test.length - 1].y    
 }
 
 function myFunction(event){
