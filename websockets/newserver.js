@@ -24,6 +24,7 @@ io.on('connection', (socket) => {
     user.push(socket.id)
     console.log(user)
     // when the socket recives files from the client about mouse position call the logging function
+    
     socket.on('cordinates', logging)
     setInterval(() => {
         count =  user.length
@@ -33,6 +34,7 @@ io.on('connection', (socket) => {
     }, 2000);
 
     // this function adds the cordinates to the array cords
+
     function logging(data){
         cords.push(data)
         socket.broadcast.emit('newcords',data)
