@@ -1,13 +1,17 @@
 <body onload="playmusic()" onkeydown="myFunction(event)"></body>
 <h2 id="message2"></h2>
 
-<audio controls src="Synthwave4.mp3">
+<audio controls id="audio" src="Synthwave4.mp3" preload="auto" >
     <div style="border: 1px solid black ; padding: 8px ;">
     Sorry, your browser does not support the <audio> tag used in this demo.
     </div>
 </audio> 
 
 <style>
+
+#audio{
+    display: none;
+}
 
 body{
     background-color: rgb(92, 92, 92);
@@ -151,11 +155,8 @@ yes
 <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-function playmusic(){
-    var audio = new Audio('Synthwave4.mp3');
-    audio.loop = true;
-    audio.play(); 
-}  
+var sample = document.getElementById("audio");
+sample.play(); 
 //listen for the socket on port 5000
 socket = io.connect('http://pinky.uk.to:5000')
 //when the socket recives 'hello' from the server the executes the function newinstance
