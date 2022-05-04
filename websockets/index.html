@@ -144,6 +144,7 @@ socket.on('userarrayimp', users)
 socket.on('ID', getsocid)
 //just logg the data from the server
 
+var test = []
 let user = []
 let temp
 
@@ -190,6 +191,7 @@ function mouseDragged(){
     // setTimeout(() => {
     //     console.log(data2)
     // }, 2000);
+    test.push(data)
     noStroke()
     fill(2,255,0)
     ellipse(data2.x,data2.y,10,10)
@@ -199,6 +201,7 @@ function newdraw(data){
     noStroke()
     fill(255,255,0)
     ellipse(data.x,data.y,10,10)
+    test.push(data)
     // setTimeout(() => {
     //     console.log(data)
     // }, 2000);
