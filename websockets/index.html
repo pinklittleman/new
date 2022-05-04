@@ -123,6 +123,12 @@ canvas{
 <div id="xy" class="xy">
 yes
 </div>
+<div id="xyz" class="xy">
+    yes
+</div>
+<div id="xyzu" class="xy">
+    yes
+</div>
 
 <div class="brush">iro.js</div>
 
@@ -211,7 +217,10 @@ function newdraw(data){
     element.style.left = data.x + 1 + "px";
     element.style.top = data.y + 1 + "px";
     document.getElementById('message2').innerHTML = data.id
-    document.getElementById('xy').innerHTML = test[test.length - 1].id + x + y
+    document.getElementById('xy').innerHTML = test[test.length - 1].id
+    document.getElementById('xyz').innerHTML = test[test.length - 1].x
+    document.getElementById('xyzu').innerHTML = test[test.length - 1].y
+
 }
 
 function myFunction(event){
