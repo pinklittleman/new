@@ -6,9 +6,13 @@
 <img id="cassette" src="https://pinky.uk.to/websockets/cassette.png">
 
 <audio id='audio2' autoplay> 
-        <source src="https://pinky.uk.to/websockets/Ominus Drone.mp3" type="audio/mpeg"> 
-</audio> 
-
+        <source src="https://pinky.uk.to/websockets/Ominus Drone.mp3" type="audio/mpeg">
+    </audio> 
+    
+<audio id="audio1">
+    <source src="https://pinky.uk.to/websockets/Cassette Cue No.1.mp3" type="audio/mpeg"> 
+</audio>    
+    
 <style>
 
 #cassette{
@@ -163,14 +167,13 @@ yes
 <script>
 
 var sample = document.getElementById("audio2");
-
-document.getElementById('stoping').addEventListener('click', function(){
-
-})
+var sample2 = document.getElementById('audio1')
 
 function stopping(){
     sample.pause()
     console.log('get out')
+    sample2.play()
+
 }
 
 function playing(){ 
