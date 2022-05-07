@@ -175,7 +175,9 @@ function stopping(){
     sample2.play()
     sample2.volume = 1.0
     document.getElementById('cassette').style.display = 'block'
-
+    setTimeout(() => {
+        sample.play()
+    }, 7000);
 }
 
 function playing(){ 
