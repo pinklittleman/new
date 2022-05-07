@@ -164,16 +164,19 @@ yes
 
 var sample = document.getElementById("audio2");
 
+document.getElementById('stoping').addEventListener('click', function(){
+
+})
+
 function stopping(){
     sample.pause()
     console.log('get out')
 }
 
-function playing(){
-   sample.play(); 
+function playing(){ 
    sample.volume = 0.3
    sample.loop = true
-   sample.autoplay = true
+//    sample.autoplay = true
  }
 //listen for the socket on port 5000
 socket = io.connect('http://pinky.uk.to:5000')
