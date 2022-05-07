@@ -1,7 +1,7 @@
 <body onclick="playing()" onkeydown="myFunction(event)"></body>
 <h2 id="message2"></h2>
 
-<button id="stoping"></button>
+<button onclick="stopping()" id="stoping">stop</button>
 
 <img id="cassette" src="https://pinky.uk.to/websockets/cassette.png">
 
@@ -161,7 +161,13 @@ yes
 <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
- function playing(){
+
+function stopping(){
+    var sample = document.getElementById("audio2");
+    sample.pause()
+}
+
+function playing(){
    var sample = document.getElementById("audio2");
    sample.play(); 
    sample.volume = 0.3
