@@ -11,6 +11,8 @@ let count = user.length
 app.get('/', function(req, res){
     //send the index.html file for all requests
     res.sendFile(__dirname + '/index.html');
+    res.sendFile(__dirname + '/Synthwave4.mp3');
+    
 });
 //make the server listen on port 5000 
 server.listen(5000, function(){

@@ -1,10 +1,8 @@
-<body onkeydown="myFunction(event)"></body>
+<body onclick="playing()" onkeydown="myFunction(event)"></body>
 <h2 id="message2"></h2>
 
-<audio controls id="audio" src="Synthwave4.mp3" preload="auto" >
-    <div style="border: 1px solid black ; padding: 8px ;">
-    Sorry, your browser does not support the <audio> tag used in this demo.
-    </div>
+<audio id='audio2' autoplay> 
+        <source src="https://pinky.uk.to/websockets/Synthwave4.mp3" type="audio/mpeg"> 
 </audio> 
 
 <style>
@@ -155,8 +153,13 @@ yes
 <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-var sample = document.getElementById("audio");
-sample.play(); 
+ function playing(){
+   var sample = document.getElementById("audio2");
+   sample.play(); 
+   sample.volume = 0.3
+   sample.loop = true
+   sample.autoplay = true
+ }
 //listen for the socket on port 5000
 socket = io.connect('http://pinky.uk.to:5000')
 //when the socket recives 'hello' from the server the executes the function newinstance
@@ -165,7 +168,7 @@ socket.on('newcords', newdraw)
 socket.on('userarray', lengtharr)
 socket.on('userarrayimp', users)
 socket.on('ID', getsocid)
-//just logg the data from the server
+//just log the data from the server
 
 var test = []
 let user = []

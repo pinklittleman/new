@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "@discordjs/opus": "^0.5.3",
+    "@discordjs/voice": "^0.8.0",
+    "discord": "^0.8.2",
+    "discord.js": "^13.6.0",
+    "voice": "^0.0.0"
+  },
+  "name": "bots",
+  "version": "1.0.0",
+  "main": "john.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
