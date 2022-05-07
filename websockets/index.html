@@ -1,13 +1,19 @@
 <body onclick="playing()" onkeydown="myFunction(event)"></body>
 <h2 id="message2"></h2>
 
-<img src="https://pinky.uk.to/websockets/cassette.png" alt="">
+<button id="stoping"></button>
+
+<img id="cassette" src="https://pinky.uk.to/websockets/cassette.png" alt="">
 
 <audio id='audio2' autoplay> 
         <source src="https://pinky.uk.to/websockets/Ominus Drone.mp3" type="audio/mpeg"> 
 </audio> 
 
 <style>
+
+#cassete{
+    display: none;
+}
 
 #audio{
     display:block;
