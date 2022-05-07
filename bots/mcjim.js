@@ -14,9 +14,10 @@ function random2(){
     setInterval(() => {
         
         var time = Math.floor(Math.random()*5)
+        console.log(time)
         if(time === '1'){
         
-            console.log('one')
+            console.log(time)
         
         }
     }, 1000);
