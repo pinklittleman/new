@@ -171,10 +171,9 @@ var sample2 = document.getElementById('audio1')
 
 function stopping(){
     sample.pause()
-    console.log('get out')
     sample2.play()
     sample2.volume = 1.0
-    document.getElementById('cassette').style.display = 'block'
+    document.getElementById('cassette').style.display = 'absolute'
     setTimeout(() => {
         sample.play()
     }, 6000);
