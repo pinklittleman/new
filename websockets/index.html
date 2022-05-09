@@ -202,8 +202,8 @@ function dragElement(elmnt) {
     // set the element's new position:
     elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-    console.log('x'+pos2)
-    console.log('y'+pos1)
+    console.log('x'+e.clientX)
+    console.log('y'+e.clientY)
   }
 
   function closeDragElement() {
