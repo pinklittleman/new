@@ -17,6 +17,7 @@
 
 #cassette{
     display: none;
+    position: absolute;
 }
 
 #audio{
@@ -183,7 +184,7 @@ function stopping(){
     sample.pause()
     sample2.play()
     sample2.volume = 1.0
-    document.getElementById('cassette').style.display = 'absolute'
+    document.getElementById('cassette').style.display = 'inline'
     setTimeout(() => {
         sample.play()
     }, 6000);
