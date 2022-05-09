@@ -3,7 +3,7 @@
 
 <button onclick="stopping()" id="stoping">stop</button>
 
-<img id="cassette" src="https://pinky.uk.to/websockets/cassette.png">
+<img onclick="move()" id="cassette" src="https://pinky.uk.to/websockets/cassette.png">
 
 <audio id='audio2' autoplay> 
         <source src="https://pinky.uk.to/websockets/Ominus Drone.mp3" type="audio/mpeg">
@@ -165,6 +165,16 @@ yes
 <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
+
+function move(){
+    x = mouseX
+    y = mouseY
+
+    var element = document.getElementById('cassette')
+    element.style.left = x + 1 + "px";
+    element.style.top = y + 1 + "px";
+
+}
 
 var sample = document.getElementById("audio2");
 var sample2 = document.getElementById('audio1')
