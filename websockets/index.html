@@ -11,15 +11,14 @@
 <body>
     <script src="https://pinky.uk.to/websockets/p5.min.js"></script>
 <script>
-function setup(){
-    const ws = require('ws');
-    const client = new ws('ws://localhost:5000');
+
+const ws = require('ws');
+const client = new ws('ws://localhost:5000');
 
 client.on('open', () => {
   // Causes the server to print "Hello"
   client.send('Hello');
 });
-}
 </script>
 
 </body>
