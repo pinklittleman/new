@@ -9,11 +9,16 @@
 
 </style>
 <body>
+    <script src="https://pinky.uk.to/websockets/p5.min.js"></script>
 <script>
 function setup(){
-    socket = io.connect('http://pinky.uk.to:5000')
-    // createCanvas(1000, 3000);
-    // background(51)
+    const ws = require('ws');
+    const client = new ws('ws://localhost:3000');
+
+client.on('open', () => {
+  // Causes the server to print "Hello"
+  client.send('Hello');
+});
 }
 </script>
 
