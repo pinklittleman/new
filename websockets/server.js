@@ -1,21 +1,21 @@
-const express = require('express');
-const ws = require('ws');
+var app = require('express')();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 
-const app = express();
+app.get('/', function(req, res){
 
-// Set up a headless websocket server that prints any
-// events that come in.
-const wsServer = new ws.Server({ noServer: true });
-wsServer.on('connection', socket => {
-  socket.on('message', message => console.log(message));
+    //send the index.html file for all requests
+    res.sendFile(__dirname + '/index.html');
+  
 });
 
-// `server` is a vanilla Node.js HTTP server, so use
-// the same ws upgrade process described here:
-// https://www.npmjs.com/package/ws#multiple-servers-sharing-a-single-https-server
-const server = app.listen(5000);
-server.on('upgrade', (request, socket, head) => {
-  wsServer.handleUpgrade(request, socket, head, socket => {
-    wsServer.emit('connection', socket, request);
-  });
+server.listen(5000, function(){
+
+    console.log('listening on :5000');
+  
 });
+
+io.on('connection', (socket) => {
+    console.log('a user connected: ' + socket.id);
+})
+
