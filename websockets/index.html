@@ -12,14 +12,7 @@
     <script src="https://pinky.uk.to/websockets/p5.min.js"></script>
     <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
 <script>
-
-const ws = require('ws');
-const client = new ws('ws://localhost:5000');
-
-client.on('open', () => {
-  // Causes the server to print "Hello"
-  client.send('Hello');
-});
+socket = io.connect('http://pinky.uk.to:5000')
 </script>
 
 </body>
