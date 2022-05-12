@@ -1,4 +1,4 @@
-<body onclick="playing()" onkeydown="myFunction(event)"></body>
+<body onkeydown="myFunction(event)"></body>
 <h2 id="message2"></h2>
 
 <button onclick="stopping()" id="stoping">stop</button>
@@ -239,11 +239,6 @@ function stopping(){
     }, 6000);
 }
 
-function playing(){ 
-   sample.volume = 0.3
-   sample.loop = true
-//    sample.autoplay = true
- }
 //listen for the socket on port 5000
 socket = io.connect('http://pinky.uk.to:5000')
 //when the socket recives 'hello' from the server the executes the function newinstance
