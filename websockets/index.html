@@ -29,7 +29,7 @@ function setup(){
   engine = Engine.create()
   world = engine.world
   box1 = Bodies.rectangle(200,200,80,80)
-  mouse = Mouse.create(render.canvas);
+  mouse = Mouse.create(canvas);
   mouseConstraint = MouseConstraint.create(engine, {mouse: mouse});
   Engine.run(engine)
   World.add(world,[box1, mouseConstraint])
