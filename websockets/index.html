@@ -28,7 +28,15 @@ function setup(){
   createCanvas(800, 600);
   engine = Engine.create()
   world = engine.world
-  box1 = Bodies.rectangle(200,200,80,80)
+  box1 = Bodies.rectangle(200,200,80,80,{
+    mass: 5,
+    render: {
+        strokeStyle: '#ffffff',
+        sprite: {
+            texture: 'circlebeans.png'
+        }
+    }
+})
   mouse = Mouse.create(canvas);
   mouseConstraint = MouseConstraint.create(engine, {mouse: mouse});
   Engine.run(engine)
