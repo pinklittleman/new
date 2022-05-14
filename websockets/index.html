@@ -25,14 +25,20 @@ var box1
 socket = io.connect('http://pinky.uk.to:5000')
 
 function setup(){
-  createCanvas(500, 500);
+  createCanvas(800, 600);
   engine = Engine.create()
   world = engine.world
   box1 = Bodies.rectangle(200,200,80,80)
   mouse = Mouse.create(canvas);
   mouseConstraint = MouseConstraint.create(engine, {mouse: mouse});
   Engine.run(engine)
-  World.add(world,[box1, mouseConstraint])
+  World.add(world,[
+    box1,
+    mouseConstraint,
+    Bodies.rectangle(0, 600, 3500, 50,{isStatic: true, collisionFilter: { group: floorColl }}),
+    Bodies.rectangle(100, 0, 3500, 50,{isStatic: true, collisionFilter: { group: group }}),
+    Bodies.rectangle(0, 600, 50, 3500,{isStatic: true}),
+    Bodies.rectangle(800, 100, 50, 3500,{isStatic: true}),])
 }
 
 function draw(){
