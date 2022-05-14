@@ -9,14 +9,30 @@
 
 </style>
 <body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.18.0/matter.min.js" integrity="sha512-5T245ZTH0m0RfONiFm2NF0zcYcmAuNzcGyPSQ18j8Bs5Pbfhp5HP1hosrR8XRt5M3kSRqzjNMYpm2+it/AUX/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
+  <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
 <script>
+var Engine = Matter.Engine,
+World = Matter.World,
+Bodies = Matter.Bodies;
+
+var engine
+var world
+var box1
 socket = io.connect('http://pinky.uk.to:5000')
 
 function setup(){
   createCanvas(500, 500);
+  engine = Engine.create()
+  world = engine.world
+  box1 = Bodies.rectangle(200,200,80,80)
+  Engine.run(engine)
+}
+
+function draw(){
   background(51)
+  rect(box1.position.x,box1.position.y, 80, 80)
 }
 
 </script>
