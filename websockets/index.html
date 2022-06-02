@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+
+</style>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.18.0/matter.min.js" integrity="sha512-5T245ZTH0m0RfONiFm2NF0zcYcmAuNzcGyPSQ18j8Bs5Pbfhp5HP1hosrR8XRt5M3kSRqzjNMYpm2+it/AUX/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
+<script>
+var Engine = Matter.Engine,
+World = Matter.World,
+MouseConstraint = Matter.MouseConstraint,
+Mouse = Matter.Mouse,
+Bodies = Matter.Bodies;
+
+var engine
+var world
+var box1
+socket = io.connect('http://pinky.uk.to:5000')
+
+function setup(){
+  createCanvas(800, 600);
+  engine = Engine.create()
+  world = engine.world
+  box1 = Bodies.rectangle(200,200,80,80,{
+    mass: 5,
+    render: {
+        strokeStyle: '#ffffff',
+        sprite: {
+            texture: 'https://pinky.uk.to/circlebeans.png'
+        }
+    }
+})
+  mouse = Mouse.create(canvas);
+  mouseConstraint = MouseConstraint.create(engine, {mouse: mouse});
+  Engine.run(engine)
+  World.add(world,[
+    box1,
+    mouseConstraint,
+    Bodies.rectangle(0, 600, 3500, 50,{isStatic: true,}),
+    Bodies.rectangle(100, 0, 3500, 50,{isStatic: true,}),
+    Bodies.rectangle(0, 600, 50, 3500,{isStatic: true}),
+    Bodies.rectangle(800, 100, 50, 3500,{isStatic: true}),
+  ])
+}
+
+function draw(){
+  background(51)
+  rect(box1.position.x,box1.position.y, 80, 80)
+}
+
+</script>
+
+</body>
+</html>

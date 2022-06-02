@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+canvas{
+  display: block;
+  margin: auto;
+  animation-name: beans;
+  animation-duration: 1s;
+}
+
+/* @keyframes beans{
+  0%{transform: rotate(0deg);}
+  100%{transform: rotate(360deg);}
+} */
+
+#main{
+  color: #c7c7c7;
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: rgb(66, 66, 66);
+}
+
+#hideme{
+  visibility: hidden;
+}
+
+@media screen and (max-width: 600px) {
+  body{
+    background-color: rgb(0, 0, 0);
+  }
+
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+
+  /* .topnav{
+    visibility: hidden;
+  } */
+
+  #hideme{
+    visibility: visible;
+    text-align: center;
+    color: aqua;
+  }
+
+  #main{
+    visibility: hidden;
+  }
+
+  canvas{
+    visibility: hidden;
+  }  
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #c7c7c7;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#paragraph {
+  color: aliceblue;
+}
+
+.topnav a:hover {
+  background-color: rgb(165, 165, 165);
+  color: black;
+}
+
+.topnav a.active {
+  background: rgb(25,255,60);
+  background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+  color: #333;
+}
+#spin{
+  animation-name: spin;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+}
+@keyframes spin{
+  0%{transform: rotate(180deg);}
+  100%{transform: rotate(0deg);}
+}
+#sim{
+  text-align: center;
+  border-top:50px;
+  padding-top: 300px;
+}
+h4{
+  text-align: center;
+  color: #ffa047;
+}
+</style>
+</head>
+<body onkeydown="myFunction(event)">
+
+<div class="topnav">
+  <a class="active" href="index.html">Home</a>
+  <a href="nothing.html">About Us</a>
+  <a href="websockets/test.html">websockets.io</a>
+  <a href="#about">null</a>
+</div>
+<div id="spin"><h1 id="main">please mind the noise we are renovating</h1></div>
+<h1 id="sim">in the meantime enjoy this physics sim</h1>
+<h4>ball controls: <br>
+  move-anywhere: click and drag, <br> 
+  right-arrow: increase ball size, <br>
+  left-arrow: shrink ball size, <br>    
+  freeze: space, <br>
+  unfreeze: e, <br>
+  move-right: d, <br> 
+  move-left: a, <br>
+  move-up: w, <br>
+  make it rain: n, <br> 
+</h4>
+<script src='matter.js' type='text/javascript'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="demo2.js" ></script>
+<i>'i won't overengineer it'....and is currently programming a javascript application for this site in a lesson about social media</i>
+</body>
+</html>

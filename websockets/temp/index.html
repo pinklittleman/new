@@ -1,0 +1,198 @@
+<html>
+<head>
+</head>
+
+<body onload="slideralert()">
+<style>
+
+#message2{
+  position: absolute;
+}
+
+</style>
+
+<h1 id="users"></h1>
+
+<h2 id="message2"></h2>
+
+<button onload="send()" onclick="myFunction()">Clear the canvas</button>
+
+<input type="range" min="1" max="255" value="50" class="slider" id="red">
+<input type="range" min="1" max="255" value="50" class="slider2" id="green">
+<input type="range" min="1" max="255" value="50" class="slider3" id="blue">
+<input type="range" min="1" max="300" value="50" class="size" id="size">
+
+<script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+
+function slideralert(){
+  alert('please move all of the sliders at least once for the colours to work')
+}
+
+
+let user = prompt('Enter a username')
+while(user === "null"){
+  user = prompt('enter a username')
+}
+
+var colour = 0
+
+var users
+
+var sred = 0
+var sgreen = 0
+var sblue = 255
+
+let RED 
+let GREEN 
+let BLUE
+
+let size
+let newsize
+
+document.getElementById("size").oninput = function() {
+    myFunction6()
+};
+
+function myFunction6() {
+   var val = document.getElementById("size").value //gets the oninput value
+   size = val
+}
+
+
+document.getElementById("red").oninput = function() {
+    myFunction2()
+};
+
+function myFunction2() {
+   var val = document.getElementById("red").value //gets the oninput value
+  //  console.log(val)
+   RED = val
+}
+
+document.getElementById("blue").oninput = function() {
+    myFunction3()
+};
+
+function myFunction3() {
+   var val = document.getElementById("blue").value //gets the oninput value
+  //  console.log(val)
+   BLUE = val
+}
+
+document.getElementById("green").oninput = function() {
+    myFunction4()
+};
+
+function myFunction4() {
+   var val = document.getElementById("green").value //gets the oninput value
+  //  console.log(val)
+   GREEN = val
+}
+
+var socket;
+
+function myFunction(){
+  var clear2 = 0
+  clear();
+  background(51)
+
+  socket.emit('clear', clear2)
+
+  socket.emit('refresh', 'refresh please')
+}
+
+function setup(){
+  createCanvas(1000, 3000);
+  background(51)
+
+  socket = io.connect('http://pinky.uk.to:5000')
+  socket.on('incords', Pinky)
+  socket.on('sketch', start)
+  socket.on('reload', yes)
+  socket.on('connection', colouring)
+  socket.on('users', init1)
+  socket.on('newrgb', rgb)
+  socket.on('newsize', newsize2)
+}
+
+function rgb(number1,number2,number3){
+  // console.log(number1,number2,number3)
+  sred = number1
+  sgreen = number2
+  sblue = number3
+  // console.log("client: "+number1+" "+number2+" "+number3)
+}
+
+function newsize2(data){
+  newsize = data
+}
+
+function init1(data){
+  document.getElementById('users').innerHTML = data.username
+  document.getElementById('message2').innerHTML = data.username
+  // console.log(data)
+}
+
+function colouring(data){
+  socket.emit('username', user)
+}
+
+function printthis(data){
+  console.log(data)
+}
+
+function yes(data){
+  alert(data)
+}
+
+function start(data){
+  for (let i = 0; i < data.length; i++) {
+  // console.log(data[i]);
+  noStroke()
+  fill(sred,sgreen,sblue)
+  setTimeout(() => {
+    ellipse(data[i].x, data[i].y, 36, 36)
+  }, 100);
+}}
+
+setInterval(() => {
+  // console.log('ah: '+sred+sgreen+sblue)
+}, 2000);
+
+// websocket data
+function Pinky(data){
+    noStroke()
+    fill(sred,sgreen,sblue)
+    console.log('data: '+data)
+    ellipse(data.x, data.y, newsize, newsize)
+    var element = document.getElementById('message2')
+    element.style.left = data.x + "px";
+    element.style.top = data.y + "px";
+}
+
+// client drawing
+function mouseDragged(){
+
+  var data = {
+    x: mouseX,
+    y: mouseY
+  }
+
+
+  socket.emit('mouse', data)
+
+  noStroke()
+  fill(RED,GREEN,BLUE)
+  line(data.x, data.y, size, size)
+  socket.emit('size',size)
+  socket.emit('rgb', RED, GREEN, BLUE)
+}
+
+
+
+</script>
+</body>
+</html>
