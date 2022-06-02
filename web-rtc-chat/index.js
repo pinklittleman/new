@@ -17,6 +17,12 @@ app.get('/', (req, res) => {
     res.send('server is listening')
 })
 
+io.on('connection', (socket) => {
+    socket.emit('me', socket.id)
+
+    socket.on()
+})
+
 server.listen(PORT, () => {console.log(`listening on port ${PORT}`)})
 
 
