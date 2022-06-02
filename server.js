@@ -3,7 +3,7 @@ const app = express()
 const server = require('http').Server(app)
 const io = require('socket.io')(server, {
     cors:{
-        origin: ['http:/loalhost:8080']
+        origin: ['http://loalhost:8080']
     }
 })
 const { v4: uuidV4 } = require('uuid')
