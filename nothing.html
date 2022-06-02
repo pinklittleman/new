@@ -53,6 +53,17 @@ body{
     </div>
 
     <video src="https://192.168.1.248:3000/video" autoplay></video>
+    <video id="vid" autoplay></video>
 
 </body>
+<script>
+    navigator.mediaDevices.getUserMedia({
+        video:{
+
+        }
+    })
+    .then(stream =>{
+        document.getElementById('vid').srcObject = stream
+    })
+</script>
 </html>
