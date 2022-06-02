@@ -5,7 +5,7 @@ const io = require('socket.io')(server)
 const {v4: uuidV4 } = require('uuid')
 
 app.set('view engine', 'ejs')
-app.arguments(express.static('public'))
+app.use(express.static('public'))
 
 app.get('/',(req, res )=>{
     res.redirect(`/${roomId}`)
