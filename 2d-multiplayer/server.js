@@ -24,7 +24,6 @@ io.on('connection', (socket) => {
     user.push(socket.id)
     console.log(user)
     // when the socket recives files from the client about mouse position call the logging function
-
     socket.on('disconnect', () => {
         console.log('leaving: '+socket.id)
         var pos = user.indexOf(socket.id)
