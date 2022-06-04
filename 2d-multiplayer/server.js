@@ -18,4 +18,12 @@ server.listen(5000, function(){
 io.on('connection', (socket) => {
     // log the user that has connected and their socketID
     console.log('a user connected: ' + socket.id);
+
+    socket.on('disconnect', () => {
+        console.log('leaving: '+socket.id)
+        var pos = user.indexOf(socket.id)
+        user.splice(pos,pos+1)
+        console.log(user)
+    })
+
 });
