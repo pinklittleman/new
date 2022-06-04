@@ -24,22 +24,6 @@ io.on('connection', (socket) => {
     user.push(socket.id)
     console.log(user)
     // when the socket recives files from the client about mouse position call the logging function
-    
-    socket.on('cordinates', logging)
-    setInterval(() => {
-        count =  user.length
-        socket.emit('userarray', count)
-        // console.log(count)
-        socket.emit('userarrayimp', user)
-    }, 2000);
-
-    // this function adds the cordinates to the array cords
-
-    function logging(data){
-        cords.push(data)
-        socket.broadcast.emit('newcords',data)
-        //console.log(cords) uncomment if you want laggggggg
-    }
 
     socket.on('disconnect', () => {
         console.log('leaving: '+socket.id)
