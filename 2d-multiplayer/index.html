@@ -13,11 +13,14 @@ socket = io.connect('http://pinky.uk.to:5000')
 //setup the canvas with borders and size
 function setup(){
     createCanvas(800,600, WEBGL)
+    normalMaterial();
 }
 
 function draw(){
     background(50)
-    player.render()
+    orbitControl();
+    rotateY(0.5);
+    box(30, 50);
 }
 
 // when the mouse is dragged across the screen get the x and y cords
