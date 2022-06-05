@@ -6,6 +6,8 @@
 
 test = []
 
+let player
+
 //listen for the socket on port 5000
 socket = io.connect('http://pinky.uk.to:5000')
 //when the socket recives 'hello' from the server the executes the function newinstance
@@ -13,8 +15,14 @@ socket = io.connect('http://pinky.uk.to:5000')
 //setup the canvas with borders and size
 function setup(){
     createCanvas(800,600)
-    background(50)
+    player =  new Player()
 }
+
+function draw(){
+    background(220)
+    player.render()
+}
+
 // when the mouse is dragged across the screen get the x and y cords
 function mouseDragged(){
     let data2 = {
