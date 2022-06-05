@@ -6,16 +6,13 @@
 
 test = []
 
-let player
-
 //listen for the socket on port 5000
 socket = io.connect('http://pinky.uk.to:5000')
 //when the socket recives 'hello' from the server the executes the function newinstance
 
 //setup the canvas with borders and size
 function setup(){
-    createCanvas(800,600)
-    player =  new Player()
+    createCanvas(800,600, WEBGL)
 }
 
 function draw(){
