@@ -14,7 +14,7 @@ socket = io.connect('http://pinky.uk.to:5000')
 
 let img;
 function preload() {
-  img = loadImage('test.png');
+  img = loadImage('https://pinky.uk.to/2d-multiplayer/test.png');
 }
 
 //setup the canvas with borders and size
@@ -22,12 +22,14 @@ function setup(){
     createCanvas(800,600, WEBGL)
 }
 
-function draw(){
-    background(50)
-    rotateY(increase);
-    increase = increase + 0.1        
-    texture(img);    
-    box(30, 50);
+function draw() {
+  background(0);
+  rotateZ(frameCount * 0.01);
+  rotateX(frameCount * 0.01);
+  rotateY(frameCount * 0.01);
+  //pass image as texture
+  texture(img);
+  box(width / 2);
 }
 
 // when the mouse is dragged across the screen get the x and y cords
