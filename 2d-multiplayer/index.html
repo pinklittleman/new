@@ -12,6 +12,11 @@ increase = 0
 socket = io.connect('http://pinky.uk.to:5000')
 //when the socket recives 'hello' from the server the executes the function newinstance
 
+let img;
+function preload() {
+  img = loadImage('layer1.png');
+}
+
 //setup the canvas with borders and size
 function setup(){
     createCanvas(800,600, WEBGL)
@@ -22,7 +27,7 @@ function draw(){
     rotateY(increase);
     increase = increase + 0.1        
     box(30, 50);
-    
+    texture(img);    
 }
 
 // when the mouse is dragged across the screen get the x and y cords
