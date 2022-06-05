@@ -20,11 +20,10 @@ function setup(){
 
 function draw(){
     background(50)
-    setInterval(() => {
-        rotateY(increase);
-        increase = increase + 0.1        
-        box(30, 50);
-    }, 1000);
+    rotateY(increase);
+    increase = increase + 0.1        
+    box(30, 50);
+    
 }
 
 // when the mouse is dragged across the screen get the x and y cords
