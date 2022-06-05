@@ -6,6 +6,8 @@
 
 test = []
 
+increase = 0
+
 //listen for the socket on port 5000
 socket = io.connect('http://pinky.uk.to:5000')
 //when the socket recives 'hello' from the server the executes the function newinstance
@@ -18,7 +20,7 @@ function setup(){
 
 function draw(){
     background(50)
-    orbitControl();
+    
     rotateY(0.5);
     box(30, 50);
 }
