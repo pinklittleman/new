@@ -8,17 +8,16 @@
 </head>
 <body>
 <p>WebSockets and that</p>
-
-    <script>
-        const socket = new WebSocket('wss://pinky.uk.to:5000');
-        // Connection opened
-        socket.addEventListener('open', function (event) {
-        socket.send('Hello Server!');
+<script>
+    const socket = new WebSocket('wss://pinky.uk.to:5000');
+    // Connection opened
+    socket.addEventListener('open', function (event) {
+    socket.send('Hello Server!');
 });
 
-        // Listen for messages
-        socket.addEventListener('message', function (event) {
-            console.log('Message from server ', event.data);
+    // Listen for messages
+    socket.addEventListener('message', function (event) {
+        console.log(event.data);
 });
     </script>
 </body>
