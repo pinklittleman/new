@@ -1,69 +1,23 @@
-<p>CURRENTLY BROKEN COME BACK SOON MAYBE</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const socket = new WebSocket('ws://localhost:8080');
+        // Connection opened
+        socket.addEventListener('open', function (event) {
+        socket.send('Hello Server!');
+});
 
-<script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script>
-
-test = []
-
-increase = 1
-
-let capture;
-
-//listen for the socket on port 5000
-socket = io.connect('wss://pinky.uk.to:5000')
-//when the socket recives 'hello' from the server the executes the function newinstance
-
-//setup the canvas with borders and size
-function setup(){
-    createCanvas(800,600)
-    capture = createCapture(VIDEO);
-}
-
-function draw() {
-    // clear()
-    // ambientLight(60);
-    // // rotateZ(frameCount * 0.1);
-    // rotateX(frameCount * 0.1);
-    // // rotateY(frameCount * 0.1);
-    // // add point light to showcase specular material
-    // let locX = mouseX - width / 2;
-    // let locY = mouseY - height / 2;
-    // pointLight(255, 255, 255, locX, locY, 50);
-    // ambientMaterial(255, 0, 255); // pink material
-    // // specularMaterial(250);
-    // translate(frameCount * 1,0);
-    // shininess(50);
-    // torus(30, 10, 64, 64);
-    // increase = increase + 0.1
-    background(255);
-    image(capture, 0, 0, width, width * capture.height / capture.width);
-    
-}
-
-// when the mouse is dragged across the screen get the x and y cords
-function mouseDragged(){
-    let data2 = {
-        x: mouseX,
-        y: mouseY,
-        id: socket.id,
-    }
-    // send the cords to the server 
-    socket.emit('cordinates', data2)
-    test.push(data2)
-    noStroke()
-    fill(2,255,0)
-    ellipse(data2.x,data2.y,20,20)
-}
-
-function newdraw(data){
-    noStroke()
-    fill(255,255,0)
-    ellipse(data.x,data.y,20,20)
-    test.push(data)
-}
-
-
-
-
-</script>
+        // Listen for messages
+        socket.addEventListener('message', function (event) {
+            console.log('Message from server ', event.data);
+});
+    </script>
+</body>
+</html>
