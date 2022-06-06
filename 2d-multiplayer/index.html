@@ -4,11 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Document</title>
 </head>
 <body>
 <p>WebSockets and that</p>
 <script>
+
+    let capture;
+
+function setup() {
+    createCanvas(100, 100);
+    capture = createCapture(VIDEO);
+
+}
+
+function draw() {
+    image(capture, 0, 0, width, width * capture.height / capture.width);
+}
+
     const socket = new WebSocket('wss://pinky.uk.to:5000');
     // Connection opened
     socket.addEventListener('open', function (event) {
