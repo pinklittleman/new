@@ -18,14 +18,16 @@ function setup(){
 }
 
 function draw() {
-  background(50);
-  rotateZ(frameCount * 0.01);
-  rotateX(frameCount * 0.01);
-  rotateY(frameCount * 0.01);
-  //pass image as texture
-  ambientLight(200); // white light
-  ambientMaterial(255, 0, 255); // pink material
-  box(100,100);
+    ambientLight(60);
+
+    // add point light to showcase specular material
+    let locX = mouseX - width / 2;
+    let locY = mouseY - height / 2;
+    pointLight(255, 255, 255, locX, locY, 50);
+    
+    specularMaterial(250);
+    shininess(50);
+    torus(30, 10, 64, 64);
 }
 
 // when the mouse is dragged across the screen get the x and y cords
