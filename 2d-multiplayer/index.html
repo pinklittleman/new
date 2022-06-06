@@ -19,7 +19,7 @@ function setup(){
 
 function draw() {
     ambientLight(60);
-
+    rotateZ(frameCount * 0.01);
     // add point light to showcase specular material
     let locX = mouseX - width / 2;
     let locY = mouseY - height / 2;
