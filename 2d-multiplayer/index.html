@@ -29,7 +29,7 @@ function draw() {
     pointLight(255, 255, 255, locX, locY, 50);
     ambientMaterial(255, 0, 255); // pink material
     // specularMaterial(250);
-    translate(1*frameCount);
+    translate(frameCount * 0.01);
     shininess(50);
     torus(30, 10, 64, 64);
     increase = increase + 0.1
