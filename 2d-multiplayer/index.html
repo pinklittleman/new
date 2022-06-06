@@ -8,6 +8,8 @@ test = []
 
 increase = 1
 
+let capture;
+
 //listen for the socket on port 5000
 socket = io.connect('http://pinky.uk.to:5000')
 //when the socket recives 'hello' from the server the executes the function newinstance
@@ -15,25 +17,29 @@ socket = io.connect('http://pinky.uk.to:5000')
 //setup the canvas with borders and size
 function setup(){
     createCanvas(800,600, WEBGL)
+    capture = createCapture(VIDEO);
+    capture.size(320, 240);
 }
 
 function draw() {
-    clear()
-    ambientLight(60);
-    // rotateZ(frameCount * 0.1);
-    rotateX(frameCount * 0.1);
-    // rotateY(frameCount * 0.1);
-    // add point light to showcase specular material
-    let locX = mouseX - width / 2;
-    let locY = mouseY - height / 2;
-    pointLight(255, 255, 255, locX, locY, 50);
-    ambientMaterial(255, 0, 255); // pink material
-    // specularMaterial(250);
-    translate(frameCount * 1,0);
-    shininess(50);
-    torus(30, 10, 64, 64);
-    increase = increase + 0.1
-
+    // clear()
+    // ambientLight(60);
+    // // rotateZ(frameCount * 0.1);
+    // rotateX(frameCount * 0.1);
+    // // rotateY(frameCount * 0.1);
+    // // add point light to showcase specular material
+    // let locX = mouseX - width / 2;
+    // let locY = mouseY - height / 2;
+    // pointLight(255, 255, 255, locX, locY, 50);
+    // ambientMaterial(255, 0, 255); // pink material
+    // // specularMaterial(250);
+    // translate(frameCount * 1,0);
+    // shininess(50);
+    // torus(30, 10, 64, 64);
+    // increase = increase + 0.1
+    background(50);
+    image(capture, 0, 0, 320, 240);
+    filter(INVERT);
 }
 
 // when the mouse is dragged across the screen get the x and y cords
