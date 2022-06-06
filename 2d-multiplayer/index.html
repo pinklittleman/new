@@ -30,9 +30,10 @@ function draw() {
     ambientMaterial(255, 0, 255); // pink material
     // specularMaterial(250);
     translate(2, 2);
-    translate(p5.Vector.fromAngle(millis() / 1000, 40));
+    translate(increase);
     shininess(50);
     torus(30, 10, 64, 64);
+    increase = increase + 0.1
 }
 
 // when the mouse is dragged across the screen get the x and y cords
