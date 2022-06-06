@@ -1,35 +1,27 @@
-const { countReset } = require('console');
-// setup
-var app = require('express')();
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
-//save the cords to an array
-let cords = []
-let user = []
-let count = user.length
-//get the index file for connection
-app.get('/', function(req, res){
-    //send the index.html file for all requests
-    res.sendFile(__dirname + '/index.html'); 
-});
-//make the server listen on port 5000 
-server.listen(5000, function(){
-    console.log('listening on :5000');
-});
-//on connection to the socket do stuff
-io.on('connection', (socket) => {
-    // log the user that has connected and their socketID
-    console.log('a user connected: ' + socket.id);
-    socket.emit('ID', socket.id)
-    user.push(socket.id)
-    console.log(user)
-    // when the socket recives files from the client about mouse position call the logging function
-    socket.on('disconnect', () => {
-        console.log('leaving: '+socket.id)
-        var pos = user.indexOf(socket.id)
-        user.splice(pos,pos+1)
-        console.log(user)
-    })
+// Minimal amount of secure websocket server
+var fs = require('fs');
 
-})
+// read ssl certificate
+var privateKey = fs.readFileSync('/home/pink/ssl-cert/privkey.pem', 'utf8');
+var certificate = fs.readFileSync('/home/pink/ssl-cert/fullchain.pem', 'utf8');
 
+var credentials = { key: privateKey, cert: certificate };
+var https = require('https');
+
+//pass in your credentials to create an https server
+var httpsServer = https.createServer(credentials);
+httpsServer.listen(5000);
+
+var WebSocketServer = require('ws').Server;
+var wss = new WebSocketServer({
+    server: httpsServer
+});
+
+wss.on('connection', function connection(ws) {
+    ws.on('message', function incoming(message) {
+        console.log('received: %s', message);
+        ws.send('reply from server : ' + message)
+    });
+
+    ws.send('something');
+});
