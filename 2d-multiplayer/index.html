@@ -6,7 +6,7 @@
 
 test = []
 
-increase = 0
+increase = 1
 
 //listen for the socket on port 5000
 socket = io.connect('http://pinky.uk.to:5000')
@@ -34,7 +34,7 @@ function draw() {
     shininess(50);
     torus(30, 10, 64, 64);
     increase = increase + 0.1
-    
+
 }
 
 // when the mouse is dragged across the screen get the x and y cords
