@@ -18,6 +18,7 @@ function setup(){
 }
 
 function draw() {
+    clear()
     ambientLight(60);
     rotateZ(frameCount * 0.01);
     rotateX(frameCount * 0.01);
@@ -30,7 +31,6 @@ function draw() {
     specularMaterial(250);
     shininess(50);
     torus(30, 10, 64, 64);
-    clear()
 }
 
 // when the mouse is dragged across the screen get the x and y cords
