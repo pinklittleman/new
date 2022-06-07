@@ -10,11 +10,17 @@ var https = require('https')
 
 
 //pass in your credentials to create an https server
-var httpsServer = https.createServer(credentials);
+var httpsServer = https.createServer(app);
 httpsServer.listen(5000);
 
 
 var io = require('socket.io')(httpsServer);
+
+app.get('/', function(req, res){
+    //send the index.html file for all requests
+    res.sendFile(__dirname + '/index.html');
+    
+});
 
 io.on('connection', (socket) => {
     // log the user that has connected and their socketID
