@@ -39,9 +39,9 @@ io.on('connection', (socket) => {
         socket.emit('userarrayimp', user)
     }, 2000);
 
-    socket.on('video', send())
+    socket.on('video', sendingstuff())
 
-    function send(data){
+    function sendingstuff(data){
         console.log('send function called')
         socket.emit('outcam', data)
     }
