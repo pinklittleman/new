@@ -20,10 +20,8 @@ var wss = new WebSocketServer({
 var stuff
 
 wss.on('connection', function connection(ws) {
-    ws.on('message', function incoming(message) {
-        console.log('received: %s', message);
-        stuff = message;
-        console.log('rec' + stuff);
+    ws.on('message', function incoming(message2) {
+        console.log('received: %s', message2);
         ws.send('reply from server : ' + stuff)
     });
 
