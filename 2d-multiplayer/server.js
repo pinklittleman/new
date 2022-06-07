@@ -39,7 +39,7 @@ io.on('connection', (socket) => {
         socket.emit('userarrayimp', user)
     }, 2000);
 
-    socket.on('video', send(data))
+    socket.on('video', send())
 
     function send(data){
         socket.emit('outcam', data)

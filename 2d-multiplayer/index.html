@@ -30,7 +30,7 @@ function draw() {
 const socket = io.connect('wss://pinky.uk.to:5000');
     
 socket.on('ID', getsocid)
-socket.on('outcam', yes(data))
+socket.on('outcam', yes())
 
 function yes(data){
     capture2 = data
