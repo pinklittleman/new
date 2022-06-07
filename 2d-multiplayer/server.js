@@ -5,7 +5,7 @@ var app = require('express')();
 var privateKey = fs.readFileSync('/home/pink/ssl-cert/privkey.pem', 'utf8');
 var certificate = fs.readFileSync('/home/pink/ssl-cert/fullchain.pem', 'utf8');
 
-var credentials = { key: privateKey, cert: certificate, cors:{origin: ['https://pinky.uk.to/2d-multiplayer/index.html']} };
+var credentials = { key: privateKey, cert: certificate, cors:{origin: ['https://pinky.uk.to:5000']} };
 var https = require('https')
 
 
