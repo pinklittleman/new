@@ -39,6 +39,12 @@ io.on('connection', (socket) => {
         socket.emit('userarrayimp', user)
     }, 2000);
 
+    socket.on('video', send(data))
+
+    function send(data){
+        socket.emit('outcam', data)
+    }
+
     // this function adds the cordinates to the array cords
 
     function logging(data){

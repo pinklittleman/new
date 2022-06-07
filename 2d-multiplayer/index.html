@@ -13,6 +13,7 @@
 <script>
 
 let capture;
+let capture2;
 
 function setup() {
     createCanvas(100, 100);
@@ -22,12 +23,19 @@ function setup() {
 }
 
 function draw() {
+
     image(capture, 50, 50, width, width * capture.height / capture.width);
 }
 
 const socket = io.connect('wss://pinky.uk.to:5000');
     
 socket.on('ID', getsocid)
+socket.on('outcam', yes(data))
+
+function yes(data){
+    capture2 = data
+    image(capture2, 50, 50, 200, 100);
+}
 
 function getsocid(data){
     document.getElementById('ID').innerHTML = data
