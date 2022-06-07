@@ -22,7 +22,7 @@ function setup() {
 }
 
 function draw() {
-    image(capture, 200, 200, width, width * capture.height / capture.width);
+    image(capture, 50, 50, width, width * capture.height / capture.width);
 }
 
 const socket = io.connect('wss://pinky.uk.to:5000');
