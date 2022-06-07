@@ -29,17 +29,10 @@ io.on('connection', (socket) => {
     socket.emit('ID', socket.id)
     user.push(socket.id)
     console.log(user)
-    // when the socket recives files from the client about mouse position call the logging function
     
-    socket.on('cordinates', logging)
-    setInterval(() => {
-        count =  user.length
-        socket.emit('userarray', count)
-        // console.log(count)
-        socket.emit('userarrayimp', user)
-    }, 2000);
 
-    socket.on('video', sendingstuff())
+
+    socket.on('video', sendingstuff)
 
     function sendingstuff(data){
         console.log('send function called')
