@@ -6,11 +6,11 @@ var privateKey = fs.readFileSync('/home/pink/ssl-cert/privkey.pem', 'utf8');
 var certificate = fs.readFileSync('/home/pink/ssl-cert/fullchain.pem', 'utf8');
 
 var credentials = { key: privateKey, cert: certificate, cors:{origin: ['https://pinky.uk.to/2d-multiplayer/index.html']} };
-var https = require('https').Server(app);
+var https = require('https')
 
 
 //pass in your credentials to create an https server
-var httpsServer = https.createServer(credentials);
+var httpsServer = https.createServer(credentials, app);
 httpsServer.listen(5000);
 
 
