@@ -18,13 +18,13 @@ let capture2;
 function setup() {
     createCanvas(100, 100);
     capture = createCapture(VIDEO);
-    console.log(capture)
+    console.log(capture.elt)
     capture.hide()
 
 }
 
 setInterval(() => {
-    // socket.emit('video', capture)
+    
 }, 1000);
 
 function draw() {
@@ -38,7 +38,7 @@ socket.on('ID', getsocidnstuff)
 socket.on('outcam', yes)
 
 function yes(data){
-    // capture2 = data;
+   
 }
 
 function getsocidnstuff(data){
