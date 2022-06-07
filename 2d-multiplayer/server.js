@@ -42,6 +42,7 @@ io.on('connection', (socket) => {
     socket.on('video', send())
 
     function send(data){
+        console.log('send function called')
         socket.emit('outcam', data)
     }
 
