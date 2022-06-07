@@ -11,11 +11,12 @@
 <p>WebSockets and that</p>
 <script>
 
-    let capture;
+let capture;
 
 function setup() {
     createCanvas(100, 100);
     capture = createCapture(VIDEO);
+    socket
 
 }
 
@@ -27,11 +28,12 @@ function draw() {
     // Connection opened
     socket.addEventListener('open', function (event) {
     socket.send('Hello Server!');
+    socket.send(capture)
 });
 
     // Listen for messages
     socket.addEventListener('message', function (event) {
-        console.log(event.data);
+        console.log(event);
 });
     </script>
 </body>
