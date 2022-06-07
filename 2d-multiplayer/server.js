@@ -17,10 +17,13 @@ var wss = new WebSocketServer({
     server: httpsServer
 });
 
+var stuff
+
 wss.on('connection', function connection(ws) {
     ws.on('message', function incoming(message) {
         console.log('received: %s', message);
-        ws.send('reply from server : ' + message)
+        stuff = message;
+        ws.send('reply from server : ' + stuff)
     });
 
     ws.send('something');
