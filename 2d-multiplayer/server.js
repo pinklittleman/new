@@ -13,7 +13,7 @@ var certificate = fs.readFileSync('/home/pink/ssl-cert/fullchain.pem', 'utf8');
 // httpsServer.listen(5000);
 
 
-var io = require('socket.io')(httpsServer);
+// var io = require('socket.io')(httpsServer);
 
 io.on('connection', (socket) => {
     // log the user that has connected and their socketID
