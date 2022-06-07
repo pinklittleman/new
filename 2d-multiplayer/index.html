@@ -18,7 +18,9 @@ let capture2;
 function setup() {
     createCanvas(100, 100);
     capture = createCapture(VIDEO);
-    socket.emit('video', capture)
+    setTimeout(() => {
+        socket.emit('video', capture)
+    }, 2000);
     console.log(capture)
     capture.hide()
 
