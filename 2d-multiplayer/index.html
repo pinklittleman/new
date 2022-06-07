@@ -17,12 +17,12 @@ let capture;
 function setup() {
     createCanvas(100, 100);
     capture = createCapture(VIDEO);
-    socket
+    socket.emit('video', capture)
 
 }
 
 function draw() {
-    image(capture, 0, 0, width, width * capture.height / capture.width);
+    image(capture, 20, 20, width, width * capture.height / capture.width);
 }
 
 const socket = io.connect('wss://pinky.uk.to:5000');
