@@ -18,9 +18,6 @@ let capture2;
 function setup() {
     createCanvas(100, 100);
     capture = createCapture(VIDEO);
-    setTimeout(() => {
-        socket.emit('video', capture)
-    }, 2000);
     console.log(capture)
     capture.hide()
 
@@ -28,7 +25,7 @@ function setup() {
 
 function draw() {
 
-    image(capture2, 0, 0, width, width * capture.height / capture.width);
+    image(capture, 0, 0, width, width * capture.height / capture.width);
 }
 
 const socket = io.connect('wss://pinky.uk.to:5000');
