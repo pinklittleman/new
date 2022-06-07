@@ -12,6 +12,7 @@ var certificate = fs.readFileSync('/home/pink/ssl-cert/fullchain.pem', 'utf8');
 // var httpsServer = https.createServer(credentials);
 // httpsServer.listen(5000);
 
+
 var io = require('socket.io')(httpsServer);
 
 io.on('connection', (socket) => {
