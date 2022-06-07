@@ -8,6 +8,7 @@ var certificate = fs.readFileSync('/home/pink/ssl-cert/fullchain.pem', 'utf8');
 var credentials = { key: privateKey, cert: certificate};
 var https = require('https')
 
+let user = []
 
 //pass in your credentials to create an https server
 var httpsServer = https.createServer(credentials, app);
