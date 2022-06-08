@@ -36,6 +36,11 @@ const socket = io.connect('wss://pinky.uk.to:5000');
     
 socket.on('ID', getsocidnstuff)
 socket.on('outcam', yes)
+socket.on('list', listout)
+
+function listout(data){
+    console.log(data)
+}
 
 function yes(data){
    

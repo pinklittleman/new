@@ -29,6 +29,7 @@ io.on('connection', (socket) => {
     socket.emit('ID', socket.id)
     user.push(socket.id)
     console.log(user)
+    socket.emit('list', user)
     
 
 
