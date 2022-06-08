@@ -20,8 +20,7 @@ function setup() {
     createCanvas(800, 400);
     // Create both of your off-screen graphics buffers
     leftBuffer = createGraphics(400, 400);
-    rightBuffer = capture = createCapture(VIDEO);
-    capture.hide()
+    rightBuffer = createGraphics(400, 400);
 }
 
 function draw() {
@@ -45,11 +44,7 @@ function drawRightBuffer() {
     rightBuffer.fill(0, 0, 0);
     rightBuffer.textSize(32);
     rightBuffer.text("This is the right buffer!", 50, 50);
-    image(capture, 0, 0, width, width * capture.height / capture.width);
 }
-
-let capture;
-let capture2;
 
 const socket = io.connect('wss://pinky.uk.to:5000');
     
