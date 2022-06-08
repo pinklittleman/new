@@ -41,10 +41,7 @@ function drawLeftBuffer() {
 }
 
 function drawRightBuffer() {
-    rightBuffer.background(255, 100, 255);
-    rightBuffer.fill(0, 0, 0);
-    rightBuffer.textSize(32);
-    rightBuffer.text("This is the right buffer!", 50, 50);
+    image(capture, 0, 0, width, width * capture.height / capture.width);
 }
 
 const socket = io.connect('wss://pinky.uk.to:5000');
