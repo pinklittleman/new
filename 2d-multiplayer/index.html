@@ -20,7 +20,7 @@ function setup() {
     createCanvas(800, 800);
     // Create both of your off-screen graphics buffers
     leftBuffer = createGraphics(400, 400);
-    rightBuffer = createGraphics(400, 400);
+    rightBuffer = createCapture(VIDEO);
 }
 
 function draw() {
