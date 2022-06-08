@@ -15,9 +15,12 @@
 let capture;
 let capture2;
 
+let dog
+let cat
+
 function setup() {
-    createCanvas(100, 100);
-    createCanvas(200, 200)
+    var cat = createCanvas(100, 100);
+    var dog = createCanvas(200, 200)
     capture = createCapture(VIDEO);
     console.log(capture.elt)
     capture.hide()
@@ -29,7 +32,8 @@ setInterval(() => {
 }, 1000);
 
 function draw() {
-    background(50)
+    cat.background(50)
+    dog.background(255)
 
     image(capture, 0, 0, width, width * capture.height / capture.width);
 }
