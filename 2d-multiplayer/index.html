@@ -9,16 +9,16 @@
     <title>WEBSOCKET</title>
 </head>
 <body>
-<p id="ID">WebSockets and that</p>
+<!-- <p id="ID">WebSockets and that</p> -->
 <script>
 
 const socket = io.connect('wss://pinky.uk.to:5000');
 
-let numSegments = 8,
+let numSegments = 80,
   x = [],
   y = [],
   angle = [],
-  segLength = 140,
+  segLength = 180,
   targetX,
   targetY,
   ballX = 50,
