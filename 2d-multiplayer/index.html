@@ -47,7 +47,7 @@ function draw() {
 
   strokeWeight(20);
   ballX = ballX + 5.0 * ballXDirection;
-  ballY = ballY + 2.8 * ballYDirection;
+  ballY = ballY + 1.8 * ballYDirection;
   if (ballX > width - 25 || ballX < 25) {
     ballXDirection *= -1;
   }
@@ -64,7 +64,7 @@ function draw() {
     positionSegment(j, j - 1);
   }
   for (let k = 0; k < x.length; k++) {
-    segment(x[k], y[k], angle[k], (k + 1) * 2);
+    segment(x[k], y[k], angle[k], (k + 1) * 1);
   }
 }
 
