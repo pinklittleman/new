@@ -46,7 +46,7 @@ function draw() {
   background(0);
 
   strokeWeight(20);
-  ballX = ballX + Math.random(Math.floor(1)*10) * ballXDirection;
+  ballX = ballX + Math.random(10) * ballXDirection;
   ballY = ballY + 1.8 * ballYDirection;
   if (ballX > width - 25 || ballX < 25) {
     ballXDirection *= -1;
