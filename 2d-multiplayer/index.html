@@ -14,6 +14,8 @@
 
 const socket = io.connect('wss://pinky.uk.to:5000');
 
+let test
+
 let numSegments = 95,
   x = [],
   y = [],
@@ -46,7 +48,8 @@ function draw() {
   background(0);
 
   strokeWeight(20);
-  ballX = ballX + Math.random(10) * ballXDirection;
+  ballX = ballX + (test = Math.floor(Math.random(1)*10)) * ballXDirection;
+  console.log(test)
   ballY = ballY + 1.8 * ballYDirection;
   if (ballX > width - 25 || ballX < 25) {
     ballXDirection *= -1;
