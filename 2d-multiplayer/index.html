@@ -46,7 +46,7 @@ function draw() {
   background(0);
 
   strokeWeight(20);
-  ballX = ballX + 1.0 * ballXDirection;
+  ballX = ballX + 10.0 * ballXDirection;
   ballY = ballY + 0.8 * ballYDirection;
   if (ballX > width - 25 || ballX < 25) {
     ballXDirection *= -1;
