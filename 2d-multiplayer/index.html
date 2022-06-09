@@ -62,6 +62,7 @@ function draw() {
     ballYDirection *= -1;
   }
   ellipse(ballX, ballY, 30, 30);
+  ellipse.hide()
 
   reachSegment(0, ballX, ballY);
   for (let i = 1; i < numSegments; i++) {
