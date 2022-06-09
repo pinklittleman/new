@@ -51,7 +51,6 @@ function draw() {
 
   strokeWeight(20);
   ballX = ballX + test * ballXDirection;
-  console.log(test)
   ballY = ballY + 1.8 * ballYDirection;
   if (ballX > width - 25 || ballX < 25) {
     ballXDirection *= -1;
