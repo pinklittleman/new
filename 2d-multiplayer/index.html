@@ -15,6 +15,7 @@
 const socket = io.connect('wss://pinky.uk.to:5000');
 
 let test
+let hello
 
 test = Math.floor(Math.random(1)*10)
 
@@ -61,8 +62,8 @@ function draw() {
   if (ballY > height - 25 || ballY < 25) {
     ballYDirection *= -1;
   }
-  ellipse(ballX, ballY, 30, 30);
-  ellipse.hide()
+  hello = ellipse(ballX, ballY, 30, 30);
+  hello.hide()
 
   reachSegment(0, ballX, ballY);
   for (let i = 1; i < numSegments; i++) {
