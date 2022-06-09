@@ -14,91 +14,17 @@
 
 const socket = io.connect('wss://pinky.uk.to:5000');
 
-let test
-let hello
-
-test = Math.floor(Math.random(1)*10)
-
-let numSegments = 95,
-  x = [],
-  y = [],
-  angle = [],
-  segLength = 15,
-  targetX,
-  targetY,
-  ballX = 50,
-  ballY = 50,
-  ballXDirection = 1,
-  ballYDirection = -1;
-
-for (let i = 0; i < numSegments; i++) {
-  x[i] = 0;
-  console.log(x)
-  y[i] = 0;
-  console.log(y)
-  angle[i] = 0;
-  console.log(angle)
-}
-
-function setup() {
-  createCanvas(1920, 1080);
-  strokeWeight(20);
-  stroke(255, 100);
-  noFill();
-
-  x[x.length - 1] = width / 2; // Set base x-coordinate
-  y[x.length - 1] = height; // Set base y-coordinate
+function setup(){
+  createCanvas(800,800)
 }
 
 function draw() {
-  background(0);
-
-  strokeWeight(20);
-  ballX = ballX + test * ballXDirection;
-  ballY = ballY + 1.8 * ballYDirection;
-  if (ballX > width - 25 || ballX < 25) {
-    ballXDirection *= -1;
-  }
-  if (ballY > height - 25 || ballY < 25) {
-    ballYDirection *= -1;
-  }
-  let elp = ellipse(ballX, ballY, 30, 30);
-
-  reachSegment(0, ballX, ballY);
-  for (let i = 1; i < numSegments; i++) {
-    reachSegment(i, targetX, targetY);
-  }
-  for (let j = x.length - 1; j >= 1; j--) {
-    positionSegment(j, j - 1);
-  }
-  for (let k = 0; k < x.length; k++) {
-    segment(x[k], y[k], angle[k], (k + 1));
-  }
+  background(200);
+  rectMode(CENTER);
+  translate(width / 2, height / 2);
+  translate(p5.Vector.fromAngle(millis() / 1000, 40));
+  rect(0, 0, 20, 20);
 }
-
-function positionSegment(a, b) {
-  x[b] = x[a] + cos(angle[a]) * segLength;
-  y[b] = y[a] + sin(angle[a]) * segLength;
-}
-
-function reachSegment(i, xin, yin) {
-  const dx = xin - x[i];
-  const dy = yin - y[i];
-  angle[i] = atan2(dy, dx);
-  targetX = xin - cos(angle[i]) * segLength;
-  targetY = yin - sin(angle[i]) * segLength;
-}
-
-function segment(x, y, a, sw) {
-  strokeWeight(sw);
-  push();
-  translate(x, y);
-  rotate(a);
-  line(0, 0, segLength, 0);
-  pop();
-}
-
-
    
 // socket.on('ID', getsocidnstuff)
 socket.on('list', listout)
