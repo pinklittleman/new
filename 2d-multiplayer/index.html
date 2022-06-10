@@ -8,7 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>WEBSOCKET</title>
 </head>
-<body onkeydown="draw(event)">
+<body>
 <!-- <p id="ID">WebSockets and that</p> -->
 <script>
 
@@ -28,15 +28,12 @@ function mouseMoved(){
         id: socketid
     }
     socket.emit('cords', data)
+    rect(100, 100, 20, 20);
+    translate(data.x,data.y)
 }
 
-function draw(event) {
-  background(200);
-  rectMode(CENTER);
-  rect(100, 100, 20, 20);
-  if(event.key === "w"){
-    translate(data.x,data.y);
-  }
+function draw() {
+  background(200);  
 }
 
 // socket.on('ID', getsocidnstuff)
