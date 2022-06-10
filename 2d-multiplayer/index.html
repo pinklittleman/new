@@ -49,7 +49,8 @@ socket.on('newcords', newcords)
 function newcords(data){
   console.log(data)
   noStroke()
-  fill(2,50,0)
+  fill(0)
+  console.log(data.x)
   ellipse(data.x,data.y,20,20)
 }
 
