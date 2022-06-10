@@ -23,14 +23,14 @@ function setup(){
     background(50)
 }
 
-function mouseDragged(){
+function mouseMoved(){
   background(50)
   let data = {
     x: mouseX,
     y: mouseY,
     id: socketid,
   }
-  
+
   // send the cords to the server 
   socket.emit('cords', data)
   // setTimeout(() => {
