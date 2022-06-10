@@ -32,7 +32,7 @@ function mouseMoved(){
   }
 
   // send the cords to the server 
-  socket.broadcast.emit('cords', data)
+  socket.emit('cords', data)
   // setTimeout(() => {
   //     console.log(data2)
   // }, 2000);

@@ -36,7 +36,7 @@ io.on('connection', (socket) => {
     socket.on('video', sendingstuff)
 
     function yes(data){
-        socket.emit('newcords', data)
+        socket.broadcast.emit('newcords', data)
     }
 
     function sendingstuff(data){
