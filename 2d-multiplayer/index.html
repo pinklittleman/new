@@ -47,9 +47,10 @@ socket.on('list', listout)
 socket.on('newcords', newcords)
 
 function newcords(data){
+  background(50)
   console.log(data)
   noStroke()
-  fill(0)
+  fill(255)
   console.log(data.x)
   ellipse(data.x,data.y,20,20)
 }
