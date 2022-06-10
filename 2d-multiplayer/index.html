@@ -14,6 +14,8 @@
 
 const socket = io.connect('wss://pinky.uk.to:5000');
 
+let test = []
+
 let socketid
 
 function setup(){
@@ -24,9 +26,14 @@ function mouseDragged(){
     let data = {
         x: mouseX,
         y: mouseY,
-        id: socketid
+        id: socketid,
     }
+    // send the cords to the server 
     socket.emit('cords', data)
+    // setTimeout(() => {
+    //     console.log(data2)
+    // }, 2000);
+    test.push(data)
     noStroke()
     fill(2,255,0)
     ellipse(data.x,data.y,20,20)
