@@ -22,7 +22,9 @@ function setup(){
 }
 
 function mouseMoved(){
-    background(200);
+    setTimeout(() => {
+        background(200);
+    }, 100);
     let data = {
         x: mouseX,
         y: mouseY,
