@@ -15,7 +15,6 @@
 const socket = io.connect('wss://pinky.uk.to:5000');
 
 let socketid
-let data
 
 function setup(){
   createCanvas(800,800)
@@ -27,6 +26,7 @@ function mouseDragged(){
         y: mouseY,
         id: socketid
     }
+    noStroke()
     socket.emit('cords', data)
     rect(data.x, data.y, 20, 20);
 }
