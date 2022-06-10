@@ -24,20 +24,22 @@ function setup(){
 }
 
 function mouseDragged(){
-    let data = {
-        x: mouseX,
-        y: mouseY,
-        id: socketid,
-    }
-    // send the cords to the server 
-    socket.emit('cords', data)
-    // setTimeout(() => {
-    //     console.log(data2)
-    // }, 2000);
-    test.push(data)
-    noStroke()
-    fill(2,255,0)
-    ellipse(data.x,data.y,20,20)
+  background(50)
+  let data = {
+    x: mouseX,
+    y: mouseY,
+    id: socketid,
+  }
+  
+  // send the cords to the server 
+  socket.emit('cords', data)
+  // setTimeout(() => {
+  //     console.log(data2)
+  // }, 2000);
+  test.push(data)
+  noStroke()
+  fill(2,255,0)
+  ellipse(data.x,data.y,20,20)
 }
 
 // socket.on('ID', getsocidnstuff)
