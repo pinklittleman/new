@@ -32,8 +32,12 @@ io.on('connection', (socket) => {
     socket.emit('list', user)
     
 
-
+    socket.on('cords', yes)
     socket.on('video', sendingstuff)
+
+    function yes(data){
+        socket.emit('newcords', data)
+    }
 
     function sendingstuff(data){
         console.log('send function called')

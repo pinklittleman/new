@@ -19,7 +19,12 @@ function setup(){
 }
 
 function mouseMoved(){
-
+    let data = {
+        x: mouseX,
+        y: mouseY,
+        id: socket.id
+    }
+    socket.emit('cords', data)
 }
 
 function draw(event) {
@@ -33,6 +38,11 @@ function draw(event) {
 
 // socket.on('ID', getsocidnstuff)
 socket.on('list', listout)
+socket.on('newcords', newcords)
+
+function newcords(data){
+    console.log(data)
+}
 
 
 function yes(data){
