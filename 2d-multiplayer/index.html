@@ -15,6 +15,7 @@
 const socket = io.connect('wss://pinky.uk.to:5000');
 
 let socketid
+let data
 
 function setup(){
   createCanvas(800,800)
@@ -34,7 +35,7 @@ function draw(event) {
   rectMode(CENTER);
   rect(100, 100, 20, 20);
   if(event.key === "w"){
-    translate(10,0);
+    translate(data.x,data.y);
   }
 }
 
