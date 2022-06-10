@@ -19,7 +19,8 @@ let test = []
 let socketid
 
 function setup(){
-  createCanvas(800,800)
+    createCanvas(800,600)
+    background(50)
 }
 
 function mouseDragged(){
@@ -37,10 +38,6 @@ function mouseDragged(){
     noStroke()
     fill(2,255,0)
     ellipse(data.x,data.y,20,20)
-}
-
-function draw() {
-  background(50);  
 }
 
 // socket.on('ID', getsocidnstuff)
