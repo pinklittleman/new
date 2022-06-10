@@ -26,9 +26,10 @@ function mouseDragged(){
         y: mouseY,
         id: socketid
     }
-    noStroke()
     socket.emit('cords', data)
-    rect(data.x, data.y, 20, 20);
+    noStroke()
+    fill(2,255,0)
+    ellipse(data.x,data.y,20,20)
 }
 
 function draw() {
