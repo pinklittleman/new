@@ -22,14 +22,14 @@ function setup(){
 }
 
 function mouseMoved(){
+    clear()
     let data = {
         x: mouseX,
         y: mouseY,
         id: socketid
     }
     socket.emit('cords', data)
-    rect(100, 100, 20, 20);
-    translate(data.x,data.y)
+    rect(data.x, data.y, 20, 20);
 }
 
 function draw() {
