@@ -21,8 +21,6 @@
 <!-- <p id="ID">WebSockets and that</p> -->
 <script>
 
-socket.on('newball', help)
-
 const socket = io.connect('wss://pinky.uk.to:5000');
 
 var Engine = Matter.Engine,
@@ -99,6 +97,8 @@ setInterval(() => {
     Matter.Body.setStatic(ball,true)
 }
 }, 500);
+
+socket.on('newball', help)
 
 setInterval(() => {
   socket.emit('cords', bal)
