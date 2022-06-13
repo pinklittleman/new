@@ -49,7 +49,7 @@ var Engine = Matter.Engine,
 Matter.Runner.run(engine);
 Render.run(render);
 
-// ball body
+// ball body yellow
 let ball = Bodies.circle(500,500,20,{
     mass: 5,
     render: {
@@ -57,6 +57,7 @@ let ball = Bodies.circle(500,500,20,{
     }
 })
 
+//blue
 let ball2 = Bodies.circle(500,500,20,{
     mass: 5,
     render: {
@@ -76,15 +77,6 @@ Composite.add(engine.world,[
     Bodies.rectangle(800, 100, 50, 3500,{isStatic: true}),
     mouseConstraint
 ])
-
-var bal = {
-  x: ball.position.x,
-  y: ball.position.y
-}
-var bal2 = {
-  x: ball2.position.x,
-  y: ball2.position.y
-}
   
 setInterval(() => {
   console.log("x: "+ball.position.x)
@@ -101,11 +93,11 @@ setInterval(() => {
 socket.on('newball', help)
 
 setInterval(() => {
-  socket.emit('cords', bal)
+  socket.emit('cords', ball.position.y)
 }, 10);
 
 function help(data){
-  console.log('yes x: ' + data.x)
+  console.log('yes y: ' + data)
   // Matter.Body.set(ball2,"position",{x:data.x,y:data.x})
 }
 
