@@ -103,6 +103,52 @@ setInterval(() => {
 let test
 let test2
 
+function myFunction(event){
+    console.log(event.key)
+    if(event.key === " " && ball.isStatic == false){
+        Matter.Body.setStatic(ball,true);
+    }
+    if(event.key === "e"){
+        Matter.Body.setStatic(ball,false);
+    }
+    if(event.key === "ArrowRight"){
+        ball.render.sprite.xScale = ball.render.sprite.xScale * scales2;
+        ball.render.sprite.yScale = ball.render.sprite.yScale * scales2;
+        Matter.Body.scale( ball, scales2, scales2);
+    }
+    if(event.key === "ArrowLeft"){
+        ball.render.sprite.xScale = ball.render.sprite.xScale * scales;
+        ball.render.sprite.yScale = ball.render.sprite.yScale * scales;
+        Matter.Body.scale( ball, scales, scales);
+    }
+    if(event.key === "d"){
+        console.log(ball.options)
+        Matter.Body.setVelocity(ball,{x:5,y:-1});
+    }
+    if(event.key === "a"){
+        console.log(ball.options)
+        Matter.Body.setVelocity(ball,{x:-5,y:-1});
+    }
+    if(event.key === "w"){
+        console.log(ball.options)
+        Matter.Body.setVelocity(ball,{x:0,y:-5});
+    }
+    if(event.key === "n"){
+        time = time + 1
+        // var rain = setInterval(() => {
+        // Composite.add(engine.world, addCircle());
+        // console.log(time)
+        // }, time);
+    }
+    if(event.key === "c"){
+        clearInterval(rain)
+    }
+    if(event.key === "h"){
+        console.log(ball)
+        floorColl = true
+    }
+}
+
 function help(data){
   test = data.x
   test2 = data.y
