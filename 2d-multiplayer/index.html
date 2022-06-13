@@ -93,12 +93,17 @@ setInterval(() => {
 socket.on('newball', help)
 
 setInterval(() => {
-  socket.emit('cords', ball.position.y)
+  let data = {
+    x: ball.position.x,
+    y: ball.position.y
+  }
+  socket.emit('cords', data)
 }, 1);
 
+
+
 function help(data){
-  console.log('yes y: ' + data)
-  Matter.Body.set(ball2,"position",{x:100,y:data})
+  Matter.Body.set(ball2,"position",{x:data.x,y:data.y})
 }
 
 </script>
