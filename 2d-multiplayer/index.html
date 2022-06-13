@@ -67,7 +67,6 @@ let ball2 = Bodies.circle(500,500,20,{
 
 // create the mouse constraints 
 let mouse = Mouse.create(render.canvas);
-let mouseConstraint = MouseConstraint.create(engine, {mouse: mouse});
 Composite.add(engine.world,[
     ball,
     ball2,
@@ -75,7 +74,6 @@ Composite.add(engine.world,[
     Bodies.rectangle(100, 0, 3500, 50,{isStatic: true}),
     Bodies.rectangle(0, 600, 50, 3500,{isStatic: true}),
     Bodies.rectangle(800, 100, 50, 3500,{isStatic: true}),
-    mouseConstraint
 ])
   
 setInterval(() => {
