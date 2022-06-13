@@ -105,6 +105,9 @@ let test2
 
 function myFunction(event){
     console.log(event.key)
+    if(event.key === "r" && ball.isStatic == false){
+        Matter.Body.set(ball,"position",{x:500,y:500})
+    }
     if(event.key === " " && ball.isStatic == false){
         Matter.Body.setStatic(ball,true);
     }
@@ -132,20 +135,6 @@ function myFunction(event){
     if(event.key === "w"){
         console.log(ball.options)
         Matter.Body.setVelocity(ball,{x:0,y:-5});
-    }
-    if(event.key === "n"){
-        time = time + 1
-        // var rain = setInterval(() => {
-        // Composite.add(engine.world, addCircle());
-        // console.log(time)
-        // }, time);
-    }
-    if(event.key === "c"){
-        clearInterval(rain)
-    }
-    if(event.key === "h"){
-        console.log(ball)
-        floorColl = true
     }
 }
 
