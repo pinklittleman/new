@@ -9,60 +9,64 @@
     <title>WEBSOCKET</title>
 </head>
 <body>
+<style>
+  canvas{
+  display: block;
+  margin: auto;
+  animation-name: beans;
+  animation-duration: 1s;
+}
+</style>
 <!-- <p id="ID">WebSockets and that</p> -->
 <script>
 
 const socket = io.connect('wss://pinky.uk.to:5000');
 
-let test = []
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Body = Matter.Body,
+    Composite = Matter.Composite,
+    Composites = Matter.Composites,
+    Constraint = Matter.Constraint,
+    MouseConstraint = Matter.MouseConstraint,
+    Mouse = Matter.Mouse,
+    Bodies = Matter.Bodies;
 
-let socketid
+    let engine = Engine.create();
+    let render = Render.create({
+        element: document.body,
+        engine: engine,
+        options: {
+            width: 800,
+            height: 600,
+            wireframes: false
+        }
+    }
+);
 
-function setup(){
-    createCanvas(800,600)
-    background(50)
-}
+Matter.Runner.run(engine);
+Render.run(render);
 
-function mouseMoved(){
-  background(50)
-  let data = {
-    x: mouseX,
-    y: mouseY,
-    id: socketid,
-  }
+// ball body
+let ball = Bodies.circle(500,500,20,{
+    mass: 5,
+    render: {
+        strokeStyle: '#ffffff'
+    }
+})
 
-  // send the cords to the server 
-  socket.emit('cords', data)
-  // setTimeout(() => {
-  //     console.log(data2)
-  // }, 2000);
-  test.push(data)
-  noStroke()
-  fill(2,255,0)
-  ellipse(data.x,data.y,20,20)
-}
+// create the mouse constraints 
+let mouse = Mouse.create(render.canvas);
+let mouseConstraint = MouseConstraint.create(engine, {mouse: mouse});
+Composite.add(engine.world,[
+    ball,
+    Bodies.rectangle(0, 600, 3500, 50,{isStatic: true, collisionFilter: { group: floorColl }}),
+    Bodies.rectangle(100, 0, 3500, 50,{isStatic: true, collisionFilter: { group: group }}),
+    Bodies.rectangle(0, 600, 50, 3500,{isStatic: true}),
+    Bodies.rectangle(800, 100, 50, 3500,{isStatic: true}),
+    mouseConstraint])
 
-// socket.on('ID', getsocidnstuff)
-socket.on('list', listout)
-socket.on('newcords', newcords)
-
-function newcords(data){
-  background(50)
-  console.log(data)
-  noStroke()
-  fill(255)
-  console.log(data.x)
-  ellipse(data.x,data.y,20,20)
-}
-
-
-function listout(data){
-   socketid = data
-}
-
-// function getsocidnstuff(data){
-//     document.getElementById('ID').innerHTML = data
-// }
 </script>
 </body>
 </html>
