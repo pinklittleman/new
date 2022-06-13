@@ -69,6 +69,8 @@ Composite.add(engine.world,[
     mouseConstraint])
 
     setInterval(() => {
+      console.log("x: "+ball.position.x)
+      console.log("y: "+ball.position.y)
     if(ball.position.y > 560 || ball.position.y < 30){
         setTimeout(() => {
             Matter.Body.setStatic(ball,false)
