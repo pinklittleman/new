@@ -29,7 +29,10 @@ Render.run(render);
 let ball = Bodies.circle(500,500,20,{
     mass: 5,
     render: {
-        strokeStyle: '#ECFF42'
+        strokeStyle: '#ffffff',
+        sprite: {
+            texture: 'mason-egg.png'
+        }
     }
 })
 
@@ -42,7 +45,10 @@ var addCircle = function () {
     return Bodies.circle(Math.random()*800 + 30, 30, Math.random()*10+8,{
         collisionFilter: { group: floorColl },
         render: {
-            strokeStyle: '#ffffff'
+            strokeStyle: '#ffffff',
+            sprite: {
+                texture: 'smollbeans.png'
+            }
         }
     });
 };
