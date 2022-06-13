@@ -77,6 +77,9 @@ Composite.add(engine.world,[
 ])
   
 setInterval(() => {
+    if(ball.position.y > 250){
+        alert('congrats you jumped')
+    }
   console.log("x: "+ball.position.x)
   console.log("y: "+ball.position.y)
   if(ball.position.y > 560 || ball.position.y < 30){
@@ -129,11 +132,11 @@ function myFunction(event){
     }
     if(event.key === "d"){
         console.log(ball.options)
-        Matter.Body.setVelocity(ball,{x:5,y:-1});
+        Matter.Body.setVelocity(ball,{x:5,y:-2});
     }
     if(event.key === "a"){
         console.log(ball.options)
-        Matter.Body.setVelocity(ball,{x:-5,y:-1});
+        Matter.Body.setVelocity(ball,{x:-5,y:-2});
     }
     if(event.key === "w"){
         console.log(ball.options)
