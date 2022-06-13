@@ -30,7 +30,7 @@ io.on('connection', (socket) => {
     socket.on('cords', ball)
     
     function ball(data){
-        socket.emit('newball', data)
+        socket.broadcast.emit('newball', data)
     }
 
     socket.on('disconnect', () => {
