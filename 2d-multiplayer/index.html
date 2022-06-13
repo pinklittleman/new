@@ -18,13 +18,14 @@
   animation-duration: 1s;
 }
 div{
-    /* visibility: hidden; */
+    visibility: hidden;
     background-color: black;
-    height: 25px ;
-    width: 25px;
+    height: 255px ;
+    width: 255px;
+    color: rgb(255, 255, 255);
 }
 </style>
-<div></div>
+<div id="div"> you jumped </div>
 <!-- <p id="ID">WebSockets and that</p> -->
 <script>
 
@@ -86,8 +87,7 @@ Composite.add(engine.world,[
 setInterval(() => {
     if(ball.position.y < 200){
         console.log('above 200')
-
-        
+        document.getElementById("div").style.visibility = "visable";
     }
   console.log("x: "+ball.position.x)
   console.log("y: "+ball.position.y)
