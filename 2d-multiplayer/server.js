@@ -31,7 +31,7 @@ io.on('connection', (socket) => {
     
     function ball(data){
         socket.broadcast.emit('newball', data)
-        console.log('x: '+ data.x+' '+ 'y: '+)
+        console.log('x: '+ data.x + 'y: ' + data.y)
     }
 
     socket.on('disconnect', () => {
