@@ -88,13 +88,13 @@ setInterval(() => {
   }, 250);
     Matter.Body.setStatic(ball,true)
 }
-}, 500);
+}, 1);
 
 socket.on('newball', help)
 
 setInterval(() => {
   socket.emit('cords', ball.position.y)
-}, 10);
+}, 1);
 
 function help(data){
   console.log('yes y: ' + data)
