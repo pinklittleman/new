@@ -100,8 +100,12 @@ setInterval(() => {
   socket.emit('cords', data)
 }, 1);
 
+let test
+let test2
 
 function help(data){
+  test = data.x
+  test2 = data.y
   Matter.Body.set(ball2,"position",{x:data.x,y:data.y})
 }
 
