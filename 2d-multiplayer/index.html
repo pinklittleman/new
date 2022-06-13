@@ -17,7 +17,14 @@
   animation-name: beans;
   animation-duration: 1s;
 }
+div{
+    /* visibility: hidden; */
+    background-color: black;
+    height: 25px ;
+    width: 25px;
+}
 </style>
+<div></div>
 <!-- <p id="ID">WebSockets and that</p> -->
 <script>
 
@@ -79,7 +86,8 @@ Composite.add(engine.world,[
 setInterval(() => {
     if(ball.position.y < 200){
         console.log('above 200')
-        alert('congrats you jumped')
+
+        
     }
   console.log("x: "+ball.position.x)
   console.log("y: "+ball.position.y)
