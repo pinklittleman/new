@@ -21,6 +21,8 @@
 <!-- <p id="ID">WebSockets and that</p> -->
 <script>
 
+socket.on('newball', help)
+
 const socket = io.connect('wss://pinky.uk.to:5000');
 
 var Engine = Matter.Engine,
@@ -77,7 +79,14 @@ Composite.add(engine.world,[
     mouseConstraint
 ])
 
-
+var bal = {
+  x: ball.position.x,
+  y: ball.position.y
+}
+var bal2 = {
+  x: ball2.position.x,
+  y: ball2.position.y
+}
   
 setInterval(() => {
   console.log("x: "+ball.position.x)
@@ -88,12 +97,24 @@ setInterval(() => {
       Matter.Body.set(ball,"position",{x:500,y:500})
   }, 250);
     Matter.Body.setStatic(ball,true)
+
+    if(ball2.position.y > 560 || ball2.position.y < 30){
+    setTimeout(() => {
+      Matter.Body.setStatic(ball2,false)
+      Matter.Body.set(ball2,"position",{x:500,y:500})
+  }, 250);
+    Matter.Body.setStatic(ball2,true)
 }
 }, 500);
 
-setTimeout(() => {
-  socket.emit('cords',)
+setInterval(() => {
+  socket.emit('cords', bal)
 }, 10);
+
+function new(data){
+  console.log('yes')
+  Matter.Body.set(ball2,"position",{x:data.x,y:data.x})
+}
 
 </script>
 </body>

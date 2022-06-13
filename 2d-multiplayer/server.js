@@ -26,37 +26,15 @@ app.get('/', function(req, res){
 io.on('connection', (socket) => {
     // log the user that has connected and their socketID
     console.log('a user connected: ' + socket.id);
-    socket.emit('ID', socket.id)
-    user.push(socket.id)
-    console.log(user)
-    socket.emit('list', user)
+
+    socket.on('cords', ball)
     
-
-    socket.on('cords', yes)
-    socket.on('video', sendingstuff)
-
-    function yes(data){
-        socket.broadcast.emit('newcords', data)
-    }
-
-    function sendingstuff(data){
-        console.log('send function called')
-        socket.emit('outcam', data)
-    }
-
-    // this function adds the cordinates to the array cords
-
-    function logging(data){
-        cords.push(data)
-        socket.broadcast.emit('newcords',data)
-        //console.log(cords) uncomment if you want laggggggg
+    function ball(data){
+        socket.emit('newball', data)
     }
 
     socket.on('disconnect', () => {
         console.log('leaving: '+socket.id)
-        var pos = user.indexOf(socket.id)
-        user.splice(pos,pos+1)
-        console.log(user)
     })
 
 })
