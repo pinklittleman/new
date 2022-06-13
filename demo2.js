@@ -30,7 +30,7 @@ let ball = Bodies.circle(500,500,20,{
     render: {
         strokeStyle: '#ffffff',
         sprite: {
-            texture: 'circlebeans.png'
+            texture: 'mason-egg.png'
         }
     }
 })
