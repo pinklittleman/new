@@ -105,7 +105,7 @@ let test2
 
 function myFunction(event){
     console.log(event.key)
-    if(event.key === "r" && ball.isStatic == false){
+    if(event.key === "r"){
         Matter.Body.set(ball,"position",{x:500,y:500})
     }
     if(event.key === " " && ball.isStatic == false){
