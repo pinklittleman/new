@@ -100,7 +100,6 @@ setInterval(() => {
   socket.emit('cords', data)
 }, 1);
 
-Matter.Body.setStatic(ball2,true)
 
 function help(data){
   Matter.Body.set(ball2,"position",{x:data.x,y:data.y})
