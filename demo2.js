@@ -29,10 +29,7 @@ Render.run(render);
 let ball = Bodies.circle(500,500,20,{
     mass: 5,
     render: {
-        strokeStyle: '#ffffff',
-        sprite: {
-            texture: 'mason-egg.png'
-        }
+        strokeStyle: '#ECFF42',
     }
 })
 
