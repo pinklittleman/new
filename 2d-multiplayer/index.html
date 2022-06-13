@@ -77,9 +77,8 @@ Composite.add(engine.world,[
 ])
   
 setInterval(() => {
-    if(ball.position.y < 100){
-        console.log('above 300y')
-        // alert('congrats you jumped')
+    if(ball.position.y < 300){
+        alert('congrats you jumped')
     }
   console.log("x: "+ball.position.x)
   console.log("y: "+ball.position.y)
