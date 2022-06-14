@@ -43,7 +43,7 @@ io.on('connection', (socket) => {
     socket.on('cords', ball)
     
     function ball(data){
-        io.sockets.in("room-"+roomnum).broadcast.emit('newball', data)
+        io.sockets.in("room-"+roomnum).emit('newball', data)
     }
 
     socket.on('disconnect', () => {
