@@ -35,7 +35,7 @@ io.on('connection', (socket) => {
     }
     socket.join("room-"+roomnum);
     // log the user that has connected and their socketID
-    io.sockets.in("room-"+roomno).emit('connectToRoom', "You are in room no. "+roomno);
+    io.sockets.in("room-"+roomnum).emit('connectToRoom', "You are in room no. "+roomnum);
     console.log('a user connected: ' + socket.id);
     users.push(socket.id)
     console.log(users)
