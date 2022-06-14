@@ -9,6 +9,7 @@ var credentials = { key: privateKey, cert: certificate};
 var https = require('https')
 
 let users = []
+let userlength = users.length
 var roomnum = 1;
 
 //pass in your credentials to create an https server
@@ -25,6 +26,12 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', (socket) => {
+    if(userlength % 2 === 0){
+        roomnum++
+        console.log(roomnum)
+    }
+    console.log(roomnum)
+    socket.join("room-"+roomnum);
     // log the user that has connected and their socketID
     console.log('a user connected: ' + socket.id);
     users.push(socket.id)
