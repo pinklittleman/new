@@ -8,7 +8,8 @@ var certificate = fs.readFileSync('/home/pink/ssl-cert/fullchain.pem', 'utf8');
 var credentials = { key: privateKey, cert: certificate};
 var https = require('https')
 
-let user = []
+let users = []
+var roomnum = 1;
 
 //pass in your credentials to create an https server
 var httpsServer = https.createServer(credentials, app);
@@ -26,6 +27,8 @@ app.get('/', function(req, res){
 io.on('connection', (socket) => {
     // log the user that has connected and their socketID
     console.log('a user connected: ' + socket.id);
+    users.push(socket.id)
+    console.log(users)
 
     socket.on('cords', ball)
     
@@ -35,6 +38,8 @@ io.on('connection', (socket) => {
 
     socket.on('disconnect', () => {
         console.log('leaving: '+socket.id)
+        var pos = users.indexOf(socket.id)
+        users.splice(pos,pos+1)
     })
 
 })
