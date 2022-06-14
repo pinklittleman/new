@@ -33,6 +33,13 @@ div{
 <input type="text" id="roomId" name="roomId" placeholder="Enter a room ID" />
 <script>
 
+const form = document.getElementById('roomId');
+const name = form.elements['name'];
+let fullId = name.value;
+setInterval(() => {
+    console.log(fullId)
+}, 1000);
+
 const socket = io.connect('wss://pinky.uk.to:5000');
 
 var Engine = Matter.Engine,
