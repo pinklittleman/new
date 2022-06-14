@@ -107,6 +107,11 @@ setInterval(() => {
 
 socket.on('newball', help)
 
+socket.on('connectToRoom',function(data){
+        document.body.innerHTML = '';
+        document.write(data);
+});
+
 setInterval(() => {
   let data = {
     x: ball.position.x,
