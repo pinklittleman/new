@@ -25,15 +25,15 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', (socket) => {
-    if(users.length % 2 === 0 && users.length !== 0){
-        console.log('even')
-        roomnum = roomnum + 1
-        console.log(roomnum)
-    }
-    else{
-        console.log('no new room')
-    }
     setInterval(() => {
+        if(users.length % 2 === 0 && users.length !== 0){
+            console.log('even')
+            roomnum = roomnum + 1
+            console.log(roomnum)
+        }
+        else{
+            console.log('no new room')
+        }
         
     }, 1000);
     socket.join("room-"+roomnum);
