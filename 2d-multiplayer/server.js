@@ -53,6 +53,7 @@ io.on('connection', (socket) => {
         users.splice(pos,pos+1)
         console.log(users)
         roomnum = roomnum - 1
+        console.log(roomnum)
     })
 
 })
