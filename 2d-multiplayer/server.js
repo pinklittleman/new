@@ -33,6 +33,9 @@ io.on('connection', (socket) => {
     else{
         console.log('no new room')
     }
+    setInterval(() => {
+        
+    }, 1000);
     socket.join("room-"+roomnum);
     // log the user that has connected and their socketID
     io.sockets.in("room-"+roomnum).emit('connectToRoom', "You are in room no. "+roomnum);
