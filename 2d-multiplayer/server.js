@@ -27,7 +27,7 @@ app.get('/', function(req, res){
 
 io.on('connection', (socket) => {
     if(userlength % 2 === 0){
-        roomnum++
+        roomnum = roomnum + 1
         console.log(roomnum)
     }
     console.log(roomnum)
@@ -48,6 +48,7 @@ io.on('connection', (socket) => {
         var pos = users.indexOf(socket.id)
         users.splice(pos,pos+1)
         console.log(users)
+        roomnum = roomnum - 1
     })
 
 })
