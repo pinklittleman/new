@@ -51,7 +51,6 @@ io.on('connection', (socket) => {
         var pos = users.indexOf(socket.id)
         users.splice(pos,pos+1)
         console.log(users)
-        roomnum = roomnum - 1
         console.log(roomnum)
     })
 
