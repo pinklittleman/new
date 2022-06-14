@@ -40,6 +40,7 @@ io.on('connection', (socket) => {
         console.log('leaving: '+socket.id)
         var pos = users.indexOf(socket.id)
         users.splice(pos,pos+1)
+        console.log(users)
     })
 
 })
