@@ -25,17 +25,14 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', (socket) => {
-    setInterval(() => {
-        if(users.length % 2 === 0 && users.length !== 0){
-            console.log('even')
-            roomnum = roomnum + 1
-            console.log(roomnum)
-        }
-        else{
-            console.log('no new room')
-        }
-        
-    }, 1000);
+    if(users.length % 2 === 0 && users.length !== 0){
+        console.log('even')
+        roomnum = roomnum + 1
+        console.log(roomnum)
+    }
+    else{
+        console.log('no new room')
+    }
     socket.join("room-"+roomnum);
     // log the user that has connected and their socketID
     io.sockets.in("room-"+roomnum).emit('connectToRoom', "You are in room no. "+roomnum);
