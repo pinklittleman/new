@@ -9,7 +9,6 @@ var credentials = { key: privateKey, cert: certificate};
 var https = require('https')
 
 let users = []
-let userlength = users.length
 var roomnum = 1;
 
 //pass in your credentials to create an https server
@@ -26,8 +25,8 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', (socket) => {
-    console.log(userlength)
-    if(userlength % 2 === 0){
+    console.log(users.length)
+    if(users.length % 2 === 0){
         console.log('even')
         roomnum = roomnum + 1
         console.log(roomnum)
