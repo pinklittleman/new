@@ -27,8 +27,12 @@ app.get('/', function(req, res){
 
 io.on('connection', (socket) => {
     if(userlength % 2 === 0){
+        console.log('even')
         roomnum = roomnum + 1
         console.log(roomnum)
+    }
+    else{
+        console.log('odd')
     }
     console.log(roomnum)
     socket.join("room-"+roomnum);
