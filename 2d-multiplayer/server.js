@@ -26,6 +26,7 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', (socket) => {
+    console.log(userlength)
     if(userlength % 2 === 0){
         console.log('even')
         roomnum = roomnum + 1
