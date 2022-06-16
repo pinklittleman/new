@@ -21,8 +21,11 @@ var io = require('socket.io')(httpsServer);
 app.get('/', function(req, res){
     //send the index.html file for all requests
     res.sendFile(__dirname + '/index.html');
-    
 });
+
+setInterval(() => {
+    socket.emit('list', users)
+}, 1000);
 
 io.on('connection', (socket) => {
     if(users.length % 2 === 0 && users.length !== 0){

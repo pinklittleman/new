@@ -33,6 +33,8 @@ div{
 <input type="text" id="roomId" name="roomId" placeholder="Enter a room ID" />
 <script>
 
+let arry = []
+
 const socket = io.connect('wss://pinky.uk.to:5000');
 
 var Engine = Matter.Engine,
@@ -89,10 +91,17 @@ Composite.add(engine.world,[
 ])
 
 socket.on('connectToRoom', yes)
+socket.on('list', yes2)
 
+function yes2(data){
+    arry = data
+    console.log(arry)
+}
+ 
 function yes(data){
     document.getElementById('test').innerHTML = data
 }
+
 
 </script>
 </body>
