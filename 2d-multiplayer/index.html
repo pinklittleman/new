@@ -88,7 +88,11 @@ Composite.add(engine.world,[
     Bodies.rectangle(800, 100, 50, 3500,{isStatic: true}),
 ])
 
+socket.on('connectToRoom', yes)
 
+function yes(data){
+    document.getElementById('test').innerHTML = data
+}
 
 </script>
 </body>
