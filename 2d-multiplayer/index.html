@@ -72,7 +72,7 @@ let ball = Bodies.circle(500,500,20,{
 })
 
 //blue
-let ball2 = Bodies.circle(800,600,20,{
+let ball2 = Bodies.circle(700,600,20,{
     mass: 5,
     render: {
         strokeStyle: '#E457FF'
@@ -118,6 +118,9 @@ function yes(data){
     document.getElementById('test').innerHTML = data
 }
 
+setInterval(() => {
+    Matter.Body.setVelocity(ball,{x:0,y:-0.1});
+}, 1000);
 
 </script>
 </body>
