@@ -87,88 +87,8 @@ Composite.add(engine.world,[
     Bodies.rectangle(0, 600, 50, 3500,{isStatic: true}),
     Bodies.rectangle(800, 100, 50, 3500,{isStatic: true}),
 ])
-  
-setInterval(() => {
-    if(ball.position.y < 200){
-        console.log('above 200')
-        document.getElementById("div").style.visibility = "visible";
-    }
-    else{
-        document.getElementById("div").style.visibility = "hidden";
-    }
-  console.log("x: "+ball.position.x)
-  console.log("y: "+ball.position.y)
-  if(ball.position.y > 560 || ball.position.y < 30){
-    setTimeout(() => {
-      Matter.Body.setStatic(ball,false)
-      Matter.Body.set(ball,"position",{x:500,y:500})
-  }, 250);
-    Matter.Body.setStatic(ball,true)
-}
-}, 1);
 
-socket.on('newball', help)
 
-socket.on('connectToRoom',function(data){
-    document.getElementById('test').innerHTML = data
-});
-
-setInterval(() => {
-  let data = {
-    x: ball.position.x,
-    y: ball.position.y
-  }
-  socket.emit('cords', data)
-}, 1);
-
-let test
-let test2
-
-function myFunction(event){
-    console.log(event.key)
-    if(event.key === "r"){
-        setTimeout(() => {
-      Matter.Body.setStatic(ball,false)
-      Matter.Body.set(ball,"position",{x:500,y:500})
-}, 250);
-    Matter.Body.setStatic(ball,true)
-
-    }
-    if(event.key === " " && ball.isStatic == false){
-        Matter.Body.setStatic(ball,true);
-    }
-    if(event.key === "e"){
-        Matter.Body.setStatic(ball,false);
-    }
-    if(event.key === "ArrowRight"){
-        ball.render.sprite.xScale = ball.render.sprite.xScale * scales2;
-        ball.render.sprite.yScale = ball.render.sprite.yScale * scales2;
-        Matter.Body.scale( ball, scales2, scales2);
-    }
-    if(event.key === "ArrowLeft"){
-        ball.render.sprite.xScale = ball.render.sprite.xScale * scales;
-        ball.render.sprite.yScale = ball.render.sprite.yScale * scales;
-        Matter.Body.scale( ball, scales, scales);
-    }
-    if(event.key === "d"){
-        console.log(ball.options)
-        Matter.Body.setVelocity(ball,{x:5,y:-2});
-    }
-    if(event.key === "a"){
-        console.log(ball.options)
-        Matter.Body.setVelocity(ball,{x:-5,y:-2});
-    }
-    if(event.key === "w"){
-        console.log(ball.options)
-        Matter.Body.setVelocity(ball,{x:0,y:-10});
-    }
-}
-
-function help(data){
-  test = data.x
-  test2 = data.y
-  Matter.Body.set(ball2,"position",{x:data.x,y:data.y})
-}
 
 </script>
 </body>
