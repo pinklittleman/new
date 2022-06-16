@@ -90,6 +90,17 @@ Composite.add(engine.world,[
     Bodies.rectangle(800, 100, 50, 3500,{isStatic: true}),
 ])
 
+function myFunction(event){
+    if(event.key === " " && ball.isStatic == false){
+        Matter.Body.setStatic(ball,true);
+    }
+    if(event.key === "w"){
+        console.log(ball.options)
+        Matter.Body.setVelocity(ball,{x:0,y:-5});
+    }
+}
+
+
 socket.on('connectToRoom', yes)
 socket.on('list', yes2)
 

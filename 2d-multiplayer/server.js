@@ -56,6 +56,6 @@ io.on('connection', (socket) => {
     
     setInterval(() => {
         socket.emit('list', users)
-    }, 1000);
+    }, 2000);
 
 })
