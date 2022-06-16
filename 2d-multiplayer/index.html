@@ -97,14 +97,14 @@ function myFunction(event){
     if(event.key === "w"){
         Matter.Body.applyForce( ball, {x: ball.position.x, y: ball.position.y}, {x: 0, y: -0.1});
     }
-    if(event.key === "d"){
-        // Composite.remove(engine.world, ball2);
-        Matter.Body.applyForce( ball, {x: ball.position.x, y: ball.position.y}, {x: 0.1, y: 0});
-    }
-    if(event.key === "a"){
-        // Composite.remove(engine.world, ball2);
-        Matter.Body.applyForce( ball, {x: ball.position.x, y: ball.position.y}, {x: -0.1, y: 0});
-    }
+    // if(event.key === "d"){
+    //     // Composite.remove(engine.world, ball2);
+    //     Matter.Body.applyForce( ball, {x: ball.position.x, y: ball.position.y}, {x: 0.1, y: 0});
+    // }
+    // if(event.key === "a"){
+    //     // Composite.remove(engine.world, ball2);
+    //     Matter.Body.applyForce( ball, {x: ball.position.x, y: ball.position.y}, {x: -0.1, y: 0});
+    // }
 }
 
 function gameover(){
