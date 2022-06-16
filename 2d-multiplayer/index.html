@@ -131,10 +131,7 @@ setInterval(() => {
     if (Matter.Collision.collides(ball, ball2) != null) {
     // collision happened
     console.log('touched')
-    }
-    if(ball.position.x === ball2.position.x ){
-        console.log('touching')
-        gameover()
+    gameover()
     }
 }, 1);
 
