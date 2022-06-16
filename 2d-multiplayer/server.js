@@ -23,10 +23,6 @@ app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
 
-setInterval(() => {
-    socket.emit('list', users)
-}, 1000);
-
 io.on('connection', (socket) => {
     if(users.length % 2 === 0 && users.length !== 0){
         console.log('even')
@@ -56,5 +52,10 @@ io.on('connection', (socket) => {
         console.log(users)
         console.log(roomnum)
     })
+
+    
+    setInterval(() => {
+        socket.emit('list', users)
+    }, 1000);
 
 })
