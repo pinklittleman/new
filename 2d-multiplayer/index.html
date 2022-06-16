@@ -72,7 +72,7 @@ let ball = Bodies.circle(500,500,20,{
 })
 
 //blue
-let ball2 = Bodies.circle(500,500,20,{
+let ball2 = Bodies.circle(800,600,20,{
     mass: 5,
     render: {
         strokeStyle: '#E457FF'
@@ -102,6 +102,9 @@ function myFunction(event){
     }
 }
 
+function gameover(){
+    alert('game over')
+}
 
 socket.on('connectToRoom', yes)
 socket.on('list', yes2)
