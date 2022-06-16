@@ -99,7 +99,7 @@ function myFunction(event){
     }
     if(event.key === "d"){
         // Composite.remove(engine.world, ball2);
-        Matter.Body.applyForce(ball,{x:-2,y:0})
+        Matter.Body.applyForce( ball, {x: ball.position.x, y: ball.position.y}, {x: 1, y: 0});
     }
 }
 
