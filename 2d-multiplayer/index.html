@@ -123,6 +123,8 @@ setInterval(() => {
         Matter.Body.setVelocity(ball2,{x:-0.5,y:0});
         
     }, 1000);
+    console.log('ball: '+ball.position.x)
+    console.log('ball2: '+ball2.position.x)
     if(ball.position.x === ball2.position.x ){
         console.log('touching')
         gameover()
