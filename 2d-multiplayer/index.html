@@ -98,7 +98,8 @@ function myFunction(event){
         Matter.Body.setVelocity(ball,{x:0,y:-5});
     }
     if(event.key === "d"){
-        Composite.remove(engine.world, ball2);
+        // Composite.remove(engine.world, ball2);
+        Matter.Body.applyForce(ball,{x:-2,y:0})
     }
 }
 
