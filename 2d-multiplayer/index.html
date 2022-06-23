@@ -87,7 +87,7 @@ Composite.add(engine.world,[
     Bodies.rectangle(0, 600, 3500, 50,{isStatic: true}),
     Bodies.rectangle(100, 0, 3500, 50,{isStatic: true}),
     Bodies.rectangle(0, 600, 50, 3500,{isStatic: true}),
-    Bodies.rectangle(800, 100, 50, 3500,{isStatic: true}),
+    Bodies.rectangle(800, 100,50,3500,{isStatic: true}),
 ])
 
 function myFunction(event){
@@ -95,7 +95,7 @@ function myFunction(event){
         Matter.Body.setStatic(ball,true);
     }
     if(event.key === "w"){
-        Matter.Body.applyForce( ball, {x: ball.position.x, y: ball.position.y}, {x: 0, y: -0.1});
+        Matter.Body.applyForce(ball, {x: ball.position.x, y: ball.position.y}, {x: 0, y: -0.1});
     }
     // if(event.key === "d"){
     //     // Composite.remove(engine.world, ball2);
@@ -106,6 +106,17 @@ function myFunction(event){
     //     Matter.Body.applyForce( ball, {x: ball.position.x, y: ball.position.y}, {x: -0.1, y: 0});
     // }
 }
+
+// create a mouse constraint
+let mouseConstraint = MouseConstraint.create(engine, {
+    mouse: mouse,
+    constraint: {
+        stiffness: 0.2,
+        render: {
+            visible: false
+        }
+    }
+});
 
 function gameover(){
     alert('game over')
