@@ -70,6 +70,10 @@ let ball = Bodies.circle(500,500,20,{
         strokeStyle: '#ffffff'
     }
 })
+// add new cloth to the world
+let cloth = Composites.softBody(500, 500, 20, 10, 0, 0, true);
+
+
 
 //blue
 let ball2 = Bodies.circle(750,550,20,{
@@ -83,6 +87,7 @@ let ball2 = Bodies.circle(750,550,20,{
 let mouse = Mouse.create(render.canvas);
 Composite.add(engine.world,[
     ball,
+    cloth,
     ball2,
     Bodies.rectangle(0, 600, 3500, 50,{isStatic: true}),
     Bodies.rectangle(100, 0, 3500, 50,{isStatic: true}),
@@ -107,18 +112,9 @@ function myFunction(event){
     // }
 }
 
-// kill everytime the ball hits the ground
-Matter.Events.on(engine, 'collisionStart', function(event){
-    let pairs = event.pairs;
-    for(let i = 0; i < pairs.length; i++){
-        let pair = pairs[i];
-        if(pair.bodyA.label == 'ball' && pair.bodyB.label == 'ground'){
-            Matter.World.remove(engine.world, ball);
-            Matter.World.remove(engine.world, ball2);
 
-        }
-    }
-});   
+
+
 function gameover(){
     alert('game over')
 }
