@@ -107,17 +107,18 @@ function myFunction(event){
     // }
 }
 
-// create a mouse constraint
-let mouseConstraint = MouseConstraint.create(engine, {
-    mouse: mouse,
-    constraint: {
-        stiffness: 0.2,
-        render: {
-            visible: false
+// kill everytime the ball hits the ground
+Matter.Events.on(engine, 'collisionStart', function(event){
+    let pairs = event.pairs;
+    for(let i = 0; i < pairs.length; i++){
+        let pair = pairs[i];
+        if(pair.bodyA.label == 'ball' && pair.bodyB.label == 'ground'){
+            Matter.World.remove(engine.world, ball);
+            Matter.World.remove(engine.world, ball2);
+
         }
     }
-});
-
+});   
 function gameover(){
     alert('game over')
 }
