@@ -16,3 +16,5 @@ client.on('createMessage', async message => {
         }
     }
 })
+
+client.login('');
