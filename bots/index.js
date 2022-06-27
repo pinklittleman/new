@@ -7,11 +7,12 @@ client.on('ready', () => {
 });
 
 client.on('createMessage', async message => {
-    if (message.author.bot) return;
-    if (message.content.startsWith(prefix)) {
-        if (command === 'ping') {
-            message.channel.send('Pong!');
-        }
+    function isCommand(command){
+        return !!message.content.toLowerCase().startsWith(prefix + command);
+    }
+    if(isCommand('ping')){
+        const channel = message.member.voice.channel;
+        message.channel.send('Pong!');
     }
 })
 
