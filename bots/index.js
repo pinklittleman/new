@@ -9,8 +9,6 @@ client.on('ready', () => {
 client.on('createMessage', async message => {
     if (message.author.bot) return;
     if (message.content.startsWith(prefix)) {
-        const args = message.content.slice(prefix.length).split(/ +/);
-        const command = args.shift().toLowerCase();
         if (command === 'ping') {
             message.channel.send('Pong!');
         }
