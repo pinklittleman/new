@@ -7,6 +7,7 @@ client.on('ready', () => {
 });
 
 client.on('createMessage', async message => {
+    console.log(message.content);
     function isCommand(command){
         return !!message.content.toLowerCase().startsWith(prefix + command);
     }
