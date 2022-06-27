@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const prefix = '!';
-const client = new Discord.Client({ intents : ['GUILDS', 'GUILD_MEMBERS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS'] });
+const client = new Discord.Client({ intents : 32767 });
 
 client.on('ready', () => {
     console.log('I am ready!');
