@@ -7,6 +7,7 @@ const Client = new discord.Client({
 const /*you can have any prefix you want here*/ prefix = "?"
 const player = createAudioPlayer();
 const resource = createAudioResource('/var/www/new/bots/bingus.mp3');
+const loop = false;
 
 Client.on("ready", () => {
 	console.log('ready to do heroin')
@@ -14,6 +15,9 @@ Client.on("ready", () => {
 })
 
 Client.on('messageCreate', message => {
+    if(message.content === `${prefix}bingus loop`) {
+        loop === true
+    }
     if(message.content === `${prefix}bingus join`) {
         const connection = joinVoiceChannel({
             channelId: message.member.voice.channel.id,
@@ -27,7 +31,11 @@ Client.on('messageCreate', message => {
         player.on(AudioPlayerStatus.Playing, () => {
             console.log('The audio player has started playing!');
         });
-        player.on(AudioPlayerStatus.Finished, () => {
+        player.on(AudioPlayerStatus.Idle, () => {
+            if(loop === true){
+                player.play(resource);
+                connection.subscribe(player)
+            }
             console.log('The audio player has finished playing!');
         });
     }
