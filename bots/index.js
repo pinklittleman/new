@@ -21,14 +21,12 @@ Client.on('messageCreate', message => {
             adapterCreator: message.guild.voiceAdapterCreator
         })
 
-    }
-})
-
-Client.on('messageCreate', message => {
-    if(message.content === `${prefix}bingus play`) {
         player.play();
-        // connection.subscribe(player)
-        message.channel.send('playing bingus')
+        connection.subscribe(player)
+
+        player.on(voiceDiscord.AudioPlayerStatus.Idle,() => {
+            connection.destroy();
+        })
     }
 })
 
