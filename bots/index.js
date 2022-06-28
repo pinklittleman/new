@@ -21,7 +21,7 @@ Client.on('messageCreate', message => {
             adapterCreator: message.guild.voiceAdapterCreator
         })
 
-        player.play();
+        player.play(resource);
         connection.subscribe(player)
 
         player.on(voiceDiscord.AudioPlayerStatus.Idle,() => {
