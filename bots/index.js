@@ -35,7 +35,6 @@ Client.on('messageCreate', message => {
 
         player.on(AudioPlayerStatus.Playing, () => {
             console.log('The audio player has started playing!');
-            console.log('The audio player is currently playing: ' + player.currentTrack.title);
             console,log('loop is: ' + loop)
         });
         player.on(AudioPlayerStatus.Idle, () => {
