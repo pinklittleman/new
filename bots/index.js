@@ -15,7 +15,7 @@ Client.on("ready", () => {
 
 Client.on('messageCreate', message => {
     if(message.content === `${prefix}bingus join`) {
-        joinVoiceChannel({
+        const connection = joinVoiceChannel({
             channelId: message.member.voice.channel.id,
             guildId: message.guild.id,
             adapterCreator: message.guild.voiceAdapterCreator
@@ -26,7 +26,8 @@ Client.on('messageCreate', message => {
 
 Client.on('messageCreate', message => {
     if(message.content === `${prefix}bingus play`) {
-        player.play(resource);
+        player.play();
+        connection.subscribe(player)
         message.channel.send('playing bingus')
     }
 })
