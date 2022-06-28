@@ -7,7 +7,7 @@ const Client = new discord.Client({
 const /*you can have any prefix you want here*/ prefix = "?"
 const player = createAudioPlayer();
 const resource = createAudioResource('/var/www/new/bots/bingus.mp3');
-
+let loop
 
 Client.on("ready", () => {
 	console.log('ready to do heroin')
