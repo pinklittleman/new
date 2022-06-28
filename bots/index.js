@@ -30,10 +30,6 @@ Client.on('messageCreate', message => {
             adapterCreator: message.guild.voiceAdapterCreator
         })
 
-        setInterval(() => {
-            console.log(loop)
-        }, 1000);
-
         player.play(resource);
         connection.subscribe(player)
 
