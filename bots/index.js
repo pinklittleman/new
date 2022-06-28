@@ -18,10 +18,6 @@ Client.on('messageCreate', message => {
             guildId: message.guild.id,
             adapterCreator: message.guild.voiceAdapterCreator
         })
-
-        connection.subscribe(player);
-            player.play(resource)
-            console.log("done");
     }
 })
 
@@ -30,7 +26,7 @@ Client.on('messageCreate', message => {
 	if(message.content === (`ping`) || message.content === ('Ping')){
     	message.reply({content:'pong hehehe'});
         message.react('👍')
-        // message.author.send('I AM IN YOUR WALLS');
+        message.author.send('I AM IN YOUR WALLS');
     }
 })
 
