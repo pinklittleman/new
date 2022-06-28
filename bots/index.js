@@ -7,7 +7,7 @@ const Client = new discord.Client({
 const /*you can have any prefix you want here*/ prefix = "?"
 const player = createAudioPlayer();
 const resource = createAudioResource('/var/www/new/bots/bingus.mp3');
-let loop
+let loop = false;
 
 Client.on("ready", () => {
 	console.log('ready to do heroin')
@@ -16,11 +16,11 @@ Client.on("ready", () => {
 
 Client.on('messageCreate', message => {
     if(message.content === `${prefix}bingus loop`) {
-        loop === true
+        loop = true
         message.channel.send('bingus loop is now on')
     }
     if(message.content === `${prefix}bingus loop off`) {
-        loop === false
+        loop = false
         message.channel.send('bingus loop is now off')
     }
     if(message.content === `${prefix}bingus join`) {
@@ -29,6 +29,10 @@ Client.on('messageCreate', message => {
             guildId: message.guild.id,
             adapterCreator: message.guild.voiceAdapterCreator
         })
+
+        setInterval(() => {
+            console.log(loop)
+        }, 1000);
 
         player.play(resource);
         connection.subscribe(player)
