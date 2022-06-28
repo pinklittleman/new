@@ -27,7 +27,7 @@ Client.on('messageCreate', message => {
 Client.on('messageCreate', message => {
     if(message.content === `${prefix}bingus play`) {
         player.play();
-        connection.subscribe(player)
+        // connection.subscribe(player)
         message.channel.send('playing bingus')
     }
 })
