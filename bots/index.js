@@ -1,5 +1,5 @@
 const discord = require('discord.js')
-const { createAudioResource, createAudioPlayer, joinVoiceChannel} = require('@discordjs/voice');
+const { createAudioResource, createAudioPlayer, joinVoiceChannel, AudioPlayerStatus} = require('@discordjs/voice');
 require('dotenv').config();
 const Client = new discord.Client({
   intents: [ discord.Intents.FLAGS.GUILDS, discord.Intents.FLAGS.GUILD_MESSAGES, discord.Intents.FLAGS.GUILD_VOICE_STATES ]
@@ -23,6 +23,11 @@ Client.on('messageCreate', message => {
 
         player.play(resource);
         connection.subscribe(player)
+
+        player.on('end', () => {
+            player.play(resource)
+            connection.subscribe(player)
+        })
     }
 })
 
