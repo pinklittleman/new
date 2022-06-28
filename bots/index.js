@@ -1,20 +1,42 @@
-const Discord = require('discord.js');
-const prefix = '!';
-const client = new Discord.Client({ intents : 32767 });
+const discord = require('discord.js')
+const Client = new discord.Client({
+  intents: [ discord.Intents.FLAGS.GUILDS, discord.Intents.FLAGS.GUILD_MESSAGES, discord.Intents.FLAGS.GUILD_VOICE_STATES ]
+})
+const /*you can have any prefix you want here*/ prefix = "?"
 
-client.on('ready', () => {
-    console.log('I am ready!');
-});
+Client.on("ready", () => {
+	console.log('ready to do heroin')
+    Client.channels.cache.get('983823952075948062').send('online and ready to smoke black tar heroin')
+})
 
-client.on('createMessage', async message => {
-    console.log(message.content);
-    function isCommand(command){
-        return !!message.content.toLowerCase().startsWith(prefix + command);
-    }
-    if(isCommand('ping')){
-        const channel = message.member.voice.channel;
-        message.channel.send('Pong!');
+let resource = createAudioResource(createReadStream(join(__dirname, 'hell.mp3')));
+const player = createAudioPlayer();
+
+const { joinVoiceChannel } = require('@discordjs/voice');
+Client.on('messageCreate', message => {
+    if(message.content === `${prefix}bingus join`) {
+        joinVoiceChannel({
+            channelId: message.member.voice.channel.id,
+            guildId: message.guild.id,
+            adapterCreator: message.guild.voiceAdapterCreator
+        })
+
+        connection.subscribe(player);
+            player.play(resource)
+            console.log("done");
     }
 })
 
-client.login('');
+//SUPER BASIC COMMAND: BASICALLY SHOWS THAT YOUR BOT CAN SPEAK
+Client.on('messageCreate', message => {
+	if(message.content === (`ping`) || message.content === ('Ping')){
+    	message.reply({content:'pong hehehe'});
+        message.react('👍')
+        // message.author.send('I AM IN YOUR WALLS');
+    }
+})
+
+
+//EXTREMELY IMPORTANT: GET YOUR TOKEN FROM THE DISCORD DEVELOPER PORTAL
+//NEVER EVER EVER EVER TELL/GIVE ANYONE YOUR TOKEN!
+Client.login('');
