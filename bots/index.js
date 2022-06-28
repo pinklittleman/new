@@ -39,4 +39,4 @@ Client.on('messageCreate', message => {
 
 //EXTREMELY IMPORTANT: GET YOUR TOKEN FROM THE DISCORD DEVELOPER PORTAL
 //NEVER EVER EVER EVER TELL/GIVE ANYONE YOUR TOKEN!
-Client.login('');
+client.login(process.env.DISCORD_TOKEN);
