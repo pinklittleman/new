@@ -9,9 +9,6 @@ Client.on("ready", () => {
     Client.channels.cache.get('983823952075948062').send('online and ready to smoke black tar heroin')
 })
 
-let resource = createAudioResource(createReadStream(join(__dirname, 'hell.mp3')));
-const player = createAudioPlayer();
-
 const { joinVoiceChannel } = require('@discordjs/voice');
 Client.on('messageCreate', message => {
     if(message.content === `${prefix}bingus join`) {
