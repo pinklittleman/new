@@ -23,10 +23,6 @@ Client.on('messageCreate', message => {
 
         player.play(resource);
         connection.subscribe(player)
-
-        player.on(voiceDiscord.AudioPlayerStatus.Idle,() => {
-            connection.destroy();
-        })
     }
 })
 
