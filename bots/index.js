@@ -1,5 +1,5 @@
 const discord = require('discord.js')
-const { createAudioResource, createAudioPlayer} = require('@discordjs/voice');
+const { createAudioResource, createAudioPlayer, joinVoiceChannel} = require('@discordjs/voice');
 require('dotenv').config();
 const Client = new discord.Client({
   intents: [ discord.Intents.FLAGS.GUILDS, discord.Intents.FLAGS.GUILD_MESSAGES, discord.Intents.FLAGS.GUILD_VOICE_STATES ]
@@ -13,7 +13,6 @@ Client.on("ready", () => {
     Client.channels.cache.get('983823952075948062').send('online and ready to smoke black tar heroin')
 })
 
-const { joinVoiceChannel } = require('@discordjs/voice');
 Client.on('messageCreate', message => {
     if(message.content === `${prefix}bingus join`) {
         joinVoiceChannel({
@@ -21,8 +20,13 @@ Client.on('messageCreate', message => {
             guildId: message.guild.id,
             adapterCreator: message.guild.voiceAdapterCreator
         })
-        player.play(resource);
 
+    }
+})
+
+Client.on('messageCreate', message => {
+    if(message.content === `${prefix}bingus play`) {
+        player.play(resource);
     }
 })
 
