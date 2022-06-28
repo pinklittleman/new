@@ -17,6 +17,11 @@ Client.on("ready", () => {
 Client.on('messageCreate', message => {
     if(message.content === `${prefix}bingus loop`) {
         loop === true
+        message.channel.send('bingus loop is now on')
+    }
+    if(message.content === `${prefix}bingus loop off`) {
+        loop === false
+        message.channel.send('bingus loop is now off')
     }
     if(message.content === `${prefix}bingus join`) {
         const connection = joinVoiceChannel({
@@ -30,6 +35,8 @@ Client.on('messageCreate', message => {
 
         player.on(AudioPlayerStatus.Playing, () => {
             console.log('The audio player has started playing!');
+            console.log('The audio player is currently playing: ' + player.currentTrack.title);
+            console,log('loop is: ' + loop)
         });
         player.on(AudioPlayerStatus.Idle, () => {
             if(loop === true){
