@@ -24,10 +24,12 @@ Client.on('messageCreate', message => {
         player.play(resource);
         connection.subscribe(player)
 
-        player.on('end', () => {
-            player.play(resource)
-            connection.subscribe(player)
-        })
+        player.on(AudioPlayerStatus.Playing, () => {
+            console.log('The audio player has started playing!');
+        });
+        player.on(AudioPlayerStatus.Finished, () => {
+            console.log('The audio player has finished playing!');
+        });
     }
 })
 
