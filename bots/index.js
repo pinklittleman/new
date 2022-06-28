@@ -27,6 +27,7 @@ Client.on('messageCreate', message => {
 Client.on('messageCreate', message => {
     if(message.content === `${prefix}bingus play`) {
         player.play(resource);
+        message.send('playing bingus')
     }
 })
 
