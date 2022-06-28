@@ -17,7 +17,10 @@ Client.on('messageCreate', message => {
             channelId: message.member.voice.channel.id,
             guildId: message.guild.id,
             adapterCreator: message.guild.voiceAdapterCreator
+        }).then(connection => {
+            connection.play('./bingus.mp3')
         })
+
     }
 })
 
