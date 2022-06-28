@@ -1,12 +1,11 @@
 const discord = require('discord.js')
-const { createAudioPlayer } = require('@discordjs/voice');
+const { createAudioResource } = require('@discordjs/voice');
 require('dotenv').config();
 const Client = new discord.Client({
   intents: [ discord.Intents.FLAGS.GUILDS, discord.Intents.FLAGS.GUILD_MESSAGES, discord.Intents.FLAGS.GUILD_VOICE_STATES ]
 })
 const /*you can have any prefix you want here*/ prefix = "?"
 
-const player = createAudioPlayer();
 const resource = createAudioResource('./bingus.mp3');
 
 Client.on("ready", () => {
