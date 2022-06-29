@@ -40,7 +40,7 @@ Client.on('messageCreate', message => {
         });
         setTimeout(() => {
             sub.unsubscribe()
-            player.stop()
+            player.destroy()
 
         }, 3000);
         player.on(AudioPlayerStatus.Idle, () => {
