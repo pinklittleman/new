@@ -4,7 +4,7 @@ require('dotenv').config();
 const Client = new discord.Client({
   intents: [ discord.Intents.FLAGS.GUILDS, discord.Intents.FLAGS.GUILD_MESSAGES, discord.Intents.FLAGS.GUILD_VOICE_STATES ]
 })
-const /*you can have any prefix you want here*/ prefix = "?"
+const prefix = "?"
 const player = createAudioPlayer();
 const resource = createAudioResource('/var/www/new/bots/bingus.mp3');
 const resource2 = createAudioResource('/var/www/new/bots/bingus2.mp3');
@@ -38,15 +38,19 @@ Client.on('messageCreate', message => {
             console.log('The audio player has started playing!');
             console.log('loop is: ' + loop)
         });
+        setTimeout(() => {
+            connection.unsubscribe(player)
+        }, 1000);
         player.on(AudioPlayerStatus.Idle, () => {
             console.log('The audio player has finished playing!');
-            player.play(resource2);
-            connection.subscribe(player)
+            connection.unsubscribe(player)
+            if(loop === true) {
+                
+            }
         });
     }
 })
 
-//SUPER BASIC COMMAND: BASICALLY SHOWS THAT YOUR BOT CAN SPEAK
 Client.on('messageCreate', message => {
 	if(message.content === (`ping`) || message.content === ('Ping')){
     	message.reply({content:'pong hehehe'});
@@ -55,7 +59,4 @@ Client.on('messageCreate', message => {
     }
 })
 
-
-//EXTREMELY IMPORTANT: GET YOUR TOKEN FROM THE DISCORD DEVELOPER PORTAL
-//NEVER EVER EVER EVER TELL/GIVE ANYONE YOUR TOKEN!
 Client.login(process.env.DISCORD_TOKEN);
