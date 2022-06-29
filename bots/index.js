@@ -7,6 +7,7 @@ const Client = new discord.Client({
 const /*you can have any prefix you want here*/ prefix = "?"
 const player = createAudioPlayer();
 const resource = createAudioResource('/var/www/new/bots/bingus.mp3');
+const resource2 = createAudioResource('/var/www/new/bots/bingus2.mp3');
 let loop = false;
 
 Client.on("ready", () => {
@@ -38,11 +39,9 @@ Client.on('messageCreate', message => {
             console.log('loop is: ' + loop)
         });
         player.on(AudioPlayerStatus.Idle, () => {
-            if(loop === true){
-                player.play(resource);
-                connection.subscribe(player)
-            }
             console.log('The audio player has finished playing!');
+            player.play(resource2);
+            connection.subscribe(player)
         });
     }
 })
