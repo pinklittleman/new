@@ -40,7 +40,9 @@ Client.on('messageCreate', message => {
         });
         setTimeout(() => {
             sub.unsubscribe()
-        }, 1000);
+            player.stop()
+
+        }, 3000);
         player.on(AudioPlayerStatus.Idle, () => {
             console.log('The audio player has finished playing!');
             sub.unsubscribe()
