@@ -1,4 +1,4 @@
-const discord = require('discord.js')
+const {discord, MessageActionRow, MessageButton} = require('discord.js')
 const { createAudioResource, createAudioPlayer, joinVoiceChannel, AudioPlayerStatus} = require('@discordjs/voice');
 require('dotenv').config();
 const Client = new discord.Client({
