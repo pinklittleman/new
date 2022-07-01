@@ -31,15 +31,18 @@ Client.on('messageCreate', message => {
             adapterCreator: message.guild.voiceAdapterCreator
         })
 
-        const row = new MessageActionRow()
-			.addComponents(
-				new MessageButton()
-					.setCustomId('primary')
+        Client.on('interactionCreate',async interaction => {
+            if(interaction.commandName === 'join'){
+                const row = new MessageActionRow()
+                .addComponents(
+                    new MessageButton()
+                    .setCustomId('primary')
 					.setLabel('Primary')
 					.setStyle('PRIMARY'),
-		);
-
-        message.channel.send({compoments: [row]})
+                );
+            await interaction.reply({ content: 'Pong!', components: [row] });
+        }
+    })
 
         player.play(resource);
         const sub = connection.subscribe(player)
