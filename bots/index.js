@@ -12,7 +12,7 @@ let loop = false;
 
 Client.on("ready", () => {
 	console.log('ready to do heroin')
-    Client.channels.cache.get('983823952075948062').send('online and ready to smoke black tar heroin')
+    Client.channels.cache.get('992410575449632841').send('online and ready to smoke black tar heroin')
 })
 
 Client.on('messageCreate', message => {
