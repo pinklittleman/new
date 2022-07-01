@@ -38,14 +38,13 @@ Client.on('messageCreate', message => {
             console.log('The audio player has started playing!');
             console.log('loop is: ' + loop)
         });
-        setTimeout(() => {
-            sub.unsubscribe()
-            player.stop()
-
-        }, 3000);
         player.on(AudioPlayerStatus.Idle, () => {
             console.log('The audio player has finished playing!');
+            sub.unsubscribe()
+            player.stop()
             if(loop === true) {
+                player.play(resource);
+                const sub2 = connection.subscribe(player)
                 
             }
         });
