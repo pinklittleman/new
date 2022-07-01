@@ -40,8 +40,8 @@ Client.on('messageCreate', message => {
         });
         player.on(AudioPlayerStatus.Idle, () => {
             console.log('The audio player has finished playing!');
-            sub.unsubscribe()
             player.stop()
+            sub.unsubscribe()
             if(loop === true) {
                 player.play(resource);
                 const sub2 = connection.subscribe(player)
