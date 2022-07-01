@@ -31,9 +31,17 @@ Client.on('messageCreate', message => {
             adapterCreator: message.guild.voiceAdapterCreator
         })
 
-        message.channel.send('bingus joined')
+        const row = new MessageActionRow()
+			.addComponents(
+				new MessageButton()
+					.setCustomId('primary')
+					.setLabel('Primary')
+					.setStyle('PRIMARY'),
+		);
 
-        player.play(resource2);
+        message.channel.send({compoments: [row]})
+
+        player.play(resource);
         const sub = connection.subscribe(player)
 
         player.on(AudioPlayerStatus.Playing, () => {
@@ -44,11 +52,10 @@ Client.on('messageCreate', message => {
             console.log('The audio player has finished playing!');
             player.stop()
             sub.unsubscribe()
-            if(loop === true) {
-                player.play(resource);
-                const sub2 = connection.subscribe(player)
-                
-            }
+            setTimeout(() => {
+                player.play(resource)
+                sub.subscribe(player)
+            }, 3000);
         });
     }
 })
