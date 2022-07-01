@@ -31,7 +31,9 @@ Client.on('messageCreate', message => {
             adapterCreator: message.guild.voiceAdapterCreator
         })
 
-        player.play(resource);
+        message.channel.send('bingus joined')
+
+        player.play(resource2);
         const sub = connection.subscribe(player)
 
         player.on(AudioPlayerStatus.Playing, () => {
