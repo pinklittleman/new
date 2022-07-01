@@ -29,20 +29,7 @@ Client.on('messageCreate', message => {
             channelId: message.member.voice.channel.id,
             guildId: message.guild.id,
             adapterCreator: message.guild.voiceAdapterCreator
-        })
-
-        Client.on('interactionCreate',async interaction => {
-            if(interaction.commandName === 'join'){
-                const row = new MessageActionRow()
-                .addComponents(
-                    new MessageButton()
-                    .setCustomId('primary')
-					.setLabel('Primary')
-					.setStyle('PRIMARY'),
-                );
-            await interaction.reply({ content: 'Pong!', components: [row] });
-        }
-    })
+        });
 
         player.play(resource);
         const sub = connection.subscribe(player)
@@ -63,10 +50,18 @@ Client.on('messageCreate', message => {
     }
 })
 
+const row = new MessageActionRow()
+			.addComponents(
+				new MessageButton()
+					.setCustomId('primary')
+					.setLabel('Primary')
+					.setStyle('PRIMARY'),
+			);
+
 Client.on('messageCreate', message => {
 	if(message.content === (`ping`) || message.content === ('Ping')){
-    	message.reply({content:'pong hehehe'});
-        message.react('👍')
+    	message.reply({content:'pong hehehe', components: [row]});
+        // message.react('👍')
         message.author.send('I AM IN YOUR WALLS');
     }
 })
