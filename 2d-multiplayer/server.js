@@ -32,6 +32,7 @@ io.on('connection', (socket) => {
 
     function jumpin(){
         console.log('jumped')
+        socket.broadcast.emit('pog')
     }
 
     socket.on('disconnect', () => {

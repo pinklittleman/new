@@ -116,6 +116,11 @@ function gameover(){
 
 socket.on('connectToRoom', yes)
 socket.on('list', yes2)
+socket.on('pog', yes3)
+
+function yes3(){
+    Matter.Body.setVelocity(ball2, {x:0,y:-5});
+}
 
 function yes2(data){
     arry = data
