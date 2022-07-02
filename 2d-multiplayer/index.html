@@ -70,11 +70,6 @@ let ball = Bodies.circle(500,500,20,{
         strokeStyle: '#ffffff'
     }
 })
-// add new cloth to the world
-let cloth = Composites.softBody(500, 500, 20, 10, 0, 0, true);
-
-
-
 //blue
 let ball2 = Bodies.circle(750,550,20,{
     mass: 5,
@@ -87,7 +82,6 @@ let ball2 = Bodies.circle(750,550,20,{
 let mouse = Mouse.create(render.canvas);
 Composite.add(engine.world,[
     ball,
-    cloth,
     ball2,
     Bodies.rectangle(0, 600, 3500, 50,{isStatic: true}),
     Bodies.rectangle(100, 0, 3500, 50,{isStatic: true}),
