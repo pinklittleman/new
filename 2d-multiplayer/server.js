@@ -28,7 +28,6 @@ io.on('connection', (socket) => {
     users.push(socket.id)
     console.log(users)
 
-    socket.on('cords', ball)
 
     socket.on('disconnect', () => {
         console.log('leaving: '+socket.id)
