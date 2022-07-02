@@ -94,7 +94,7 @@ function myFunction(event){
         Matter.Body.setStatic(ball,true);
     }
     if(event.key === "w"){
-        Matter.Body.applyForce(ball, {x: ball.position.x, y: ball.position.y}, {x: 0, y: -0.1});
+        Matter.Body.setVelocity(ball, {x:1,y:0});
     }
     // if(event.key === "d"){
     //     // Composite.remove(engine.world, ball2);
@@ -127,7 +127,7 @@ function yes(data){
 
 setInterval(() => {
     setTimeout(() => {
-        Matter.Body.setVelocity(ball2,{x:-0.5,y:0});
+        Matter.Body.setVelocity(ball2,{x:-0.2,y:0});
         
     }, 1000);
     if (Matter.Collision.collides(ball, ball2) != null) {
