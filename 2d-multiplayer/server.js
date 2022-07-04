@@ -29,6 +29,11 @@ io.on('connection', (socket) => {
     console.log(users)
 
     socket.on('jump', jumpin)
+    socket.on('crouch', crouchin)
+
+    function crouchin() {
+        socket.broadcast.emit('crouching')
+    }
 
     function jumpin(){
         console.log('jumped')

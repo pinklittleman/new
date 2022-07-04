@@ -65,7 +65,7 @@ var Engine = Matter.Engine,
     Render.run(render);
 
 // ball body yellow
-let ball = Bodies.circle(500,500,20,{
+let ball = Bodies.circle(500,550,20,{
     mass: 5,
     render: {
         strokeStyle: '#ffffff'
@@ -98,6 +98,10 @@ function myFunction(event){
         Matter.Body.setVelocity(ball, {x:0,y:-5});
         socket.emit('jump')
     }
+    if(event.key === "s"){
+        Matter.Body.setVelocity(ball, {x:0,y:5});
+        socket.emit('crouch')
+    }
     // if(event.key === "d"){
     //     // Composite.remove(engine.world, ball2);
     //     Matter.Body.applyForce( ball, {x: ball.position.x, y: ball.position.y}, {x: 0.1, y: 0});
@@ -118,6 +122,11 @@ function gameover(){
 socket.on('connectToRoom', yes)
 socket.on('list', yes2)
 socket.on('pog', yes3)
+socket.on('crouching', yes4)
+
+function yes4(){
+    Matter.Body.setVelocity(ball2, {x:0,y:5});
+}
 
 function yes3(){
     Matter.Body.setVelocity(ball2, {x:0,y:-5});
