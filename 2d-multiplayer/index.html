@@ -144,7 +144,7 @@ setInterval(() => {
     if (Matter.Collision.collides(ball, left) != null) {
         console.log('left wall and ball are touching')
         Matter.Body.setVelocity(ball, {x:-2,y:0});
-        Matter.Body.setinertia(ball, 0);
+        Matter.Body.setInertia(ball, 0);
         x++
         if(x > 20){
             Matter.Body.setVelocity(ball, {x:4,y:0});
