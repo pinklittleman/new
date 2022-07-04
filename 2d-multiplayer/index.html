@@ -102,6 +102,21 @@ function myFunction(event){
         Matter.Body.setVelocity(ball, {x:0,y:5});
         socket.emit('crouch')
     }
+    if(event.key === "a"){
+        Matter.Body.setVelocity(ball, {x:-5,y:0});
+        socket.emit('left')
+    }
+    if(event.key === "d"){
+        Matter.Body.setVelocity(ball, {x:5,y:0});
+        socket.emit('right')
+    }
+    if(event.key === "g"){
+        engine.world.gravity.y = -1;
+    }
+    if(event.key === "n"){
+        engine.world.gravity.y = 0.4;
+    }
+
     // if(event.key === "d"){
     //     // Composite.remove(engine.world, ball2);
     //     Matter.Body.applyForce( ball, {x: ball.position.x, y: ball.position.y}, {x: 0.1, y: 0});
