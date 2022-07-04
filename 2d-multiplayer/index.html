@@ -141,6 +141,7 @@ setInterval(() => {
 setInterval(() => {
     if (Matter.Collision.collides(ball, left) != null) {
         console.log('left wall and ball are touching')
+        Matter.Body.setVelocity(ball, {x:5,y:2});
     }
 }, 1);
 
@@ -169,17 +170,6 @@ function yes2(data){
 function yes(data){
     document.getElementById('test').innerHTML = data
 }
-
-// setInterval(() => {
-//     setTimeout(() => {
-//         Matter.Body.setVelocity(ball2,{x:-0.2,y:0});
-        
-//     }, 1000);
-//     if (Matter.Collision.collides(ball, ball2) != null) {
-//     // collision happened
-//     gameover()
-// }
-// }, 1);
 
 </script>
 </body>
