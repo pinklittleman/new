@@ -142,7 +142,7 @@ let x
 setInterval(() => {
     if(ball.position.y < 540){
         Matter.Body.setInertia(ball, Infinity);
-        Matter.Body.setRotation(ball, 0)
+        Matter.Body.setAngle(ball, 0)
     }
     else{
         Matter.Body.setInertia(ball, 1000);
