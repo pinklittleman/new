@@ -143,6 +143,9 @@ setInterval(() => {
     if(ball.position.y < 540){
         Matter.Body.setInertia(ball, Infinity);
     }
+    else{
+        Matter.Body.setInertia(ball, 1000);
+    }
 
     if (Matter.Collision.collides(ball, left) != null) {
         console.log('left wall and ball are touching')
