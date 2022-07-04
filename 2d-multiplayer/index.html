@@ -67,7 +67,6 @@ var Engine = Matter.Engine,
 
 // ball body yellow
 let ball = Bodies.circle(500,550,20,{
-    inertia: 10000,
     mass: 5,
     render: {
         strokeStyle: '#ffffff'
@@ -144,7 +143,7 @@ setInterval(() => {
     if (Matter.Collision.collides(ball, left) != null) {
         console.log('left wall and ball are touching')
         Matter.Body.setVelocity(ball, {x:-2,y:0});
-        Matter.Body.setInertia(ball, 0);
+        Matter.Body.setInertia(ball, Infinity);
         x++
         if(x > 20){
             Matter.Body.setVelocity(ball, {x:4,y:0});
@@ -156,6 +155,7 @@ setInterval(() => {
     else{
         x = 0
     }
+    Matter.Body.setInertia(ball, 1000);
 }, 100);
 
 function gameover(){
