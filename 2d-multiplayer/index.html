@@ -140,6 +140,10 @@ setInterval(() => {
 let x
 
 setInterval(() => {
+    if(ball.position.y < 540){
+        console.log('above')
+    }
+
     if (Matter.Collision.collides(ball, left) != null) {
         console.log('left wall and ball are touching')
         Matter.Body.setVelocity(ball, {x:-2,y:0});
