@@ -148,8 +148,8 @@ setInterval(() => {
         if(x > 20){
             Matter.Body.setVelocity(ball, {x:2,y:0});
             setTimeout(() => {
-                Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:5});
-            }, 500);
+                Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-5});
+            }, 250);
         }
     }
     else{
