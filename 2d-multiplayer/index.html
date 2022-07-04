@@ -146,7 +146,7 @@ setInterval(() => {
         
     }
     else{
-        Matter.Body.setInertia(ball, 1000);
+        Matter.Body.setInertia(ball, Infinity);
     }
 
     if (Matter.Collision.collides(ball, left) != null) {
