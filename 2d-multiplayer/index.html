@@ -95,19 +95,19 @@ function myFunction(event){
         Matter.Body.setStatic(ball,true);
     }
     if(event.key === "w"){
-        Matter.Body.setVelocity(ball, {y:-5});
+        Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-5});
         socket.emit('jump')
     }
     if(event.key === "s"){
-        Matter.Body.setVelocity(ball, {y:5});
+        Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:5});
         socket.emit('crouch')
     }
     if(event.key === "a"){
-        Matter.Body.setVelocity(ball, {x:-5});
+        Matter.Body.setVelocity(ball, {x:-5,y:ball.velocity.y});
         socket.emit('left')
     }
     if(event.key === "d"){
-        Matter.Body.setVelocity(ball, {x:5});
+        Matter.Body.setVelocity(ball, {x:5,y:ball.velocity.y});
         socket.emit('right')
     }
     if(event.key === "g"){
