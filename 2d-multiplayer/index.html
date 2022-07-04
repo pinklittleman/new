@@ -57,19 +57,12 @@ var Engine = Matter.Engine,
             height: 600,
             wireframes: false
         },
-        physics: {
-                default: 'matter',
-                matter: {
-                    gravity: {
-                        x: 0,
-                        y: 0
-                }
-            }
-        }
     });
 
-Matter.Runner.run(engine);
-Render.run(render);
+    
+    engine.world.gravity.y = 0;
+    Matter.Runner.run(engine);
+    Render.run(render);
 
 // ball body yellow
 let ball = Bodies.circle(500,500,20,{
