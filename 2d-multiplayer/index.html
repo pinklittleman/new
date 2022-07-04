@@ -148,7 +148,7 @@ setInterval(() => {
         console.log('left wall and ball are touching')
         Matter.Body.setVelocity(ball, {x:-2,y:0});
         x++
-        if(x > 20){
+        if(x > 40){
             Matter.Body.setVelocity(ball, {x:4,y:0});
             setTimeout(() => {
                 Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4});
