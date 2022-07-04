@@ -141,13 +141,12 @@ let x
 
 setInterval(() => {
     if(ball.position.y < 540){
-        console.log('above')
+        Matter.Body.setInertia(ball, Infinity);
     }
 
     if (Matter.Collision.collides(ball, left) != null) {
         console.log('left wall and ball are touching')
         Matter.Body.setVelocity(ball, {x:-2,y:0});
-        Matter.Body.setInertia(ball, Infinity);
         x++
         if(x > 20){
             Matter.Body.setVelocity(ball, {x:4,y:0});
@@ -155,9 +154,6 @@ setInterval(() => {
                 Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4});
             }, 5);
         }
-    }
-    if (Matter.Collision.collides(ball, bottom) != null) {
-        Matter.Body.setInertia(ball, 10000);
     }
     else{
         x = 0
