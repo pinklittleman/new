@@ -142,17 +142,12 @@ function myFunction(event){
     // }
 }
 
-let comapare
-
 setInterval(() => {
-    setTimeout(() => {
-        comapare = ball.velocity.y
-    }, 1000);
     console.log(ball.velocity.y)
 
-    if(ball.velocity.y === comapare){
-        Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-1});
-    }
+    // if(ball.velocity.y === comapare){
+    //     Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-1});
+    // }
 }, 500);
 
 let x
