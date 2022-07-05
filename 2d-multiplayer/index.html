@@ -107,8 +107,11 @@ function myFunction(event){
         5);
     }
     if(event.key === "w"){
-        Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-5});
-        socket.emit('jump')
+        if(Matter.Body.velocity.y >= 0){
+            Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-5});
+            socket.emit('jump')
+        }
+        
     }
     if(event.key === "s"){
         Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:5});
