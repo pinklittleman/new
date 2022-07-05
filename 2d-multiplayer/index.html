@@ -52,7 +52,6 @@ var Engine = Matter.Engine,
     let render = Render.create({
         element: document.body,
         engine: engine,
-        friction: 0.00001,
         options: {
             width: 800,
             height: 600,
@@ -173,7 +172,7 @@ setInterval(() => {
 
     }
     // Matter.Body.setInertia(ball, 1000);
-}, 30);
+}, 25);
 
 function gameover(){
     alert('game over')
