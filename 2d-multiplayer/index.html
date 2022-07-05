@@ -145,9 +145,9 @@ function myFunction(event){
 setInterval(() => {
     console.log(ball.velocity.y)
 
-    // if(ball.velocity.y === comapare){
-    //     Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-1});
-    // }
+    if(ball.velocity.y === -1.1368683772161603e-13){
+        Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-1});
+    }
 }, 500);
 
 let x
