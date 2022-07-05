@@ -84,7 +84,12 @@ let bottom = Bodies.rectangle(0, 600, 3500, 50,{isStatic: true})
 let topw = Bodies.rectangle(100, 0, 3500, 50,{isStatic: true})
 let left = Bodies.rectangle(0, 600, 50, 3500,{isStatic: true})
 let right = Bodies.rectangle(800, 100,50,3500,{isStatic: true})
-let platform = Bodies.rectangle(500, 460, 600, 10,{isStatic: true})
+let platform = Bodies.rectangle(500, 460, 600, 10,{
+    isStatic: true,
+    render: {
+        strokeStyle: '#E457FF'
+    }
+})
 
 // create the mouse constraints 
 let mouse = Mouse.create(render.canvas);
