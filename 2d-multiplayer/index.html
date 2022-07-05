@@ -97,8 +97,12 @@ Composite.add(engine.world,[
 ])
 
 function myFunction(event){
-    if(event.key === " " && ball.isStatic == false){
-        Matter.Body.setStatic(ball,true);
+    if(event.key === " " && Matter.Collision.collides(ball, left) != null){
+        Matter.Body.setVelocity(ball, {x:4,y:0});
+            setTimeout(() => {
+                Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4});
+            }, 
+        5);
     }
     if(event.key === "w"){
         Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-5});
@@ -153,12 +157,12 @@ setInterval(() => {
         console.log('left wall and ball are touching')
         Matter.Body.setVelocity(ball, {x:-3,y:0});
         x++
-        if(x > 40){
-            Matter.Body.setVelocity(ball, {x:4,y:0});
-            setTimeout(() => {
-                Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4});
-            }, 5);
-        }
+        // if(x > 40){
+        //     Matter.Body.setVelocity(ball, {x:4,y:0});
+        //     setTimeout(() => {
+        //         Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4});
+        //     }, 5);
+        // }
     }
     else{
         x = 0
