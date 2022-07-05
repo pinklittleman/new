@@ -108,10 +108,10 @@ function myFunction(event){
         5);
     }
     if(event.key === "w"){
-        if(ball.velocity.y === 0 || ball.velocity.y < 0.00001 && ball.velocity.y > 0){
+        // if(ball.velocity.y === 0 || ball.velocity.y < 0 && ball.velocity.y > 0){
             Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-5});
             socket.emit('jump')
-        }
+        // }
         
     }
     if(event.key === "s"){
