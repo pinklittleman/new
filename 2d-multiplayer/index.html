@@ -52,7 +52,6 @@ var Engine = Matter.Engine,
     let render = Render.create({
         element: document.body,
         engine: engine,
-        inertia: Infinity,
         friction: 0.00001,
         options: {
             width: 800,
@@ -158,18 +157,20 @@ let x
 
 setInterval(() => {
     if(ball.position.y < 540){
-        Matter.Body.setInertia(ball, Infinity);
+     // Matter.Body.setInertia(ball, Infinity);
         Matter.Body.setAngle(ball, 0)
         
     }
-    else{
-        Matter.Body.setInertia(ball, Infinity);
-    }
+    // else{
+    //     Matter.Body.setInertia(ball, Infinity);
+    // }
 
     if (Matter.Collision.collides(ball, left) != null) {
         console.log('left wall and ball are touching')
         Matter.Body.setVelocity(ball, {x:-3,y:0});
         x++
+        engine.world.gravity.x = -1;
+        engine.world.gravity.y = 0;
         // if(x > 40){
         //     Matter.Body.setVelocity(ball, {x:4,y:0});
         //     setTimeout(() => {
@@ -179,6 +180,8 @@ setInterval(() => {
     }
     else{
         x = 0
+        engine.world.gravity.x = 0;
+        engine.world.gravity.y = 0.4;
     }
     // Matter.Body.setInertia(ball, 1000);
 }, 100);
