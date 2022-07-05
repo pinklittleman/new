@@ -126,14 +126,6 @@ function myFunction(event){
         Matter.Body.setVelocity(ball, {x:5,y:ball.velocity.y});
         socket.emit('right')
     }
-    if(event.key === "g"){
-        engine.world.gravity.x = -1;
-        engine.world.gravity.y = 0;
-    }
-    if(event.key === "n"){
-        engine.world.gravity.y = 0.4;
-        engine.world.gravity.x = 0;
-    }
 
     // if(event.key === "d"){
     //     // Composite.remove(engine.world, ball2);
