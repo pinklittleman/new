@@ -145,7 +145,7 @@ setInterval(() => {
     console.log(ball.velocity.y)
 
     if(ball.velocity.y === -1.1368683772161603e-13){
-        Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-1});
+        Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-0.1});
     }
 }, 500);
 
@@ -163,7 +163,7 @@ setInterval(() => {
 
     if (Matter.Collision.collides(ball, left) != null) {
         console.log('left wall and ball are touching')
-        Matter.Body.setVelocity(ball, {x:-4,y:0});
+        Matter.Body.setVelocity(ball, {x:-2,y:0.1});
         x++
         // Matter.Body.setAngle(ball, 0)
         // if(x > 40){
@@ -177,7 +177,7 @@ setInterval(() => {
 
     }
     // Matter.Body.setInertia(ball, 1000);
-}, 25);
+}, 10);
 
 function gameover(){
     alert('game over')

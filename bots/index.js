@@ -1,9 +1,9 @@
 const {discord, MessageActionRow, MessageButton} = require('discord.js')
 const { createAudioResource, createAudioPlayer, joinVoiceChannel, AudioPlayerStatus} = require('@discordjs/voice');
 require('dotenv').config();
-// const client = new discord.Client({
-//   intents: [ discord.Intents.FLAGS.GUILDS, discord.Intents.FLAGS.GUILD_MESSAGES, discord.Intents.FLAGS.GUILD_VOICE_STATES ]
-// })
+const client = new discord.Client({
+  intents: [ discord.Intents.FLAGS.GUILDS, discord.Intents.FLAGS.GUILD_MESSAGES, discord.Intents.FLAGS.GUILD_VOICE_STATES ]
+})
 const prefix = "?"
 const player = createAudioPlayer();
 const resource = createAudioResource('/var/www/new/bots/bingus.mp3');
