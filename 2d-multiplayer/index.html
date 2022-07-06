@@ -110,7 +110,7 @@ var collisions = [],
     Events.on(engine, 'afterUpdate', function() {
         var mouse = mouseConstraint.mousey,
             bodies = Composite.allBodies(engine.world),
-            endPoint = mouse.position || { x: 100, y: 600 };
+            endPoint = mousey.position || { x: 100, y: 600 };
 
         collisions = Query.ray(bodies, startPoint, endPoint);
     });
