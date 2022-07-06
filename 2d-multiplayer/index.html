@@ -108,7 +108,7 @@ var collisions = [],
         startPoint = { x: 400, y: 100 };
 
     Events.on(engine, 'afterUpdate', function() {
-        var mouse = mouseConstraint.mouse,
+        var mouse = mouseConstraint.mousey,
             bodies = Composite.allBodies(engine.world),
             endPoint = mouse.position || { x: 100, y: 600 };
 
@@ -178,7 +178,7 @@ setInterval(() => {
 
 var mousey = Mouse.create(render.canvas),
         mouseConstraint = MouseConstraint.create(engine, {
-            mouse: mouse,
+            mouse: mousey,
             constraint: {
                 stiffness: 0.2,
                 render: {
