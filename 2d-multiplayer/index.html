@@ -163,7 +163,9 @@ setInterval(() => {
 
     if (Matter.Collision.collides(ball, left) != null) {
         console.log('left wall and ball are touching')
-        Matter.Body.setVelocity(ball, {x:-2,y:0.1});
+        setTimeout(() => {
+            Matter.Body.setVelocity(ball, {x:-1,y:0.05}); 
+        }, 1000);
         x++
         // Matter.Body.setAngle(ball, 0)
         // if(x > 40){
