@@ -103,6 +103,17 @@ Composite.add(engine.world,[
     right,
 ])
 
+var collisions = [],
+        startPoint = { x: 400, y: 100 };
+
+    Events.on(engine, 'afterUpdate', function() {
+        var mouse = mouseConstraint.mouse,
+            bodies = Composite.allBodies(engine.world),
+            endPoint = mouse.position || { x: 100, y: 600 };
+
+        collisions = Query.ray(bodies, startPoint, endPoint);
+    });
+
 function myFunction(event){
     if(event.key === " " && Matter.Collision.collides(ball, left) != null){
         Matter.Body.setVelocity(ball, {x:4,y:0});
