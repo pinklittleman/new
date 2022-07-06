@@ -112,8 +112,7 @@ var collisions = [],
         var mouse = mouseConstraint.mousey,
             bodies = Composite.allBodies(engine.world),
             endPoint = mousey.position || { x: 100, y: 600 };
-
-        collisions = Query.ray(bodies, startPoint, endPoint);
+            collisions = Query.ray(bodies, startPoint, endPoint);
     });
 
 function myFunction(event){
