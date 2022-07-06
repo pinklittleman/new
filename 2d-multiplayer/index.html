@@ -138,14 +138,13 @@ setInterval(() => {
     }
 }, 500);
 
-let x
+let x = 0
 
 setInterval(() => {
     if (Matter.Collision.collides(ball, left) != null) {
         Matter.Body.setVelocity(ball, {x:-1,y:0.05});
         if(x > 20){
             console.log('x > 10')
-            x = 0
         }
         x++
 
