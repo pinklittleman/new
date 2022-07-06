@@ -130,15 +130,6 @@ function myFunction(event){
         Matter.Body.setVelocity(ball, {x:5,y:ball.velocity.y});
         socket.emit('right')
     }
-
-    // if(event.key === "d"){
-    //     // Composite.remove(engine.world, ball2);
-    //     Matter.Body.applyForce( ball, {x: ball.position.x, y: ball.position.y}, {x: 0.1, y: 0});
-    // }
-    // if(event.key === "a"){
-    //     // Composite.remove(engine.world, ball2);
-    //     Matter.Body.applyForce( ball, {x: ball.position.x, y: ball.position.y}, {x: -0.1, y: 0});
-    // }
 }
 
 setInterval(() => {
@@ -150,23 +141,13 @@ setInterval(() => {
 let x
 
 setInterval(() => {
-    if(ball.position.y < 540){
-     // Matter.Body.setInertia(ball, Infinity);
-        // 
-        
-    }
-    // else{
-    //     Matter.Body.setInertia(ball, Infinity);
-    // }
-
     if (Matter.Collision.collides(ball, left) != null) {
         Matter.Body.setVelocity(ball, {x:-1,y:0.05});
-        x++
-        if(x > 10){
+        if(x > 20){
             console.log('x > 10')
             x = 0
-            return
         }
+        x++
 
         // Matter.Body.setAngle(ball, 0)
         // if(x > 40){
