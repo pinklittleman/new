@@ -150,23 +150,13 @@ setInterval(() => {
 let x
 
 setInterval(() => {
-    if(ball.position.y < 540){
-     // Matter.Body.setInertia(ball, Infinity);
-        // 
-        
-    }
-    // else{
-    //     Matter.Body.setInertia(ball, Infinity);
-    // }
-
     if (Matter.Collision.collides(ball, left) != null) {
         Matter.Body.setVelocity(ball, {x:-1,y:0.05});
-        x++
         if(x > 10){
             console.log('x > 10')
             x = 0
-            return
         }
+        x++
 
         // Matter.Body.setAngle(ball, 0)
         // if(x > 40){
