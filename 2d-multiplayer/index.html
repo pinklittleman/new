@@ -106,7 +106,7 @@ Composite.add(engine.world,[
 ])
 
 var collisions = [],
-        startPoint = { x: 400, y: 100 };
+        startPoint = { x: ball.position.x, y: ball.position.y };
 
     Events.on(engine, 'afterUpdate', function() {
         var mouse = mouseConstraint.mousey,
