@@ -142,8 +142,6 @@ function myFunction(event){
 }
 
 setInterval(() => {
-    console.log(ball.velocity.y)
-
     if(ball.velocity.y === -1.1368683772161603e-13){
         Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-0.1});
     }
@@ -162,13 +160,12 @@ setInterval(() => {
     // }
 
     if (Matter.Collision.collides(ball, left) != null) {
-        console.log('left wall and ball are touching')
         Matter.Body.setVelocity(ball, {x:-1,y:0.05});
         x++
         if(x > 10){
             console.log('x > 10')
-            return
             x = 0
+            return
         }
 
         // Matter.Body.setAngle(ball, 0)
