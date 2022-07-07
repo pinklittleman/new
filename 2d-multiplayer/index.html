@@ -10,7 +10,7 @@
     <title>WEBSOCKET</title>
 </head>
 <div id="test"></div>
-<body>
+<body onload="helpMe()">
 <style>
   canvas{
   display: block;
@@ -103,9 +103,12 @@ document.onkeydown = function(e){
     }
 };
 
-for(i in users){
-            console.log(users[i])
-       }
+function helpMe(){
+    for(i in users){
+                console.log(users[i])
+    }
+}
+
 
 socket.on('users', addNewUsers)
 
