@@ -32,12 +32,8 @@ div{
 <!-- <p id="ID">WebSockets and that</p> -->
 <!-- <input type="text" id="roomId" name="roomId" placeholder="Enter a room ID" /> -->
 <script>
-    
-    let x = 0
-    let help = false
-    let arry = []
-    
-    const socket = io.connect('wss://pinky.uk.to:5000');
+let users = []
+const socket = io.connect('wss://pinky.uk.to:5000');
 
 var Engine = Matter.Engine,
     Render = Matter.Render,
@@ -74,7 +70,6 @@ let ball = Bodies.circle(500,550,20,{
         strokeStyle: '#ffffff'
     }
 })
-
 
 let bottom = Bodies.rectangle(0, 600, 3500, 50,{isStatic: true})
 let topw = Bodies.rectangle(100, 0, 3500, 50,{isStatic: true})
@@ -123,6 +118,17 @@ document.onkeydown = function(e){
         socket.emit('right')
     }
 };
+
+socket.on('users', addNewUsers)
+
+function addNewUsers(data){
+    users.push(data)
+}
+
+for(i in users){
+    console.log(i)
+    i++
+}
 
 </script>
 </body>
