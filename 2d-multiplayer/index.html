@@ -107,6 +107,10 @@ Composite.add(engine.world,[
     right,
 ])
 
+if(Matter.Collision.collides(ball, left) != null){
+    alert('touch')
+}
+
 let hell = setInterval(() => {
     if (help === false){
         if (Matter.Collision.collides(ball, left) != null) {
