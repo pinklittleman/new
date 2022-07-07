@@ -27,14 +27,16 @@ io.on('connection', (socket) => {
     console.log('a user connected: ' + socket.id);
     users.push(socket.id)
     console.log(users)
-    socket.emit('users', users)
+    
+    setInterval(() => {
+        socket.emit('users', users)
+    }, 1000);
 
     socket.on('disconnect', () => {
         console.log('leaving: '+socket.id)
         var pos = users.indexOf(socket.id)
         users.splice(pos,pos+1)
         console.log(users)
-        socket.emit('users', users)
     })
 
 })
