@@ -34,6 +34,7 @@ div{
 <script>
     
     let x = 0
+    let help = false
     let arry = []
     
     const socket = io.connect('wss://pinky.uk.to:5000');
@@ -106,9 +107,15 @@ Composite.add(engine.world,[
     right,
 ])
 
-setInterval(() => {
-    if (Matter.Collision.collides(ball, left) != null) {
-        Matter.Body.setVelocity(ball, {x:-0.5,y:0.05});
+let hell = setInterval(() => {
+    if (help === false){
+        if (Matter.Collision.collides(ball, left) != null) {
+            Matter.Body.setVelocity(ball, {x:-0.5,y:0.05});
+        }
+    }
+    else{
+        Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4});
+        help = false
     }
 }, 5);
 
@@ -117,7 +124,8 @@ function myFunction(event){
 
     if(event.key === " " && Matter.Collision.collides(ball, left) != null){
         // Matter.Body.setVelocity(ball, {x:4,y:0});
-        Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4}); 
+        // Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4});
+        help = true
           
     }
     if(event.key === "w"){
