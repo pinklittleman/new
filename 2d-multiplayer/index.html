@@ -95,8 +95,6 @@ let platform = Bodies.rectangle(500, 460, 600, 10,{
     }
 })
 
-// create the mouse constraints 
-let mouse = Mouse.create(render.canvas);
 Composite.add(engine.world,[
     ball,
     ball2,
@@ -106,8 +104,14 @@ Composite.add(engine.world,[
     left,
     right,
 ])
+let myLivingHell
+setInterval(() => {
+    myLivingHell = Matter.Collision.collides(ball, left) !== null
+}, 10);
 
-
+while(myLivingHell === true){
+    alert('clear my name')
+}
 
 let hell = setInterval(() => {
     console.log(Matter.Collision.collides(ball, left) !== null)
