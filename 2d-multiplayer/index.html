@@ -107,16 +107,12 @@ Composite.add(engine.world,[
 
 let myLivingHell
 
-setTimeout(() => {
-    while(true){
-        setTimeout(() => {
-            myLivingHell = Matter.Collision.collides(ball, left) !== null
-        }, 1000);
-        if(myLivingHell === true){
-            Matter.Body.setVelocity(ball, {x:-0.5,y:0.05});
-        }
+setInterval(() => {
+    myLivingHell = Matter.Collision.collides(ball, left) !== null
+    if(myLivingHell === true){
+        Matter.Body.setVelocity(ball, {x:-0.5,y:0.05});
     }
-}, 2000);
+}, 1000);
 
 
 // let hell = setInterval(() => {
