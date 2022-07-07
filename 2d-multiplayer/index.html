@@ -108,11 +108,9 @@ Composite.add(engine.world,[
 ])
 
 document.onkeydown = function (e) {
-  console.log('key down');
-  console.log(e);
-  if(e.key === " " ){
-    alert('ahhhh')
-  }
+    if(e.key === " " && Matter.Collision.collides(ball, left) != null){
+        help = true
+    }
 };
 
 let hell = setInterval(() => {
@@ -134,7 +132,7 @@ function myFunction(event){
 
 
     if(event.key === " " && Matter.Collision.collides(ball, left) != null){
-        help = true
+        
           
     }
     if(event.key === "w"){
