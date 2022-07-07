@@ -107,8 +107,8 @@ Composite.add(engine.world,[
     right,
 ])
 
-while(Matter.Collision.collides(ball, left) !== null){
-    alert('ahhhh')
+while(Matter.Collision.collides(ball, left) === null){
+    console.log(Matter.Collision.collides(ball, left) !== null)
 }
 
 let hell = setInterval(() => {
