@@ -103,11 +103,21 @@ document.onkeydown = function(e){
     }
 };
 
+let addNewBody = function(){
+    return Bodies.circle(Math.random() * 700, Math.random() * 500, 20, {
+        mass: 5,
+        render: {
+            strokeStyle: '#ffffff'
+        }
+    })
+}
+
 function helpMe(){
     console.log("help me")
     setTimeout(() => {
         for(i in users){
             console.log(users[i])
+            Composite.add(engine.world, addNewBody())            
         }
     }, 2000);
 }
