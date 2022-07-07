@@ -108,7 +108,7 @@ Composite.add(engine.world,[
 
 function myFunction(event){
 
-    setInterval((event) => {
+    setInterval(() => {
         while (Matter.Collision.collides(ball, left) != null) {
             if (event.key === " " ){
                 console.log('space')
