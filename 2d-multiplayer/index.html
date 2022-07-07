@@ -114,12 +114,12 @@ let addNewBody = function(){
 
 function helpMe(){
     console.log("help me")
-    setTimeout(() => {
+    setInterval(() => {
         for(i in users){
             console.log(users[i])
             Composite.add(engine.world, addNewBody())            
         }
-    }, 1000);
+    }, 5000);
 }
 
 
