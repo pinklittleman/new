@@ -108,7 +108,9 @@ Composite.add(engine.world,[
 let myLivingHell
 
 while(true){
-    myLivingHell = Matter.Collision.collides(ball, left) !== null
+    setTimeout(() => {
+        myLivingHell = Matter.Collision.collides(ball, left) !== null
+    }, 10);
     if(myLivingHell === true){
         Matter.Body.setVelocity(ball, {x:-0.5,y:0.05});
     }
