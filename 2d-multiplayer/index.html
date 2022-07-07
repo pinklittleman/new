@@ -108,24 +108,25 @@ Composite.add(engine.world,[
 ])
 
 let hell = setInterval(() => {
-    // if (help === false){
+    if (help === false){
         if (Matter.Collision.collides(ball, left) != null) {
             Matter.Body.setVelocity(ball, {x:-0.5,y:0.05});
         }
-    // }
-    // else{
-    //     Matter.Body.setVelocity(ball, {x:5,y:0});
-    //     help = false
-    // }
+    }
+    else{
+        Matter.Body.setVelocity(ball, {x:5,y:0});
+        setTimeout(() => {
+            Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-3});
+        }, 10);
+        help = false
+    }
 }, 5);
 
 function myFunction(event){
 
 
     if(event.key === " " && Matter.Collision.collides(ball, left) != null){
-        Matter.Body.setVelocity(ball, {x:4,y:0});
-        // Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4});
-        // help = true
+        help = true
           
     }
     if(event.key === "w"){
