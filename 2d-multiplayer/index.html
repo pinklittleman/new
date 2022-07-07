@@ -32,10 +32,11 @@ div{
 <!-- <p id="ID">WebSockets and that</p> -->
 <!-- <input type="text" id="roomId" name="roomId" placeholder="Enter a room ID" /> -->
 <script>
-
-let arry = []
-
-const socket = io.connect('wss://pinky.uk.to:5000');
+    
+    let x = 0
+    let arry = []
+    
+    const socket = io.connect('wss://pinky.uk.to:5000');
 
 var Engine = Matter.Engine,
     Render = Matter.Render,
@@ -106,12 +107,22 @@ Composite.add(engine.world,[
 ])
 
 function myFunction(event){
+
+    setInterval(() => {
+        if (Matter.Collision.collides(ball, left) != null) {
+            Matter.Body.setVelocity(ball, {x:-0.5,y:0.05});
+            // if(x > 200){
+            //     console.log('x > 40')
+            //     Matter.Body.setVelocity(ball, {x:1,y:0.5});
+            //     x = 0
+            // }
+            // x++
+        }
+    }, 1);
+
     if(event.key === " " && Matter.Collision.collides(ball, left) != null){
         // Matter.Body.setVelocity(ball, {x:4,y:0});
-            
-        Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4});
-            
-        
+        Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4});    
     }
     if(event.key === "w"){
         // if(ball.velocity.y === 0 || ball.velocity.y < 0 && ball.velocity.y > 0){
@@ -134,22 +145,8 @@ function myFunction(event){
     }
 }
 
-let x = 0
 
-setInterval(() => {
-    if (Matter.Collision.collides(ball, left) != null) {
-        Matter.Body.setVelocity(ball, {x:-0.5,y:0.05});
-        // if(x > 200){
-        //     console.log('x > 40')
-        //     Matter.Body.setVelocity(ball, {x:1,y:0.5});
-        //     x = 0
-        // }
-        // x++
-    }
-    else{
 
-    }
-}, 1);
 
 function gameover(){
     alert('game over')
