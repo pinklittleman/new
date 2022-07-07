@@ -107,8 +107,12 @@ Composite.add(engine.world,[
     right,
 ])
 
+while(Matter.Collision.collides(ball, left) != null === true){
+    alert('help')
+}
+
 let hell = setInterval(() => {
-    document.onkeydown = function (e) {
+    document.onkeydown = function(e){
         if(e.key === " " && Matter.Collision.collides(ball, left) != null){
             help = true
         }
