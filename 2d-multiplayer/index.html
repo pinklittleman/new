@@ -118,9 +118,9 @@ let hell = setInterval(() => {
         }
     }
     else{
-        Matter.Body.setVelocity(ball, {x:5,y:0});
+        Matter.Body.setVelocity(ball, {x:5,y:-1});
         setTimeout(() => {
-            Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-3});
+            Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4});
         }, 10);
         help = false
     }
