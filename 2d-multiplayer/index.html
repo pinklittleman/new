@@ -105,9 +105,11 @@ document.onkeydown = function(e){
 
 function helpMe(){
     console.log("help me")
-    for(i in users){
-                console.log(users[i])
-    }
+    setTimeout(() => {
+        for(i in users){
+            console.log(users[i])
+        }
+    }, 2000);
 }
 
 
