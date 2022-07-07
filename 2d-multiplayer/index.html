@@ -107,13 +107,13 @@ Composite.add(engine.world,[
     right,
 ])
 
-document.onkeydown = function (e) {
-    if(e.key === " " && Matter.Collision.collides(ball, left) != null){
-        help = true
-    }
-};
-
 let hell = setInterval(() => {
+    document.onkeydown = function (e) {
+        if(e.key === " " && Matter.Collision.collides(ball, left) != null){
+            help = true
+        }
+    };
+
     if (help === false){
         if (Matter.Collision.collides(ball, left) != null) {
             Matter.Body.setVelocity(ball, {x:-0.5,y:0.05});
