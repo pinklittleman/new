@@ -111,6 +111,7 @@ function myFunction(event){
     setInterval(() => {
         if (Matter.Collision.collides(ball, left) != null) {
             if (event.key === " " ){
+                console.log('space')
                 Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4}); 
             }
             Matter.Body.setVelocity(ball, {x:-0.5,y:0.05});
