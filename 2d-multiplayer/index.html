@@ -107,9 +107,9 @@ Composite.add(engine.world,[
 
 function myFunction(event){
     if(event.key === " " && Matter.Collision.collides(ball, left) != null){
-        Matter.Body.setVelocity(ball, {x:4,y:0});
+        // Matter.Body.setVelocity(ball, {x:4,y:0});
             
-        // Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4});
+        Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4});
             
         
     }
