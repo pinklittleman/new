@@ -104,40 +104,41 @@ Composite.add(engine.world,[
     left,
     right,
 ])
+
 let myLivingHell
 
-myLivingHell = Matter.Collision.collides(ball, left) !== null
-
-while(myLivingHell === true){
-    console.log('please god let this beautiful code work')
+while(true){
+    myLivingHell = Matter.Collision.collides(ball, left) !== null
+    if(myLivingHell === true){
+        Matter.Body.setVelocity(ball, {x:-0.5,y:0.05});
+    }
 }
 
-let hell = setInterval(() => {
-    document.onkeydown = function(e){
-        if(e.key === " " && Matter.Collision.collides(ball, left) != null){
-            help = true
-        }
-    };
 
-    if (help === false){
-        if (Matter.Collision.collides(ball, left) != null) {
-            Matter.Body.setVelocity(ball, {x:-0.5,y:0.05});
-        }
-    }
-    else{
-        Matter.Body.setVelocity(ball, {x:5,y:-0.1});
-        setTimeout(() => {
-            Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4});
-        }, 10);
-        help = false
-    }
-}, 5);
+// let hell = setInterval(() => {
+//     document.onkeydown = function(e){
+//         if(e.key === " " && Matter.Collision.collides(ball, left) != null){
+//             help = true
+//         }
+//     };
+
+//     else{
+//         Matter.Body.setVelocity(ball, {x:5,y:-0.1});
+//         setTimeout(() => {
+//             Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4});
+//         }, 10);
+//         help = false
+//     }
+// }, 5);
 
 function myFunction(event){
 
 
     if(event.key === " " && Matter.Collision.collides(ball, left) != null){
-        
+        Matter.Body.setVelocity(ball, {x:5,y:-0.1});
+        setTimeout(() => {
+            Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4});
+        }, 10);
           
     }
     if(event.key === "w"){
