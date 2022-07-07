@@ -101,17 +101,18 @@ document.onkeydown = function(e){
         Matter.Body.setVelocity(ball, {x:5,y:ball.velocity.y});
         socket.emit('right')
     }
+    if(e.key === "t"){
+        for(i in users){
+            console.log(i)
+            i++
+        }
+    }
 };
 
 socket.on('users', addNewUsers)
 
 function addNewUsers(data){
     users.push(data)
-}
-
-for(i in users){
-    console.log(i)
-    i++
 }
 
 </script>
