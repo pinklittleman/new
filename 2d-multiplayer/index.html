@@ -134,36 +134,21 @@ function myFunction(event){
     }
 }
 
-setInterval(() => {
-    if(ball.velocity.y === -1.1368683772161603e-13){
-        Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-0.1});
-    }
-}, 500);
-
 let x = 0
 
 setInterval(() => {
     if (Matter.Collision.collides(ball, left) != null) {
-        Matter.Body.setVelocity(ball, {x:-1,y:0.05});
-        if(x > 200){
-            console.log('x > 40')
-            Matter.Body.setVelocity(ball, {x:1,y:0.5});
-            x = 0
-        }
-        x++
-
-        // Matter.Body.setAngle(ball, 0)
-        // if(x > 40){
-        //     Matter.Body.setVelocity(ball, {x:4,y:0});
-        //     setTimeout(() => {
-        //         Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4});
-        //     }, 5);
+        Matter.Body.setVelocity(ball, {x:-0.5,y:0.05});
+        // if(x > 200){
+        //     console.log('x > 40')
+        //     Matter.Body.setVelocity(ball, {x:1,y:0.5});
+        //     x = 0
         // }
+        // x++
     }
     else{
 
     }
-    // Matter.Body.setInertia(ball, 1000);
 }, 1);
 
 function gameover(){
