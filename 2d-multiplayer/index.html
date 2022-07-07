@@ -102,9 +102,7 @@ document.onkeydown = function(e){
         socket.emit('right')
     }
     if(e.key === "t"){
-        for(var x in users){
-            console.log([x])
-        }
+        console.log(users.length)
     }
 };
 
