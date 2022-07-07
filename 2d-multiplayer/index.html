@@ -107,7 +107,7 @@ Composite.add(engine.world,[
     right,
 ])
 
-if(Matter.Collision.collides(ball, left) != null){
+while(Matter.Collision.collides(ball, left) != null){
     alert('touch')
 }
 
@@ -118,7 +118,7 @@ let hell = setInterval(() => {
         }
     }
     else{
-        Matter.Body.setVelocity(ball, {x:5,y:-1});
+        Matter.Body.setVelocity(ball, {x:5,y:-0.1});
         setTimeout(() => {
             Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4});
         }, 10);
