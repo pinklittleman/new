@@ -107,9 +107,10 @@ Composite.add(engine.world,[
     right,
 ])
 
-while(Matter.Collision.collides(ball, left) != null){
-    alert('touch')
-}
+document.onkeydown = function (e) {
+  console.log('key down');
+  console.log(e);
+};
 
 let hell = setInterval(() => {
     if (help === false){
