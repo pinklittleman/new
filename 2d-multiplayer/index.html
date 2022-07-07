@@ -102,11 +102,13 @@ document.onkeydown = function(e){
         socket.emit('right')
     }
     if(e.key === "t"){
-       for(i in users){
-            console.log(users[i])
-       }
+       
     }
 };
+
+for(i in users){
+            console.log(users[i])
+       }
 
 socket.on('users', addNewUsers)
 
