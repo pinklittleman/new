@@ -108,16 +108,18 @@ Composite.add(engine.world,[
 
 function myFunction(event){
 
-    if (Matter.Collision.collides(ball, left) != null) {
-        Matter.Body.setVelocity(ball, {x:-0.5,y:0.05});
-        // if(x > 200){
-        //     console.log('x > 40')
-        //     Matter.Body.setVelocity(ball, {x:1,y:0.5});
-        //     x = 0
-        // }
-        // x++
-    }
-    
+    setInterval(() => {
+        if (Matter.Collision.collides(ball, left) != null) {
+            Matter.Body.setVelocity(ball, {x:-0.5,y:0.05});
+            // if(x > 200){
+            //     console.log('x > 40')
+            //     Matter.Body.setVelocity(ball, {x:1,y:0.5});
+            //     x = 0
+            // }
+            // x++
+        }
+    }, 1);
+
     if(event.key === " " && Matter.Collision.collides(ball, left) != null){
         // Matter.Body.setVelocity(ball, {x:4,y:0});
         Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4}); 
