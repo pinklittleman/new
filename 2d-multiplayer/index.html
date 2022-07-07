@@ -84,20 +84,6 @@ Composite.add(engine.world,[
     right,
 ])
 
-timeToLeave = 10
-
-setInterval(() => {
-    
-    if(Matter.Collision.collides(ball, left) != null){
-        console.log('touching')
-        Matter.Body.setVelocity(ball, {x:-0.5,y:0.05});
-        timeToLeave = 1000
-    }
-    else{
-        timeToLeave = 10
-    }
-}, timeToLeave);
-
 document.onkeydown = function(e){
     if(e.key === "w"){
         Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-5});
