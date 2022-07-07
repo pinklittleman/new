@@ -84,6 +84,8 @@ let ball2 = Bodies.circle(750,550,20,{
     }
 })
 
+let timeToLeave
+
 let bottom = Bodies.rectangle(0, 600, 3500, 50,{isStatic: true})
 let topw = Bodies.rectangle(100, 0, 3500, 50,{isStatic: true})
 let left = Bodies.rectangle(0, 600, 50, 3500,{isStatic: true})
@@ -110,8 +112,12 @@ setInterval(() => {
     if(Matter.Collision.collides(ball, left) != null){
         console.log('touching')
         Matter.Body.setVelocity(ball, {x:-0.5,y:0.05});
+        timeToLeave = 1000
     }
-}, 10);
+    else{
+        timeToLeave = 10
+    }
+}, timeToLeave);
 
 
 // let hell = setInterval(() => {
