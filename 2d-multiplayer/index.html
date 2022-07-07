@@ -107,6 +107,7 @@ Composite.add(engine.world,[
 let myLivingHell
 setInterval(() => {
     myLivingHell = Matter.Collision.collides(ball, left) !== null
+    console.log(myLivingHell)
 }, 10);
 
 while(myLivingHell === true){
@@ -114,7 +115,6 @@ while(myLivingHell === true){
 }
 
 let hell = setInterval(() => {
-    console.log(Matter.Collision.collides(ball, left) !== null)
     document.onkeydown = function(e){
         if(e.key === " " && Matter.Collision.collides(ball, left) != null){
             help = true
