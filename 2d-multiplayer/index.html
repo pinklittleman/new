@@ -110,6 +110,9 @@ function myFunction(event){
 
     setInterval(() => {
         if (Matter.Collision.collides(ball, left) != null) {
+            if (event.key === " " ){
+                Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4}); 
+            }
             Matter.Body.setVelocity(ball, {x:-0.5,y:0.05});
             // if(x > 200){
             //     console.log('x > 40')
@@ -120,10 +123,10 @@ function myFunction(event){
         }
     }, 1);
 
-    if(event.key === " " && Matter.Collision.collides(ball, left) != null){
-        // Matter.Body.setVelocity(ball, {x:4,y:0});
-        Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4});    
-    }
+    // if(event.key === " " && Matter.Collision.collides(ball, left) != null){
+    //     // Matter.Body.setVelocity(ball, {x:4,y:0});
+          
+    // }
     if(event.key === "w"){
         // if(ball.velocity.y === 0 || ball.velocity.y < 0 && ball.velocity.y > 0){
             Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-5});
