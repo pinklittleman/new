@@ -28,17 +28,7 @@ io.on('connection', (socket) => {
     users.push(socket.id)
     console.log(users)
 
-    socket.on('jump', jumpin)
-    socket.on('crouch', crouchin)
-
-    function crouchin() {
-        socket.broadcast.emit('crouching')
-    }
-
-    function jumpin(){
-        console.log('jumped')
-        socket.broadcast.emit('pog')
-    }
+    
 
     socket.on('disconnect', () => {
         console.log('leaving: '+socket.id)

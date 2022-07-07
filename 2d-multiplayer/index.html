@@ -64,8 +64,6 @@ var Engine = Matter.Engine,
         },
     });
 
-    
-    engine.world.gravity.y = 0.4;
     Matter.Runner.run(engine);
     Render.run(render);
 
@@ -76,30 +74,16 @@ let ball = Bodies.circle(500,550,20,{
         strokeStyle: '#ffffff'
     }
 })
-//blue
-let ball2 = Bodies.circle(750,550,20,{
-    mass: 5,
-    render: {
-        strokeStyle: '#E457FF'
-    }
-})
 
-let timeToLeave
 
 let bottom = Bodies.rectangle(0, 600, 3500, 50,{isStatic: true})
 let topw = Bodies.rectangle(100, 0, 3500, 50,{isStatic: true})
 let left = Bodies.rectangle(0, 600, 50, 3500,{isStatic: true})
 let right = Bodies.rectangle(800, 100,50,3500,{isStatic: true})
-let platform = Bodies.rectangle(500, 460, 600, 10,{
-    isStatic: true,
-    render: {
-        strokeStyle: '#E457FF'
-    }
-})
 
 Composite.add(engine.world,[
     ball,
-    ball2,
+  
     platform,
     topw,
     bottom,
@@ -121,82 +105,24 @@ setInterval(() => {
     }
 }, timeToLeave);
 
-
-// let hell = setInterval(() => {
-//     document.onkeydown = function(e){
-//         if(e.key === " " && Matter.Collision.collides(ball, left) != null){
-//             help = true
-//         }
-//     };
-
-//     else{
-//         Matter.Body.setVelocity(ball, {x:5,y:-0.1});
-//         setTimeout(() => {
-//             Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4});
-//         }, 10);
-//         help = false
-//     }
-// }, 5);
-
-function myFunction(event){
-
-
-    if(event.key === " " && Matter.Collision.collides(ball, left) != null){
-        Matter.Body.setVelocity(ball, {x:5,y:-0.1});
-        setTimeout(() => {
-            Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4});
-        }, 10);
-          
+document.onkeydown = function(e){
+    if(e.key === "w"){
+        Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-5});
+        socket.emit('jump')        
     }
-    if(event.key === "w"){
-        // if(ball.velocity.y === 0 || ball.velocity.y < 0 && ball.velocity.y > 0){
-            Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-5});
-            socket.emit('jump')
-        // }
-        
-    }
-    if(event.key === "s"){
+    if(e.key === "s"){
         Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:5});
         socket.emit('crouch')
     }
-    if(event.key === "a"){
+    if(e.key === "a"){
         Matter.Body.setVelocity(ball, {x:-5,y:ball.velocity.y});
         socket.emit('left')
     }
-    if(event.key === "d"){
+    if(e.key === "d"){
         Matter.Body.setVelocity(ball, {x:5,y:ball.velocity.y});
         socket.emit('right')
     }
-}
-
-
-
-
-function gameover(){
-    alert('game over')
-}
-
-socket.on('connectToRoom', yes)
-socket.on('list', yes2)
-socket.on('pog', yes3)
-socket.on('crouching', yes4)
-
-function yes4(){
-    Matter.Body.setVelocity(ball2, {x:0,y:5});
-}
-
-function yes3(){
-    Matter.Body.setVelocity(ball2, {x:0,y:-5});
-}
-
-function yes2(data){
-    arry = data
-    console.log(arry)
-}
- 
-function yes(data){
-    document.getElementById('test').innerHTML = data
-}
+};
 
 </script>
 </body>
