@@ -107,12 +107,10 @@ Composite.add(engine.world,[
 let myLivingHell
 setInterval(() => {
     myLivingHell = Matter.Collision.collides(ball, left) !== null
-    console.log(myLivingHell)
+    while(myLivingHell === true){
+        console.log('please god let this beautiful code work')
+    }
 }, 10);
-
-if(myLivingHell === true){
-    console.log('hello')
-}
 
 let hell = setInterval(() => {
     document.onkeydown = function(e){
