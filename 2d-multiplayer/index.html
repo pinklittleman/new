@@ -108,8 +108,8 @@ Composite.add(engine.world,[
 
 function myFunction(event){
 
-    setInterval(() => {
-        if (Matter.Collision.collides(ball, left) != null) {
+    setInterval((event) => {
+        while (Matter.Collision.collides(ball, left) != null) {
             if (event.key === " " ){
                 console.log('space')
                 Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-4}); 
