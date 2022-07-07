@@ -105,11 +105,9 @@ Composite.add(engine.world,[
     right,
 ])
 
-let myLivingHell
-
 setInterval(() => {
-    myLivingHell = Matter.Collision.collides(ball, left) !== null
-    if(myLivingHell === true){
+    
+    if(Matter.Collision.collides(ball, left) != null){
         console.log('touching')
         Matter.Body.setVelocity(ball, {x:-0.5,y:0.05});
     }
