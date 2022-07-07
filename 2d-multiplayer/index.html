@@ -110,6 +110,7 @@ let myLivingHell
 setInterval(() => {
     myLivingHell = Matter.Collision.collides(ball, left) !== null
     if(myLivingHell === true){
+        console.log('touching')
         Matter.Body.setVelocity(ball, {x:-0.5,y:0.05});
     }
 }, 1000);
