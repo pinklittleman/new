@@ -103,14 +103,13 @@ document.onkeydown = function(e){
     }
 };
 
-let addNewBody = function(){
-    Bodies.circle(Math.random() * 700, Math.random() * 500, 20, {
+function addNewBody(){
+    return Bodies.circle(Math.random() * 700, Math.random() * 500, 20, {
         mass: 5,
         render: {
             strokeStyle: '#ffffff'
         }
     })
-    return
 }
 
 socket.on('users', addNewUsers)
