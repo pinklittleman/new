@@ -10,7 +10,7 @@
     <title>WEBSOCKET</title>
 </head>
 <div id="test"></div>
-<body onload="helpMe()">
+<body>
 <style>
   canvas{
   display: block;
@@ -104,7 +104,7 @@ document.onkeydown = function(e){
 };
 
 function addNewBody(){
-    return Bodies.circle(Math.random() * 700, Math.random() * 500, 20, {
+    Bodies.circle(Math.random() * 700, Math.random() * 500, 20, {
         mass: 5,
         render: {
             strokeStyle: '#ffffff'
