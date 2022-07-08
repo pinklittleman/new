@@ -102,11 +102,12 @@ document.onkeydown = function(e){
         socket.emit('right')
     }
     if(e.key === "t"){
-        console.log(Composite.allBodies(engine.world))
+        console.log(Composite.allBodies(engine.world[0]))
     }
 };
 
 var balls = []
+let findStuff
 
 function coolFunction(){
     for(i in users){
@@ -124,6 +125,7 @@ function addNewBody(){
         }
     })
 }
+
 socket.on('join', socketJoin)
 socket.on('leave', socketJoin)
 socket.on('users', addNewUsers)
@@ -136,6 +138,7 @@ function socketJoin(){
 
 function addNewUsers(data){
     users = data
+    findStuff = Composite.allBodies(engine.world)
 }
 
 </script>
