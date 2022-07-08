@@ -104,7 +104,7 @@ document.onkeydown = function(e){
     if(e.key === "t"){
         for(i in findStuff){
             console.log(i)
-            console.log(findStuff[i].position)
+            console.log(findStuff[1].position)
             Matter.Body.setVelocity(findStuff[i], {x:findStuff[i].velocity.x,y:-5});
         }
     }
