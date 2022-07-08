@@ -102,7 +102,7 @@ document.onkeydown = function(e){
         socket.emit('right')
     }
     if(e.key === "t"){
-        console.log(Composite.get(engine.world, 1))
+        console.log(Composite.allBodies(engine.world))
     }
 };
 
