@@ -103,6 +103,13 @@ document.onkeydown = function(e){
     }
 };
 
+function coolFunction(){
+    for(i in users){
+        console.log(users[i])
+        Composite.add(engine.world, addNewBody())       
+    }
+}
+
 function addNewBody(){
     return Bodies.circle(Math.random() * 700, Math.random() * 500, 20, {
         mass: 5,
@@ -116,11 +123,7 @@ socket.on('users', addNewUsers)
 
 function addNewUsers(data){
     users = data
-    for(i in users){
-            console.log(users[i])
-            Composite.add(engine.world, addNewBody())
-            break       
-    }
+    coolFunction()
 }
 
 </script>
