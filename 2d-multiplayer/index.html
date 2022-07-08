@@ -118,12 +118,15 @@ function addNewBody(){
         }
     })
 }
-
+socket.on('join', socketJoin)
 socket.on('users', addNewUsers)
+
+function socketJoin(){
+    coolFunction()
+}
 
 function addNewUsers(data){
     users = data
-    coolFunction()
 }
 
 </script>

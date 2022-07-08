@@ -27,6 +27,7 @@ io.on('connection', (socket) => {
     console.log('a user connected: ' + socket.id);
     users.push(socket.id)
     console.log(users)
+    socket.emit('join')
     
     setInterval(() => {
         socket.emit('users', users)
@@ -37,6 +38,7 @@ io.on('connection', (socket) => {
         var pos = users.indexOf(socket.id)
         users.splice(pos,pos+1)
         console.log(users)
+        socket.emit('leave')
     })
 
 })
