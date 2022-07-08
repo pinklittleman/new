@@ -86,7 +86,7 @@ Composite.add(engine.world,[
 
 document.onkeydown = function(e){
     if(e.key === "w"){
-        Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:-5});
+        Matter.Body.setVelocity(findStuff[i], {x:findStuff[i].velocity.x,y:-5});
         socket.emit('jump')        
     }
     if(e.key === "s"){
@@ -104,7 +104,7 @@ document.onkeydown = function(e){
     if(e.key === "t"){
         for(i in findStuff){
             console.log(i)
-            console.log(findStuff[1].position)
+            console.log(findStuff[i].position)
             Matter.Body.setVelocity(findStuff[i], {x:findStuff[i].velocity.x,y:-5});
         }
     }
