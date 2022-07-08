@@ -118,7 +118,8 @@ function addNewUsers(data){
     users = data
     for(i in users){
             console.log(users[i])
-            Composite.add(engine.world, addNewBody())            
+            Composite.add(engine.world, addNewBody())
+            break       
     }
 }
 
