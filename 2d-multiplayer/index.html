@@ -101,12 +101,19 @@ document.onkeydown = function(e){
         Matter.Body.setVelocity(ball, {x:5,y:ball.velocity.y});
         socket.emit('right')
     }
+    if(e.key === "t"){
+        help = Composite.get(engine.world, 1)
+        console.log(help)
+    }
 };
+
+var balls = []
 
 function coolFunction(){
     for(i in users){
         console.log(users[i])
-        Composite.add(engine.world, addNewBody('john'))       
+        Composite.add(engine.world, addNewBody('john'))
+        balls.push()    
     }
 }
 
