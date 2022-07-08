@@ -112,21 +112,14 @@ let addNewBody = function(){
     })
 }
 
-function helpMe(){
-    console.log("help me")
-    setInterval(() => {
-        for(i in users){
-            console.log(users[i])
-            Composite.add(engine.world, addNewBody())            
-        }
-    }, 1000);
-}
-
-
 socket.on('users', addNewUsers)
 
 function addNewUsers(data){
     users = data
+    for(i in users){
+            console.log(users[i])
+            Composite.add(engine.world, addNewBody())            
+    }
 }
 
 </script>
