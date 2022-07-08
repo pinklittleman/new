@@ -103,9 +103,12 @@ document.onkeydown = function(e){
     }
     if(e.key === "t"){
         for(i in findStuff){
-            console.log(i)
-            console.log(findStuff[i])
+            // console.log(i)
+            // console.log(findStuff[i])
             Matter.Body.setVelocity(findStuff[i], {x:findStuff[i].velocity.x,y:-5});
+            if(findStuff[i].label === 'Circle Body'){
+                console.log(findStuff[i])
+            }
         }
     }
 };
@@ -117,7 +120,7 @@ function coolFunction(){
     for(i in users){
         console.log(users[i])
         Composite.add(engine.world, addNewBody('john'))
-        balls.push()    
+        balls.push()
     }
 }
 
