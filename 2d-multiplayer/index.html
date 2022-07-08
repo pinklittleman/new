@@ -107,7 +107,7 @@ document.onkeydown = function(e){
             // console.log(findStuff[i])
             Matter.Body.setVelocity(findStuff[i], {x:findStuff[i].velocity.x,y:-5});
             if(findStuff[i].label === 'Circle Body'){
-                console.log(findStuff[i])
+                balls.push(findStuff[i])
             }
         }
     }
