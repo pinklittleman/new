@@ -125,12 +125,13 @@ function addNewBody(){
     })
 }
 socket.on('join', socketJoin)
+socket.on('leave', socketJoin)
 socket.on('users', addNewUsers)
 
 function socketJoin(){
     setTimeout(() => {
         coolFunction()
-    }, 2000);
+    }, 1000);
 }
 
 function addNewUsers(data){
