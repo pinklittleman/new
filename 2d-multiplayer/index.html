@@ -102,7 +102,9 @@ document.onkeydown = function(e){
         socket.emit('right')
     }
     if(e.key === "t"){
-        console.log(findStuff)
+        for(i in findStuff){
+            console.log(findStuff[i])
+        }
     }
 };
 
