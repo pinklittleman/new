@@ -25,9 +25,11 @@ app.get('/', function(req, res){
 
 let user
 
-while(users.length === 0){
-    count = 4
-}
+setInterval(() => {
+    if(users.length === 0){
+        count = 4
+    }
+}, 1000);
 
 io.on('connection', (socket) => {
     // log the user that has connected and their socketID
