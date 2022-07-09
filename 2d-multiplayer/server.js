@@ -25,6 +25,10 @@ app.get('/', function(req, res){
 
 let user
 
+while(users.length === 0){
+    count = 4
+}
+
 io.on('connection', (socket) => {
     // log the user that has connected and their socketID
     console.log('a user connected: ' + socket.id);
