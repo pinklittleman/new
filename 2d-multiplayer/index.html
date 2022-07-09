@@ -95,7 +95,7 @@ Composite.add(engine.world,[
 
 document.onkeydown = function(e){
     if(e.key === "w"){
-        Matter.Body.setVelocity(findStuff[counting], {x:findStuff[counting].velocity.x,y:-5});
+        Matter.Body.setVelocity(findStuff[5], {x:findStuff[5].velocity.x,y:-5});
         socket.emit('jump')        
     }
     if(e.key === "s"){
@@ -111,7 +111,6 @@ document.onkeydown = function(e){
         socket.emit('right')
     }
     if(e.key === "t"){
-        balls = []
         for(i in findStuff){
             // console.log(i)
             if(findStuff[i].label === 'Circle Body'){
@@ -123,7 +122,6 @@ document.onkeydown = function(e){
     }
 };
 
-var balls = []
 let findStuff
 
 function coolFunction(){
@@ -135,7 +133,6 @@ function coolFunction(){
     for(i in users){
         console.log(users[i])
         Composite.add(engine.world, addNewBody())
-        balls.push()
     }
 }
 
