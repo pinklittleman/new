@@ -93,36 +93,6 @@ Composite.add(engine.world,[
     right,
 ])
 
-document.onkeydown = function(e){
-    if(e.key === "w"){
-        Matter.Body.setVelocity(findStuff[0], {x:findStuff[0].velocity.x,y:-5});
-        socket.emit('jump')        
-    }
-    if(e.key === "s"){
-        Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:5});
-        socket.emit('crouch')
-    }
-    if(e.key === "a"){
-        Matter.Body.setVelocity(ball, {x:-5,y:ball.velocity.y});
-        socket.emit('left')
-    }
-    if(e.key === "d"){
-        Matter.Body.setVelocity(ball, {x:5,y:ball.velocity.y});
-        socket.emit('right')
-    }
-    if(e.key === "t"){
-        balls = []
-        for(i in findStuff){
-            // console.log(i)
-            if(findStuff[i].label === 'Circle Body'){
-                console.log(findStuff[i])
-                balls.push(findStuff[i])
-                Matter.Body.setVelocity(findStuff[i], {x:findStuff[i].velocity.x,y:-5});
-            }
-        }
-    }
-};
-
 var balls = []
 let findStuff
 
@@ -171,6 +141,36 @@ function addNewUsers(data){
     users = data
     findStuff = Composite.allBodies(engine.world)
 }
+
+document.onkeydown = function(e){
+    if(e.key === "w"){
+        Matter.Body.setVelocity(findStuff[0], {x:findStuff[0].velocity.x,y:-5});
+        socket.emit('jump')        
+    }
+    if(e.key === "s"){
+        Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:5});
+        socket.emit('crouch')
+    }
+    if(e.key === "a"){
+        Matter.Body.setVelocity(ball, {x:-5,y:ball.velocity.y});
+        socket.emit('left')
+    }
+    if(e.key === "d"){
+        Matter.Body.setVelocity(ball, {x:5,y:ball.velocity.y});
+        socket.emit('right')
+    }
+    if(e.key === "t"){
+        balls = []
+        for(i in findStuff){
+            // console.log(i)
+            if(findStuff[i].label === 'Circle Body'){
+                console.log(findStuff[i])
+                balls.push(findStuff[i])
+                Matter.Body.setVelocity(findStuff[i], {x:findStuff[i].velocity.x,y:-5});
+            }
+        }
+    }
+};
 
 </script>
 </body>
