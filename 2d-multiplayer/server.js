@@ -37,10 +37,12 @@ io.on('connection', (socket) => {
     console.log('a user connected: ' + socket.id);
     users.push(socket.id)
     console.log(users)
-    user = {
-        id: socket.id,
-        usrId: count
-    }
+    setTimeout(() => {
+        user = {
+            id: socket.id,
+            usrId: count
+        }
+    }, 500);
     count = count + 1
     socket.broadcast.emit('join', user)
     setTimeout(() => {
