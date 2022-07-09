@@ -127,11 +127,11 @@ var balls = []
 let findStuff
 
 function coolFunction(){
-    for(i in findStuff){
-        if(findStuff[i].label === 'Circle Body'){
-            Composite.remove(engine.world, findStuff[i])
-        }
-    }
+    // for(i in findStuff){
+    //     if(findStuff[i].label === 'Circle Body'){
+    //         Composite.remove(engine.world, findStuff[i])
+    //     }
+    // }
     for(i in users){
         console.log(users[i])
         Composite.add(engine.world, addNewBody())
