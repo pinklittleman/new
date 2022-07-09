@@ -9,6 +9,7 @@ var credentials = { key: privateKey, cert: certificate};
 var https = require('https')
 
 let users = []
+let count = 4
 
 //pass in your credentials to create an https server
 var httpsServer = https.createServer(credentials, app);
@@ -27,7 +28,8 @@ io.on('connection', (socket) => {
     console.log('a user connected: ' + socket.id);
     users.push(socket.id)
     console.log(users)
-    socket.emit('join')
+    count = count + 1
+    socket.emit('join', count)
     
     setInterval(() => {
         socket.emit('users', users)
@@ -38,7 +40,8 @@ io.on('connection', (socket) => {
         var pos = users.indexOf(socket.id)
         users.splice(pos,pos+1)
         console.log(users)
-        socket.emit('leave')
+        count = count - 1
+        socket.emit('leave', count)
     })
 
 })
