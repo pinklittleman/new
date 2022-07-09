@@ -93,58 +93,9 @@ Composite.add(engine.world,[
     right,
 ])
 
-
-
-let findStuff
-
-function coolFunction(){
-    // for(i in findStuff){
-    //     if(findStuff[i].label === 'Circle Body'){
-    //         Composite.remove(engine.world, findStuff[i])
-    //     }
-    // }
-    for(i in users){
-        console.log(users[i])
-        Composite.add(engine.world, addNewBody())
-    }
-}
-
-function addNewBody(){
-    return Bodies.circle(Math.random() * 700, Math.random() * 500, 20, {
-        mass: 5,
-        render: {
-            strokeStyle: '#ffffff'
-        }
-    })
-}
-
-socket.on('join', socketJoin)
-socket.on('left', socketLeave)
-
-
-function socketLeave(data){
-    counting = data
-    setTimeout(() => {
-        coolFunction()
-    }, 500);
-}
-
-function socketJoin(data){
-    counting = data.usrId
-    console.log(data)
-    setTimeout(() => {
-        coolFunction()
-    }, 500);
-}
-
-function addNewUsers(data){
-    users = data
-    findStuff = Composite.allBodies(engine.world)
-}
-
 document.onkeydown = function(e){
     if(e.key === "w"){
-        Matter.Body.setVelocity(findStuff[5], {x:findStuff[5].velocity.x,y:-5});
+        Matter.Body.setVelocity(findStuff[0], {x:findStuff[0].velocity.x,y:-5});
         socket.emit('jump')        
     }
     if(e.key === "s"){
@@ -160,6 +111,7 @@ document.onkeydown = function(e){
         socket.emit('right')
     }
     if(e.key === "t"){
+        balls = []
         for(i in findStuff){
             // console.log(i)
             if(findStuff[i].label === 'Circle Body'){
@@ -170,6 +122,55 @@ document.onkeydown = function(e){
         }
     }
 };
+
+var balls = []
+let findStuff
+
+function coolFunction(){
+    for(i in findStuff){
+        if(findStuff[i].label === 'Circle Body'){
+            Composite.remove(engine.world, findStuff[i])
+        }
+    }
+    for(i in users){
+        console.log(users[i])
+        Composite.add(engine.world, addNewBody())
+        balls.push()
+    }
+}
+
+function addNewBody(){
+    return Bodies.circle(Math.random() * 700, Math.random() * 500, 20, {
+        mass: 5,
+        render: {
+            strokeStyle: '#ffffff'
+        }
+    })
+}
+
+socket.on('join', socketJoin)
+socket.on('left', socketLeave)
+socket.on('users', addNewUsers)
+
+function socketLeave(data){
+    counting = data
+    setTimeout(() => {
+        coolFunction()
+    }, 500);
+}
+
+function socketJoin(data){
+    counting = data
+    console.log(data)
+    setTimeout(() => {
+        coolFunction()
+    }, 500);
+}
+
+function addNewUsers(data){
+    users = data
+    findStuff = Composite.allBodies(engine.world)
+}
 
 </script>
 </body>
