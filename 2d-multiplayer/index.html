@@ -142,6 +142,8 @@ function addNewUsers(data){
     findStuff = Composite.allBodies(engine.world)
 }
 
+console.log(findStuff)
+
 document.onkeydown = function(e){
     if(e.key === "w"){
         Matter.Body.setVelocity(findStuff[5], {x:findStuff[5].velocity.x,y:-5});
