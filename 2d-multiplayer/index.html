@@ -149,7 +149,7 @@ function addNewBody(){
 }
 
 socket.on('join', socketJoin)
-socket.on('leave', socketLeave)
+socket.on('left', socketLeave)
 socket.on('users', addNewUsers)
 
 function socketLeave(data){
