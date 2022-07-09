@@ -105,8 +105,8 @@ document.onkeydown = function(e){
         balls = []
         for(i in findStuff){
             // console.log(i)
-            console.log(findStuff[i])
             if(findStuff[i].label === 'Circle Body'){
+                console.log(findStuff[i])
                 balls.push(findStuff[i])
                 Matter.Body.setVelocity(findStuff[i], {x:findStuff[i].velocity.x,y:-5});
             }
