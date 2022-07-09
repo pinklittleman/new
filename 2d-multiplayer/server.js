@@ -23,15 +23,21 @@ app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
 
+let user
+
 io.on('connection', (socket) => {
     // log the user that has connected and their socketID
     console.log('a user connected: ' + socket.id);
     users.push(socket.id)
     console.log(users)
+    user = {
+        id: socket.id,
+        usrId: count
+    }
     count = count + 1
-    socket.broadcast.emit('join', count)
+    socket.broadcast.emit('join', user)
     setTimeout(() => {
-        socket.emit('join', count)
+        socket.emit('join', user)
     }, 500);
     
     setInterval(() => {
