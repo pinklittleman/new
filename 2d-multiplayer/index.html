@@ -64,12 +64,12 @@ var Engine = Matter.Engine,
     Render.run(render);
 
 // ball body yellow
-let ball = Bodies.circle(500,550,20,{
-    mass: 5,
-    render: {
-        strokeStyle: '#ffffff'
-    }
-})
+// let ball = Bodies.circle(500,550,20,{
+//     mass: 5,
+//     render: {
+//         strokeStyle: '#ffffff'
+//     }
+// })
 
 let bottom = Bodies.rectangle(0, 600, 3500, 50,{isStatic: true})
 let topw = Bodies.rectangle(100, 0, 3500, 50,{isStatic: true})
@@ -77,7 +77,7 @@ let left = Bodies.rectangle(0, 600, 50, 3500,{isStatic: true})
 let right = Bodies.rectangle(800, 100,50,3500,{isStatic: true})
 
 Composite.add(engine.world,[
-    ball,
+    // ball,
     topw,
     bottom,
     left,
