@@ -95,7 +95,7 @@ Composite.add(engine.world,[
 
 document.onkeydown = function(e){
     if(e.key === "w"){
-        Matter.Body.setVelocity(findStuff[0], {x:findStuff[0].velocity.x,y:-5});
+        Matter.Body.setVelocity(findStuff[counting], {x:findStuff[counting].velocity.x,y:-5});
         socket.emit('jump')        
     }
     if(e.key === "s"){
