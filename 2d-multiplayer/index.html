@@ -71,6 +71,15 @@ var Engine = Matter.Engine,
 //     }
 // })
 
+var socketing = socket.id
+
+let count
+
+let user = {
+    socketID:socketing,
+    yourID: help,
+}
+
 let bottom = Bodies.rectangle(0, 600, 3500, 50,{isStatic: true})
 let topw = Bodies.rectangle(100, 0, 3500, 50,{isStatic: true})
 let left = Bodies.rectangle(0, 600, 50, 3500,{isStatic: true})
@@ -118,6 +127,11 @@ var balls = []
 let findStuff
 
 function coolFunction(){
+    for(i in findStuff){
+        if(findStuff[i].label === 'Circle Body'){
+            Composite.remove(engine.world, findStuff[i])
+        }
+    }
     for(i in users){
         console.log(users[i])
         Composite.add(engine.world, addNewBody('john'))
@@ -138,7 +152,8 @@ socket.on('join', socketJoin)
 socket.on('leave', socketJoin)
 socket.on('users', addNewUsers)
 
-function socketJoin(){
+function socketJoin(data){
+    count = data
     setTimeout(() => {
         coolFunction()
     }, 1000);
