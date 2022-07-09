@@ -148,8 +148,10 @@ document.onkeydown = function(e){
     if(e.key === "w"){
         console.log(findStuff)
         for(i in findStuff){
-            Matter.Body.setVelocity(findStuff[5], {x:findStuff[5].velocity.x,y:-5});
-            socket.emit('jump')
+            if(findStuff[i].label === 'Circle Body'){
+                Matter.Body.setVelocity(findStuff[counting], {x:0,y:-5});
+                socket.emit('jump')
+            }
         }
     }
     if(e.key === "s"){
