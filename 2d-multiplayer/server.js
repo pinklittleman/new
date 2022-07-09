@@ -26,6 +26,7 @@ app.get('/', function(req, res){
 let user
 
 setInterval(() => {
+    console.log(count)
     if(users.length === 0){
         count = 4
     }
