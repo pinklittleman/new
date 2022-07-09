@@ -160,7 +160,7 @@ function socketLeave(data){
 }
 
 function socketJoin(data){
-    counting = data
+    counting = data.usrId
     console.log(data)
     setTimeout(() => {
         coolFunction()
