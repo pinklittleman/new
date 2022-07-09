@@ -72,11 +72,6 @@ var Engine = Matter.Engine,
 // })
 
 
-socket.on('users', addNewUsers)
-function addNewUsers(data){
-    users = data
-    findStuff = Composite.allBodies(engine.world)
-}
 
 var socketing = socket.id
 
@@ -100,6 +95,11 @@ Composite.add(engine.world,[
     right,
 ])
 
+socket.on('users', addNewUsers)
+function addNewUsers(data){
+    users = data
+    findStuff = Composite.allBodies(engine.world)
+}
 console.log(findStuff)
 
 document.onkeydown = function(e){
