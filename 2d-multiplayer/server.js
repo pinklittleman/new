@@ -30,9 +30,11 @@ io.on('connection', (socket) => {
     console.log(users)
     count = count + 1
     socket.broadcast.emit('join', count)
+    socket.emit('join', count)
     
     setInterval(() => {
         socket.broadcast.emit('users', users)
+        socket.emit('users', users)
     }, 1000);
 
     socket.on('disconnect', () => {
@@ -42,6 +44,7 @@ io.on('connection', (socket) => {
         console.log(users)
         count = count - 1
         socket.broadcast.emit('left', count)
+        socket.emit('left', count)
     })
 
 })
