@@ -144,7 +144,7 @@ function addNewUsers(data){
 
 document.onkeydown = function(e){
     if(e.key === "w"){
-        Matter.Body.setVelocity(findStuff[0], {x:findStuff[0].velocity.x,y:-5});
+        Matter.Body.setVelocity(findStuff[5], {x:findStuff[5].velocity.x,y:-5});
         socket.emit('jump')        
     }
     if(e.key === "s"){
