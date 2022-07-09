@@ -154,14 +154,16 @@ socket.on('users', addNewUsers)
 
 function socketLeave(data){
     counting = data
-    alert('test')
+    setTimeout(() => {
+        coolFunction()
+    }, 500);
 }
 
 function socketJoin(data){
     counting = data
     setTimeout(() => {
         coolFunction()
-    }, 1000);
+    }, 500);
 }
 
 function addNewUsers(data){
