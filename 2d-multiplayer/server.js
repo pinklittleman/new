@@ -52,7 +52,7 @@ io.on('connection', (socket) => {
         var pos = users.indexOf(socket.id)
         users.splice(pos,pos+1)
         console.log(users)
-        count = count - 2
+        count = count - 1
         socket.broadcast.emit('left', count)
         setTimeout(() => {
             socket.emit('left', count)
