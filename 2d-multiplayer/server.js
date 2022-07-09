@@ -29,10 +29,10 @@ io.on('connection', (socket) => {
     users.push(socket.id)
     console.log(users)
     count = count + 1
-    socket.emit('join', count)
+    socket.broadcast.emit('join', count)
     
     setInterval(() => {
-        socket.emit('users', users)
+        socket.broadcast.emit('users', users)
     }, 1000);
 
     socket.on('disconnect', () => {
@@ -41,7 +41,7 @@ io.on('connection', (socket) => {
         users.splice(pos,pos+1)
         console.log(users)
         count = count - 1
-        socket.emit('left', count)
+        socket.broadcast.emit('left', count)
     })
 
 })
