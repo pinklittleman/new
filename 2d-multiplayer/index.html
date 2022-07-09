@@ -146,6 +146,7 @@ console.log('findstuff: '+ findStuff)
 
 document.onkeydown = function(e){
     if(e.key === "w"){
+        console.log(findStuff)
         Matter.Body.setVelocity(findStuff[5], {x:findStuff[5].velocity.x,y:-5});
         socket.emit('jump')        
     }
