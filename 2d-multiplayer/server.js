@@ -41,7 +41,7 @@ io.on('connection', (socket) => {
         users.splice(pos,pos+1)
         console.log(users)
         count = count - 1
-        socket.emit('leave', count)
+        socket.emit('left', count)
     })
 
 })
