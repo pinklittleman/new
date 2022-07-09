@@ -73,11 +73,11 @@ var Engine = Matter.Engine,
 
 var socketing = socket.id
 
-let count
+let counting
 
 let user = {
     socketID:socketing,
-    yourID: help,
+    yourID: counting,
 }
 
 let bottom = Bodies.rectangle(0, 600, 3500, 50,{isStatic: true})
@@ -153,7 +153,7 @@ socket.on('leave', socketJoin)
 socket.on('users', addNewUsers)
 
 function socketJoin(data){
-    count = data
+    counting = data
     setTimeout(() => {
         coolFunction()
     }, 1000);
