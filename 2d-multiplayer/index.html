@@ -109,7 +109,7 @@ function coolFunction(){
     }
 }
 
-let mathsNstuff = (800 / users.length) * (usrId - 4)
+let mathsNstuff = (800 / users.length) * (counting - 4)
 
 function addNewBody(){
     return Bodies.circle(mathsNstuff, 100, 500, 20, {
@@ -156,6 +156,7 @@ console.log('findstuff: '+ findStuff)
 
 setInterval(() => {
     socket.emit('update', findStuff[counting - 1].position)
+    console.log()
     console.log(mathsNstuff)
 }, 1000);
 
