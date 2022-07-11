@@ -125,7 +125,9 @@ socket.on('update2', updateCords)
 
 function updateCords(data){
     console.log(data)
+    Matter.Body.setVelocity(findStuff[counting - 2], {x:0,y:0})
     Matter.Body.setPosition(findStuff[counting - 2],{x:data.x,y:data.y})
+    
 }
 
 function socketLeave(data){
