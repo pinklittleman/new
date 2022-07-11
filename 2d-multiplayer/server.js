@@ -56,6 +56,12 @@ io.on('connection', (socket) => {
         }, 500);
     }, 1000);
 
+    socket.on('update',sendCordsBack)
+
+    function sendCordsBack(data){
+        socket.broadcast.emit('update2',data)  
+    }
+
     socket.on('disconnect', () => {
         console.log('leaving: '+socket.id)
         var pos = users.indexOf(socket.id)

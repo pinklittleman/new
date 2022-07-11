@@ -148,19 +148,19 @@ document.onkeydown = function(e){
     if(e.key === "w"){
         console.log(findStuff)
         Matter.Body.setVelocity(findStuff[counting - 1], {x:findStuff[counting - 1].velocity.x,y:-5});
-        socket.emit('jump')       
+        socket.emit('update', findStuff[counting - 1].position)       
     }
     if(e.key === "s"){
         Matter.Body.setVelocity(findStuff[counting - 1], {x:findStuff[counting - 1].velocity.x,y:5});
-        socket.emit('crouch')
+        socket.emit('update', findStuff[counting - 1].position)  
     }
     if(e.key === "a"){
         Matter.Body.setVelocity(findStuff[counting - 1], {x:-5,y:findStuff[counting - 1].velocity.y});
-        socket.emit('left')
+        socket.emit('update', findStuff[counting - 1].position)  
     }
     if(e.key === "d"){
         Matter.Body.setVelocity(findStuff[counting - 1], {x:5,y:findStuff[counting - 1].velocity.y});
-        socket.emit('right')
+        socket.emit('update', findStuff[counting - 1].position)  
     }
     if(e.key === "t"){
         balls = []
