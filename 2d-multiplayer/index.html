@@ -154,11 +154,13 @@ function addNewUsers(data){
 
 console.log('findstuff: '+ findStuff)
 
-setInterval(() => {
-    socket.emit('update', findStuff[counting - 1].position)
-    console.log()
-    console.log(mathsNstuff)
-}, 1000);
+setTimeout(() => {
+    setInterval(() => {
+        socket.emit('update', findStuff[counting - 1].position)
+        console.log()
+        console.log(mathsNstuff)
+    }, 1000);
+}, 5000);
 
 document.onkeydown = function(e){
     if(e.key === "w"){
