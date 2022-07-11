@@ -109,7 +109,11 @@ function coolFunction(){
     }
 }
 
-let mathsNstuff = (800 / users.length) * (counting - 4)
+let numbersNStuff
+
+function mathsNstuff(){
+    numbersNStuff = (800 / users.length) * (counting.userId - 4)
+}
 
 function addNewBody(){
     return Bodies.circle(Math.random() * 700,100, 20, {
@@ -132,8 +136,8 @@ function socketLeave(data){
 }
 
 function socketJoin(data){
-    counting = data.usrId
-    console.log(data)
+    counting = data
+    console.log('ahh ',data)
     setTimeout(() => {
         coolFunction()
     }, 500);
@@ -144,21 +148,19 @@ function addNewUsers(data){
     findStuff = Composite.allBodies(engine.world)
 }
 
-console.log('findstuff: '+ findStuff)
-
 document.onkeydown = function(e){
     if(e.key === "w"){
         console.log(findStuff)
-        Matter.Body.setVelocity(findStuff[counting - 1], {x:findStuff[counting - 1].velocity.x,y:-5});      
+        Matter.Body.setVelocity(findStuff[counting.usrId - 1], {x:findStuff[counting.usrId - 1].velocity.x,y:-5});      
     }
     if(e.key === "s"){
-        Matter.Body.setVelocity(findStuff[counting - 1], {x:findStuff[counting - 1].velocity.x,y:5});   
+        Matter.Body.setVelocity(findStuff[counting.usrId - 1], {x:findStuff[counting.usrId - 1].velocity.x,y:5});   
     }
     if(e.key === "a"){
-        Matter.Body.setVelocity(findStuff[counting - 1], {x:-5,y:findStuff[counting - 1].velocity.y});
+        Matter.Body.setVelocity(findStuff[counting.usrId - 1], {x:-5,y:findStuff[counting.usrId - 1].velocity.y});
     }
     if(e.key === "d"){
-        Matter.Body.setVelocity(findStuff[counting - 1], {x:5,y:findStuff[counting - 1].velocity.y});  
+        Matter.Body.setVelocity(findStuff[counting.usrId - 1], {x:5,y:findStuff[counting.usrId - 1].velocity.y});  
     }
     // if(e.key === "t"){
     //     balls = []
