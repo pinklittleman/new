@@ -109,8 +109,10 @@ function coolFunction(){
     }
 }
 
+console.log((800 / users.length) * (counting - 4))
+
 function addNewBody(){
-    return Bodies.circle((800 / users.length) * (counting - 4), 100, 500, 20, {
+    return Bodies.circle(500, 100, 500, 20, {
         mass: 5,
         render: {
             strokeStyle: '#ffffff'
