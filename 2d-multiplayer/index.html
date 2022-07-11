@@ -109,8 +109,10 @@ function coolFunction(){
     }
 }
 
+let mathsNstuff = (800 / users.length) * (usrId - 4)
+
 function addNewBody(){
-    return Bodies.circle(Math.random() * 700, Math.random() * 500, 20, {
+    return Bodies.circle(mathsNstuff, 100, 500, 20, {
         mass: 5,
         render: {
             strokeStyle: '#ffffff'
@@ -154,6 +156,7 @@ console.log('findstuff: '+ findStuff)
 
 setInterval(() => {
     socket.emit('update', findStuff[counting - 1].position)
+    console.log(mathsNstuff)
 }, 1000);
 
 document.onkeydown = function(e){
