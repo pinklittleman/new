@@ -125,6 +125,7 @@ socket.on('update2', updateCords)
 
 function updateCords(data){
     console.log(data)
+    Matter.Body.setPosition(findStuff[counting - 2],{x:data.x,y:data.y})
 }
 
 function socketLeave(data){
@@ -149,23 +150,27 @@ function addNewUsers(data){
 
 console.log('findstuff: '+ findStuff)
 
+setInterval(() => {
+    socket.emit('update', findStuff[counting - 1].position)
+}, 500);
+
 document.onkeydown = function(e){
     if(e.key === "w"){
         console.log(findStuff)
-        Matter.Body.setVelocity(findStuff[counting - 1], {x:findStuff[counting - 1].velocity.x,y:-5});
-        socket.emit('update', findStuff[counting - 1].position)       
+        Matter.Body.setVelocity(findStuff[counting - 1], {x:findStuff[counting - 1].velocity.x,y:-5}); 
+        socket.emit('up')      
     }
     if(e.key === "s"){
-        Matter.Body.setVelocity(findStuff[counting - 1], {x:findStuff[counting - 1].velocity.x,y:5});
-        socket.emit('update', findStuff[counting - 1].position)  
+        Matter.Body.setVelocity(findStuff[counting - 1], {x:findStuff[counting - 1].velocity.x,y:5}); 
+        socket.emit('down')    
     }
     if(e.key === "a"){
         Matter.Body.setVelocity(findStuff[counting - 1], {x:-5,y:findStuff[counting - 1].velocity.y});
-        socket.emit('update', findStuff[counting - 1].position)  
+        socket.emit('left')    
     }
     if(e.key === "d"){
         Matter.Body.setVelocity(findStuff[counting - 1], {x:5,y:findStuff[counting - 1].velocity.y});
-        socket.emit('update', findStuff[counting - 1].position)  
+        socket.emit('right')    
     }
     if(e.key === "t"){
         balls = []
