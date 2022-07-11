@@ -147,12 +147,8 @@ console.log('findstuff: '+ findStuff)
 document.onkeydown = function(e){
     if(e.key === "w"){
         console.log(findStuff)
-        for(i in findStuff){
-            if(findStuff[i].label === 'Circle Body'){
-                Matter.Body.setVelocity(findStuff[counting], {x:0,y:-5});
-                socket.emit('jump')
-            }
-        }
+        Matter.Body.setVelocity(findStuff[counting - 1], {x:0,y:-5});
+        socket.emit('jump')       
     }
     if(e.key === "s"){
         Matter.Body.setVelocity(ball, {x:ball.velocity.x,y:5});
