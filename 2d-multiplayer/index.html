@@ -121,6 +121,11 @@ function addNewBody(){
 socket.on('join', socketJoin)
 socket.on('left', socketLeave)
 socket.on('users', addNewUsers)
+socket.on('update2', updateCords)
+
+function updateCords(data){
+    console.log(data)
+}
 
 function socketLeave(data){
     counting = data
