@@ -154,40 +154,36 @@ console.log('findstuff: '+ findStuff)
 
 setInterval(() => {
     socket.emit('update', findStuff[counting - 1].position)
-}, 10);
+}, 1000);
 
 document.onkeydown = function(e){
     if(e.key === "w"){
         console.log(findStuff)
-        Matter.Body.setVelocity(findStuff[counting - 1], {x:findStuff[counting - 1].velocity.x,y:-5}); 
-        socket.emit('up')      
+        Matter.Body.setVelocity(findStuff[counting - 1], {x:findStuff[counting - 1].velocity.x,y:-5});      
     }
     if(e.key === "s"){
-        Matter.Body.setVelocity(findStuff[counting - 1], {x:findStuff[counting - 1].velocity.x,y:5}); 
-        socket.emit('down')    
+        Matter.Body.setVelocity(findStuff[counting - 1], {x:findStuff[counting - 1].velocity.x,y:5});   
     }
     if(e.key === "a"){
         Matter.Body.setVelocity(findStuff[counting - 1], {x:-5,y:findStuff[counting - 1].velocity.y});
-        socket.emit('left')    
     }
     if(e.key === "d"){
-        Matter.Body.setVelocity(findStuff[counting - 1], {x:5,y:findStuff[counting - 1].velocity.y});
-        socket.emit('right')    
+        Matter.Body.setVelocity(findStuff[counting - 1], {x:5,y:findStuff[counting - 1].velocity.y});  
     }
-    if(e.key === "t"){
-        balls = []
-        console.log(findStuff)
-        for(i in findStuff){
-            // console.log(i)
-            if(findStuff[i].label === 'Circle Body'){
-                console.log(findStuff[i])
-                console.log(i)
-                console.log(findStuff[4])
-                balls.push(findStuff[i])
-                Matter.Body.setVelocity(findStuff[counting - 1], {x:findStuff[counting - 1].velocity.x,y:-5});
-            }
-        }
-    }
+    // if(e.key === "t"){
+    //     balls = []
+    //     console.log(findStuff)
+    //     for(i in findStuff){
+    //         // console.log(i)
+    //         if(findStuff[i].label === 'Circle Body'){
+    //             console.log(findStuff[i])
+    //             console.log(i)
+    //             console.log(findStuff[4])
+    //             balls.push(findStuff[i])
+    //             Matter.Body.setVelocity(findStuff[counting - 1], {x:findStuff[counting - 1].velocity.x,y:-5});
+    //         }
+    //     }
+    // }
 };
 
 </script>
