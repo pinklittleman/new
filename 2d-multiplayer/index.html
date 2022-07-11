@@ -154,7 +154,7 @@ console.log('findstuff: '+ findStuff)
 
 setInterval(() => {
     socket.emit('update', findStuff[counting - 1].position)
-}, 100);
+}, 10);
 
 document.onkeydown = function(e){
     if(e.key === "w"){
