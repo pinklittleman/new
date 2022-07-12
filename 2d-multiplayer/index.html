@@ -71,14 +71,7 @@ var Engine = Matter.Engine,
 //     }
 // })
 
-var socketing = socket.id
-
 let counting = {}
-
-let user = {
-    socketID:socketing,
-    yourID: counting,
-}
 
 let bottom = Bodies.rectangle(0, 600, 3500, 50,{isStatic: true})
 let topw = Bodies.rectangle(100, 0, 3500, 50,{isStatic: true})
@@ -117,7 +110,7 @@ function addNewBody(){
     console.log(x)
     console.log(y)
     console.log(maths)
-    return Bodies.circle(100,100, 20, {
+    return Bodies.circle(maths,100, 20, {
         mass: 5,
         render: {
             strokeStyle: '#ffffff'
