@@ -110,7 +110,11 @@ function coolFunction(){
 }
 
 function addNewBody(){
-    maths = ((800 / users.length) * (counting.userId - 4))
+    x = (800 / users.length)
+    y = (counting.userId - 4)
+    maths = (x*y)
+    console.log(x)
+    console.log(y)
     console.log(maths)
     return Bodies.circle(100,100, 20, {
         mass: 5,
