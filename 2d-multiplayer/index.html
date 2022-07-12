@@ -112,11 +112,11 @@ function coolFunction(){
 let numbersNStuff
 
 function mathsNstuff(){
-    numbersNStuff = (800 / users.length) * (counting.userId - 4)
+    return numbersNStuff = (800 / users.length) * (counting.userId - 4)
 }
 
 function addNewBody(){
-    return Bodies.circle(Math.random() * 700,100, 20, {
+    return Bodies.circle(numbersNStuff(),100, 20, {
         mass: 5,
         render: {
             strokeStyle: '#ffffff'
