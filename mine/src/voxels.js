@@ -9,7 +9,7 @@ import {voxels_tool} from './voxels_tool.js';
 
 export const voxels = (function() {
 
-  const _VOXEL_HEIGHT = 128;
+  const _VOXEL_HEIGHT = 32;
   const _OCEAN_LEVEL = Math.floor(_VOXEL_HEIGHT * 0.12);
   const _BEACH_LEVEL = _OCEAN_LEVEL + 2;
   const _SNOW_LEVEL = Math.floor(_VOXEL_HEIGHT * 0.8);
