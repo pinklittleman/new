@@ -112,7 +112,7 @@ function coolFunction(){
 let numbersNStuff
 
 function mathsNstuff(){
-    return numbersNStuff = (800 / users.length) * (counting.userId - 4)
+    return (800 / users.length) * (counting.userId - 4)
 }
 
 function addNewBody(){
@@ -132,7 +132,7 @@ function socketLeave(data){
     counting = data
     setTimeout(() => {
         coolFunction()
-    }, 500);
+    }, 800);
 }
 
 function socketJoin(data){
