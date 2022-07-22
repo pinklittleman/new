@@ -42,7 +42,7 @@ setInterval(() => {
         counter++
         i++
     }
-}, 1000);
+}, 2000);
 
 io.on('connection', (socket) => {
     // log the user that has connected and their socketID
