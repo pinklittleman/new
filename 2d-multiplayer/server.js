@@ -35,7 +35,7 @@ setInterval(() => {
     for(i in users){
         console.log('hello: ', users[i])
         counting2 = {
-            userID:users,
+            socketID:users[i],
             countID:counter,
         }
         console.log(counting2)
@@ -49,16 +49,10 @@ io.on('connection', (socket) => {
     console.log('a user connected: ' + socket.id);
     users.push(socket.id)
     console.log(users)
-    setTimeout(() => {
-        user = {
-            id: socket.id,
-            usrId: count
-        }
-    }, 500);
     count = count + 1
-    socket.broadcast.emit('join', user)
+    socket.broadcast.emit('join', counting2)
     setTimeout(() => {
-        socket.emit('join', user)
+        socket.emit('join', counting2)
     }, 500);
     
     setInterval(() => {

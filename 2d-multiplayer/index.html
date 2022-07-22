@@ -104,13 +104,13 @@ function coolFunction(){
 }
 
 function addNewBody(){
-    x = (800 / users.length)
-    y = (counting.usrId - 4)
-    maths = ((x*y) - (200))
-    console.log(counting.usrId)
-    console.log(x)
-    console.log(y)
-    console.log(maths)
+    // x = (800 / users.length)
+    // y = (counting.usrId - 4)
+    // maths = ((x*y) - (200))
+    // // console.log(counting.usrId)
+    // // console.log(x)
+    // // console.log(y)
+    // // console.log(maths)
     return Bodies.circle(maths,100, 20, {
         mass: 5,
         render: {
@@ -131,7 +131,7 @@ function socketLeave(data){
 }
 
 function socketJoin(data){
-    counting = data
+    counting2 = data
     console.log('ahh ',data)
     setTimeout(() => {
         coolFunction()
