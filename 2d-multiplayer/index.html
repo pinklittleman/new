@@ -144,7 +144,6 @@ function addNewUsers(data){
 }
 
 var counting2
-var counter = 4
 
 document.onkeydown = function(e){
     if(e.key === "w"){
@@ -161,6 +160,10 @@ document.onkeydown = function(e){
         Matter.Body.setVelocity(findStuff[counting.usrId - 1], {x:5,y:findStuff[counting.usrId - 1].velocity.y});  
     }
     if(e.key === 't'){
+        var counter = 4
+        //this code here fixes months of effort
+        //instead of the server determining the number let the client do it depending on each socket
+        //reset the counter everytime this gets called, e.g if the t button is spammed it should give the same result
         for(i in users){
         console.log('hello: ', users[i])
         counting2 = {
