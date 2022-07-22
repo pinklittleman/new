@@ -31,17 +31,7 @@ setInterval(() => {
     if(users.length === 0){
         counter = 4
     }
-    counter = 5
-    for(i in users){
-        console.log('hello: ', users[i])
-        counting2 = {
-            socketID:users[i],
-            countID:counter,
-        }
-        console.log(counting2)
-        counter++
-        i++
-    }
+    
 }, 2000);
 
 io.on('connection', (socket) => {
@@ -50,6 +40,18 @@ io.on('connection', (socket) => {
     users.push(socket.id)
     console.log(users)
     count = count + 1
+    counter = 5
+    for(i in users){
+        console.log('hello: ', users[i])
+        counting2 = {
+            socketID:users[i],
+            countID:counter,
+        }
+        socket.emit('test', counting2)
+        console.log(counting2)
+        counter++
+        i++
+    }
     socket.broadcast.emit('join', counting2)
     setTimeout(() => {
         socket.emit('join', counting2)
