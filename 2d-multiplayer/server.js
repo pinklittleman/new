@@ -24,10 +24,22 @@ app.get('/', function(req, res){
 });
 
 let user
+let counting2 = {}
+let counter
 
 setInterval(() => {
     if(users.length === 0){
-        count = 4
+        counter = 4
+    }
+    for(i in users){
+        console.log('hello: ', users[i])
+        counting2 = {
+            userID:users,
+            countID:counter,
+        }
+        console.log(counting2)
+        counter++
+        i++
     }
 }, 1000);
 
