@@ -31,7 +31,7 @@ setInterval(() => {
     if(users.length === 0){
         counter = 4
     }
-    counter = 0
+    counter = 5
     for(i in users){
         console.log('hello: ', users[i])
         counting2 = {
