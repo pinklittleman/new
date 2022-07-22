@@ -47,7 +47,7 @@ io.on('connection', (socket) => {
             socketID:users[i],
             countID:counter,
         }
-        socket.emit('test', counting2)
+        socket.broadcast.emit('test', counting2)
         console.log(counting2)
         counter++
         i++

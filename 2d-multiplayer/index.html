@@ -126,6 +126,7 @@ socket.on('users', addNewUsers)
 
 function testFn(data){
     console.log(data)
+    counting2 = data
 }
 
 function socketLeave(data){
@@ -153,7 +154,7 @@ var counting2
 document.onkeydown = function(e){
     if(e.key === "w"){
         console.log(findStuff)
-        Matter.Body.setVelocity(findStuff[counting.usrId - 1], {x:findStuff[counting.usrId - 1].velocity.x,y:-5});      
+        Matter.Body.setVelocity(findStuff[counting2.countID - 1], {x:findStuff[counting.usrId - 1].velocity.x,y:-5});      
     }
     if(e.key === "s"){
         Matter.Body.setVelocity(findStuff[counting.usrId - 1], {x:findStuff[counting.usrId - 1].velocity.x,y:5});   
