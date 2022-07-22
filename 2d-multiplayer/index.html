@@ -71,10 +71,6 @@ var Engine = Matter.Engine,
 //     }
 // })
 
-for(i in users){
-    console.log('hello: ', [i])
-    i++
-}
 
 let counting = {}
 
@@ -160,6 +156,12 @@ document.onkeydown = function(e){
     }
     if(e.key === "d"){
         Matter.Body.setVelocity(findStuff[counting.usrId - 1], {x:5,y:findStuff[counting.usrId - 1].velocity.y});  
+    }
+    if(e.key === 't'){
+        for(i in users){
+        console.log('hello: ', [i])
+        i++
+    }
     }
     // if(e.key === "t"){
     //     balls = []
