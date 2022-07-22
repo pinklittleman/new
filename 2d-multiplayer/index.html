@@ -143,6 +143,8 @@ function addNewUsers(data){
     findStuff = Composite.allBodies(engine.world)
 }
 
+var counting2 
+
 document.onkeydown = function(e){
     if(e.key === "w"){
         console.log(findStuff)
@@ -160,6 +162,10 @@ document.onkeydown = function(e){
     if(e.key === 't'){
         for(i in users){
         console.log('hello: ', users[i])
+        counting2 = {
+            userID:users,
+            countID:i+4,
+        }
         i++
     }
     }
