@@ -162,8 +162,9 @@ document.onkeydown = function(e){
     if(e.key === 't'){
         var counter = 4
         //this code here fixes months of effort
-        //instead of the server determining the number let the client do it depending on each socket
+        //i!!! NVM will need the server to allocate the countID and send to clients 
         //reset the counter everytime this gets called, e.g if the t button is spammed it should give the same result
+        //we can now allocate space depending on the clients countID 
         for(i in users){
         console.log('hello: ', users[i])
         counting2 = {
