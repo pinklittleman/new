@@ -31,6 +31,7 @@ io.on('connection', (socket) => {
     console.log('a user connected: ' + socket.id);
     users.push(socket.id)
     console.log(users)
+    counter = 5
     for(i in users){
         console.log('hello: ', users[i])
         counting2 = {
