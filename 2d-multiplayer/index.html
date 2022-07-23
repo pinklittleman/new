@@ -37,6 +37,7 @@ let findStuff
 let users = []
 const socket = io.connect('wss://pinky.uk.to:5000');
 var counting2
+let test = []
 
 var Engine = Matter.Engine,
     Render = Matter.Render,
@@ -102,8 +103,9 @@ function addNewBody(){
 
 socket.on('test',testFn)
 
-function testFn(){
-    
+function testFn(data){
+    test.push(data)
+    console.log(test)
 }
 
 document.onkeydown = function(e){
