@@ -38,6 +38,7 @@ let users = []
 const socket = io.connect('wss://pinky.uk.to:5000');
 var counting2
 let test = []
+let uuid = {}
 
 var Engine = Matter.Engine,
     Render = Matter.Render,
@@ -106,6 +107,12 @@ socket.on('test',testFn)
 function testFn(data){
     test.push(data)
     console.log(test)
+    for (i in test){
+        if(test[i].socketID === socket.id){
+            console.log('this is u: '+test[i].socketID)
+        }
+        i++
+    }
 }
 
 document.onkeydown = function(e){
