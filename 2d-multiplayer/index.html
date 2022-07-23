@@ -100,6 +100,12 @@ function addNewBody(){
     })
 }
 
+socket.on('test',testFn)
+
+function testFn(){
+    
+}
+
 document.onkeydown = function(e){
     if(e.key === "w"){
         console.log(findStuff)
@@ -116,7 +122,6 @@ document.onkeydown = function(e){
     }
     if(e.key === 't'){
         console.log('this socket: ' + socket.id )
-        coolFunction()
     }
 };
 

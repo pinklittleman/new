@@ -9,7 +9,6 @@ var credentials = { key: privateKey, cert: certificate};
 var https = require('https')
 
 let users = []
-let count = 4
 
 //pass in your credentials to create an https server
 var httpsServer = https.createServer(credentials, app);
@@ -23,57 +22,35 @@ app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
 
-let user
 let counting2 = {}
 let counter
 
-setInterval(() => {
-    if(users.length === 0){
-        counter = 4
-    }
-    
-}, 2000);
-
 io.on('connection', (socket) => {
+
     // log the user that has connected and their socketID
     console.log('a user connected: ' + socket.id);
     users.push(socket.id)
     console.log(users)
-    count = count + 1
-    counter = 5
     for(i in users){
         console.log('hello: ', users[i])
         counting2 = {
             socketID:users[i],
             countID:counter,
         }
-        socket.broadcast.emit('test', counting2)
+        socket.emit('test', counting2)
         console.log(counting2)
         counter++
         i++
     }
-    socket.broadcast.emit('join', counting2)
-    setTimeout(() => {
-        socket.emit('join', counting2)
-    }, 500);
-    
-    setInterval(() => {
-        socket.broadcast.emit('users', users)
-        setTimeout(() => {
-            socket.emit('users', users)
-        }, 500);
-    }, 1000);
+
 
     socket.on('disconnect', () => {
+
         console.log('leaving: '+socket.id)
         var pos = users.indexOf(socket.id)
         users.splice(pos,pos+1)
         console.log(users)
-        count = count - 1
-        socket.broadcast.emit('left', count)
-        setTimeout(() => {
-            socket.emit('left', count)
-        }, 500);
+        socket.emit('test', counting2)
     })
 
 })
