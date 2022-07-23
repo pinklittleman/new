@@ -45,6 +45,10 @@ io.on('connection', (socket) => {
     }
 
 
+    setInterval(() => {
+        socket.emit('update',counting2)
+    }, 1000);
+
     socket.on('disconnect', () => {
 
         console.log('leaving: '+socket.id)

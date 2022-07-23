@@ -102,12 +102,18 @@ function addNewBody(){
     })
 }
 
-socket.on('test',testFn)
+// socket.on('test',testFn)
+socket.on('update', update)
 
-function testFn(data){
+function update(data){
+    test = []
     test.push(data)
-    console.log(test)
 }
+
+// function testFn(data){
+//     test.push(data)
+//     console.log(test)
+// }
 
 document.onkeydown = function(e){
     if(e.key === "w"){
