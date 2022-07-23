@@ -23,7 +23,7 @@ app.get('/', function(req, res){
 });
 
 let counting2 = {}
-let counter
+let counter = 5
 
 io.on('connection', (socket) => {
 
