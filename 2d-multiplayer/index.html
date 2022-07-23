@@ -109,8 +109,8 @@ function testFn(data){
     console.log(test)
     for (i in test){
         if(test[i].socketID === socket.id){
-            console.log('this is u: '+test[i].socketID)
-            uuid = test[i].countID
+            console.log('this is u: '+test[i].socketID+' '+test[i].countID)
+            
         }
         i++
     }
