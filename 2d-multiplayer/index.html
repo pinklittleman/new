@@ -27,13 +27,16 @@ div{
     width: 200px;
     color: rgb(255, 255, 255);
 }
+body{
+    background: rgb(66, 66, 66);
+}
 </style>
-<div id="div"> you jumped </div>
-<!-- <p id="ID">WebSockets and that</p> -->
-<!-- <input type="text" id="roomId" name="roomId" placeholder="Enter a room ID" /> -->
 <script>
+    
+let findStuff
 let users = []
 const socket = io.connect('wss://pinky.uk.to:5000');
+var counting2
 
 var Engine = Matter.Engine,
     Render = Matter.Render,
@@ -62,43 +65,22 @@ var Engine = Matter.Engine,
 
     Matter.Runner.run(engine);
     Render.run(render);
+    let bottom = Bodies.rectangle(0, 600, 3500, 50,{isStatic: true})
+    let topw = Bodies.rectangle(100, 0, 3500, 50,{isStatic: true})
+    let left = Bodies.rectangle(0, 600, 50, 3500,{isStatic: true})
+    let right = Bodies.rectangle(800, 100,50,3500,{isStatic: true})
 
-// ball body yellow
-// let ball = Bodies.circle(500,550,20,{
-//     mass: 5,
-//     render: {
-//         strokeStyle: '#ffffff'
-//     }
-// })
+    Composite.add(engine.world,[
+        topw,
+        bottom,
+        left,
+        right,
+    ])
 
-
-let counting = {}
-
-let bottom = Bodies.rectangle(0, 600, 3500, 50,{isStatic: true})
-let topw = Bodies.rectangle(100, 0, 3500, 50,{isStatic: true})
-let left = Bodies.rectangle(0, 600, 50, 3500,{isStatic: true})
-let right = Bodies.rectangle(800, 100,50,3500,{isStatic: true})
-
-Composite.add(engine.world,[
-    // ball,
-    topw,
-    bottom,
-    left,
-    right,
-])
-
-var balls = []
-let findStuff
 
 function coolFunction(){
-    for(i in findStuff){
-        if(findStuff[i].label === 'Circle Body'){
-            Composite.remove(engine.world, findStuff[i])
-        }
-    }
     for(i in users){
         Composite.add(engine.world, addNewBody())
-        balls.push()
     }
 }
 
@@ -118,38 +100,6 @@ function addNewBody(){
     })
 }
 
-socket.on('test', testFn)
-socket.on('join', socketJoin)
-socket.on('left', socketLeave)
-socket.on('users', addNewUsers)
-
-function testFn(data){
-    console.log(data)
-    counting2 = data
-}
-
-function socketLeave(data){
-    counting = data
-    setTimeout(() => {
-        coolFunction()
-    }, 2000);
-}
-
-function socketJoin(data){
-    counting2 = data
-    console.log('ahh ',data)
-    setTimeout(() => {
-        coolFunction()
-    }, 2000);
-}
-
-function addNewUsers(data){
-    users = data
-    findStuff = Composite.allBodies(engine.world)
-}
-
-var counting2
-
 document.onkeydown = function(e){
     if(e.key === "w"){
         console.log(findStuff)
@@ -166,35 +116,7 @@ document.onkeydown = function(e){
     }
     if(e.key === 't'){
         console.log('this socket: ' + socket.id )
-        // var counter = 5
-        // //this code here fixes months of effort
-        // //i!!! NVM will need the server to allocate the countID and send to clients 
-        // //reset the counter everytime this gets called, e.g if the t button is spammed it should give the same result
-        // //we can now allocate space depending on the clients countID 
-        // for(i in users){
-        // console.log('hello: ', users[i])
-        // counting2 = {
-        //     userID:users,
-        //     countID:counter,
-        // }
-        // console.log(counting2)
-        // counter++
-        // i++
     }
-    // if(e.key === "t"){
-    //     balls = []
-    //     console.log(findStuff)
-    //     for(i in findStuff){
-    //         // console.log(i)
-    //         if(findStuff[i].label === 'Circle Body'){
-    //             console.log(findStuff[i])
-    //             console.log(i)
-    //             console.log(findStuff[4])
-    //             balls.push(findStuff[i])
-    //             Matter.Body.setVelocity(findStuff[counting - 1], {x:findStuff[counting - 1].velocity.x,y:-5});
-    //         }
-    //     }
-    // }
 };
 
 </script>
