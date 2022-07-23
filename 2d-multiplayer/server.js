@@ -51,6 +51,7 @@ io.on('connection', (socket) => {
         users.splice(pos,pos+1)
         console.log(users)
         socket.emit('test', counting2)
+        counter = counter - 1
     })
 
 })
