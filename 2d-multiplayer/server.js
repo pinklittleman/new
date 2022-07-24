@@ -22,6 +22,7 @@ app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
 
+let counter2 = []
 let counting2 = {}
 let counter = 5
 
@@ -38,6 +39,7 @@ io.on('connection', (socket) => {
             socketID:users[i],
             countID:counter,
         }
+        counter2.push(counting2)
         socket.emit('test', counting2)
         console.log(counting2)
         counter++
@@ -47,6 +49,7 @@ io.on('connection', (socket) => {
 
     setInterval(() => {
         socket.emit('update',users)
+        console.log(counter2)
     }, 1000);
 
     socket.on('disconnect', () => {
@@ -55,19 +58,10 @@ io.on('connection', (socket) => {
         var pos = users.indexOf(socket.id)
         users.splice(pos,pos+1)
         console.log(users)
-
-        counter = 5
-        for(i in users){
-            console.log('hello: ', users[i])
-            counting2 = {
-                socketID:users[i],
-                countID:counter,
-            }
-            socket.emit('test', counting2)
-            console.log(counting2)
-            counter = counter - 1
-            i++
-        }
+        counter - 1
+        var pos2 = users.indexOf(socket.id)
+        users.splice(pos2,pos2+1)
+        
     })
 
 })
