@@ -50,7 +50,6 @@ io.on('connection', (socket) => {
     setInterval(() => {
         socket.emit('update',users)
         socket.emit('update2',counter2)
-        console.log(counter2)
     }, 1000);
 
     socket.on('disconnect', () => {
