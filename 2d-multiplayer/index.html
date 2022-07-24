@@ -138,15 +138,20 @@ document.onkeydown = function(e){
     }
     if(e.key === 't'){
         console.log('this socket: ' + socket.id )
-        for (i in test){
-            console.log(test[i])
-        if(test[i].socketID === socket.id){
-            console.log('this is u: '+test[i].socketID+' '+test[i].countID)
+        // for (i in test){
+        //     console.log(test[i])
+        // if(test[i].socketID === socket.id){
+        //     console.log('this is u: '+test[i].socketID+' '+test[i].countID)
             
+        // }
+        // i++
+        for(i in counting2){
+            if(socket.id === counting2[i].socketID){
+                console.log('ur id: '+counting2[i].countID)
+            }
         }
-        i++
     }
-    }
+    
 };
 
 </script>

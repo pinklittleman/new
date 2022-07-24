@@ -54,10 +54,13 @@ io.on('connection', (socket) => {
 
     socket.on('disconnect', () => {
 
+        // this removes the leaving socket from the list
         console.log('leaving: '+socket.id)
         var pos = users.indexOf(socket.id)
         users.splice(pos,pos+1)
         console.log(users)
+
+        // this removes the leaving user from the advanced list containing the countID
         counter - 1
         for(i in counter2){
             console.log(i)
