@@ -88,14 +88,14 @@ function coolFunction(){
 }
 
 function addNewBody(){
-    // x = (800 / users.length)
-    // y = (counting.usrId - 4)
-    // maths = ((x*y) - (200))
+    x = (800 / users.length)
+    y = (uuid)
+    maths = ((x*y) - (200))
     // // console.log(counting.usrId)
     // // console.log(x)
     // // console.log(y)
     // // console.log(maths)
-    return Bodies.circle(100,100, 20, {
+    return Bodies.circle(maths,100, 20, {
         mass: 5,
         render: {
             strokeStyle: '#ffffff'
@@ -148,6 +148,7 @@ document.onkeydown = function(e){
         for(i in counting2){
             if(socket.id === counting2[i].socketID){
                 console.log('ur id: '+counting2[i].countID)
+                uuid = counting2[i].countID
             }
         }
     }
