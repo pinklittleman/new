@@ -59,8 +59,8 @@ io.on('connection', (socket) => {
         users.splice(pos,pos+1)
         console.log(users)
         counter - 1
-        var pos2 = users.indexOf(socket.id)
-        users.splice(pos2,pos2+1)
+        var pos2 = counter2.indexOf(socket.id)
+        counter2.splice(pos2,pos2+1)
         
     })
 
