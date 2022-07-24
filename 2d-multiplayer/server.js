@@ -60,9 +60,10 @@ io.on('connection', (socket) => {
         console.log(users)
         counter - 1
         for(i in counter2){
+            console.log(i)
             if(counter2[i].socketID === socket.id){
-                console.log(counter[i])
-                counter2.splice(counter2[i],counter2[i]+1)
+                console.log(i)
+                counter2.splice(i,i+1)
             }
         }
         console.log(counter2)
