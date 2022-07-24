@@ -36,9 +36,10 @@ body{
 let findStuff
 let users = []
 const socket = io.connect('wss://pinky.uk.to:5000');
-var counting2
+var counting2 = []
 let test = []
 let uuid = {}
+
 
 var Engine = Matter.Engine,
     Render = Matter.Render,
@@ -104,6 +105,12 @@ function addNewBody(){
 
 // socket.on('test',testFn)
 socket.on('update', update)
+socket.on('update2', update2)
+
+function update2(data){
+    counting2 = data
+    console.log(counting2)
+}
 
 function update(data){
     users = data
