@@ -33,6 +33,7 @@ io.on('connection', (socket) => {
     users.push(socket.id)
     console.log(users)
     counter = 5
+    counter2 = []
     for(i in users){
         console.log('hello: ', users[i])
         counting2 = {
