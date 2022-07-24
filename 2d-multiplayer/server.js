@@ -33,7 +33,6 @@ io.on('connection', (socket) => {
     users.push(socket.id)
     console.log(users)
     counter = 5
-    counter2 = []
     for(i in users){
         console.log('hello: ', users[i])
         counting2 = {
@@ -61,8 +60,11 @@ io.on('connection', (socket) => {
         users.splice(pos,pos+1)
         console.log(users)
         counter - 1
-        var pos2 = counter2.indexOf(socket.id)
-        counter2.splice(pos2,pos2+1)
+        for(i in counter2){
+            if(counter2[i].socketID === socket.id){
+                counter2.splice(counter2[i],counter2[i]+1)
+            }
+        }
         
     })
 
