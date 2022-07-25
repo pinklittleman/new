@@ -25,7 +25,7 @@ io.on('connection', (socket) => {
     var dating = 'hello world'
     setInterval(() => {
         socket.emit('new',dating)
-        console.log(dating)
+        console.log(socket.id)
     }, 1000);
     
     
