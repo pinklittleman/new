@@ -23,7 +23,10 @@ app.get('/', function(req, res){
 
 io.on('connection', (socket) => {
     var dating = 'hello world'
-    socket.emit('new',dating)
+    setInterval(() => {
+        socket.emit('new',dating)
+        console.log(dating)
+    }, 1000);
     
     
     
