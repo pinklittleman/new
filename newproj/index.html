@@ -12,19 +12,29 @@
 
 const socket = io.connect('wss://pinky.uk.to:4000');
 
-// let canvas = document.getElementById('canvas')
-// let c = canvas.getContext('2d')
+let canvas = document.getElementById('canvas')
+let c = canvas.getContext('2d')
 
-// canvas.width = innerWidth
-// canvas.height = innerHeight
+canvas.width = innerWidth
+canvas.height = innerHeight
 
-
-socket.on('update', update)
-
-function update(){
-    console.log('hello')
+class Player {
+    constructor(x,y,radius,color){
+        this.x = x
+        this.y = y
+        this.radius = radius
+        this.color = color 
+    }
+    draw(){
+        c.beginPath()
+        c.arc(this.x,this.y,this.radius,0,Math.PI*2,false)
+        c.fillStyle = this.color
+        c.fill()
+    }
 }
 
+const player = new Player(100,100,30,'blue')
+player.draw()
 
 </script>
 <style>

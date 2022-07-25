@@ -22,10 +22,6 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', (socket) => {
-    setInterval(() => {
-        socket.emit('update')
-        console.log(socket.id)
-    }, 1000);
     
     
     
