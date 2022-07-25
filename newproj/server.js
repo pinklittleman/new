@@ -22,9 +22,8 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', (socket) => {
-    var dating = 'hello world'
     setInterval(() => {
-        socket.emit('helloworld', dating)
+        socket.emit('update')
         console.log(socket.id)
     }, 1000);
     
