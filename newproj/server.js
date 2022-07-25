@@ -20,3 +20,14 @@ app.get('/', function(req, res){
     //send the index.html file for all requests
     res.sendFile(__dirname + '/index.html');
 });
+
+io.on('connection', (socket) => {
+    
+    socket.emit('new','hello world')
+    
+    
+    
+    socket.on('disconnect', () => {
+
+    })
+})
