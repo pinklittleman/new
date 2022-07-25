@@ -12,7 +12,7 @@
 
 const socket = io.connect('wss://pinky.uk.to:4000');
 
-let canvas = document.getElementById('canvas')
+let canvas = document.querySelector('canvas')
 let c = canvas.getContext('2d')
 
 canvas.width = innerWidth
@@ -42,6 +42,6 @@ player.draw()
         background-color: crimson;
     }
 </style>
-<canvas id="canvas"></canvas>
+<canvas></canvas>
 </body>
 </html>
