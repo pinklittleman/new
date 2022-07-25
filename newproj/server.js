@@ -22,8 +22,8 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', (socket) => {
-
-    socket.emit('new','hello world')
+    var dating = 'hello world'
+    socket.emit('new',dating)
     
     
     
