@@ -68,7 +68,8 @@ function animate(){
         projectile.update()
         console.log(projectile.x)
         if(projectile.x < 10){
-            projectiles.cut(projectile,projectile+1)
+            var pos = users.indexOf(projectile)
+            projectiles.splice(pos,pos+1)
         }
     })
     
