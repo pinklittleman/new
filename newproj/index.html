@@ -67,6 +67,9 @@ function animate(){
     projectiles.forEach((projectile)=>{
         projectile.update()
         console.log(projectile.x)
+        if(projectile.x < 10){
+            projectiles.cut(projectile,projectile+1)
+        }
     })
     
 }
