@@ -62,13 +62,14 @@ const projectiles = []
 
 function animate(){
     requestAnimationFrame(animate)
+    c.clearRect(0, 0, canvas.width, canvas.height)
+    player.draw()
     projectiles.forEach((projectile)=>{
         projectile.update()
     })
 }
 
 const player = new Player(x,y,30,'grey')
-player.draw()
 
 // const projectile = new Projectile(canvas.width / 2,canvas.height / 2,5,'red',{x:1,y:1})
 
