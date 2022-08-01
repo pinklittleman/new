@@ -67,7 +67,7 @@ function animate(){
     projectiles.forEach((projectile)=>{
         projectile.update()
         console.log(projectile.x)
-        if(projectile.x < 10){
+        if(projectile.x < 10 || projectile.x > canvas.width){
             var pos = projectiles.indexOf(projectile)
             projectiles.splice(pos,pos+1)
         }
