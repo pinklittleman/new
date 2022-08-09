@@ -8,6 +8,7 @@ canvas.height = 400
 let colours = ['red', 'green', 'blue']
 let x = 0
 let y = 0
+let size = prompt("please enter how big you want the pixels to be 1-250")
 
 
 // function poggers(){
@@ -27,14 +28,17 @@ let y = 0
        
 // }
 
-setInterval(() => {
+let looper = setInterval(() => {
     var randColor = colours[Math.floor(Math.random() * colours.length)];
     ctx.fillStyle = randColor
-    ctx.fillRect(x, y, 5, 5);
-    x=x+5
+    ctx.fillRect(x, y, size, size);
+    x=x+size
     if(x === canvas.width){
         x = 0
-        y=y+5
+        y=y+size
         console.log('new line')
     }
-}, 0.001);
+    if(y === canvas.height){
+        clearInterval(looper)
+    }
+}, 0.);
