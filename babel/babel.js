@@ -8,7 +8,8 @@ canvas.height = 400
 let colours = ['red', 'green', 'blue']
 let x = 0
 let y = 0
-let size = prompt("please enter how big you want the pixels to be 1-250")
+let size1 = prompt("please enter how big you want the pixels to be 1-250")
+let size = parseInt(size1)
 
 let looper = setInterval(() => {
     var randColor = colours[Math.floor(Math.random() * colours.length)];
@@ -23,4 +24,4 @@ let looper = setInterval(() => {
     if(y === canvas.height){
         // clearInterval(looper)
     }
-}, 0.);
+}, 1);
