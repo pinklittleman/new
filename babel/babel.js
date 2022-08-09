@@ -24,8 +24,10 @@ function art(){
             i = 0
             x = 0
             y++
+            console.log('new line')
         }
         if(y >= canvas.height){
+            console.log('finished')
             break
         }      
     }
