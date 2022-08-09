@@ -2,8 +2,8 @@
 let canvas = document.querySelector('canvas')
 let ctx = canvas.getContext('2d')
 
-canvas.width = innerWidth
-canvas.height = innerHeight
+canvas.width = 900
+canvas.height = 900
 
 let colours = ['red', 'green', 'blue']
 let x = 0
@@ -22,6 +22,6 @@ let looper = setInterval(() => {
         console.log('new line')
     }
     if(y === canvas.height){
-        // clearInterval(looper)
+        clearInterval(looper)
     }
 }, 1);
