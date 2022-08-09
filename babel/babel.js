@@ -37,4 +37,4 @@ setInterval(() => {
         y++
         console.log('new line')
     }
-}, 1);
+}, 0.001);
