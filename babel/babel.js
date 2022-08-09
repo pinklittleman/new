@@ -7,10 +7,8 @@ canvas.height = 400
 ctx.fillStyle = '#F0DB4F';
 ctx.strokeStyle = 'red';
 
-ctx.fillRect(50, 50, 1, 1);
-
 function poggers(){
-    for (let i = 0; i <= 5; i++) {
-        console.log("The number is " + i + "<br>")
-      }
+    for (let i = 0; i <= 800; i++) {
+        ctx.fillRect(i, 50, 1, 1);
+    }
 }
