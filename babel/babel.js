@@ -6,8 +6,8 @@ canvas.width = 800
 canvas.height = 400
 
 let colours = ['red', 'green', 'blue']
-let x
-let y
+let x = 0
+let y = 0
 
 
 // function poggers(){
