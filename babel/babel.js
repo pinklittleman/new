@@ -10,5 +10,5 @@ ctx.strokeStyle = 'red';
 ctx.fillRect(50, 50, 1, 1);
 
 for (let i = 0; i < 5; i++) {
-    text += "The number is " + i + "<br>";
+    "The number is " + i + "<br>";
   }
