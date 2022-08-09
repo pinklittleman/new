@@ -28,10 +28,5 @@ let y
 // }
 
 setInterval(() => {
-
-    for(;x <= canvas.width;){
-        console.log(x)
-
-    }
-    
+    console.log('hello')
 }, 1000);
