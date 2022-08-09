@@ -19,6 +19,8 @@ slider.oninput = function() {
   output.innerHTML = this.value;
 }
 
+size = slider.value
+
 let looper = setInterval(() => {
     var randColor = colours[Math.floor(Math.random() * colours.length)];
     ctx.fillStyle = randColor
