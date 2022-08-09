@@ -11,7 +11,7 @@ let y = 0
 let size1 = prompt("please enter how big you want the pixels to be 1-250")
 let size = parseInt(size1)
 let mod = size % 5
-console.log(mod)
+size = size - mod
 
 let looper = setInterval(() => {
     var randColor = colours[Math.floor(Math.random() * colours.length)];
