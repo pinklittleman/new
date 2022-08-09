@@ -11,6 +11,14 @@ let y = 0
 let size1 = prompt("please enter how big you want the pixels to be 1-250")
 let size = parseInt(size1)
 
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+
 let looper = setInterval(() => {
     var randColor = colours[Math.floor(Math.random() * colours.length)];
     ctx.fillStyle = randColor
