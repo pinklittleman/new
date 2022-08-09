@@ -12,20 +12,33 @@ let size1 = prompt("please enter how big you want the pixels to be 0-250")
 let size = parseInt(size1)
 
 
-let looper = setInterval(() => {
+// let looper = setInterval(() => {
+//     var randColor = colours[Math.floor(Math.random() * colours.length)];
+//     ctx.fillStyle = randColor
+//     ctx.fillRect(x, y, size, size);
+//     x=x+size
+//     if(x >= canvas.width){
+//         x = 0
+//         y=y+size
+//         console.log('new line')
+//     }
+//     if(y >= canvas.height){
+//         ctx.clearRect(0, 0, canvas.width, canvas.height);
+//         y = 0
+//     }
+// }, 1);
+
+for (let i = 1; i <= canvas.width; i++) {
     var randColor = colours[Math.floor(Math.random() * colours.length)];
     ctx.fillStyle = randColor
-    ctx.fillRect(x, y, size, size);
-    x=x+size
+    ctx.fillRect(x, y, 1, 1);
+    x++
     if(x >= canvas.width){
         x = 0
-        y=y+size
+        y++
         console.log('new line')
     }
-    if(y >= canvas.height){
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        y = 0
-    }
-}, 1);
+        
+}
 
 
