@@ -34,6 +34,7 @@ for (let i = 1; i <= canvas.width; i++) {
     ctx.fillRect(x, y, 1, 1);
     x++
     if(x >= canvas.width){
+        i = 0
         x = 0
         y++
         console.log('new line')
