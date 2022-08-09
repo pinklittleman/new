@@ -30,7 +30,11 @@ let y = 0
 setInterval(() => {
     var randColor = colours[Math.floor(Math.random() * colours.length)];
     ctx.fillStyle = randColor
-    ctx.fillRect(x, 1, 1, 1);
+    ctx.fillRect(x, y, 1, 1);
     x++
-    console.log(x)
-}, 100);
+    if(x === canvas.width){
+        x = 0
+        y++
+        console.log('new line')
+    }
+}, 1);
