@@ -12,7 +12,7 @@ let y = 0
 setInterval(() => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     art()
-}, 5000);
+}, 2000);
 
 function art(){
     for (let i = 1; i <= canvas.width; i++) {
@@ -27,6 +27,7 @@ function art(){
             console.log('new line')
         }
         if(y >= canvas.height){
+            y = 0
             console.log('finished')
             break
         }      
