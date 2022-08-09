@@ -10,24 +10,6 @@ let x = 0
 let y = 0
 let size = prompt("please enter how big you want the pixels to be 1-250")
 
-
-// function poggers(){
-    
-//     for (let x = 0; x <= 800; x++) {
-//         setTimeout(() => {
-//             var randColor = colours[Math.floor(Math.random() * colours.length)];
-//             ctx.fillStyle = randColor
-//             ctx.fillRect(x, 1, 1, 1);
-//             if(x === 800){
-//                 x = 0
-//                 console.log('hollo')
-//             }
-//         }, 1000);
-        
-//     }
-       
-// }
-
 let looper = setInterval(() => {
     var randColor = colours[Math.floor(Math.random() * colours.length)];
     ctx.fillStyle = randColor
