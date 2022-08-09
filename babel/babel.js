@@ -1,3 +1,5 @@
+const { setTimeout } = require("timers")
+
 let canvas = document.querySelector('canvas')
 let ctx = canvas.getContext('2d')
 
@@ -10,13 +12,15 @@ let colours = ['red', 'green', 'blue']
 function poggers(){
     
     for (let x = 0; x <= 800; x++) {
-        var randColor = colours[Math.floor(Math.random() * colours.length)];
-        ctx.fillStyle = randColor
-        ctx.fillRect(x, 1, 1, 1);
-        if(x === 800){
-            x = 0
-            console.log('hollo')
-        }
+        setTimeout(() => {
+            var randColor = colours[Math.floor(Math.random() * colours.length)];
+            ctx.fillStyle = randColor
+            ctx.fillRect(x, 1, 1, 1);
+            if(x === 800){
+                x = 0
+                console.log('hollo')
+            }
+        }, 1000);
         
     }
        
