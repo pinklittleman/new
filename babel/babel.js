@@ -8,3 +8,7 @@ ctx.fillStyle = '#F0DB4F';
 ctx.strokeStyle = 'red';
 
 ctx.fillRect(50, 50, 1, 1);
+
+for(i = 0; i > 10; i++){
+    console.log(i)
+}
