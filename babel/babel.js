@@ -10,6 +10,7 @@ let x = 0
 let y = 0
 
 setInterval(() => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     art()
 }, 5000);
 
