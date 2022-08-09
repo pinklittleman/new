@@ -9,6 +9,7 @@ ctx.strokeStyle = 'red';
 
 ctx.fillRect(50, 50, 1, 1);
 
-for(i = 0; i > 10; i++){
+for(i = 0; i > 10;){
     console.log(i)
+    i++
 }
