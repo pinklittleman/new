@@ -13,7 +13,7 @@ function poggers(){
         for (let x = 0; x <= 800; x++) {
             var randColor = colours[Math.floor(Math.random() * colours.length)];
             ctx.fillStyle = randColor
-            ctx.fillRect(i, 50, 1, 1);
+            ctx.fillRect(x, 50, 1, 1);
             
         }
     }
