@@ -9,6 +9,8 @@ ctx.strokeStyle = 'red';
 
 ctx.fillRect(50, 50, 1, 1);
 
-for (let i = 0; i < 5; i++) {
-    "The number is " + i + "<br>";
-  }
+function poggers(){
+    for (let i = 0; i < 5; i++) {
+        console.log("The number is " + i + "<br>")
+      }
+}
