@@ -28,5 +28,8 @@ let y
 // }
 
 setInterval(() => {
-    console.log('hello')
+    var randColor = colours[Math.floor(Math.random() * colours.length)];
+    ctx.fillStyle = randColor
+    ctx.fillRect(x, 1, 1, 1);
+    x++
 }, 1000);
