@@ -5,7 +5,7 @@ canvas.width = 800
 canvas.height = 400
 
 let colours = ['red', 'green', 'blue']
-
+let y = 0
 
 function poggers(){
     
@@ -13,9 +13,10 @@ function poggers(){
         setTimeout(() => {
             var randColor = colours[Math.floor(Math.random() * colours.length)];
             ctx.fillStyle = randColor
-            ctx.fillRect(x, 1, 1, 1);
+            ctx.fillRect(x, y, 1, 1);
             if(x === 800){
                 x = 0
+                y++
                 console.log('hollo')
             }
         }, 1000);
