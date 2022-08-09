@@ -1,3 +1,4 @@
+
 let canvas = document.querySelector('canvas')
 let ctx = canvas.getContext('2d')
 
@@ -5,24 +6,31 @@ canvas.width = 800
 canvas.height = 400
 
 let colours = ['red', 'green', 'blue']
-let y = 0
-let x = 0
+let x
+let y
 
-function poggers(){
+
+// function poggers(){
     
-    for (;x <= 800;) {
-        setTimeout(() => {
-            var randColor = colours[Math.floor(Math.random() * colours.length)];
-            ctx.fillStyle = randColor
-            ctx.fillRect(x, y, 1, 1);
-            x++
-            if(x === 800){
-                x = 0
-                y++
-                console.log('hollo')
-            }
-        }, 1000);
+//     for (let x = 0; x <= 800; x++) {
+//         setTimeout(() => {
+//             var randColor = colours[Math.floor(Math.random() * colours.length)];
+//             ctx.fillStyle = randColor
+//             ctx.fillRect(x, 1, 1, 1);
+//             if(x === 800){
+//                 x = 0
+//                 console.log('hollo')
+//             }
+//         }, 1000);
         
-    }
+//     }
        
-}
+// }
+
+setInterval(() => {
+
+    for(){
+
+    }
+    
+}, 1000);
