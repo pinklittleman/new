@@ -25,5 +25,6 @@ let looper = setInterval(() => {
     }
     if(y >= canvas.height){
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        y = 0
     }
 }, 1);
