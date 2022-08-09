@@ -32,4 +32,5 @@ setInterval(() => {
     ctx.fillStyle = randColor
     ctx.fillRect(x, 1, 1, 1);
     x++
+    console.log(x)
 }, 1000);
