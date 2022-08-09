@@ -42,7 +42,7 @@ for (let i = 1; i <= canvas.width; i++) {
     if(y >= canvas.height){
         i = null
     }
-        
+    console.log(i)        
 }
 
 
