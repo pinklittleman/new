@@ -18,7 +18,7 @@ let looper = setInterval(() => {
     ctx.fillStyle = randColor
     ctx.fillRect(x, y, size, size);
     x=x+size
-    if(x === canvas.width){
+    if(x >= canvas.width){
         x = 0
         y=y+size
         console.log('new line')
