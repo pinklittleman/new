@@ -5,7 +5,7 @@ let ctx = canvas.getContext('2d')
 canvas.width = innerWidth
 canvas.height = innerHeight
 
-let colours = ['red', 'green', 'blue','black','white','grey','yellow','orange','pink','#e31010','#5be310','#9810e3','#1089e3']
+let colours = ['red', 'green', 'blue']
 let x = 0
 let y = 0
 
