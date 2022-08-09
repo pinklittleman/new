@@ -3,7 +3,7 @@ let canvas = document.querySelector('canvas')
 let ctx = canvas.getContext('2d')
 
 canvas.width = 900
-canvas.height = 800
+canvas.height = 900
 
 let colours = ['red', 'green', 'blue']
 let x = 0
