@@ -23,7 +23,7 @@ let looper = setInterval(() => {
         y=y+size
         console.log('new line')
     }
-    if(y === canvas.height){
+    if(y >= canvas.height){
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 }, 1);
