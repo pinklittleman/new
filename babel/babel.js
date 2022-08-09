@@ -39,6 +39,9 @@ for (let i = 1; i <= canvas.width; i++) {
         y++
         console.log('new line')
     }
+    if(y >= canvas.height){
+        i = null
+    }
         
 }
 
