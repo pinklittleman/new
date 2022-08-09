@@ -9,13 +9,16 @@ let colours = ['red', 'green', 'blue']
 ctx.fillStyle = 'red';
 
 function poggers(){
-    for (let y = 0; y <= 400; y++){
-        for (let x = 0; x <= 800; x++) {
-            var randColor = colours[Math.floor(Math.random() * colours.length)];
-            ctx.fillStyle = randColor
-            ctx.fillRect(x, 50, 1, 1);
-            
+    
+    for (let x = 0; x <= 800; x++) {
+        var randColor = colours[Math.floor(Math.random() * colours.length)];
+        ctx.fillStyle = randColor
+        ctx.fillRect(x, y, 1, 1);
+        if(x === 800){
+            x = 0
+            y++
         }
+        
     }
        
 }
