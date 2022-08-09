@@ -39,6 +39,6 @@ let looper = setInterval(() => {
         console.log('new line')
     }
     if(y === canvas.height){
-        clearInterval(looper)
+        // clearInterval(looper)
     }
 }, 0.);
