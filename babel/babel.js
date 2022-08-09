@@ -2,8 +2,8 @@
 let canvas = document.querySelector('canvas')
 let ctx = canvas.getContext('2d')
 
-canvas.width = innerWidth - 200
-canvas.height = innerHeight - 200
+canvas.width = innerWidth
+canvas.height = innerHeight
 
 let colours = ['red', 'green', 'blue']
 let x = 0
