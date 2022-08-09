@@ -5,7 +5,7 @@ let ctx = canvas.getContext('2d')
 canvas.width = 900
 canvas.height = 900
 
-let colours = ['red', 'green', 'blue','black','white','grey','yellow','orange']
+let colours = ['red', 'green', 'blue','black','white','grey','yellow','orange','pink',]
 let x = 0
 let y = 0
 let size1 = prompt("please enter how big you want the pixels to be 1-250 !!! MUST BE DIVISABLE BY 5")
@@ -15,7 +15,7 @@ size = size - mod
 
 let looper = setInterval(() => {
     var randColor = colours[Math.floor(Math.random() * colours.length)];
-    ctx.fillStyle = randColor
+    ctx.fillStyle = '#e31010'
     ctx.fillRect(x, y, size, size);
     x=x+size
     if(x >= canvas.width){
