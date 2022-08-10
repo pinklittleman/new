@@ -12,7 +12,7 @@ let y = 0
 setInterval(() => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     art()
-}, 2000);
+}, 500);
 
 function art(){
     for (let i = 1; i <= canvas.width; i++) {
