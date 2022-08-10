@@ -8,7 +8,7 @@ canvas.height = innerHeight
 let colours = ['red', 'green', 'blue','black','white','grey','yellow','orange','pink','#e31010','#5be310','#9810e3','#1089e3']
 let x = 0
 let y = 0
-let size = 5
+let size = 10
 
 setInterval(() => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
