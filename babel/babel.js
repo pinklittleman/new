@@ -1,6 +1,8 @@
 
 document.getElementById('hide_id').style.cursor = 'none';
 
+socket = io.connect('http://pinky.uk.to:4000')
+
 let canvas = document.querySelector('canvas')
 let ctx = canvas.getContext('2d')
 
