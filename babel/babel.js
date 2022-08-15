@@ -9,7 +9,7 @@ function setup() {
   
 function draw() {
     background(66);
-    ellipse(50,50,80,80)
+    rect(50,50,80,80)
     fill(50)
     translate(mouseX,mouseY)
     
