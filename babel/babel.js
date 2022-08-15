@@ -32,4 +32,6 @@ function art(){
     }
 }
 
-
+addEventListener('mousemove', (event) => {
+    console.log(event.clientX)
+})
