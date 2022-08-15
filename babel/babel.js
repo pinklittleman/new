@@ -48,6 +48,7 @@ function animate(){
     socket.emit('test', play)
     ctx.fillRect(x,y,10,10)
 
+
 }
 
 
@@ -57,6 +58,7 @@ function test(data){
     newx = data.x
     newy = data.y
     console.log(newx)
+    players.push(new Player(newx,newy,10,'blue'))
 }
 
 
