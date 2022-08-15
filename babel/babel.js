@@ -8,14 +8,12 @@ function setup() {
 }
   
 function draw() {
+    let x = mouseX
+    let y = mouseY
     background(66);
-    rect(50,50,80,80)
+    rect(x,y,80,80)
     fill(50)
-    translate(mouseX,mouseY)
     
-}
-
-function mouseMoved(){
-    ball.translate(mouseX,mouseY)
+    
 }
 
