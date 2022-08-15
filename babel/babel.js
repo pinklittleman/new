@@ -26,6 +26,7 @@ class Player{
 
 function animate(){
     requestAnimationFrame(animate)
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     players.forEach((player) => {
         player.update()
         setTimeout(() => {
@@ -42,10 +43,6 @@ function animate(){
 addEventListener('mousemove', (event) => {
     players.push(new Player(event.clientX,event.clientY,10,'red'))
     console.log(event.clientX)
-})
-
-addEventListener('click', (event) => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
 })
 
 animate()
