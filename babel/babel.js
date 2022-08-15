@@ -11,6 +11,8 @@ canvas.height = innerHeight
 
 let x
 let y
+let newx
+let newy
 let play
 let players = []
 
@@ -52,9 +54,9 @@ function animate(){
 socket.on('test2', test)
 
 function test(data){
-    ctx.fillStyle = 'blue'
-    console.log(data)
-    ctx.fillRect(data.x,data.y,10,10)
+    newx = data.x
+    newy = data.y
+    console.log(newx)
 }
 
 
