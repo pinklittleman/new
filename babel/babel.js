@@ -35,6 +35,7 @@ function animate(){
 
         }, 1);
     })
+    ctx.fillRect(x,y,10,10)
 }
 
 
