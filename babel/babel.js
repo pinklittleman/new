@@ -10,7 +10,8 @@ canvas.width = innerWidth
 canvas.height = innerHeight
 
 let x
-let y 
+let y
+let play
 let players = []
 
 ctx.fillRect(10,10,10,10)
@@ -38,9 +39,22 @@ function animate(){
 
         
     })
+    play = {
+        x: x,
+        y: y
+    }
+    socket.emit('test', play)
     ctx.fillRect(x,y,10,10)
+
 }
 
+
+socket.on('test2', test)
+
+function test(data){
+    ctx.fillStyle = 'blue'
+    ctx.fillRect(data.x,data.y,10,10)
+}
 
 
 addEventListener('mousemove', (event) => {

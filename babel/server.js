@@ -27,6 +27,12 @@ io.on('connection', (socket) => {
     console.log('a user connected: ' + socket.id);
     users.push(socket.id)
 
+    socket.on('test', test)
+
+    function test(data){
+        socket.broadcast.emit('test2', data)
+    }
+
     socket.on('disconnect', () => {
 
         // this removes the leaving socket from the list
