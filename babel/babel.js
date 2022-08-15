@@ -9,6 +9,8 @@ let x
 let y 
 let players = []
 
+ctx.fillRect(10,10,10,10)
+
 class Player{
     constructor(x,y,size,color){
         this.x = x
