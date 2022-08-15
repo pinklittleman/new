@@ -35,10 +35,10 @@ function animate(){
 
 
 addEventListener('mousemove', (event) => {
-    players.push(new Player(clientX,clientY,5,'red'))
+    players.push(new Player(event.clientX,event.clientY,5,'red'))
 
-    x = clientX
-    y = clientY
+    x = event.clientX
+    y = event.clientY
 
     console.log(event.clientX)
 })
