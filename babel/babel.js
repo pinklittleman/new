@@ -13,25 +13,7 @@ setInterval(() => {
     art()
 }, 1500);
 
-function art(){
-    for (let i = 1; i <= canvas.width; i++) {
-        ctx.fillStyle = 'black'
-        ctx.fillRect(x, y, 1, 1);
-        x=x+1
-        if(x >= canvas.width){
-            i = 0
-            x = 0
-            y=y+1
-            console.log('new line')
-        }
-        if(y >= canvas.height){
-            y = 0
-            console.log('finished')
-            break
-        }      
-    }
-}
 
 addEventListener('mousemove', (event) => {
-    console.log(event.clientX)
+    console.log(event.cl)
 })
