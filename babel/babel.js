@@ -19,8 +19,7 @@ class Player{
         this.color =  color
     }
     update(){
-        this.x = x
-        this.y = y
+        ctx.fillRect(this.x,this.y,this.size,this.size)
     }
 }
 
@@ -29,17 +28,12 @@ function animate(){
     // ctx.clearRect(0, 0, canvas.width, canvas.height)
     players.forEach((player)=>{
         player.update()
-        ctx.fillRect(x,y,10,10)
     })
 }
 
 
 
 addEventListener('mousemove', (event) => {
-    players.push(new Player(event.clientX,event.clientY,5,'red'))
-
-    x = event.clientX
-    y = event.clientY
-
+    players.push(new Player(event.clientX,event.clientY,10,'red'))
     console.log(event.clientX)
 })
