@@ -34,7 +34,6 @@ function animate(){
             players.splice(pos,pos+1)
 
         }, 500);
-        console.log(players)
     })
 }
 
