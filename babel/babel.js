@@ -28,6 +28,12 @@ function animate(){
     requestAnimationFrame(animate)
     players.forEach((player) => {
         player.update()
+        setTimeout(() => {
+            var pos = players.indexOf(player)
+            players.splice(pos,pos+1)
+
+        }, 500);
+        console.log(players)
     })
 }
 
