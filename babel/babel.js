@@ -16,12 +16,7 @@ class Player{
         this.size = size
         this.color =  color
     }
-    draw(){
-        ctx.fillStyle = this.color
-        ctx.fillRect(this.x,this.y,this.size,this.size)
-    }
     update(){
-        this.draw()
         this.x = x
         this.y = y
     }
@@ -32,6 +27,7 @@ function animate(){
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     players.forEach((player)=>{
         player.update()
+        ctx.fillRect(x,y,10,10)
     })
 }
 
