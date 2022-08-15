@@ -1,48 +1,38 @@
+var fs = require('fs');
 var app = require('express')();
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
+// read ssl certificate
+var privateKey = fs.readFileSync('/home/pink/ssl-cert/privkey.pem', 'utf8');
+var certificate = fs.readFileSync('/home/pink/ssl-cert/fullchain.pem', 'utf8');
 
-let user = []
+var credentials = { key: privateKey, cert: certificate};
+var https = require('https')
+
+let users = []
+
+//pass in your credentials to create an https server
+var httpsServer = https.createServer(credentials, app);
+httpsServer.listen(4000);
+
+
+var io = require('socket.io')(httpsServer);
 
 app.get('/', function(req, res){
     //send the index.html file for all requests
     res.sendFile(__dirname + '/index.html');
-    
 });
-//make the server listen on port 4000 
-server.listen(4000, function(){
-    console.log('listening on :4000');
-});
-//on connection to the socket do stuff
+
 io.on('connection', (socket) => {
+
     // log the user that has connected and their socketID
     console.log('a user connected: ' + socket.id);
-    socket.emit('ID', socket.id)
-    user.push(socket.id)
-    console.log(user)
-    // when the socket recives files from the client about mouse position call the logging function
-    
-    socket.on('cordinates', logging)
-    setInterval(() => {
-        count =  user.length
-        socket.emit('userarray', count)
-        // console.log(count)
-        socket.emit('userarrayimp', user)
-    }, 2000);
-
-    // this function adds the cordinates to the array cords
-
-    function logging(data){
-        cords.push(data)
-        socket.broadcast.emit('newcords',data)
-        //console.log(cords) uncomment if you want laggggggg
-    }
+    users.push(socket.id)
 
     socket.on('disconnect', () => {
+
+        // this removes the leaving socket from the list
         console.log('leaving: '+socket.id)
-        var pos = user.indexOf(socket.id)
-        user.splice(pos,pos+1)
-        console.log(user)
+        var pos = users.indexOf(socket.id)
+        users.splice(pos,pos+1)
     })
 
 })
