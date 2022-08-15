@@ -33,7 +33,7 @@ function animate(){
             var pos = players.indexOf(player)
             players.splice(pos,pos+1)
 
-        }, 500);
+        }, 50);
     })
 }
 
