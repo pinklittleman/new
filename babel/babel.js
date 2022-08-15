@@ -2,17 +2,43 @@
 let canvas = document.querySelector('canvas')
 let ctx = canvas.getContext('2d')
 
-canvas.width = 800
-canvas.height = 800
+canvas.width = innerWidth
+canvas.height = innerHeight
 
 let x = 0
 let y = 0
+let players = []
 
-setInterval(() => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-}, 1500);
+class Player{
+    constructor(x,y,size,color,velocity){
+        this.x = x
+        this.y = y
+        this.size = size
+        this.color =  color
+        this.velocity = velocity
+    }
+    update(){
+        this.draw()
+        this.x = x
+        this.y = y
+    }
+}
+
+function animate(){
+    requestAnimationFrame(animate)
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    players.forEach((player)=>{
+        player.update()
+    })
+}
+
 
 
 addEventListener('mousemove', (event) => {
+    players.push(new Player(clientX,clientY,5,'red'))
+
+    x = clientX
+    y = clientY
+
     console.log(event.clientX)
 })
