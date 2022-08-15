@@ -15,7 +15,6 @@ setInterval(() => {
 
 function art(){
     for (let i = 1; i <= canvas.width; i++) {
-        var randColor = colours[Math.floor(Math.random() * colours.length)];
         ctx.fillStyle = 'black'
         ctx.fillRect(x, y, 1, 1);
         x=x+1
