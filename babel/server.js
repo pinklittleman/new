@@ -19,7 +19,7 @@ var io = require('socket.io')(httpsServer);
 app.get('/', function(req, res){
     //send the index.html file for all requests
     res.sendFile(__dirname + '/index.html');
-    res.sendFile(__dirname + '/babel.js.html');
+    res.sendFile(__dirname + '/babel.js');
 });
 
 io.on('connection', (socket) => {
