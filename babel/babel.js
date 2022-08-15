@@ -33,11 +33,10 @@ function animate(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     players.forEach((player) => {
         player.update()
-        setTimeout(() => {
-            var pos = players.indexOf(player)
-            players.splice(pos,pos+1)
+        var pos = players.indexOf(player)
+        players.splice(pos,pos+1)
 
-        }, 1);
+        
     })
     ctx.fillRect(x,y,10,10)
 }
