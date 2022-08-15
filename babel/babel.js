@@ -5,8 +5,8 @@ let ctx = canvas.getContext('2d')
 canvas.width = innerWidth
 canvas.height = innerHeight
 
-let x = 0
-let y = 0
+let x
+let y 
 let players = []
 
 class Player{
