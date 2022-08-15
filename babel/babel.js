@@ -8,7 +8,7 @@ canvas.height = innerHeight
 let size1 = prompt('enter pixel size')
 let size = parseInt(size1)
 
-let colours = ['red', 'green', 'blue','black','white','grey','yellow','orange','pink','#e31010','#5be310','#9810e3','#1089e3']
+let colours = ['green', 'blue','black','white','grey','yellow','orange','pink','#e31010','#5be310','#9810e3','#1089e3']
 let x = 0
 let y = 0
 
