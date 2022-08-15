@@ -1,4 +1,6 @@
 
+document.getElementById('hide_id').style.cursor = 'none';
+
 let canvas = document.querySelector('canvas')
 let ctx = canvas.getContext('2d')
 
