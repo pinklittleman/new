@@ -41,7 +41,6 @@ function animate(){
 
 addEventListener('mousemove', (event) => {
     players.push(new Player(event.clientX,event.clientY,10,'red'))
-    console.log(event.clientX)
 })
 
 animate()
