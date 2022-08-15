@@ -53,6 +53,7 @@ socket.on('test2', test)
 
 function test(data){
     ctx.fillStyle = 'blue'
+    console.log(data)
     ctx.fillRect(data.x,data.y,10,10)
 }
 
