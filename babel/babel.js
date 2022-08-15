@@ -5,10 +5,6 @@ let ctx = canvas.getContext('2d')
 canvas.width = 800
 canvas.height = 800
 
-let size1 = prompt('enter pixel size')
-let size = parseInt(size1)
-
-let colours = ['green', 'blue','black','white','grey','yellow','orange','pink','#e31010','#5be310','#9810e3','#1089e3']
 let x = 0
 let y = 0
 
@@ -20,13 +16,13 @@ setInterval(() => {
 function art(){
     for (let i = 1; i <= canvas.width; i++) {
         var randColor = colours[Math.floor(Math.random() * colours.length)];
-        ctx.fillStyle = randColor
-        ctx.fillRect(x, y, size, size);
-        x=x+size
+        ctx.fillStyle = 'black'
+        ctx.fillRect(x, y, 1, 1);
+        x=x+1
         if(x >= canvas.width){
             i = 0
             x = 0
-            y=y+size
+            y=y+1
             console.log('new line')
         }
         if(y >= canvas.height){
