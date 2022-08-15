@@ -10,10 +10,9 @@ let y = 0
 
 setInterval(() => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    art()
 }, 1500);
 
 
 addEventListener('mousemove', (event) => {
-    console.log(event.cl)
+    console.log(event.clientX)
 })
