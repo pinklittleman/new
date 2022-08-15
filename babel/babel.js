@@ -2,8 +2,8 @@
 let canvas = document.querySelector('canvas')
 let ctx = canvas.getContext('2d')
 
-canvas.width = innerWidth
-canvas.height = innerHeight
+canvas.width = 800
+canvas.height = 800
 
 let size1 = prompt('enter pixel size')
 let size = parseInt(size1)
