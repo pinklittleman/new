@@ -112,7 +112,7 @@ socket.on('update2', update2)
 
 function update2(data){
     counting2 = data
-    console.log(counting2)
+    // console.log(counting2)
     coolFunction()
 }
 
@@ -141,7 +141,7 @@ document.onkeydown = function(e){
     }
     if(e.key === 't'){
         console.log('this socket: ' + socket.id )
-        console.log(Matter.Bodies())
+        console.log(Matter.Composite.allBodies(Composite))
     }
     
 };
