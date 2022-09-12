@@ -141,7 +141,7 @@ document.onkeydown = function(e){
     }
     if(e.key === 't'){
         console.log('this socket: ' + socket.id )
-        console.log(Matter.Composite.allBodies(Composite))
+        console.log(Matter.Composite.allComposites(engine.world))
     }
     
 };
