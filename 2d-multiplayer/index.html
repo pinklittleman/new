@@ -91,6 +91,7 @@ function coolFunction(){
         }
 
     for(i in users){
+        findStuff = Composite.allBodies(engine.world)
         Composite.add(engine.world, addNewBody())
     }
 }
@@ -125,7 +126,6 @@ function update(data){
 //     console.log(test)
 // }
 
-findStuff = Composite.allBodies(engine.world)
 
 document.onkeydown = function(e){
     if(e.key === "w"){
