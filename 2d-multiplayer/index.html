@@ -130,19 +130,25 @@ function update(data){
 
 document.onkeydown = function(e){
     if(e.key === "w"){
-        console.log(findStuff)
-        Matter.Body.setVelocity(findStuff[counting2.countID], {x:findStuff[counting2.countID].velocity.x,y:-5});      
-    }
-    if(e.key === "s"){
-        Matter.Body.setVelocity(findStuff[counting2.countID], {x:findStuff[counting2.countID].velocity.x,y:5});   
+        for (stuff in findStuff){
+            if(findStuff[stuff].label === 'Circle Body' ){
+                Matter.Body.setVelocity(findStuff[stuff], {x:0,y:-3})
+            }
+        }
+        stuff++
     }
     if(e.key === "a"){
-        Matter.Body.setVelocity(findStuff[counting2.countID], {x:-5,y:findStuff[counting2.countID].velocity.y});
+        for (stuff in findStuff){
+            if(findStuff[stuff].label === 'Circle Body' ){
+                Matter.Body.setVelocity(findStuff[stuff], {x:-5,y:0})
+            }
+        }
+        stuff++
     }
     if(e.key === "d"){
         for (stuff in findStuff){
             if(findStuff[stuff].label === 'Circle Body' ){
-                Matter.Body.setVelocity(findStuff[stuff], {x:5,y:1})
+                Matter.Body.setVelocity(findStuff[stuff], {x:5,y:0})
             }
         }
         stuff++
