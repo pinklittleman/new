@@ -132,7 +132,7 @@ document.onkeydown = function(e){
     if(e.key === "w"){
         for (stuff in findStuff){
             if(findStuff[stuff].label === 'Circle Body' ){
-                Matter.Body.setVelocity(findStuff[stuff], {x:0,y:-3})
+                Matter.Body.setVelocity(findStuff[stuff], {x:findStuff[stuff].velocity.x,y:-3})
             }
         }
         stuff++
@@ -140,7 +140,7 @@ document.onkeydown = function(e){
     if(e.key === "a"){
         for (stuff in findStuff){
             if(findStuff[stuff].label === 'Circle Body' ){
-                Matter.Body.setVelocity(findStuff[stuff], {x:-5,y:0})
+                Matter.Body.setVelocity(findStuff[stuff], {x:-5,y:findStuff[stuff].velocity.y})
             }
         }
         stuff++
@@ -148,7 +148,7 @@ document.onkeydown = function(e){
     if(e.key === "d"){
         for (stuff in findStuff){
             if(findStuff[stuff].label === 'Circle Body' ){
-                Matter.Body.setVelocity(findStuff[stuff], {x:5,y:0})
+                Matter.Body.setVelocity(findStuff[stuff], {x:5,y:findStuff[stuff].velocity.y})
             }
         }
         stuff++
