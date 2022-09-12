@@ -149,6 +149,9 @@ document.onkeydown = function(e){
         for (stuff in findStuff){
             if(findStuff[stuff].label === 'Circle Body' ){
                 Matter.Body.setVelocity(findStuff[stuff], {x:5,y:findStuff[stuff].velocity.y})
+                if (findStuff[stuff].position.x > 400){
+                    Matter.Body.setVelocity(findStuff[stuff], {x:-5,y:0})
+                }
             }
         }
         stuff++
@@ -159,13 +162,23 @@ document.onkeydown = function(e){
             if(findStuff[stuff].label === 'Circle Body' ){
                 console.log(findStuff[stuff])
                 balls.push(findStuff[stuff])
-                Matter.Body.setVelocity(findStuff[stuff], {x:5,y:1})
             }
         }
         stuff++
     }
     
 };
+
+setInterval(() => {
+    for(i in findStuff){
+        if (findStuff[i].position.x > 400){
+            Matter.Body.setVelocity(findStuff[i], {x:-5,y:0})
+        }
+    }
+    i++
+    
+}, 2000);
+
 
 </script>
 </body>
