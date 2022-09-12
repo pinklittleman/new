@@ -125,6 +125,8 @@ function update(data){
 //     console.log(test)
 // }
 
+findStuff = Composite.allBodies(engine.world)
+
 document.onkeydown = function(e){
     if(e.key === "w"){
         console.log(findStuff)
@@ -141,7 +143,6 @@ document.onkeydown = function(e){
     }
     if(e.key === 't'){
         console.log('this socket: ' + socket.id )
-        console.log(Matter.Composite.allComposites(engine.world))
     }
     
 };
