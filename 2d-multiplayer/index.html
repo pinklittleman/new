@@ -34,6 +34,7 @@ body{
 <script>
     
 let findStuff
+let balls = []
 let users = []
 const socket = io.connect('wss://pinky.uk.to:5000');
 var counting2 = []
@@ -146,6 +147,7 @@ document.onkeydown = function(e){
         for (stuff in findStuff){
             if(findStuff[stuff].label === 'Circle Body' ){
                 console.log(findStuff[stuff])
+                balls.push(findStuff[stuff])
             }
         }
         stuff++
