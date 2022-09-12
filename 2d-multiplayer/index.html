@@ -140,7 +140,6 @@ document.onkeydown = function(e){
         Matter.Body.setVelocity(findStuff[counting2.countID], {x:-5,y:findStuff[counting2.countID].velocity.y});
     }
     if(e.key === "d"){
-        Matter.Body.setVelocity(findStuff[counting2.countID], {x:5,y:findStuff[counting2.countID].velocity.y}); 
         for (stuff in findStuff){
             if(findStuff[stuff].label === 'Circle Body' ){
                 Matter.Body.setVelocity(findStuff[stuff], {x:5,y:1})
