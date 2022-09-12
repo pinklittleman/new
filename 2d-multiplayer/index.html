@@ -171,8 +171,10 @@ document.onkeydown = function(e){
 
 setInterval(() => {
     for(i in findStuff){
+        console.log('i: '+i)
         if (findStuff[i].position.x > 400){
             Matter.Body.setVelocity(findStuff[i], {x:-5,y:0})
+            console.log('help')
         }
     }
     i++
