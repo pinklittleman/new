@@ -63,7 +63,7 @@ var Engine = Matter.Engine,
     Render.run(render);
 
     let bottom = Bodies.rectangle(0, 600, 3500, 50,{isStatic: true})
-    let player = Bodies.circle(50, 50, 30)
+    let player = Bodies.rectangle(20, 20, 30, 30)
 
     Composite.add(engine.world,[bottom, player])
 
