@@ -25,7 +25,7 @@ div{
     background-color: black;
     height: 20px ;
     width: 200px;
-    color: rgb(255, 255, 255);
+    color: rgb(20, 21, 31);
 }
 body{
     background: rgb(66, 66, 66);
@@ -169,16 +169,6 @@ document.onkeydown = function(e){
     
 };
 
-setInterval(() => {
-    for(i in findStuff){
-        if (findStuff[i].position.x > 400){
-            Matter.Body.setVelocity(findStuff[i], {x:-5,y:0})
-            console.log('help')
-        }
-    }
-    i++
-    
-}, 10);
 
 
 </script>
