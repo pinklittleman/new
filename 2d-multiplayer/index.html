@@ -22,25 +22,17 @@ div{
     text-align: center;
     display: block;
     margin: auto;
-    background-color: black;
+    background-color: #14151F;
     height: 20px ;
     width: 200px;
-    color: #14151F;
+    color: #58595e;
 }
 body{
     background: #14151F;
 }
 </style>
 <script>
-    
-let findStuff
-let balls = []
-let users = []
 const socket = io.connect('wss://pinky.uk.to:5000');
-var counting2 = []
-let test = []
-let uuid = {}
-
 
 var Engine = Matter.Engine,
     Render = Matter.Render,
@@ -70,104 +62,11 @@ var Engine = Matter.Engine,
     Matter.Runner.run(engine);
     Render.run(render);
     let bottom = Bodies.rectangle(0, 600, 3500, 50,{isStatic: true})
-    let topw = Bodies.rectangle(100, 0, 3500, 50,{isStatic: true})
-    let left = Bodies.rectangle(0, 600, 50, 3500,{isStatic: true})
-    let right = Bodies.rectangle(800, 100,50,3500,{isStatic: true})
 
-    Composite.add(engine.world,[
-        topw,
-        bottom,
-        left,
-        right,
-    ])
+    Composite.add(engine.world,[bottom])
 
 
-function coolFunction(){
-
-    for(i in counting2){
-            if(socket.id === counting2[i].socketID){
-                // console.log('ur id: '+counting2[i].countID)
-                uuid = counting2[i].countID
-            }
-        }
-
-    for(i in users){
-        findStuff = Composite.allBodies(engine.world)
-        Composite.add(engine.world, addNewBody())
-    }
-}
-
-function addNewBody(){
-    maths = (800 / users.length) * (uuid-4) -200
-    // console.log(maths)
-    return Bodies.circle(maths,100, 20, {
-        mass: 5,
-        render: {
-            strokeStyle: '#ffffff'
-        }
-    })
-}
-
-// socket.on('test',testFn)
-socket.on('update', update)
-socket.on('update2', update2)
-
-function update2(data){
-    counting2 = data
-    // console.log(counting2)
-    coolFunction()
-}
-
-function update(data){
-    users = data
-}
-
-// function testFn(data){
-//     test.push(data)
-//     console.log(test)
-// }
-
-
-document.onkeydown = function(e){
-    if(e.key === "w"){
-        for (stuff in findStuff){
-            if(findStuff[stuff].label === 'Circle Body' ){
-                Matter.Body.setVelocity(findStuff[stuff], {x:findStuff[stuff].velocity.x,y:-3})
-            }
-        }
-        stuff++
-    }
-    if(e.key === "a"){
-        for (stuff in findStuff){
-            if(findStuff[stuff].label === 'Circle Body' ){
-                Matter.Body.setVelocity(findStuff[stuff], {x:-5,y:findStuff[stuff].velocity.y})
-            }
-        }
-        stuff++
-    }
-    if(e.key === "d"){
-        for (stuff in findStuff){
-            if(findStuff[stuff].label === 'Circle Body' ){
-                Matter.Body.setVelocity(findStuff[stuff], {x:5,y:findStuff[stuff].velocity.y})
-                if (findStuff[stuff].position.x > 400){
-                    Matter.Body.setVelocity(findStuff[stuff], {x:-5,y:0})
-                }
-            }
-        }
-        stuff++
-    }
-    if(e.key === 't'){
-        console.log('this socket: ' + socket.id )
-        for (stuff in findStuff){
-            if(findStuff[stuff].label === 'Circle Body' ){
-                console.log(findStuff[stuff])
-                balls.push(findStuff[stuff])
-            }
-        }
-        stuff++
-    }
     
-};
 
 
 
