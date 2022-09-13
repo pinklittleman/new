@@ -66,7 +66,7 @@ var Engine = Matter.Engine,
     let player = Bodies.rectangle(200, 5, 30, 30)
     let enemy = Bodies.rectangle(600, 0, 30, 30)
 
-    Composite.add(engine.world,[bottom, player])
+    Composite.add(engine.world,[bottom, player, enemy])
 
 
 
