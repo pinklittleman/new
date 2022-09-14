@@ -177,12 +177,14 @@ Matter.Body.setInertia(player, Infinity);
 let enemyVelocity = -3
 let pog
 let gameScore = 0
+let playX
+let playY
 
 Matter.Body.setStatic(enemy, true)
 Matter.Body.setStatic(player, true)
 
 function addNew(){
-        return Bodies.circle(player.position.x,player.position.y,2)
+        return Bodies.circle(playX,playY,2)
 }
 
 function restart(){
@@ -220,6 +222,8 @@ document.addEventListener("click", function(){
 })
 
 function gameover(){
+    playX = player.position.x
+    playY = player.position.y
     gameScore = 0
     clearInterval(pog)
     setTimeout(() => {
