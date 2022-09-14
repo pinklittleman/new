@@ -225,11 +225,11 @@ function gameover(){
     setTimeout(() => {
         document.getElementById("restart").style.visibility = "visible"
     }, 1000);
+    Matter.body.setPosition(player, {x:2000,y:2000})
     for(let i = 0; i<= 50; i++){
         console.log('pog')
         Composite.add(engine.world, addNew())
     }
-    Matter.body.setPosition(player, {x:2000,y:2000})
     Matter.Body.setStatic(enemy, true)
     Matter.Body.setStatic(player, true)
 
