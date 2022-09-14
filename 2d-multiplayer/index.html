@@ -179,6 +179,12 @@ function restart(){
     Matter.Body.setPosition(player, {x:200,y:560})
     Matter.Body.setPosition(enemy, {x:600,y:560})
     mainloop()
+    move()
+}
+
+function move(){
+    Matter.Body.setStatic(enemy, false)
+    Matter.Body.setStatic(player, false)
 }
 
 function start(){
