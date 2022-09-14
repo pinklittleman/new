@@ -75,6 +75,7 @@ var Engine = Matter.Engine,
 Composite.add(engine.world,[enemy, player, bottom])
 
 Matter.Body.setInertia(enemy, Infinity);
+Matter.Body.setInertia(player, Infinity);
 
 document.onkeydown = function(e){
     if(e.key === "w"){
