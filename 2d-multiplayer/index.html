@@ -233,7 +233,7 @@ function gameover(){
         document.getElementById("restart").style.visibility = "visible"
     }, 1000);
     Matter.Body.setPosition(player, {x:2000,y:2000})
-    Matter.Body.setPosition(enemy, {x:2000,y:2000})
+    Matter.Body.setPosition(enemy, {x:2500,y:2500})
     for(let i = 0; i<= 50; i++){
         Composite.add(engine.world, addNew())
     }
