@@ -77,6 +77,8 @@ Composite.add(engine.world,[enemy, player, bottom])
 Matter.Body.setInertia(enemy, Infinity);
 Matter.Body.setInertia(player, Infinity);
 
+let enemyVelocity = -3
+
 document.onkeydown = function(e){
     if(e.key === "w"){
         if(Matter.Collision.collides(player, bottom) != null){
@@ -88,7 +90,7 @@ document.onkeydown = function(e){
 
 
 setInterval(() => {
-    Matter.Body.setVelocity(enemy, {x:-1,y:0})
+    Matter.Body.setVelocity(enemy, {x:enemyVelocity,y:0})
 }, 1);
 
 
