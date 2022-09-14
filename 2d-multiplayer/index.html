@@ -26,8 +26,6 @@
     height: 50px;
     width: 100px;
     position: relative;
-    left: 400px;
-    top: 400px;
 }
 .button-85 {
   padding: 0.6em 2em;
@@ -120,8 +118,6 @@ body{
     height: 50px;
     width: 100px;
     position: relative;
-    left: 400px;
-    top: 300px;
 }
 </style>
 <script>
@@ -181,6 +177,7 @@ Matter.Body.setStatic(player, true)
 
 function restart(){
     document.getElementById("restart").style.visibility = "hidden"
+    document.getElementById("restart").style.top = "200px"
     Matter.Body.setStatic(enemy, false)
     Matter.Body.setStatic(player, false)
     // Matter.Body.setVelocity(player, {x:0,y:0})
