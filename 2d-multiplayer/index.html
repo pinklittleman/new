@@ -172,6 +172,7 @@ Matter.Body.setStatic(enemy, true)
 Matter.Body.setStatic(player, true)
 
 function restart(){
+    document.getElementById("restart").style.visibility = "hidden"
     Matter.Body.setStatic(enemy, false)
     Matter.Body.setStatic(player, false)
     // Matter.Body.setVelocity(player, {x:0,y:0})
