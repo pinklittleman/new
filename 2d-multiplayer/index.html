@@ -207,6 +207,7 @@ document.onkeydown = function(e){
 }
 
 function gameover(){
+    gameScore = 0
     clearInterval(pog)
     document.getElementById("restart").style.visibility = "visible"
     Matter.Body.setStatic(enemy, true)
