@@ -93,6 +93,9 @@ setInterval(() => {
     Matter.Body.setVelocity(enemy, {x:enemyVelocity,y:0})
     console.log(enemy.position.x)
     enemyVelocity = enemyVelocity - 0.005
+    if(enemy.position.x <= 0){
+        Matter.Body.setPosition(enemy, {x:600,y:550})
+    }
 
 }, 1);
 
