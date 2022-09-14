@@ -79,6 +79,13 @@ Matter.Body.setInertia(player, Infinity);
 
 let enemyVelocity = -3
 
+Matter.Body.setStatic(enemy, true)
+Matter.Body.setStatic(player, true)
+
+function start(){
+
+}
+
 document.onkeydown = function(e){
     if(e.key === "w"){
         if(Matter.Collision.collides(player, bottom) != null){
@@ -89,6 +96,8 @@ document.onkeydown = function(e){
 
 function gameover(){
     Matter.Body.setStatic(enemy, true)
+    Matter.Body.setStatic(player, true)
+
 }
 
 setInterval(() => {
