@@ -176,6 +176,7 @@ let playX
 let playY
 let find
 let playerName = prompt("enter a username for the leaderboard (currently under development)")
+let combined
 
 Matter.Body.setStatic(enemy, true)
 Matter.Body.setStatic(player, true)
@@ -224,8 +225,8 @@ document.addEventListener("click", function(){
 function gameover(){
     playX = player.position.x
     playY = player.position.y
-    socket.emit('user', playerName)
-    socket.emit('gameScore', gameScore)
+    combined = {username:playerName,score:gameScore}
+    socket.emit('gameScore', combined)
     gameScore = 0
     clearInterval(pog)
     setTimeout(() => {
