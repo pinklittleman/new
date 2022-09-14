@@ -223,9 +223,9 @@ function mainloop(){
         if(Matter.Collision.collides(player, enemy) != null){
             gameover()
         }
+        gameScore++
+        document.getElementById("score").innerHTML = gameScore
     }, 1);
-    gameScore++
-    document.getElementById("score").innerHTML = gameScore
 
 }
 
