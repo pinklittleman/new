@@ -245,7 +245,7 @@ function gameover(){
 function mainloop(){
     pog = setInterval(() => {
         Matter.Body.setVelocity(enemy, {x:enemyVelocity,y:0})
-        enemyVelocity = enemyVelocity - 0.001
+        enemyVelocity = enemyVelocity - 0.0005
         if(enemy.position.x <= 0){
             Matter.Body.setPosition(enemy, {x:800,y:560})
         }
