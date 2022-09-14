@@ -174,11 +174,15 @@ Matter.Body.setStatic(player, true)
 function restart(){
     Matter.Body.setStatic(enemy, true)
     Matter.Body.setStatic(player, true)
-    Matter.Body.setVelocity(player, {x:0,y:0})
-    Matter.Body.setVelocity(enemy, {x:0,y:0})
+    // Matter.Body.setVelocity(player, {x:0,y:0})
+    // Matter.Body.setVelocity(enemy, {x:0,y:0})
     Matter.Body.setPosition(player, {x:200,y:560})
     Matter.Body.setPosition(enemy, {x:600,y:560})
     mainloop()
+    setTimeout(() => {
+        Matter.Body.setStatic(enemy, false)
+        Matter.Body.setStatic(player, false)
+    }, 1000);
 }
 
 function start(){
@@ -204,8 +208,6 @@ function gameover(){
 }
 
 function mainloop(){
-    Matter.Body.setStatic(enemy, false)
-    Matter.Body.setStatic(player, false)
     pog = setInterval(() => {
         Matter.Body.setVelocity(enemy, {x:enemyVelocity,y:0})
         enemyVelocity = enemyVelocity - 0.001
