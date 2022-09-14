@@ -209,6 +209,12 @@ document.onkeydown = function(e){
     }
 }
 
+document.addEventListener("click", function(){
+    if(Matter.Collision.collides(player, bottom) != null){
+            Matter.Body.setVelocity(player, {x:0,y:-8})
+        }
+})
+
 function gameover(){
     gameScore = 0
     clearInterval(pog)
