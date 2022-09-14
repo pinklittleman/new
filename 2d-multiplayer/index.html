@@ -63,8 +63,8 @@ var Engine = Matter.Engine,
     Render.run(render);
 
     let bottom = Bodies.rectangle(0, 600, 3500, 50,{isStatic: true})
-    let player = Bodies.rectangle(200, 550, 30, 30)
-    let enemy = Bodies.rectangle(600, 550, 30, 30, {
+    let player = Bodies.rectangle(200, 560, 30, 30)
+    let enemy = Bodies.rectangle(600, 560, 30, 30, {
     render: {
          fillStyle: 'black',
          strokeStyle: 'red',
@@ -91,10 +91,12 @@ document.onkeydown = function(e){
 
 setInterval(() => {
     Matter.Body.setVelocity(enemy, {x:enemyVelocity,y:0})
-    console.log(enemy.position.x)
-    enemyVelocity = enemyVelocity - 0.005
+    enemyVelocity = enemyVelocity - 0.0005
     if(enemy.position.x <= 0){
-        Matter.Body.setPosition(enemy, {x:600,y:550})
+        Matter.Body.setPosition(enemy, {x:800,y:560})
+    }
+    if(Matter.Collision.collides(player, bottom) != null){
+        gameover()
     }
 
 }, 1);
