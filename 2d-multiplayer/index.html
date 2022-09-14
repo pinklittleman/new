@@ -15,6 +15,9 @@
     <button id="start" onclick="start()" class="button-85" role="button">start</button>
     <button id="restart" onclick="restart()" class="button-85" role="button">start</button>
 <style>
+#restart{
+    visibility: hidden;
+}
 .button-85 {
   padding: 0.6em 2em;
   border: none;
@@ -187,7 +190,7 @@ document.onkeydown = function(e){
 function gameover(){
     Matter.Body.setStatic(enemy, true)
     Matter.Body.setStatic(player, true)
-
+    document.getElementById("restart").style.visibility = "visable"
 }
 
 setInterval(() => {
