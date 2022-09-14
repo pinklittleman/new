@@ -11,7 +11,7 @@
 </head>
 <div id="test"></div>
 <body>
-    <button id="start">start</button>
+    <button id="start" onclick="start()">start</button>
 <style>
   canvas{
   display: block;
@@ -91,7 +91,8 @@ Matter.Body.setStatic(enemy, true)
 Matter.Body.setStatic(player, true)
 
 function start(){
-
+    Matter.Body.setStatic(enemy, false)
+    Matter.Body.setStatic(player, false)
 }
 
 document.onkeydown = function(e){
