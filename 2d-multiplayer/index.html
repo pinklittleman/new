@@ -92,7 +92,7 @@ document.onkeydown = function(e){
 setInterval(() => {
     Matter.Body.setVelocity(enemy, {x:enemyVelocity,y:0})
     console.log(player.position.x)
-    enemyVelocity = enemyVelocity + 0.02
+    enemyVelocity = enemyVelocity - 0.005
 }, 1);
 
 
