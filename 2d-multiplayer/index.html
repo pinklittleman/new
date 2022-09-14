@@ -13,6 +13,7 @@
 <body>
     
     <button id="start" onclick="start()" class="button-85" role="button">start</button>
+    <button id="restart" onclick="restart()" class="button-85" role="button">start</button>
 <style>
 .button-85 {
   padding: 0.6em 2em;
@@ -159,6 +160,15 @@ let enemyVelocity = -3
 
 Matter.Body.setStatic(enemy, true)
 Matter.Body.setStatic(player, true)
+
+function restart(){
+    Matter.Body.setStatic(enemy, true)
+    Matter.Body.setStatic(player, true)
+    Matter.Body.setVelocity(player, {x:0,y:0})
+    Matter.Body.setVelocity(enemy, {x:0,y:0})
+    Matter.Body.setPosition(player, {x:200,y:560})
+    Matter.Body.setPosition(player, {x:600,y:560})
+}
 
 function start(){
     document.getElementById("start").style.visibility = "hidden"
