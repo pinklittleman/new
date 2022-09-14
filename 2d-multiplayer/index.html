@@ -213,7 +213,7 @@ function mainloop(){
         if(Matter.Collision.collides(player, enemy) != null){
             gameover()
         }
-        console.log(enemy.velocity)
+        console.log(enemy.isStatic)
     }, 1);
 
 }
