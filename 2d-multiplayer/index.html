@@ -180,7 +180,7 @@ Matter.Body.setStatic(enemy, true)
 Matter.Body.setStatic(player, true)
 
 function addNew(){
-        return Bodies.circle(playX,playY,4)
+        return Bodies.circle(playX,playY,Math.floor(Math.random() * 4) + 2)
 }
 
 function restart(){
