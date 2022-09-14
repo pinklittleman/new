@@ -76,10 +76,15 @@ Composite.add(engine.world,[enemy, player, bottom])
 
 document.onkeydown = function(e){
     if(e.key === "w"){
-
-        Matter.Body.setVelocity(player, {x:0,y:-8})
+        if(Matter.Collision.collides(player, bottom) != null){
+            Matter.Body.setVelocity(player, {x:0,y:-8})
+        }
     }
 }
+
+setInterval(() => {
+    // if(Matter.)
+}, 1000);
 
 </script>
 </body>
