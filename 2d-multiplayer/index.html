@@ -229,6 +229,7 @@ function gameover(){
         console.log('pog')
         Composite.add(engine.world, addNew())
     }
+    Matter.body.setPosition(player, {x:2000,y:2000})
     Matter.Body.setStatic(enemy, true)
     Matter.Body.setStatic(player, true)
 
