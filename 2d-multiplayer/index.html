@@ -178,8 +178,10 @@ function restart(){
     Matter.Body.setPosition(player, {x:200,y:560})
     Matter.Body.setPosition(enemy, {x:600,y:560})
     enemyVelocity = -3
-    Matter.Body.setStatic(enemy, false)
-    Matter.Body.setStatic(player, false)
+    setTimeout(() => {
+        Matter.Body.setStatic(enemy, false)
+        Matter.Body.setStatic(player, false)
+    }, 500);
 }
 
 function start(){
