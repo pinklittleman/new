@@ -163,6 +163,11 @@ var Engine = Matter.Engine,
     }
 })
 
+document.getElementById("restart").style.top = 400+"px"
+document.getElementById("start").style.top = 400+"px"
+document.getElementById("restart").style.left = innerWidth/2+"px"
+document.getElementById("restart").style.left = innerWidth/2+"px"
+
 document.getElementById("restart").style.visibility = "hidden"
 
 Composite.add(engine.world,[enemy, player, bottom])
@@ -178,7 +183,6 @@ Matter.Body.setStatic(enemy, true)
 Matter.Body.setStatic(player, true)
 
 function restart(){
-    document.getElementById("restart").style.top = 400+"px"
     document.getElementById("restart").style.visibility = "hidden"
     Matter.Body.setStatic(enemy, false)
     Matter.Body.setStatic(player, false)
