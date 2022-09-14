@@ -199,17 +199,22 @@ function gameover(){
     Matter.Body.setStatic(player, true)
 }
 
-setInterval(() => {
-    Matter.Body.setVelocity(enemy, {x:enemyVelocity,y:0})
-    enemyVelocity = enemyVelocity - 0.001
-    if(enemy.position.x <= 0){
-        Matter.Body.setPosition(enemy, {x:800,y:560})
-    }
-    if(Matter.Collision.collides(player, enemy) != null){
-        gameover()
-    }
-    console.log(enemy.velocity)
-}, 1);
+function mainloop(){
+    let pog = setInterval(() => {
+        Matter.Body.setVelocity(enemy, {x:enemyVelocity,y:0})
+        enemyVelocity = enemyVelocity - 0.001
+        if(enemy.position.x <= 0){
+            Matter.Body.setPosition(enemy, {x:800,y:560})
+        }
+        if(Matter.Collision.collides(player, enemy) != null){
+            gameover()
+        }
+        console.log(enemy.velocity)
+    }, 1);
+
+}
+
+mainloop()
 
 
 </script>
