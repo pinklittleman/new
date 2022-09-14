@@ -16,7 +16,6 @@
     <button id="restart" onclick="restart()" class="button-85" role="button">restart</button>
 <style>
 #restart{
-    visibility: hidden;
     height: 50px;
     width: 100px;
     position: relative;
@@ -158,6 +157,8 @@ var Engine = Matter.Engine,
          lineWidth: 1
     }
 })
+
+document.getElementById("restart").style.visibility = "hidden"
 
 Composite.add(engine.world,[enemy, player, bottom])
 
