@@ -214,6 +214,11 @@ document.onkeydown = function(e){
             Matter.Body.setVelocity(player, {x:0,y:-8})
         }
     }
+    if(e.key === " "){
+        if(Matter.Collision.collides(player, bottom) != null){
+            Matter.Body.setVelocity(player, {x:0,y:-8})
+        }
+    }
 }
 
 document.addEventListener("click", function(){
@@ -233,7 +238,8 @@ function gameover(){
         document.getElementById("restart").style.visibility = "visible"
     }, 1000);
     Matter.Body.setPosition(player, {x:2000,y:2000})
-    for(let i = 0; i<= 25; i++){
+    Matter.Body.setPosition(enemy, {x:2000,y:2000})
+    for(let i = 0; i<= 50; i++){
         Composite.add(engine.world, addNew())
     }
     Matter.Body.setStatic(enemy, true)
