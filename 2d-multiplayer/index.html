@@ -224,6 +224,8 @@ document.addEventListener("click", function(){
 function gameover(){
     playX = player.position.x
     playY = player.position.y
+    socket.emit('user', playerName)
+    socket.emit('gameScore', gameScore)
     gameScore = 0
     clearInterval(pog)
     setTimeout(() => {

@@ -9,6 +9,7 @@ var credentials = { key: privateKey, cert: certificate};
 var https = require('https')
 
 let users = []
+let combined
 
 //pass in your credentials to create an https server
 var httpsServer = https.createServer(credentials, app);
@@ -28,6 +29,17 @@ io.on('connection', (socket) => {
     console.log('a user connected: ' + socket.id);
     users.push(socket.id)
     console.log(users)
+
+    socket.on('gameScore',score)
+    socket.on('user', userName)
+
+    function score(data){
+        console.log(data)
+    }
+
+    function userName(data){
+        console.log(data)
+    }
 
     socket.on('disconnect', () => {
 
