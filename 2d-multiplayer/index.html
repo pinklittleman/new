@@ -214,14 +214,9 @@ document.onkeydown = function(e){
             Matter.Body.setVelocity(player, {x:0,y:-8})
         }
     }
-    if(e.key === " "){
-        if(Matter.Collision.collides(player, bottom) != null){
-            Matter.Body.setVelocity(player, {x:0,y:-8})
-        }
-    }
 }
 
-document.addEventListener("click", function(){
+document.addEventListener("mousedown", function(){
     if(Matter.Collision.collides(player, bottom) != null){
             Matter.Body.setVelocity(player, {x:0,y:-8})
         }
