@@ -76,7 +76,7 @@ Composite.add(engine.world,[enemy, player, bottom])
 
 document.onkeydown = function(e){
     if(e.key === "w"){
-        Matter.Body.setVelocity(player, {x:0,y:5})
+        Matter.Body.setVelocity(player, {x:0,y:-5})
     }
 }
 
