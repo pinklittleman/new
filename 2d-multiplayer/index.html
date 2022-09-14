@@ -174,7 +174,7 @@ Matter.Body.setInertia(player, Infinity);
 
 let enemyVelocity = -3
 let pog
-let gameScore = 0
+let gameScore = 1
 
 Matter.Body.setStatic(enemy, true)
 Matter.Body.setStatic(player, true)
@@ -224,7 +224,7 @@ function mainloop(){
             gameover()
         }
     }, 1);
-    gameScore = gameScore + 1
+    gameScore++
     document.getElementById("score").innerHTML = gameScore
 
 }
