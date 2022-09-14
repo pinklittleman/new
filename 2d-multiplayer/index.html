@@ -167,7 +167,6 @@ document.getElementById("restart").style.top = 400+"px"
 document.getElementById("start").style.top = 300+"px"
 document.getElementById("start").style.left = innerWidth/2-65+"px"
 document.getElementById("restart").style.left = innerWidth/2-170+"px"
-
 document.getElementById("restart").style.visibility = "hidden"
 
 Composite.add(engine.world,[enemy, player, bottom])
@@ -187,10 +186,9 @@ function addNew(){
 }
 
 function restart(){
-    setTimeout(() => {
-        document.getElementById("restart").style.visibility = "hidden"
-    }, 1000);
+    document.getElementById("restart").style.visibility = "hidden"
     for(let i; i<= 50; i++){
+        console.log('pog')
         Composite.add(engine.world, addNew())
     }
     Matter.Body.setStatic(enemy, false)
@@ -228,7 +226,9 @@ document.addEventListener("click", function(){
 function gameover(){
     gameScore = 0
     clearInterval(pog)
-    document.getElementById("restart").style.visibility = "visible"
+    setTimeout(() => {
+        document.getElementById("restart").style.visibility = "visible"
+    }, 1000);
     Matter.Body.setStatic(enemy, true)
     Matter.Body.setStatic(player, true)
 }
