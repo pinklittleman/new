@@ -194,10 +194,9 @@ document.onkeydown = function(e){
 }
 
 function gameover(){
-
+    document.getElementById("restart").style.visibility = "visable"
     Matter.Body.setStatic(enemy, true)
     Matter.Body.setStatic(player, true)
-    document.getElementById("restart").style.visibility = "visable"
 }
 
 setInterval(() => {
