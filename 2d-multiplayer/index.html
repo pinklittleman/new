@@ -83,17 +83,11 @@ document.onkeydown = function(e){
 }
 
 
-    // Matter.Body.setVelocity(enemy, {x:,y:})
 
+setInterval(() => {
+    Matter.Body.setVelocity(enemy, {x:-1,y:0})
+}, 1);
 
-for(let i = 0; i <= 100; i++){
-    setTimeout(() => {
-        console.log('wagwon'+ i)
-        if(i === 100){
-            i = 0
-        }
-    }, 500);
-}
 
 </script>
 </body>
