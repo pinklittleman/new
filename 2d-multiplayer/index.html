@@ -204,6 +204,8 @@ function gameover(){
 }
 
 function mainloop(){
+    Matter.Body.setStatic(enemy, false)
+    Matter.Body.setStatic(player, false)
     pog = setInterval(() => {
         Matter.Body.setVelocity(enemy, {x:enemyVelocity,y:0})
         enemyVelocity = enemyVelocity - 0.001
