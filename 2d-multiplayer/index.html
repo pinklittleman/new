@@ -95,9 +95,6 @@
   top: 0;
   border-radius: 10px;
 }
-
-
-
   canvas{
   display: block;
   margin: auto;
@@ -179,20 +176,24 @@ let pog
 let gameScore = 0
 let playX
 let playY
+let find
 
 Matter.Body.setStatic(enemy, true)
 Matter.Body.setStatic(player, true)
 
 function addNew(){
-        return Bodies.circle(playX,playY,2)
+        return Bodies.circle(playX,playY,4)
 }
 
 function restart(){
+    for(i in find){
+        if(find[i].label === "Circle Body"){
+            Composite.remove(engine.world,[find[i]])
+        }
+    }
     document.getElementById("restart").style.visibility = "hidden"
     Matter.Body.setStatic(enemy, false)
     Matter.Body.setStatic(player, false)
-    // Matter.Body.setVelocity(player, {x:0,y:0})
-    // Matter.Body.setVelocity(enemy, {x:0,y:0})
     Matter.Body.setPosition(player, {x:200,y:560})
     Matter.Body.setPosition(enemy, {x:600,y:560})
     enemyVelocity = -3
@@ -250,6 +251,7 @@ function mainloop(){
         }
         gameScore++
         document.getElementById("score").innerHTML = gameScore
+        find = Composite.allBodies(engine.world)
     }, 1);
 
 }
