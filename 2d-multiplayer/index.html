@@ -187,10 +187,6 @@ function addNew(){
 
 function restart(){
     document.getElementById("restart").style.visibility = "hidden"
-    for(let i = 0; i<= 50; i++){
-        console.log('pog')
-        Composite.add(engine.world, addNew())
-    }
     Matter.Body.setStatic(enemy, false)
     Matter.Body.setStatic(player, false)
     // Matter.Body.setVelocity(player, {x:0,y:0})
@@ -229,8 +225,13 @@ function gameover(){
     setTimeout(() => {
         document.getElementById("restart").style.visibility = "visible"
     }, 1000);
+    for(let i = 0; i<= 50; i++){
+        console.log('pog')
+        Composite.add(engine.world, addNew())
+    }
     Matter.Body.setStatic(enemy, true)
     Matter.Body.setStatic(player, true)
+
 }
 
 function mainloop(){
