@@ -122,6 +122,8 @@ body{
 <script>
 const socket = io.connect('wss://pinky.uk.to:5000');
 
+let playerName = prompt("enter a username for the leaderboard (currently under development)")
+
 var Engine = Matter.Engine,
     Render = Matter.Render,
     Runner = Matter.Runner,
