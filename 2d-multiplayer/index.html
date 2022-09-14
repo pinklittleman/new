@@ -172,6 +172,8 @@ Matter.Body.setStatic(enemy, true)
 Matter.Body.setStatic(player, true)
 
 function restart(){
+    Matter.Body.setStatic(enemy, false)
+    Matter.Body.setStatic(player, false)
     // Matter.Body.setVelocity(player, {x:0,y:0})
     // Matter.Body.setVelocity(enemy, {x:0,y:0})
     Matter.Body.setPosition(player, {x:200,y:560})
