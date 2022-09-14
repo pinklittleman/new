@@ -180,6 +180,7 @@ function restart(){
 }
 
 function start(){
+    mainloop()
     document.getElementById("start").style.visibility = "hidden"
     Matter.Body.setStatic(enemy, false)
     Matter.Body.setStatic(player, false)
