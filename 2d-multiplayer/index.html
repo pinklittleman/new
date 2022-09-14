@@ -166,6 +166,7 @@ Matter.Body.setInertia(enemy, Infinity);
 Matter.Body.setInertia(player, Infinity);
 
 let enemyVelocity = -3
+let pog
 
 Matter.Body.setStatic(enemy, true)
 Matter.Body.setStatic(player, true)
@@ -202,7 +203,7 @@ function gameover(){
 }
 
 function mainloop(){
-    let pog = setInterval(() => {
+    pog = setInterval(() => {
         Matter.Body.setVelocity(enemy, {x:enemyVelocity,y:0})
         enemyVelocity = enemyVelocity - 0.001
         if(enemy.position.x <= 0){
