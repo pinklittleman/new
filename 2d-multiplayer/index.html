@@ -225,7 +225,7 @@ function gameover(){
     setTimeout(() => {
         document.getElementById("restart").style.visibility = "visible"
     }, 1000);
-    Matter.body.setPosition(player, {x:2000,y:2000})
+    Matter.Body.setPosition(player, {x:2000,y:2000})
     for(let i = 0; i<= 50; i++){
         Composite.add(engine.world, addNew())
     }
