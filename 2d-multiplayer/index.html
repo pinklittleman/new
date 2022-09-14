@@ -14,7 +14,14 @@
     
     <button id="start" onclick="start()" class="button-85" role="button">start</button>
     <button id="restart" onclick="restart()" class="button-85" role="button">restart</button>
+    <p id="score"></p>
 <style>
+#score{
+    color: #58595e;
+    text-align: center;
+    position: relative;
+    top: 100px;
+}
 #restart{
     height: 50px;
     width: 100px;
@@ -167,6 +174,7 @@ Matter.Body.setInertia(player, Infinity);
 
 let enemyVelocity = -3
 let pog
+let gameScore = 0
 
 Matter.Body.setStatic(enemy, true)
 Matter.Body.setStatic(player, true)
@@ -215,7 +223,6 @@ function mainloop(){
         if(Matter.Collision.collides(player, enemy) != null){
             gameover()
         }
-        console.log(enemy.isStatic)
     }, 1);
 
 }
