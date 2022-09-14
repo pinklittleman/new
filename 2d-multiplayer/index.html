@@ -182,8 +182,17 @@ let gameScore = 0
 Matter.Body.setStatic(enemy, true)
 Matter.Body.setStatic(player, true)
 
+function addNew(){
+        return Bodies.circle(player.x,player.y,10)
+}
+
 function restart(){
-    document.getElementById("restart").style.visibility = "hidden"
+    setTimeout(() => {
+        document.getElementById("restart").style.visibility = "hidden"
+    }, 1000);
+    for(let i; i<= 50; i++){
+        Composite.add(engine.world, addNew())
+    }
     Matter.Body.setStatic(enemy, false)
     Matter.Body.setStatic(player, false)
     // Matter.Body.setVelocity(player, {x:0,y:0})
