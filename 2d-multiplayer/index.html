@@ -87,7 +87,9 @@ document.onkeydown = function(e){
     }
 }
 
-
+function gameover(){
+    Matter.Body.setStatic(enemy, true)
+}
 
 setInterval(() => {
     Matter.Body.setVelocity(enemy, {x:enemyVelocity,y:0})
