@@ -66,6 +66,14 @@ var Engine = Matter.Engine,
         }, 1);
     }
 
+    document.onkeydown = function(e){
+    if(e.key === "w"){
+        if(Matter.Collision.collides(player, bottom) != null){
+            Matter.Body.setVelocity(player, {x:player.velocity.x,y:player.velocity.y-8})
+        }
+    }
+}
+
 
 </script>
 </body>
