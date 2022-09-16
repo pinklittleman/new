@@ -90,12 +90,14 @@ var Engine = Matter.Engine,
     }
     if(e.key === " "){
         clearInterval(loop1)
-        setTimeout(() => {
-            Matter.Body.setVelocity(player, {x:3,y:player.velocity.y})
+        if(Matter.Collision.collides(player, left) != null){
             setTimeout(() => {
-                Matter.Body.setVelocity(player, {x:player.velocity.x,y:-3})
+                Matter.Body.setVelocity(player, {x:3,y:player.velocity.y})
+                setTimeout(() => {
+                    Matter.Body.setVelocity(player, {x:player.velocity.x,y:-3})
+                }, 50);
             }, 100);
-        }, 100);
+        }
         setTimeout(() => {
             detectloop()
         }, 1000);
