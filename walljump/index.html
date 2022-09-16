@@ -98,6 +98,14 @@ var Engine = Matter.Engine,
                 }, 50);
             }, 100);
         }
+        if(Matter.Collision.collides(player, right) != null){
+            setTimeout(() => {
+                Matter.Body.setVelocity(player, {x:-3,y:player.velocity.y})
+                setTimeout(() => {
+                    Matter.Body.setVelocity(player, {x:player.velocity.x,y:-3})
+                }, 50);
+            }, 100);
+        }
         setTimeout(() => {
             detectloop()
         }, 1000);
