@@ -58,6 +58,14 @@ var Engine = Matter.Engine,
 
     Composite.add(engine.world,[bottom,topw,left,right,player])
 
+    function detectloop(){
+        loop1 = setInterval(() => {
+            if((Matter.Collision.collides(player, left) != null)){
+                Matter.Body.setVelocity(player, {x:-1,y:-1})
+            }
+        }, 1);
+    }
+
 
 </script>
 </body>
