@@ -20,7 +20,7 @@ canvas{
 }
 </style>
 <script>
-const socket = io.connect('wss://pinky.uk.to:5000');
+// const socket = io.connect('wss://pinky.uk.to:5000');
 
 var Engine = Matter.Engine,
     Render = Matter.Render,
@@ -70,6 +70,16 @@ var Engine = Matter.Engine,
     if(e.key === "w"){
         if(Matter.Collision.collides(player, bottom) != null){
             Matter.Body.setVelocity(player, {x:player.velocity.x,y:-8})
+        }
+    }
+    if(e.key === "a"){
+        if(Matter.Collision.collides(player, bottom) != null){
+            Matter.Body.setVelocity(player, {x:-4,y:player.velocity.y})
+        }
+    }
+    if(e.key === "d"){
+        if(Matter.Collision.collides(player, bottom) != null){
+            Matter.Body.setVelocity(player, {x:4,y:player.velocity.y})
         }
     }
 }
