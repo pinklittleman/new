@@ -55,6 +55,7 @@ var Engine = Matter.Engine,
     let left = Bodies.rectangle(0, 600, 50, 3500,{isStatic: true})
     let right = Bodies.rectangle(800, 100, 50, 3500,{isStatic: true})
     let player = Bodies.rectangle(400,560,50,50)
+    let doublejump = 0
 
     Composite.add(engine.world,[bottom,topw,left,right,player])
 
@@ -63,12 +64,15 @@ var Engine = Matter.Engine,
             if((Matter.Collision.collides(player, left) != null)){
                 Matter.Body.setVelocity(player, {x:-1,y:-1})
             }
+            if((Matter.Collision.collides(player, bottom) != null)){
+                doublejump = 0
+            }
         }, 1);
     }
 
     document.onkeydown = function(e){
     if(e.key === "w"){
-        if(Matter.Collision.collides(player, bottom) != null){
+        if(Matter.Collision.collides(player, bottom) != null || doublejump <= 0){
             Matter.Body.setVelocity(player, {x:player.velocity.x,y:-8})
         }
     }
