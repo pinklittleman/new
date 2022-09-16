@@ -90,6 +90,7 @@ var Engine = Matter.Engine,
     }
     if(e.key === " "){
         clearInterval(loop1)
+        Matter.Body.setVelocity(player, {x:2,y:-2})
         setTimeout(() => {
             detectloop()
         }, 1000);
