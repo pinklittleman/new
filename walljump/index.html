@@ -61,7 +61,7 @@ var Engine = Matter.Engine,
     function detectloop(){
         loop1 = setInterval(() => {
             if((Matter.Collision.collides(player, left) != null)){
-                console.log('touch')
+                Matter.Body.setVelocity(player, {x:-1,y:-1})
             }
         }, 1);
     }
