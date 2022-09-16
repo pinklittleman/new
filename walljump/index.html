@@ -67,7 +67,7 @@ var Engine = Matter.Engine,
             if((Matter.Collision.collides(player, bottom) != null)){
                 doublejump = 0
             }
-            if((Matter.Collision.collides(player, left) != null)){
+            if((Matter.Collision.collides(player, right) != null)){
                 Matter.Body.setVelocity(player, {x:1,y:-1})
             }
         }, 1);
