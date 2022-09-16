@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.18.0/matter.min.js" integrity="sha512-5T245ZTH0m0RfONiFm2NF0zcYcmAuNzcGyPSQ18j8Bs5Pbfhp5HP1hosrR8XRt5M3kSRqzjNMYpm2+it/AUX/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>WEBSOCKET</title>
+</head>
+<div id="test"></div>
+<body>
+    
+    <button id="start" onclick="start()" class="button-85" role="button">start</button>
+    <button id="restart" onclick="restart()" class="button-85" role="button">restart</button>
+    <p id="score"> score </p>
+<style>
+#score{
+    color: #58595e;
+    text-align: center;
+    position: relative;
+    top: 100px;
+    font-family: sans-serif;
+    font-size: large;
+}
+#restart{
+    height: 50px;
+    width: 100px;
+    position: relative;
+}
+.button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+  canvas{
+  display: block;
+  margin: auto;
+  animation-name: beans;
+  animation-duration: 1s;
+}
+div{
+    text-align: center;
+    display: block;
+    margin: auto;
+    background-color: #14151F;
+    height: 20px ;
+    width: 200px;
+    color: #58595e;
+}
+body{
+    background: #14151F;
+}
+#start{
+    height: 50px;
+    width: 100px;
+    position: relative;
+}
+</style>
+<script>
+const socket = io.connect('wss://pinky.uk.to:5000');
+
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Body = Matter.Body,
+    Composite = Matter.Composite,
+    Composites = Matter.Composites,
+    Query = Matter.Query,
+    Constraint = Matter.Constraint,
+    MouseConstraint = Matter.MouseConstraint,
+    Mouse = Matter.Mouse,
+    Events = Matter.Events,
+    Bodies = Matter.Bodies;
+
+    let engine = Engine.create();
+    let render = Render.create({
+        element: document.body,
+        engine: engine,
+        options: {
+            width: 800,
+            height: 600,
+            wireframes: false,
+            // showAngleIndicator: true
+        },
+    });
+
+    Matter.Runner.run(engine);
+    Render.run(render);
+
+    let bottom = Bodies.rectangle(0, 600, 3500, 50,{isStatic: true})
+
+    Composite.add(engine.world,[bottom])
+
+
+</script>
+</body>
+</html> 
