@@ -51,6 +51,7 @@ var Engine = Matter.Engine,
     Render.run(render);
 
     let bottom = Bodies.rectangle(0, 600, 3500, 50,{isStatic: true})
+    let top = Bodies.rectangle(100, 0, 3500, 50,{isStatic: true})
 
     Composite.add(engine.world,[bottom])
 
