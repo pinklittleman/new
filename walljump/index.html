@@ -82,6 +82,9 @@ var Engine = Matter.Engine,
     }
     if(e.key === " "){
         clearInterval(loop1)
+        setTimeout(() => {
+            detectloop()
+        }, 1000);
     }
 }
 
