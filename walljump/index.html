@@ -74,6 +74,7 @@ var Engine = Matter.Engine,
     if(e.key === "w"){
         if(Matter.Collision.collides(player, bottom) != null || doublejump <= 0){
             Matter.Body.setVelocity(player, {x:player.velocity.x,y:-8})
+            doublejump++
         }
     }
     if(e.key === "a"){
