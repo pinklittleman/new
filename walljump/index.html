@@ -128,9 +128,9 @@ var Engine = Matter.Engine,
 
     let constraint1 = Constraint.create({
         bodyB: player,
-        pointB: {x:player.position.x,y:player.position.y},
-        pointA: {x:mouse.position.x,y:mouse.position.y},
-        stiffness: 0.05
+        pointA: {x:player.position.x,y:player.position.y},
+        pointB: {x:mouse.position.x,y:mouse.position.y},
+        stiffness: 0.005
     })
     
     Composite.add(engine.world,[constraint1])
