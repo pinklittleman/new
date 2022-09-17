@@ -146,6 +146,7 @@ var Engine = Matter.Engine,
         setTimeout(() => {
             for(i in find){
                 if(find[i] >= 1){
+                    console.log(find[i])
                     Composite.remove(engine.world,[find[i]])
                 }
             }
