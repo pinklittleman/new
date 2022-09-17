@@ -141,7 +141,7 @@ var Engine = Matter.Engine,
     
     // Composite.add(engine.world,[constraint1])
 
-    document.addEventListener('mousemove', function(){
+    document.addEventListener('mousedown', function(){
         Composite.add(engine.world, addnewcon())
         setTimeout(() => {
             for(i in find){
