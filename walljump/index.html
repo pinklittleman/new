@@ -124,7 +124,7 @@ var Engine = Matter.Engine,
             }
         });
 
-    Composite.add(world, mouseConstraint);
+    Composite.add(engine.world, mouseConstraint);
 
     let constraint1 = Constraint.create({
         bodyB: player,
