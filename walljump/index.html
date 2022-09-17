@@ -126,14 +126,22 @@ var Engine = Matter.Engine,
 
     Composite.add(engine.world, mouseConstraint);
 
-    let constraint1 = Constraint.create({
-        bodyB: player,
-        pointA: {x:mouse.position.x,y:mouse.position.y},
-        pointB: {x:0,y:0},
-        stiffness: 0.00005
-    })
+    // let constraint1 = Constraint.create({
+    //     bodyB: player,
+    //     pointA: {x:mouse.position.x,y:mouse.position.y},
+    //     pointB: {x:0,y:0},
+    //     stiffness: 0.00005
+    // })
+
+    function addnewcon(){
+        return Constraint.create({bodyB: player, pointA:{x:mouse.position.x,y:mouse.position.y}, pointB: {x:0,y:0}})
+    }
     
-    Composite.add(engine.world,[constraint1])
+    // Composite.add(engine.world,[constraint1])
+
+    document.addEventListener('mousedown', function(){
+        Composite.add(engine.world, addnewcon())
+    })
 
 detectloop()
 
