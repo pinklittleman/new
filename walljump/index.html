@@ -128,7 +128,7 @@ var Engine = Matter.Engine,
 
     let constraint1 = Constraint.create({
         bodyB: player,
-        pointA: {x:200,y:200},
+        pointA: {x:mouse.position.x,y:mouse.position.y},
         pointB: {x:0,y:0},
         stiffness: 0.00005
     })
