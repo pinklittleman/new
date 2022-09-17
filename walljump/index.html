@@ -130,7 +130,7 @@ var Engine = Matter.Engine,
         bodyB: player,
         pointA: {x:player.position.x,y:player.position.y},
         pointB: {x:0,y:0},
-        stiffness: 0.0005
+        stiffness: 0.00005
     })
     
     Composite.add(engine.world,[constraint1])
