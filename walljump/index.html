@@ -56,6 +56,7 @@ var Engine = Matter.Engine,
     let right = Bodies.rectangle(800, 100, 50, 3500,{isStatic: true})
     let player = Bodies.rectangle(400,560,50,50)
     let doublejump = 0
+    let find
 
     Composite.add(engine.world,[bottom,topw,left,right,player])
 
@@ -70,6 +71,7 @@ var Engine = Matter.Engine,
             if((Matter.Collision.collides(player, right) != null)){
                 Matter.Body.setVelocity(player, {x:1,y:-1})
             }
+            find = Composite.allConstraints(engine.world)
         }, 1);
     }
 
@@ -141,6 +143,13 @@ var Engine = Matter.Engine,
 
     document.addEventListener('mousedown', function(){
         Composite.add(engine.world, addnewcon())
+        setTimeout(() => {
+            for(i in find){
+                if(find[i].label === "Constraint"){
+                    Composite.remove(engine.world,[find[i]])
+                }
+            }
+        }, 2000);
     })
 
 detectloop()
