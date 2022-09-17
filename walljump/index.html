@@ -74,85 +74,46 @@ var Engine = Matter.Engine,
     }
 
     document.onkeydown = function(e){
-    if(e.key === "w"){
-        if(Matter.Collision.collides(player, bottom) != null || doublejump <= 0){
-            Matter.Body.setVelocity(player, {x:player.velocity.x,y:-8})
-            doublejump++
+        if(e.key === "w"){
+            if(Matter.Collision.collides(player, bottom) != null || doublejump <= 0){
+                Matter.Body.setVelocity(player, {x:player.velocity.x,y:-8})
+                doublejump++
+            }
         }
-    }
-    if(e.key === "a"){
-        Matter.Body.setVelocity(player, {x:-4,y:player.velocity.y})
-        
-    }
-    if(e.key === "d"){
-        Matter.Body.setVelocity(player, {x:4,y:player.velocity.y})
-        
-    }
-    if(e.key === " "){
-        clearInterval(loop1)
-        if(Matter.Collision.collides(player, left) != null){
-            setTimeout(() => {
-                Matter.Body.setVelocity(player, {x:3,y:player.velocity.y})
+        if(e.key === "a"){
+            Matter.Body.setVelocity(player, {x:-4,y:player.velocity.y})
+            
+        }
+        if(e.key === "d"){
+            Matter.Body.setVelocity(player, {x:4,y:player.velocity.y})
+            
+        }
+        if(e.key === " "){
+            clearInterval(loop1)
+            if(Matter.Collision.collides(player, left) != null){
                 setTimeout(() => {
-                    Matter.Body.setVelocity(player, {x:player.velocity.x,y:-3})
-                }, 50);
-            }, 100);
-        }
-        if(Matter.Collision.collides(player, right) != null){
-            setTimeout(() => {
-                Matter.Body.setVelocity(player, {x:-3,y:player.velocity.y})
+                    Matter.Body.setVelocity(player, {x:3,y:player.velocity.y})
+                    setTimeout(() => {
+                        Matter.Body.setVelocity(player, {x:player.velocity.x,y:-3})
+                    }, 50);
+                }, 100);
+            }
+            if(Matter.Collision.collides(player, right) != null){
                 setTimeout(() => {
-                    Matter.Body.setVelocity(player, {x:player.velocity.x,y:-3})
-                }, 50);
-            }, 100);
+                    Matter.Body.setVelocity(player, {x:-3,y:player.velocity.y})
+                    setTimeout(() => {
+                        Matter.Body.setVelocity(player, {x:player.velocity.x,y:-3})
+                    }, 50);
+                }, 100);
+            }
+            setTimeout(() => {
+                detectloop()
+            }, 1000);
         }
-        setTimeout(() => {
-            detectloop()
-        }, 1000);
+    
     }
 
-    var collisions = [],
-        startPoint = { x: player.position.x, y: player.position.y };
-
-    Events.on(engine, 'afterUpdate', function() {
-        var mouse = mouseConstraint.mouse,
-            bodies = Composite.allBodies(engine.world),
-            endPoint = mouse.position || { x: 100, y: 600 };
-
-        collisions = Query.ray(bodies, startPoint, endPoint);
-    });
-
-    Events.on(render, 'afterRender', function() {
-        var mouse = mouseConstraint.mouse,
-            context = render.context,
-            endPoint = mouse.position || { x: 100, y: 600 };
-
-        Render.startViewTransform(render);
-
-        context.beginPath();
-        context.moveTo(startPoint.x, startPoint.y);
-        context.lineTo(endPoint.x, endPoint.y);
-        if (collisions.length > 0) {
-            context.strokeStyle = '#fff';
-        } else {
-            context.strokeStyle = '#555';
-        }
-        context.lineWidth = 0.5;
-        context.stroke();
-
-        for (var i = 0; i < collisions.length; i++) {
-            var collision = collisions[i];
-            context.rect(collision.bodyA.position.x - 4.5, collision.bodyA.position.y - 4.5, 8, 8);
-        }
-
-        context.fillStyle = 'rgba(255,165,0,0.7)';
-        context.fill();
-
-        Render.endViewTransform(render);
-    });
-
-    // add mouse control
-    var mouse = Mouse.create(render.canvas),
+    let mouse = Mouse.create(render.canvas),
         mouseConstraint = MouseConstraint.create(engine, {
             mouse: mouse,
             constraint: {
@@ -165,7 +126,13 @@ var Engine = Matter.Engine,
 
     Composite.add(world, mouseConstraint);
 
-}
+    let constraint1 = Constraint.create({
+        bodyB: player,
+        pointB: {x:player.position.x,y:player.position.y},
+        pointA: {x:mouse.position.x,y:mouse.position.y},
+        stiffness: 0.05
+    })
+    
 
 detectloop()
 
