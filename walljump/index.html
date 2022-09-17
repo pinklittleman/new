@@ -71,7 +71,7 @@ var Engine = Matter.Engine,
             if((Matter.Collision.collides(player, right) != null)){
                 Matter.Body.setVelocity(player, {x:1,y:-1})
             }
-            Composite.add(engine.world, addnewcon())
+            find = Composite.allConstraints(engine.world)
         }, 1);
     }
 
@@ -142,7 +142,7 @@ var Engine = Matter.Engine,
     // Composite.add(engine.world,[constraint1])
 
     document.addEventListener("click", function(){
-        find = Composite.allConstraints(engine.world)
+        Composite.add(engine.world, addnewcon())
         setTimeout(() => {
             for(i in find){
                 console.log(find[i])
