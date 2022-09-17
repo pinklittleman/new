@@ -112,7 +112,7 @@ var Engine = Matter.Engine,
     }
 
     var collisions = [],
-        startPoint = { x: 400, y: 100 };
+        startPoint = { x: player.position.x, y: player.position.y };
 
     Events.on(engine, 'afterUpdate', function() {
         var mouse = mouseConstraint.mouse,
