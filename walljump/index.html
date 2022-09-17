@@ -145,7 +145,7 @@ var Engine = Matter.Engine,
         Composite.add(engine.world, addnewcon())
         setTimeout(() => {
             for(i in find){
-                if(find[i].label === "Constraint"){
+                if(find[i] >= 1){
                     Composite.remove(engine.world,[find[i]])
                 }
             }
