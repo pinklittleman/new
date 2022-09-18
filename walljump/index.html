@@ -62,7 +62,6 @@ var Engine = Matter.Engine,
 
     function detectloop(){
         loop1 = setInterval(() => {
-            console.log(true)
             if((Matter.Collision.collides(player, left) != null)){
                 Matter.Body.setVelocity(player, {x:-1,y:-1})
             }
@@ -91,7 +90,6 @@ var Engine = Matter.Engine,
         }
         if(e.key === " "){
             clearInterval(loop1)
-            console.log(false)
             if(Matter.Collision.collides(player, left) != null){
                 setTimeout(() => {
                     Matter.Body.setVelocity(player, {x:3,y:player.velocity.y})
