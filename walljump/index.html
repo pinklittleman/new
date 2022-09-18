@@ -108,10 +108,9 @@ var Engine = Matter.Engine,
             stopping = true
         }
         if(e.key === " "){ 
-            stopping = true
-            // if(Matter.Collision.collides(player, left) != null || Matter.Collision.collides(player, right) != null){
-            //     stopping = true
-            // }
+            if(Matter.Collision.collides(player, left) != null || Matter.Collision.collides(player, right) != null){
+                stopping = true
+            }
             if(Matter.Collision.collides(player, left) != null){
                 Matter.Body.setVelocity(player, {x:0,y:0})
                 setTimeout(() => {
@@ -125,9 +124,9 @@ var Engine = Matter.Engine,
                 }, 10);
             }
                 
-            setTimeout(() => {
-                stopping = true
-            }, 500);
+            // setTimeout(() => {
+            //     stopping = true
+            // }, 500);
             
             
         }
