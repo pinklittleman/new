@@ -87,7 +87,7 @@ var Engine = Matter.Engine,
             
         }
         if(e.key === "d"){
-            Matter.Body.setVelocity(player, {x:4,y:player.velocity.y})
+            Matter.Body.setVelocity(player, {x:player.velocity.x+4,y:player.velocity.y})
             
         }
         if(e.key === " "){
