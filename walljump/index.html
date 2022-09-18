@@ -92,10 +92,11 @@ var Engine = Matter.Engine,
             clearInterval(loop1)
             if(Matter.Collision.collides(player, left) != null){
                 Matter.Body.setVelocity(player, {x:4,y:player.velocity.y})
-                
+                console.log('ejected left')
             }
             if(Matter.Collision.collides(player, right) != null){
                 Matter.Body.setVelocity(player, {x:-4,y:player.velocity.y})
+                console.log('ejected right')
             }
             
             setTimeout(() => {
