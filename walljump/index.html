@@ -59,6 +59,7 @@ var Engine = Matter.Engine,
     let find
     let loop1 = null
     let loop2 = null
+    let stopping = true
     
     Matter.Body.setInertia(player, Infinity)
     Composite.add(engine.world,[bottom,topw,left,right,player])
@@ -74,12 +75,14 @@ var Engine = Matter.Engine,
 
     function walljump(){
         loop2 = setInterval(() => {
-            console.log(true)
-            if((Matter.Collision.collides(player, right) != null)){
-                Matter.Body.setVelocity(player, {x:0.75,y:0})
-            }
-            if((Matter.Collision.collides(player, left) != null)){
-                Matter.Body.setVelocity(player, {x:-0.75,y:0})
+            if (stopping === false) {
+                console.log(true)
+                if((Matter.Collision.collides(player, right) != null)){
+                    Matter.Body.setVelocity(player, {x:0.75,y:0})
+                }
+                if((Matter.Collision.collides(player, left) != null)){
+                    Matter.Body.setVelocity(player, {x:-0.75,y:0})
+                }
             }
         }, 1);
     }
@@ -97,18 +100,16 @@ var Engine = Matter.Engine,
         if(e.key === "d"){
             Matter.Body.setVelocity(player, {x:4,y:player.velocity.y})
         }
-        if(e.key === " "){
-            
-            if(Matter.Collision.collides(player, left) != null || Matter.Collision.collides(player, right) != null){
-                clearInterval(loop2)
-            } 
+        if(e.key === " "){ 
             if(Matter.Collision.collides(player, left) != null){
+                stopping = false
                 Matter.Body.setVelocity(player, {x:0,y:0})
                 setTimeout(() => {
                     Matter.Body.setVelocity(player, {x:player.velocity.x+4,y:player.velocity.y})
                 }, 10);
             }
             if(Matter.Collision.collides(player, right) != null ){
+                stopping = false
                 Matter.Body.setVelocity(player, {x:0,y:0})
                  setTimeout(() => {
                      Matter.Body.setVelocity(player, {x:player.velocity.x-4,y:player.velocity.y})
@@ -116,7 +117,7 @@ var Engine = Matter.Engine,
             }
                 
             setTimeout(() => {
-                walljump()
+                stopping = true
             }, 1500);
             
             
