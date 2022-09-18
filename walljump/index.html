@@ -72,9 +72,12 @@ var Engine = Matter.Engine,
                 Matter.Body.setVelocity(player, {x:0.75,y:-0.5})
             }
             find = Composite.allConstraints(engine.world)
-            console.log(player.velocity)
         }, 1);
     }
+
+    setInterval(() => {
+        console.log(player.velocity)
+    }, 10);
 
     document.onkeydown = function(e){
         if(e.key === "w"){
