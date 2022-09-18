@@ -108,7 +108,7 @@ var Engine = Matter.Engine,
             stopping = true
         }
         if(e.key === " "){ 
-            if(Matter.Collision.collides(player, left) != null || Matter.Collision.collides(player, right) != null){
+            if(stopping === false){
                 stopping = true
             }
             if(Matter.Collision.collides(player, left) != null){
