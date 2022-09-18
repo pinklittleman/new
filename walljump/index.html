@@ -59,7 +59,7 @@ var Engine = Matter.Engine,
     let find
     let loop1 = null
     let loop2 = null
-    let stopping = true
+    let stopping
     
     Matter.Body.setInertia(player, Infinity)
     Composite.add(engine.world,[bottom,topw,left,right,player])
