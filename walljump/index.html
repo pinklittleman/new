@@ -62,17 +62,22 @@ var Engine = Matter.Engine,
 
     function detectloop(){
         loop1 = setInterval(() => {
-            if((Matter.Collision.collides(player, left) != null)){
-                Matter.Body.setVelocity(player, {x:-0.75,y:-0.5})
-            }
             if((Matter.Collision.collides(player, bottom) != null)){
                 doublejump = 0
             }
+            find = Composite.allConstraints(engine.world)
+        }, 10);
+    }
+
+    function walljump(){
+        loop2 = setInterval(() => {
             if((Matter.Collision.collides(player, right) != null)){
                 Matter.Body.setVelocity(player, {x:0.75,y:-0.5})
             }
-            find = Composite.allConstraints(engine.world)
-        }, 1);
+            if((Matter.Collision.collides(player, left) != null)){
+                Matter.Body.setVelocity(player, {x:-0.75,y:-0.5})
+            }
+        }, 10);
     }
 
     setInterval(() => {
@@ -93,7 +98,7 @@ var Engine = Matter.Engine,
             Matter.Body.setVelocity(player, {x:4,y:player.velocity.y})
         }
         if(e.key === " "){
-            clearInterval(loop1)
+            clearInterval(loop2)
             if(Matter.Collision.collides(player, left) != null){
                 Matter.Body.setVelocity(player, {x:0,y:0})
                 setTimeout(() => {
@@ -109,7 +114,7 @@ var Engine = Matter.Engine,
             }
             
             setTimeout(() => {
-                detectloop()
+                walljump()
             }, 1000);
             
         }
@@ -152,6 +157,7 @@ var Engine = Matter.Engine,
     })
 
 detectloop()
+walljump()
 
 </script>
 </body>
