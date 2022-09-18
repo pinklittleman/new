@@ -59,6 +59,7 @@ var Engine = Matter.Engine,
     let find
     let loop1 = null
     let loop2 = null
+    let loop3 
     let stopping
     
     Matter.Body.setInertia(player, Infinity)
@@ -92,7 +93,9 @@ var Engine = Matter.Engine,
     }
 
     function itsTimeToStop() {
-        stopping = true   
+        loop3 = setInterval(() => {
+            stopping = true
+        }, 10);
     }
 
     document.onkeydown = function(e){
@@ -124,6 +127,10 @@ var Engine = Matter.Engine,
                      Matter.Body.setVelocity(player, {x:player.velocity.x-4,y:player.velocity.y})
                 }, 10);
             }
+
+            setTimeout(() => {
+                clearInterval(loop3)
+            }, 1500);
             
         }
     
