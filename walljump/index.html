@@ -63,13 +63,13 @@ var Engine = Matter.Engine,
     function detectloop(){
         loop1 = setInterval(() => {
             if((Matter.Collision.collides(player, left) != null)){
-                Matter.Body.setVelocity(player, {x:-1,y:-1})
+                Matter.Body.setVelocity(player, {x:-0.75,y:-0.5})
             }
             if((Matter.Collision.collides(player, bottom) != null)){
                 doublejump = 0
             }
             if((Matter.Collision.collides(player, right) != null)){
-                Matter.Body.setVelocity(player, {x:1,y:-1})
+                Matter.Body.setVelocity(player, {x:0.75,y:-0.5})
             }
             find = Composite.allConstraints(engine.world)
         }, 1);
