@@ -80,10 +80,6 @@ var Engine = Matter.Engine,
         }, 15);
     }
 
-    setInterval(() => {
-        console.log(player.velocity)
-    }, 10);
-
     document.onkeydown = function(e){
         if(e.key === "w"){
             if(Matter.Collision.collides(player, bottom) != null || doublejump <= 0){
