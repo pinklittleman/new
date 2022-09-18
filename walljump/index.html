@@ -73,6 +73,7 @@ var Engine = Matter.Engine,
     }
 
     function walljump(){
+        console.log(true)
         loop2 = setInterval(() => {
             if((Matter.Collision.collides(player, right) != null)){
                 Matter.Body.setVelocity(player, {x:0.75,y:0})
