@@ -97,8 +97,10 @@ var Engine = Matter.Engine,
             Matter.Body.setVelocity(player, {x:4,y:player.velocity.y})
         }
         if(e.key === " "){
-            if(Matter.Collision.collides(player, left) != null){
+            if(Matter.Collision.collides(player, left) != null || Matter.Collision.collides(player, right) != null){
                 clearInterval(loop2)
+            } 
+            if(Matter.Collision.collides(player, left) != null){
                 Matter.Body.setVelocity(player, {x:0,y:0})
                 setTimeout(() => {
                     Matter.Body.setVelocity(player, {x:player.velocity.x+4,y:player.velocity.y})
@@ -106,7 +108,6 @@ var Engine = Matter.Engine,
                 
             }
             if(Matter.Collision.collides(player, right) != null){
-                clearInterval(loop2)
                 Matter.Body.setVelocity(player, {x:0,y:0})
                 setTimeout(() => {
                     Matter.Body.setVelocity(player, {x:player.velocity.x-4,y:player.velocity.y})
@@ -115,7 +116,7 @@ var Engine = Matter.Engine,
             
             setTimeout(() => {
                 walljump()
-            }, 1000);
+            }, 2000);
             
         }
     
