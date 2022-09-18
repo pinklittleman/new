@@ -104,10 +104,10 @@ var Engine = Matter.Engine,
             Matter.Body.setVelocity(player, {x:4,y:player.velocity.y})
         }
         if(e.key === " "){ 
-            stopping = true
-            if(Matter.Collision.collides(player, left) != null || Matter.Collision.collides(player, right) != null){
-                stopping = true
-            }
+            // stopping = true
+            // if(Matter.Collision.collides(player, left) != null || Matter.Collision.collides(player, right) != null){
+            //     stopping = true
+            // }
             if(Matter.Collision.collides(player, left) != null){
                 Matter.Body.setVelocity(player, {x:0,y:0})
                 setTimeout(() => {
