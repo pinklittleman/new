@@ -68,6 +68,7 @@ var Engine = Matter.Engine,
         loop1 = setInterval(() => {
             if((Matter.Collision.collides(player, bottom) != null)){
                 doublejump = 0
+                stopping = true
             }
             if((Matter.Collision.collides(player, left) != null) || (Matter.Collision.collides(player, right) != null)){
                 stopping = false
