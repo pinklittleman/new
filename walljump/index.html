@@ -59,7 +59,6 @@ var Engine = Matter.Engine,
     let find
     let loop1 = null
     let loop2 = null
-    let loop3 
     let stopping
     
     Matter.Body.setInertia(player, Infinity)
@@ -70,7 +69,6 @@ var Engine = Matter.Engine,
             if((Matter.Collision.collides(player, bottom) != null)){
                 doublejump = 0
                 stopping = true
-                clearInterval(loop3)
             }
             if((Matter.Collision.collides(player, left) != null) || (Matter.Collision.collides(player, right) != null)){
                 stopping = false
@@ -93,12 +91,6 @@ var Engine = Matter.Engine,
         }, 1);
     }
 
-    function itsTimeToStop() {
-        loop3 = setInterval(() => {
-            stopping = true
-        }, 10);
-    }
-
     document.onkeydown = function(e){
         if(e.key === "w"){
             if(Matter.Collision.collides(player, bottom) != null || doublejump <= 0){
@@ -114,7 +106,6 @@ var Engine = Matter.Engine,
         }
         if(e.key === " "){ 
             if(Matter.Collision.collides(player, left) != null){
-                itsTimeToStop()
                 Matter.Body.setVelocity(player, {x:0,y:0})
                 setTimeout(() => {
                     Matter.Body.setVelocity(player, {x:player.velocity.x+4,y:player.velocity.y})
@@ -122,7 +113,6 @@ var Engine = Matter.Engine,
                 
             }
             if(Matter.Collision.collides(player, right) != null ){
-                itsTimeToStop()
                 Matter.Body.setVelocity(player, {x:0,y:0})
                  setTimeout(() => {
                      Matter.Body.setVelocity(player, {x:player.velocity.x-4,y:player.velocity.y})
