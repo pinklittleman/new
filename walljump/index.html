@@ -102,7 +102,6 @@ var Engine = Matter.Engine,
                 clearInterval(loop2)
             } 
             if(Matter.Collision.collides(player, left) != null){
-                clearInterval(loop2)
                 Matter.Body.setVelocity(player, {x:0,y:0})
                 setTimeout(() => {
                     Matter.Body.setVelocity(player, {x:player.velocity.x+4,y:player.velocity.y})
