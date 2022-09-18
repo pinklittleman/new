@@ -104,15 +104,16 @@ var Engine = Matter.Engine,
             Matter.Body.setVelocity(player, {x:4,y:player.velocity.y})
         }
         if(e.key === " "){ 
-            if(Matter.Collision.collides(player, left) != null){
+            if(Matter.Collision.collides(player, left) != null || Matter.Collision.collides(player, right) != null){
                 stopping = true
+            }
+            if(Matter.Collision.collides(player, left) != null){
                 Matter.Body.setVelocity(player, {x:0,y:0})
                 setTimeout(() => {
                     Matter.Body.setVelocity(player, {x:player.velocity.x+4,y:player.velocity.y})
                 }, 10);
             }
             if(Matter.Collision.collides(player, right) != null ){
-                stopping = true
                 Matter.Body.setVelocity(player, {x:0,y:0})
                  setTimeout(() => {
                      Matter.Body.setVelocity(player, {x:player.velocity.x-4,y:player.velocity.y})
