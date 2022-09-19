@@ -72,6 +72,7 @@ var Engine = Matter.Engine,
             }
             if((Matter.Collision.collides(player, left) != null) || (Matter.Collision.collides(player, right) != null)){
                 stopping = false
+                doublejump = 0
             }
             find = Composite.allConstraints(engine.world)
         }, 1);
