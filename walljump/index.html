@@ -109,13 +109,13 @@ var Engine = Matter.Engine,
                 Matter.Body.setVelocity(player, {x:player.velocity.x+4,y:player.velocity.y})
                 setTimeout(() => {
                     Matter.Body.setVelocity(player, {x:player.velocity.x,y:-3})
-                }, 100);
+                }, 50);
             }
             if(Matter.Collision.collides(player, right) != null ){
                 Matter.Body.setVelocity(player, {x:player.velocity.x-4,y:player.velocity.y})
                 setTimeout(() => {
                      Matter.Body.setVelocity(player, {x:player.velocity.x,y:-3})
-                }, 100);
+                }, 50);
             }
             
         }
