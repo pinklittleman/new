@@ -50,11 +50,13 @@ var Engine = Matter.Engine,
     Matter.Runner.run(engine);
     Render.run(render);
 
+    let floorColl = Body.nextGroup(true);
     let bottom = Bodies.rectangle(0, 600, 3500, 50,{isStatic: true, friction: 0.001})
     let topw = Bodies.rectangle(100, 0, 3500, 50,{isStatic: true})
     let left = Bodies.rectangle(0, 600, 50, 3500,{isStatic: true})
     let right = Bodies.rectangle(800, 100, 50, 3500,{isStatic: true})
     let player = Bodies.rectangle(400,560,30,30, {friction: 0.0001})
+    let enemy = Bodies.rectangle(800,560,20,20,{collisionFilter: { group: floorColl }})
     let doublejump = 0
     let find
     let loop1 = null
@@ -155,10 +157,24 @@ var Engine = Matter.Engine,
     }
 
     function bullet(){
-        return bullet2 = Bodies.rectangle(player.position.x,player.position.y,20,10,{render: {fillStyle: '#000000'}})
+        return bullet2 = Bodies.rectangle(player.position.x,player.position.y,20,10,{render: {fillStyle: '#000000'},collisionFilter: { group: floorColl }})
     }
     
     // Composite.add(engine.world,[constraint1])
+
+    setInterval(() => {
+            angle = Math.atan2(player.position.y - enemy.position.y, player.position.x - enemy.position.x)
+            Composite.add(engine.world,bullet())
+            bullets.push(bullet2)
+            // setInterval(() => {
+            //     Matter.Body.setVelocity(bullet2, {x:Math.cos(angle)*4,y:Math.sin(angle)*4})
+            // }, 1);
+            for(i in bullets){
+                Matter.Body.setVelocity(bullets[i], {x:Math.cos(angle)*4,y:Math.sin(angle)*4})
+            }
+
+
+    }, 10);
 
     document.addEventListener("click", function(){
         // Composite.add(engine.world, addnewcon())
@@ -167,14 +183,6 @@ var Engine = Matter.Engine,
         //         Composite.remove(engine.world,[find[1]])
         //     }
         // }, 1500);
-        angle = Math.atan2(mouse.position.y - player.position.y, mouse.position.x - player.position.x)
-        console.log(angle)
-        Composite.add(engine.world,bullet())
-        bullets.push(bullet2)
-        console.log(bullets)
-        setInterval(() => {
-            Matter.Body.setVelocity(bullet2, {x:Math.cos(angle)*4,y:Math.sin(angle)*4})
-        }, 1);
 
     })
 
