@@ -6,7 +6,7 @@ canvas.height = innerHeight
 
 function animate(){
     requestAnimationFrame(animate)
-    
+    console.log('loop')
 }
 
 animate()
