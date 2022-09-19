@@ -92,7 +92,7 @@ var Engine = Matter.Engine,
 
     document.onkeydown = function(e){
         if(e.key === "w"){
-            if(Matter.Collision.collides(player, bottom) != null || doublejump <= 0){
+            if(Matter.Collision.collides(player, bottom) != null || doublejump <= 1){
                 Matter.Body.setVelocity(player, {x:player.velocity.x,y:-8})
                 doublejump++
             }
