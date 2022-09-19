@@ -185,7 +185,7 @@ var Engine = Matter.Engine,
         //         Composite.remove(engine.world,[find[1]])
         //     }
         // }, 1500);
-        angle = Math.atan2(player.position.x - enemy.position.x,enemy.position.y - player.position.y)
+        angle = Math.atan2(enemy.position.y - player.position.y,player.position.x - enemy.position.x)
             Composite.add(engine.world,bullet())
             bullets.push(bullet2)
             setInterval(() => {
