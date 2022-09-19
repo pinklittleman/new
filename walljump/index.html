@@ -67,7 +67,7 @@ var Engine = Matter.Engine,
     let bullets = []
     
     Matter.Body.setInertia(player, Infinity)
-    Composite.add(engine.world,[bottom,topw,left,right,player])
+    Composite.add(engine.world,[bottom,topw,left,right,player,enemy])
 
     function detectloop(){
         loop1 = setInterval(() => {
