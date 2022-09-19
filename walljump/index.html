@@ -117,7 +117,7 @@ var Engine = Matter.Engine,
             if(Matter.Collision.collides(player, right) != null ){
                 Matter.Body.setVelocity(player, {x:player.velocity.x-4,y:player.velocity.y})
                 setTimeout(() => {
-                     Matter.Body.setVelocity(player, {x:player.velocity.x,y:-3})
+                    Matter.Body.setVelocity(player, {x:player.velocity.x,y:-3})
                 }, 50);
             }
             
@@ -151,6 +151,10 @@ var Engine = Matter.Engine,
     function addnewcon(){
         return Constraint.create({bodyB: player, pointA:{x:mouse.position.x,y:mouse.position.y}, pointB: {x:0,y:0}, stiffness: 0.005})
     }
+
+    function bullet(){
+        return Bodies.rectangle(player.position.x,player.position.y,10,30,{render: {fillStyle: '#000000'}})
+    }
     
     // Composite.add(engine.world,[constraint1])
 
@@ -163,6 +167,11 @@ var Engine = Matter.Engine,
         // }, 1500);
         angle = Math.atan2(mouse.position.y - player.position.y, mouse.position.x - player.position.x)
         console.log(angle)
+        Composite.add(engine.world,bullet())
+        setInterval(() => {
+            Matter.Body.setVelocity(player, {x:Math.cos(angle),y:Math.sin(angle)})
+        }, 1);
+
     })
 
 detectloop()
