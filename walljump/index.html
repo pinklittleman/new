@@ -166,9 +166,9 @@ var Engine = Matter.Engine,
         angle = Math.atan2(player.position.y - enemy.position.y,player.position.x - enemy.position.x)
         Composite.add(engine.world,bullet())
         bullets.push(bullet2)
-        bullets.forEach(function() {
-            console.log('hi')
-        });
+        for(i in bullets){
+            Matter.Body.setVelocity(bullets[i], {x:Math.cos(angle)*4,y:Math.sin(angle)*4})
+        }
     }, 100);
 
     document.addEventListener("click", function(){
