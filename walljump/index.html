@@ -170,7 +170,7 @@ var Engine = Matter.Engine,
         console.log(angle)
         Composite.add(engine.world,bullet())
         setInterval(() => {
-            Matter.Body.setVelocity(bullet2, {x:Math.cos(angle),y:Math.sin(angle)})
+            Matter.Body.setVelocity(bullet2, {x:Math.cos(angle)+2,y:Math.sin(angle)})
         }, 1);
 
     })
