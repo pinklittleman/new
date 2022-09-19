@@ -168,7 +168,6 @@ var Engine = Matter.Engine,
         bullets.push(bullet2)
         for(i in bullets){
             Matter.Body.setVelocity(bullets[i], {x:Math.cos(angle)*4,y:Math.sin(angle)*4})
-            console.log(angle)
             setTimeout(() => {
                 Composite.remove(engine.world,[bullets[1]])
                 bullets.splice(bullets[1],bullets[1]+1)
