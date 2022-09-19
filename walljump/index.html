@@ -62,6 +62,7 @@ var Engine = Matter.Engine,
     let stopping
     let angle
     let bullet2
+    let bullets = []
     
     Matter.Body.setInertia(player, Infinity)
     Composite.add(engine.world,[bottom,topw,left,right,player])
@@ -169,8 +170,10 @@ var Engine = Matter.Engine,
         angle = Math.atan2(mouse.position.y - player.position.y, mouse.position.x - player.position.x)
         console.log(angle)
         Composite.add(engine.world,bullet())
+        bullets.push(bullet2)
+        console.log(bullets)
         setInterval(() => {
-            Matter.Body.setVelocity(bullet2, {x:Math.cos(angle)+2,y:Math.sin(angle)-2})
+            Matter.Body.setVelocity(bullet2, {x:Math.cos(angle),y:Math.sin(angle)})
         }, 1);
 
     })
