@@ -17,13 +17,13 @@ function drawball(x,y,r){
 
 document.addEventListener('keydown', function(e){
     if(e.key === 'w'){
-        y++
+        y--
     }
     if(e.key === 'a'){
         x--
     }
     if(e.key === 's'){
-        y--
+        y++
     }
     if(e.key === 'd'){
         x++
