@@ -27,7 +27,7 @@ class Ball{
     }
 
     drawVel(){
-        ctx.fillText('hello', this.x, this.y); 
+        al = ahh
     }
 
     drawBall(){
@@ -120,6 +120,7 @@ function keyControl(b){
 
 function mainLoop() {
     ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+    ctx.fillText("Hello World", canvas.width/2, canvas.height/2); 
     BALLZ.forEach((b) => {
         b.drawBall();
         if (b.player){
