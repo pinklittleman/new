@@ -32,6 +32,21 @@ document.addEventListener('keydown', function(e){
     }
 })
 
+document.addEventListener('keyup', function(e){
+    if(e.key === 'w'){
+        UP = false
+    }
+    if(e.key === 'a'){
+        LEFT = false
+    }
+    if(e.key === 's'){
+        DOWN = false
+    }
+    if(e.key === 'd'){
+        RIGHT = false
+    }
+})
+
 function move(){
     if(UP === true){
         y++
@@ -48,6 +63,7 @@ function move(){
 }
 
 function animate(){
+    move()
     requestAnimationFrame(animate)
     ctx.clearRect(0,0, canvas.width, canvas.height)
     drawball(x,y,50)
