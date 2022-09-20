@@ -14,6 +14,9 @@ function drawball(x,y,r){
 
 document.addEventListener('keydown', function(e){
     console.log(e)
+    if(e.key === 'w'){
+        console.log('up')
+    }
 })
 
 drawball(100,100,50)
