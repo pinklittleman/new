@@ -30,8 +30,8 @@ class Ball{
 
     drawVel(){
         ctx.fillStyle = "#000000";
-        ctx.fillText('x: '+this.x+' y: '+this.y, this.x - 5, this.y);
         ctx.drawImage(img, this.x, this.y);
+        ctx.fillText('x: '+this.x+' y: '+this.y, this.x - 5, this.y);
     }
 
     drawBall(){
