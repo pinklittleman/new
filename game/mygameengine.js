@@ -9,13 +9,14 @@ const BALLZ = [];
 let LEFT, UP, RIGHT, DOWN;
 
 //velocity gets multiplied by (1-friction)
-let friction = 0.1;
+let friction = 0.01;
 
 class Ball{
     constructor(x, y, r){
         this.x = x;
         this.y = y;
         this.r = r;
+        // this.name = socket.id
         this.vel_x = 0;
         this.vel_y = 0;
         this.acc_x = 0;
