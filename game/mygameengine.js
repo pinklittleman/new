@@ -9,7 +9,7 @@ const BALLZ = [];
 let LEFT, UP, RIGHT, DOWN;
 
 //velocity gets multiplied by (1-friction)
-let friction = 0.01;
+let friction = 0.06;
 
 class Ball{
     constructor(x, y, r){
