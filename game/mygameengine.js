@@ -51,31 +51,31 @@ class Ball{
 
 function keyControl(b){
     canvas.addEventListener('keydown', function(e){
-        if(e.keyCode === 37){
+        if(e.key === 'a'){
             LEFT = true;
         }
-        if(e.keyCode === 38){
+        if(e.key === 'w'){
             UP = true;
         }
-        if(e.keyCode === 39){
+        if(e.key === 'd'){
             RIGHT = true;
         }
-        if(e.keyCode === 40){
+        if(e.key === 's'){
             DOWN = true;
         }
     });
     
     canvas.addEventListener('keyup', function(e){
-        if(e.keyCode === 37){
+        if(e.key === 'a'){
             LEFT = false;
         }
-        if(e.keyCode === 38){
+        if(e.key === 'w'){
             UP = false;
         }
-        if(e.keyCode === 39){
+        if(e.key === 'd'){
             RIGHT = false;
         }
-        if(e.keyCode === 40){
+        if(e.key === 's'){
             DOWN = false;
         }
     });
