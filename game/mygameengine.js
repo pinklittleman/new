@@ -26,9 +26,9 @@ class Ball{
         BALLZ.push(this);
     }
 
-    drawVel(){
-        al = 0
-    }
+    // drawVel(){
+    //     al = 0
+    // }
 
     drawBall(){
         ctx.beginPath();
@@ -126,7 +126,7 @@ function mainLoop() {
         if (b.player){
             keyControl(b);
         }
-        b.drawVel();
+        // b.drawVel();
         // b.display(); shows the velocity and direction
     });
     requestAnimationFrame(mainLoop);
