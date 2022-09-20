@@ -9,4 +9,8 @@ function drawball(x,y,r){
     ctx.fill()
 }
 
+canvas.addEventListener('keydown', function(){
+    console.log('lol')
+})
+
 drawball(100,100,50)
