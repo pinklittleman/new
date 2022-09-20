@@ -73,7 +73,9 @@ function animate(){
     requestAnimationFrame(animate)
     ctx.clearRect(0,0, canvas.width, canvas.height)
     kontrol(Ball1)
-    Ball1.drawball()
+    balls.forEach((b) => {
+        b.drawball()
+    })
 
 }
 
