@@ -1,6 +1,9 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
+canvas.height = innerHeight
+canvas.width = innerWidth
+
 const BALLZ = [];
 
 let LEFT, UP, RIGHT, DOWN;
