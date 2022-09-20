@@ -32,7 +32,7 @@ document.addEventListener('keydown', function(e){
 
 function animate(){
     requestAnimationFrame(animate)
-
+    ctx.clearRect(0,0, canvas.width, canvas.height)
     drawball(x,y,50)
 
 }
