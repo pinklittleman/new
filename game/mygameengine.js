@@ -49,13 +49,13 @@ document.addEventListener('keyup', function(e){
 
 function move(){
     if(UP === true){
-        y++
+        y--
     }
     if(LEFT === true){
         x--
     }
     if(DOWN === true){
-        y--
+        y++
     }
     if(RIGHT === true){
         x++
