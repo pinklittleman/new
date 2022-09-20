@@ -26,9 +26,9 @@ class Ball{
         BALLZ.push(this);
     }
 
-    // drawVel(){
-    //     al = 0
-    // }
+    drawVel(){
+        ctx.fillText("Hello World", this.x, this.y); 
+    }
 
     drawBall(){
         ctx.beginPath();
@@ -120,13 +120,12 @@ function keyControl(b){
 
 function mainLoop() {
     ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
-    ctx.fillText("Hello World", Ball1.x, Ball1.y); 
     BALLZ.forEach((b) => {
         b.drawBall();
         if (b.player){
             keyControl(b);
         }
-        // b.drawVel();
+        b.drawVel();
         // b.display(); shows the velocity and direction
     });
     requestAnimationFrame(mainLoop);
