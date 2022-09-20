@@ -16,7 +16,7 @@ class Ball{
         this.x = x;
         this.y = y;
         this.r = r;
-        // this.name = socket.id
+        // this.name = socket.id multiplayer
         this.vel_x = 0;
         this.vel_y = 0;
         this.acc_x = 0;
