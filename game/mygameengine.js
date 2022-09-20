@@ -6,11 +6,14 @@ canvas.width = innerWidth
 
 let LEFT, RIGHT, UP, DOWN
 
+const balls = []
+
 class Ball{
     constructor(x,y,r){
         this.x = x
         this.y = y
         this.r = r
+        balls.push(this)
     }
     drawball(){
         ctx.beginPath()
