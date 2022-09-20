@@ -54,6 +54,7 @@ class Ball{
 
 function keyControl(b){
     canvas.addEventListener('keydown', function(e){
+        console.log(e.key)
         if(e.key === 'a'){
             LEFT = true;
         }
@@ -127,7 +128,7 @@ function mainLoop() {
     requestAnimationFrame(mainLoop);
 }
 
-let Ball1 = new Ball(200, 200, 100);
+let Ball1 = new Ball(200, 200, 50);
 Ball1.player = true;
 
 requestAnimationFrame(mainLoop);
