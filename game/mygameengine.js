@@ -27,7 +27,7 @@ class Ball{
     }
 
     drawVel(){
-        al = ahh
+        al = 0
     }
 
     drawBall(){
