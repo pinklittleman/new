@@ -124,10 +124,10 @@ function mainLoop() {
     ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
     BALLZ.forEach((b) => {
         b.drawBall();
-        b.drawVel();
         if (b.player){
             keyControl(b);
         }
+        b.drawVel();
         // b.display(); shows the velocity and direction
     });
     requestAnimationFrame(mainLoop);
