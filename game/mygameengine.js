@@ -13,6 +13,7 @@ class Ball{
         this.x = x
         this.y = y
         this.r = r
+        this.velocity = 1
         this.player = false
         balls.push(this)
     }
@@ -57,16 +58,16 @@ function kontrol(b){
     })
     
     if(UP === true){
-        b.y--
+        b.y -= b.velocity
     }
     if(LEFT === true){
-        b.x--
+        b.x -= b.velocity
     }
     if(DOWN === true){
-        b.y++
+        b.y += b.velocity
     }
     if(RIGHT === true){
-        b.x++
+        b.x += b.velocity
     }
 }
 
