@@ -67,7 +67,6 @@ function kontrol(b){
 }
 
 function animate(){
-    move()
     requestAnimationFrame(animate)
     ctx.clearRect(0,0, canvas.width, canvas.height)
     kontrol(Ball1)
