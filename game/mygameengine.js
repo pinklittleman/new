@@ -27,8 +27,6 @@ class Ball{
     }
 
     drawVel(){
-        ctx.beginPath();
-        ctx.moveTo(this.x, this.y);
         ctx.fillText('hello', this.x, this.y); 
     }
 
