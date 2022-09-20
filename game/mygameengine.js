@@ -8,9 +8,9 @@ let LEFT, RIGHT, UP, DOWN
 
 class Ball{
     constructor(x,y,r){
-        this.x;
-        this.y;
-        this.r;
+        this.x = x
+        this.y = y
+        this.r = r
     }
     drawball(){
         ctx.beginPath()
