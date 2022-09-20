@@ -27,7 +27,15 @@ class Ball{
     }
 
     drawVel(){
-        ctx.fillStyle = "#000000";
+        var red, green, blue;
+
+        for (red = 0; red <= 255; red++) {
+            for (green = 0; green <= 255; green++) {
+                for (blue = 0; blue <= 255; blue++) {
+                }
+            }
+        }
+        ctx.fillStyle = rgb(red, green, blue);
         ctx.fillText('x: '+this.x+' y: '+this.y, this.x - 5, this.y);
     }
 
