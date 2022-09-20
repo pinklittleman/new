@@ -12,8 +12,8 @@ function drawball(x,y,r){
     ctx.fill()
 }
 
-document.addEventListener('keydown', function(){
-    console.log('lol')
+document.addEventListener('keydown', function(e){
+    console.log(e)
 })
 
 drawball(100,100,50)
