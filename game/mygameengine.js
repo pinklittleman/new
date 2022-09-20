@@ -4,6 +4,9 @@ let ctx = canvas.getContext('2d')
 canvas.height = innerHeight
 canvas.width = innerWidth
 
+let x
+let y
+
 function drawball(x,y,r){
     ctx.beginPath()
     ctx.arc(x,y,r,0,2*Math.PI)
@@ -13,10 +16,25 @@ function drawball(x,y,r){
 }
 
 document.addEventListener('keydown', function(e){
-    console.log(e)
     if(e.key === 'w'){
-        console.log('up')
+        y++
+    }
+    if(e.key === 'a'){
+        x--
+    }
+    if(e.key === 's'){
+        y--
+    }
+    if(e.key === 'd'){
+        x++
     }
 })
 
-drawball(100,100,50)
+function animate(){
+    requestAnimationFrame(animate)
+    
+    drawball(x,y,50)
+
+}
+
+animate()
