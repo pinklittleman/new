@@ -13,6 +13,8 @@ class Ball{
         this.x = x
         this.y = y
         this.r = r
+        this.vel_x = 0
+        this.vel_y = 0
         this.velocity = 1
         this.player = false
         balls.push(this)
@@ -58,17 +60,25 @@ function kontrol(b){
     })
     
     if(UP === true){
-        b.y -= b.velocity
+        b.vel_y -= b.velocity
     }
     if(LEFT === true){
-        b.x -= b.velocity
+        b.vel_x -= b.velocity
     }
     if(DOWN === true){
-        b.y += b.velocity
+        b.vel_y += b.velocity
     }
     if(RIGHT === true){
-        b.x += b.velocity
+        b.vel_x += b.velocity
     }
+    if(!UP && !DOWN){
+        b.vel_y = 0
+    }
+    if(!RIGHT && !LEFT){
+        b.vel_x = 0
+    }
+    b.x += b.vel_x
+    b.y += b.vel_y
 }
 
 function animate(){
