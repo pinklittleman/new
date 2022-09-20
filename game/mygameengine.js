@@ -20,7 +20,6 @@ class Ball{
         balls.push(this)
     }
     drawball(){
-        ctx.beginPath()
         ctx.arc(this.x,this.y,this.r,0,2*Math.PI)
         ctx.fillStyle = '#c7ffbf'
         ctx.stroke()
