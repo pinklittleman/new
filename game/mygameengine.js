@@ -26,6 +26,12 @@ class Ball{
         BALLZ.push(this);
     }
 
+    drawVel(){
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.fillText(this.x, this.x, this.y); 
+    }
+
     drawBall(){
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.r, 0, 2*Math.PI);
