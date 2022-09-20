@@ -28,7 +28,7 @@ class Ball{
 
     drawVel(){
         ctx.fillStyle = "#000000";
-        ctx.fillText('x: '+this.acc_x+' y: '+this.acc_y, this.x - 5, this.y);
+        ctx.fillText('x: '+this.vel_x+' y: '+this.vel_y, this.x - 5, this.y);
     }
 
     drawBall(){
