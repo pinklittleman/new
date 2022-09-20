@@ -63,10 +63,10 @@ function kontrol(b){
         b.vel_y = -b.velocity
     }
     if(LEFT === true){
-        b.vel_x = b.velocity
+        b.vel_x = -b.velocity
     }
     if(DOWN === true){
-        b.vel_y = -b.velocity
+        b.vel_y = b.velocity
     }
     if(RIGHT === true){
         b.vel_x = b.velocity
