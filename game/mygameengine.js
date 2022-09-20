@@ -1,6 +1,9 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
+canvas.height = innerHeight
+canvas.width = innerWidth
+
 const BALLZ = [];
 
 let LEFT, UP, RIGHT, DOWN;
@@ -120,8 +123,6 @@ function keyControl(b){
 }
 
 function mainLoop() {
-    canvas.height = innerHeight
-    canvas.width = innerWidth
     ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
     BALLZ.forEach((b) => {
         b.drawBall();
