@@ -53,7 +53,7 @@ class Ball{
 }
 
 function keyControl(b){
-    canvas.addEventListener('keydown', function(e){
+    document.addEventListener('keydown', function(e){
         console.log(e.key)
         if(e.key === 'a'){
             LEFT = true;
@@ -69,7 +69,7 @@ function keyControl(b){
         }
     });
     
-    canvas.addEventListener('keyup', function(e){
+    document.addEventListener('keyup', function(e){
         if(e.key === 'a'){
             LEFT = false;
         }
