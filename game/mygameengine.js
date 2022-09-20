@@ -1,8 +1,8 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-canvas.height = innerHeight
-canvas.width = innerWidth
+canvas.height = innerHeight -5
+canvas.width = innerWidth -5
 
 const BALLZ = [];
 
