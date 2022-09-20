@@ -4,8 +4,8 @@ let ctx = canvas.getContext('2d')
 canvas.height = innerHeight
 canvas.width = innerWidth
 
-let x
-let y
+let x = 100
+let y = 100
 
 function drawball(x,y,r){
     ctx.beginPath()
@@ -32,7 +32,7 @@ document.addEventListener('keydown', function(e){
 
 function animate(){
     requestAnimationFrame(animate)
-    
+
     drawball(x,y,50)
 
 }
