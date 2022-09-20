@@ -7,6 +7,8 @@ canvas.width = innerWidth
 let x = 100
 let y = 100
 
+let LEFT, RIGHT, UP, DOWN
+
 function drawball(x,y,r){
     ctx.beginPath()
     ctx.arc(x,y,r,0,2*Math.PI)
@@ -17,18 +19,33 @@ function drawball(x,y,r){
 
 document.addEventListener('keydown', function(e){
     if(e.key === 'w'){
-        y--
+        UP = true
     }
     if(e.key === 'a'){
-        x--
+        LEFT = true
     }
     if(e.key === 's'){
-        y++
+        DOWN = true
     }
     if(e.key === 'd'){
-        x++
+        RIGHT = true
     }
 })
+
+function move(){
+    if(UP === true){
+        y++
+    }
+    if(LEFT === true){
+        x--
+    }
+    if(DOWN === true){
+        y--
+    }
+    if(RIGHT === true){
+        x++
+    }
+}
 
 function animate(){
     requestAnimationFrame(animate)
