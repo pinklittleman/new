@@ -121,7 +121,7 @@ function mainLoop() {
         if (b.player){
             keyControl(b);
         }
-        b.display();
+        // b.display(); shows the velocity and direction
     });
     requestAnimationFrame(mainLoop);
 }
