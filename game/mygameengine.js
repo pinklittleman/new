@@ -4,17 +4,21 @@ let ctx = canvas.getContext('2d')
 canvas.height = innerHeight
 canvas.width = innerWidth
 
-let x = 100
-let y = 100
-
 let LEFT, RIGHT, UP, DOWN
 
-function drawball(x,y,r){
-    ctx.beginPath()
-    ctx.arc(x,y,r,0,2*Math.PI)
-    ctx.fillStyle = '#c7ffbf'
-    ctx.stroke()
-    ctx.fill()
+class Ball{
+    constructor(x,y,r){
+        this.x;
+        this.y;
+        this.r;
+    }
+    drawball(){
+        ctx.beginPath()
+        ctx.arc(this.x,this.y,this.r,0,2*Math.PI)
+        ctx.fillStyle = '#c7ffbf'
+        ctx.stroke()
+        ctx.fill()
+    }
 }
 
 document.addEventListener('keydown', function(e){
@@ -49,16 +53,16 @@ document.addEventListener('keyup', function(e){
 
 function move(){
     if(UP === true){
-        y--
+        Ball1.y--
     }
     if(LEFT === true){
-        x--
+        Ball1.x--
     }
     if(DOWN === true){
-        y++
+        Ball1.y++
     }
     if(RIGHT === true){
-        x++
+        Ball1.x++
     }
 }
 
@@ -66,8 +70,10 @@ function animate(){
     move()
     requestAnimationFrame(animate)
     ctx.clearRect(0,0, canvas.width, canvas.height)
-    drawball(x,y,50)
+    Ball1.drawball()
 
 }
+
+let Ball1 = new Ball(200,200,30)
 
 animate()
