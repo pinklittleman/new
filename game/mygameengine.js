@@ -13,6 +13,7 @@ class Ball{
         this.x = x
         this.y = y
         this.r = r
+        this.player = false
         balls.push(this)
     }
     drawball(){
@@ -75,10 +76,14 @@ function animate(){
     kontrol(Ball1)
     balls.forEach((b) => {
         b.drawball()
+        if(b.player === true){
+            kontrol(b)
+        }
     })
 
 }
 
 let Ball1 = new Ball(200,200,30)
+Ball1.player = true
 
 animate()
