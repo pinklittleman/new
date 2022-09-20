@@ -52,19 +52,17 @@ function kontrol(b){
         }
     })
     
-    function move(){
-        if(UP === true){
-            b.y--
-        }
-        if(LEFT === true){
-            b.x--
-        }
-        if(DOWN === true){
-            b.y++
-        }
-        if(RIGHT === true){
-            b.x++
-        }
+    if(UP === true){
+        b.y--
+    }
+    if(LEFT === true){
+        b.x--
+    }
+    if(DOWN === true){
+        b.y++
+    }
+    if(RIGHT === true){
+        b.x++
     }
 }
 
