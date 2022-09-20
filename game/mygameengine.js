@@ -11,12 +11,14 @@ let LEFT, UP, RIGHT, DOWN;
 //velocity gets multiplied by (1-friction)
 let friction = 0.06;
 
+var img = document.getElementById("helpme");
+
 class Ball{
     constructor(x, y, r){
         this.x = x;
         this.y = y;
         this.r = r;
-        // this.name = socket.id multiplayer
+        // this.name = socket.id
         this.vel_x = 0;
         this.vel_y = 0;
         this.acc_x = 0;
@@ -27,8 +29,9 @@ class Ball{
     }
 
     drawVel(){
-        ctx.fillStyle = rgb(red, green, blue);
+        ctx.fillStyle = "#000000";
         ctx.fillText('x: '+this.x+' y: '+this.y, this.x - 5, this.y);
+        ctx.drawImage(img, this.x, this.y);
     }
 
     drawBall(){
