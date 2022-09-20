@@ -1,6 +1,9 @@
 let canvas = document.querySelector('canvas')
 let ctx = canvas.getContext('2d')
 
+canvas.height = innerHeight
+canvas.width = innerWidth
+
 function drawball(x,y,r){
     ctx.beginPath()
     ctx.arc(x,y,r,0,2*Math.PI)
