@@ -21,48 +21,50 @@ class Ball{
     }
 }
 
-document.addEventListener('keydown', function(e){
-    if(e.key === 'w'){
-        UP = true
-    }
-    if(e.key === 'a'){
-        LEFT = true
-    }
-    if(e.key === 's'){
-        DOWN = true
-    }
-    if(e.key === 'd'){
-        RIGHT = true
-    }
-})
-
-document.addEventListener('keyup', function(e){
-    if(e.key === 'w'){
-        UP = false
-    }
-    if(e.key === 'a'){
-        LEFT = false
-    }
-    if(e.key === 's'){
-        DOWN = false
-    }
-    if(e.key === 'd'){
-        RIGHT = false
-    }
-})
-
-function move(){
-    if(UP === true){
-        Ball1.y--
-    }
-    if(LEFT === true){
-        Ball1.x--
-    }
-    if(DOWN === true){
-        Ball1.y++
-    }
-    if(RIGHT === true){
-        Ball1.x++
+function kontrol(b){
+    document.addEventListener('keydown', function(e){
+        if(e.key === 'w'){
+            UP = true
+        }
+        if(e.key === 'a'){
+            LEFT = true
+        }
+        if(e.key === 's'){
+            DOWN = true
+        }
+        if(e.key === 'd'){
+            RIGHT = true
+        }
+    })
+    
+    document.addEventListener('keyup', function(e){
+        if(e.key === 'w'){
+            UP = false
+        }
+        if(e.key === 'a'){
+            LEFT = false
+        }
+        if(e.key === 's'){
+            DOWN = false
+        }
+        if(e.key === 'd'){
+            RIGHT = false
+        }
+    })
+    
+    function move(){
+        if(UP === true){
+            b.y--
+        }
+        if(LEFT === true){
+            b.x--
+        }
+        if(DOWN === true){
+            b.y++
+        }
+        if(RIGHT === true){
+            b.x++
+        }
     }
 }
 
@@ -70,6 +72,7 @@ function animate(){
     move()
     requestAnimationFrame(animate)
     ctx.clearRect(0,0, canvas.width, canvas.height)
+    kontrol(Ball1)
     Ball1.drawball()
 
 }
