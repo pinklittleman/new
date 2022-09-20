@@ -120,7 +120,7 @@ function keyControl(b){
 
 function mainLoop() {
     ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
-    ctx.fillText("Hello World", canvas.width/2, canvas.height/2); 
+    ctx.fillText("Hello World", Ball1.x, Ball1.y); 
     BALLZ.forEach((b) => {
         b.drawBall();
         if (b.player){
