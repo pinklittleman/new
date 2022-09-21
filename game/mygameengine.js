@@ -88,6 +88,10 @@ function keyControl(b){
         if(e.key === 's'){
             DOWN = false;
         }
+        if(e.key === 't'){
+            Ball1.x = 200
+            Ball1.y = 200
+        }
     });
     
     //if true, the accelertion component gets a certain value
