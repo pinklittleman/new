@@ -27,6 +27,7 @@ class Projectile{
         ctx.fill()
     }
     update(){
+        this.draw()
         this.x += this.v.x
         this.y += this.v.y
     }
@@ -163,7 +164,6 @@ function mainLoop() {
     });
     Projectiles.forEach((projectile)=>{
         projectile.update()
-        projectile.draw()
     })
     let angle = Math.atan2(Ball1.y - BulletMan.y, Ball1.x - BulletMan.x)
     let velocity2 = {
