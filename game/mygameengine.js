@@ -166,7 +166,7 @@ function mainLoop() {
     });
     Projectiles.forEach((projectile, index)=>{
         projectile.update()
-        if(projectile.l >= 100){
+        if(projectile.l >= 400){
             Projectiles.splice(projectile, 1)
         }
     })
