@@ -169,7 +169,7 @@ function mainLoop() {
         x:Math.cos(angle),
         y:Math.sin(angle)
     }
-    projectile.push(
+    Projectiles.push(
         new Projectile(null,null,10,velocity2)
     )
     requestAnimationFrame(mainLoop);
