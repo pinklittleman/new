@@ -91,6 +91,9 @@ function keyControl(b){
         if(e.key === 't'){
             Ball1.x = 200
             Ball1.y = 200
+            setTimeout(() => {
+                Ball1.vel_x + 10
+            }, 2000);
         }
     });
     
