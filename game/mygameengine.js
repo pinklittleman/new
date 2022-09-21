@@ -144,6 +144,7 @@ function mainLoop() {
 }
 
 let Ball1 = new Ball(200, 200, 30);
+let BulletMan = new Ball(700, 400, 30);
 Ball1.player = true;
 
 requestAnimationFrame(mainLoop);
