@@ -162,8 +162,11 @@ function mainLoop() {
         b.drawVel();
         // b.display(); shows the velocity and direction
     });
-    Projectiles.forEach((projectile)=>{
+    Projectiles.forEach((projectile, index)=>{
         projectile.update()
+        setTimeout(() => {
+            Projectiles.splice(index, 1)
+        }, 1000);
     })
     let angle = Math.atan2(Ball1.y - BulletMan.y, Ball1.x - BulletMan.x)
     let velocity2 = {
