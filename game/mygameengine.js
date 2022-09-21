@@ -165,9 +165,9 @@ function mainLoop() {
     });
     Projectiles.forEach((projectile, index)=>{
         projectile.update()
-        Projectiles.splice(index, 1)
-
-        
+        if(projectile.l >= 100){
+            Projectiles.splice(projectile, 1)
+        }
     })
     let angle = Math.atan2(Ball1.y - BulletMan.y, Ball1.x - BulletMan.x)
     let velocity2 = {
