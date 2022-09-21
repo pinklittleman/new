@@ -24,6 +24,7 @@ class Projectile{
     draw(){
         ctx.beginPath()
         ctx.arc(this.x,this.y,this.r,0,Math.PI*2,false)
+        ctx.drawImage(img, this.x - 25, this.y - 25);
         ctx.fillStyle = '#343434'
         ctx.fill()
     }
