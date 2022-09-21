@@ -163,6 +163,7 @@ function mainLoop() {
     });
     Projectiles.forEach((projectile)=>{
         projectile.update()
+        projectile.draw
     })
     let angle = Math.atan2(Ball1.y - BulletMan.y, Ball1.x - BulletMan.x)
     let velocity2 = {
