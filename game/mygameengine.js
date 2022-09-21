@@ -15,8 +15,8 @@ var img = document.getElementById("helpme");
 
 class Projectile{
     constructor(x,y,r,v){
-        this.x = BulletMan.x
-        this.y = BulletMan.y
+        this.x = 200
+        this.y = 100
         this.r = r
         this.v = v
         this.l = 1
@@ -182,7 +182,6 @@ function mainLoop() {
 }
 
 let Ball1 = new Ball(200, 200, 30);
-let BulletMan = new Ball(700, 400, 30);
 Ball1.player = true;
 
 requestAnimationFrame(mainLoop);
