@@ -13,6 +13,25 @@ let friction = 0.06;
 
 var img = document.getElementById("helpme");
 
+class Projectile{
+    constructor(x,y,r,v){
+        this.x = BulletMan.x
+        this.y = BulletMan.y
+        this.r = r
+        this.v = v
+    }
+    draw(){
+        ctx.beginPath()
+        ctx.arc(this.x,this.y,this.r,0,Math.PI*2,false)
+        ctx.fillStyle = '#343434'
+        ctx.fill()
+    }
+    update(){
+        this.x += this.v.x
+        this.y += this.v.y
+    }
+}
+
 class Ball{
     constructor(x, y, r){
         this.x = x;
@@ -129,6 +148,8 @@ function keyControl(b){
 
 }
 
+let Projectiles = []
+
 function mainLoop() {
     console.log(Ball1.vel_x)
     ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
@@ -140,6 +161,17 @@ function mainLoop() {
         b.drawVel();
         // b.display(); shows the velocity and direction
     });
+    Projectiles.forEach((projectile)=>{
+        projectile.update()
+    })
+    let angle = Math.atan2(Ball1.y - BulletMan.y, Ball1.x - BulletMan.x)
+    let velocity2 = {
+        x:Math.cos(angle),
+        y:Math.sin(angle)
+    }
+    projectile.push(
+        new Projectile(null,null,10,velocity2)
+    )
     requestAnimationFrame(mainLoop);
 }
 
