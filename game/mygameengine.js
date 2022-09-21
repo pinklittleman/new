@@ -130,6 +130,7 @@ function keyControl(b){
 }
 
 function mainLoop() {
+    console.log(Ball1.vel_x)
     ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
     BALLZ.forEach((b) => {
         b.drawBall();
