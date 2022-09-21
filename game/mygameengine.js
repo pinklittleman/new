@@ -19,6 +19,7 @@ class Projectile{
         this.y = BulletMan.y
         this.r = r
         this.v = v
+        this.l = l
     }
     draw(){
         ctx.beginPath()
@@ -30,6 +31,7 @@ class Projectile{
         this.draw()
         this.x += this.v.x
         this.y += this.v.y
+        this.l++
     }
 }
 
@@ -152,7 +154,6 @@ function keyControl(b){
 let Projectiles = []
 
 function mainLoop() {
-    console.log(Ball1.vel_x)
     ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
     BALLZ.forEach((b) => {
         b.drawBall();
@@ -164,9 +165,9 @@ function mainLoop() {
     });
     Projectiles.forEach((projectile, index)=>{
         projectile.update()
-        setTimeout(() => {
-            Projectiles.splice(index, 1)
-        }, 1000);
+        Projectiles.splice(index, 1)
+
+        
     })
     let angle = Math.atan2(Ball1.y - BulletMan.y, Ball1.x - BulletMan.x)
     let velocity2 = {
