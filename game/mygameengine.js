@@ -24,7 +24,7 @@ class Projectile{
     draw(){
         ctx.beginPath()
         ctx.arc(this.x,this.y,this.r,0,Math.PI*2,false)
-        ctx.drawImage(img, this.x - 25, this.y - 25);
+       // ctx.drawImage(img, this.x - 25, this.y - 25);
         ctx.fillStyle = '#343434'
         ctx.fill()
     }
@@ -47,7 +47,7 @@ class Ball{
         this.acc_x = 0;
         this.acc_y = 0;
         this.acceleration = 1;
-        this.player = false;
+B        this.player = false;
         BALLZ.push(this);
     }
 

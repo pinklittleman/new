@@ -1,4 +1,4 @@
-// Minimal amount of secure websocket server
+// Minimal amount of secure websocket server and stuff
 var fs = require('fs');
 var app = require('express')();
 // read ssl certificate
