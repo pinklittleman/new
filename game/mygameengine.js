@@ -47,7 +47,7 @@ class Ball{
         this.acc_x = 0;
         this.acc_y = 0;
         this.acceleration = 1;
-B        this.player = false;
+        this.player = false;
         BALLZ.push(this);
     }
 
