@@ -172,8 +172,8 @@ function mainLoop() {
     })
     let angle = Math.atan2(Ball1.y - BulletMan.y, Ball1.x - BulletMan.x)
     let velocity2 = {
-        x:Math.cos(angle),
-        y:Math.sin(angle)
+        x:Math.cos(angle)*2,
+        y:Math.sin(angle)*2
     }
     Projectiles.push(
         new Projectile(null,null,10,velocity2)
