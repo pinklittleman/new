@@ -121,8 +121,8 @@ function keyControl(b){
     b.vel_x += b.acc_x;
     b.vel_y += b.acc_y;
     //velocity gets multiplied by a number between 0 and 1
-    b.vel_x *= 1-friction;
-    b.vel_y *= 1-friction;
+    // b.vel_x *= 1-friction;
+    // b.vel_y *= 1-friction;
     //velocity values added to the current x, y position
     b.x += b.vel_x;
     b.y += b.vel_y;
