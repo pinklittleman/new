@@ -19,7 +19,7 @@ class Projectile{
         this.y = BulletMan.y
         this.r = r
         this.v = v
-        this.l = l
+        this.l = 1
     }
     draw(){
         ctx.beginPath()
