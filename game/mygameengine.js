@@ -89,9 +89,10 @@ function keyControl(b){
             DOWN = false;
         }
         if(e.key === 't'){
+            // works just like matterjs set values 
             // Ball1.x = 200
             // Ball1.y = 200
-            Ball1.vel_x = 8
+            // Ball1.vel_x = 8
             
         }
     });
@@ -141,7 +142,7 @@ function mainLoop() {
     requestAnimationFrame(mainLoop);
 }
 
-let Ball1 = new Ball(200, 200, 50);
+let Ball1 = new Ball(200, 200, 30);
 Ball1.player = true;
 
 requestAnimationFrame(mainLoop);
