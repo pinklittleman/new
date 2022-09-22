@@ -23,7 +23,11 @@ app.get('/', function(req, res){
 
 io.on('connection', (socket) => {
     users.push(socket.id)
-    console.log(users)    
+    console.log(users)
+
+    socket.on('hello', (data) => {
+        console.log(data)
+    })
 
     socket.on('disconnect', () => {
 
