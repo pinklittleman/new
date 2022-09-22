@@ -158,9 +158,9 @@ let Projectiles = []
 
 socket.on('updateplayers', players => {
     ctx.clearRect(0,0, canvas.width, canvas.height)
-    for(i in players){
-        if(clientBalls[i] === undefined && id !== socket.id){
-            clientBalls[i] = new Ball(players[i].x,players[i].y, 20)
+    for(let id in players){
+        if(clientBalls[id] === undefined && id !== socket.id){
+            clientBalls[id] = new Ball(players[id].x,players[id].y, 20)
         }
     }
 })
