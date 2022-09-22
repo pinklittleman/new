@@ -158,17 +158,14 @@ let Projectiles = []
 
 socket.on('updateplayers', data => {
     ctx.clearRect(0,0, canvas.width, canvas.height)
-    console.log(data)
-    // playersFound = {}
-    // for(let id in players){
-    //     if(clientBalls[id] === undefined && id !== socket.id){
-    //         players[id] = new Ball(players[id].x,players[id].y, 20)
-    //         setTimeout(() => {
-    //             console.log(players[id])
-    //         }, 1000);
-    //     }
-    //     playersFound[id] = true
-    // }
+    playersFound = {}
+    for(let id in data){
+        if(clientBalls[id] === undefined && id !== socket.id){
+            console.log(data[id])
+            data[id] = new Ball(data[id].x,data[id].y, 20)
+        }
+        playersFound[id] = true
+    }
     // for(let id in clientBalls){
     //     if(!playersFound[id]){
     //         BALLZ.splice
