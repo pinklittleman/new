@@ -11,30 +11,30 @@ let LEFT, UP, RIGHT, DOWN;
 //velocity gets multiplied by (1-friction)
 let friction = 0.06;
 
-var img = document.getElementById("helpme");
+// var img = document.getElementById("helpme");
 
-class Projectile{
-    constructor(x,y,r,v){
-        this.x = 200
-        this.y = 100
-        this.r = r
-        this.v = v
-        this.l = 1
-    }
-    draw(){
-        ctx.beginPath()
-        ctx.arc(this.x,this.y,this.r,0,Math.PI*2,false)
-       // ctx.drawImage(img, this.x - 25, this.y - 25);
-        ctx.fillStyle = '#343434'
-        ctx.fill()
-    }
-    update(){
-        this.draw()
-        this.x += this.v.x
-        this.y += this.v.y
-        this.l++
-    }
-}
+// class Projectile{
+//     constructor(x,y,r,v){
+//         this.x = 200
+//         this.y = 100
+//         this.r = r
+//         this.v = v
+//         this.l = 1
+//     }
+//     draw(){
+//         ctx.beginPath()
+//         ctx.arc(this.x,this.y,this.r,0,Math.PI*2,false)
+//        // ctx.drawImage(img, this.x - 25, this.y - 25);
+//         ctx.fillStyle = '#343434'
+//         ctx.fill()
+//     }
+//     update(){
+//         this.draw()
+//         this.x += this.v.x
+//         this.y += this.v.y
+//         this.l++
+//     }
+// }
 
 class Ball{
     constructor(x, y, r){
@@ -53,7 +53,7 @@ class Ball{
 
     drawVel(){
         ctx.fillStyle = "#000000";
-        ctx.drawImage(img, this.x - 25, this.y - 25);
+        // ctx.drawImage(img, this.x - 25, this.y - 25);
         // ctx.fillText('x: '+this.x+' y: '+this.y, this.x - 5, this.y);
     }
 
@@ -170,14 +170,14 @@ function mainLoop() {
             Projectiles.splice(projectile, 1)
         }
     })
-    let angle = Math.atan2(Ball1.y - 100, Ball1.x - 200)
-    let velocity2 = {
-        x:Math.cos(angle)*2,
-        y:Math.sin(angle)*2
-    }
-    Projectiles.push(
-        new Projectile(null,null,10,velocity2)
-    )
+    // let angle = Math.atan2(Ball1.y - 100, Ball1.x - 200)
+    // let velocity2 = {
+    //     x:Math.cos(angle)*2,
+    //     y:Math.sin(angle)*2
+    // }
+    // Projectiles.push(
+    //     new Projectile(null,null,10,velocity2)
+    // )
     requestAnimationFrame(mainLoop);
 }
 
