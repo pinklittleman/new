@@ -156,7 +156,7 @@ function keyControl(b){
 let Projectiles = []
 
 function mainLoop() {
-    socket.emit('hello','hello')
+    socket.emit('cords', {x:Ball1.x,y:Ball1.y})
     ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
     BALLZ.forEach((b) => {
         b.drawBall();
