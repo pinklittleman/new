@@ -8,9 +8,6 @@ var credentials = { key: privateKey, cert: certificate};
 var https = require('https')
 
 let users = []
-let UN
-let Sc
-let combined
 
 //pass in your credentials to create an https server
 var httpsServer = https.createServer(credentials, app);
