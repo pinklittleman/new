@@ -158,7 +158,11 @@ function keyControl(b){
 
 }
 
-let Projectiles = []
+socket.on('nleft', data => {
+    for(i in BALLZ){
+        BALLZ[1].acc_x = -1
+    }
+})
 
 socket.on('updateplayers', data => {
     ctx.clearRect(0,0, canvas.width, canvas.height)

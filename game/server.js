@@ -54,7 +54,7 @@ io.on('connection', (socket) => {
             right:false,
             down:false
         }
-        console.log(playerdata)
+        io.emit('nleft',playerdata)
     }
     function move2(){
 
