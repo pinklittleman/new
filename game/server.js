@@ -27,7 +27,12 @@ io.on('connection', (socket) => {
     console.log(users)
 
     socket.on('cords', data => {
-        players[socket.id] = data
+        playerdata = {
+            socketId:socket.id,
+            x:data.x,
+            y:data.y
+        }
+        players[socket.id] = playerdata
         console.log(players)
         io.emit('updateplayers',players)
     })
