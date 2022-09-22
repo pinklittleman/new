@@ -19,7 +19,6 @@ var io = require('socket.io')(httpsServer);
 app.get('/', function(req, res){
     //send the index.html file for all requests
     res.sendFile(__dirname + '/index.html');
-    res.sendFile(__dirname + '/mygameengine.js');
 });
 
 io.on('connection', (socket) => {
