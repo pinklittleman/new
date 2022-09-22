@@ -125,15 +125,19 @@ function keyControl(b){
     //if true, the accelertion component gets a certain value
     if(LEFT){
         b.acc_x = -b.acceleration;
+        socket.emit('left')
     }
     if(UP){
         b.acc_y = -b.acceleration;
+        socket.emit('up')
     }
     if(RIGHT){
         b.acc_x = b.acceleration;
+        socket.emit('right')
     }
     if(DOWN){
         b.acc_y = b.acceleration;
+        socket.emit('down')
     }
     if(!UP && !DOWN){
         b.acc_y = 0;
@@ -161,7 +165,7 @@ socket.on('updateplayers', data => {
     playersFound = {}
     for(let id in data){
         if(clientBalls[id] === undefined && id !== socket.id){
-            data[id].socketId = new Ball(data[id].x,data[id].y, 20)
+            clientBalls[id] = new Ball(data[id].x,data[id].y, 20)
         }
         playersFound[id] = true
     }
