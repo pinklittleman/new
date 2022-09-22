@@ -25,9 +25,10 @@ io.on('connection', (socket) => {
     users.push(socket.id)
     console.log(users)
 
-    socket.on('hello', (data) => {
-        console.log(data)
-    })
+    socket.on('hello',data1)
+    function data1(data){
+        console.log('yes '+data)
+    }
 
     socket.on('disconnect', () => {
 
