@@ -160,7 +160,8 @@ function keyControl(b){
 
 socket.on('nleft', data => {
     for(i in BALLZ){
-        BALLZ[1].acc_x = -1
+        BALLZ[1].acc_x
+        console.log(BALLZ[1])
     }
 })
 
