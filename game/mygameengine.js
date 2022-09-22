@@ -156,18 +156,19 @@ function keyControl(b){
 
 let Projectiles = []
 
-socket.on('updateplayers', players => {
+socket.on('updateplayers', data => {
     ctx.clearRect(0,0, canvas.width, canvas.height)
-    playersFound = {}
-    for(let id in players){
-        if(clientBalls[id] === undefined && id !== socket.id){
-            players[id] = new Ball(players[id].x,players[id].y, 20)
-            setTimeout(() => {
-                console.log(players[id])
-            }, 1000);
-        }
-        playersFound[id] = true
-    }
+    console.log(data)
+    // playersFound = {}
+    // for(let id in players){
+    //     if(clientBalls[id] === undefined && id !== socket.id){
+    //         players[id] = new Ball(players[id].x,players[id].y, 20)
+    //         setTimeout(() => {
+    //             console.log(players[id])
+    //         }, 1000);
+    //     }
+    //     playersFound[id] = true
+    // }
     // for(let id in clientBalls){
     //     if(!playersFound[id]){
     //         BALLZ.splice
