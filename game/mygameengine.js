@@ -161,7 +161,9 @@ function keyControl(b){
 socket.on('nleft', data => {
     for(i in BALLZ){
         // BALLZ[1].acc_x
-        console.log(BALLZ[i])
+        if(BALLZ[i].x && BALLZ[i].y === 200){
+            BALLZ[i].acc_x = -1
+        }
     }
 })
 
