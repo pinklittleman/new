@@ -192,12 +192,12 @@ function mainLoop() {
         b.drawVel();
         // b.display(); shows the velocity and direction
     });
-    Projectiles.forEach((projectile, index)=>{
-        projectile.update()
-        if(projectile.l >= 250){
-            Projectiles.splice(projectile, 1)
-        }
-    })
+    // Projectiles.forEach((projectile, index)=>{
+    //     projectile.update()
+    //     if(projectile.l >= 250){
+    //         Projectiles.splice(projectile, 1)
+    //     }
+    // })
     // let angle = Math.atan2(Ball1.y - 100, Ball1.x - 200)
     // let velocity2 = {
     //     x:Math.cos(angle)*2,
