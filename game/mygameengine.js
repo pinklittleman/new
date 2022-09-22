@@ -11,6 +11,7 @@ let LEFT, UP, RIGHT, DOWN;
 
 //velocity gets multiplied by (1-friction)
 let friction = 0.06;
+let clientBalls = {}
 
 // var img = document.getElementById("helpme");
 
@@ -154,6 +155,15 @@ function keyControl(b){
 }
 
 let Projectiles = []
+
+socket.on('updateplayers', players => {
+    ctx.clearRect(0,0, canvas.width, canvas.height)
+    for(i in players){
+        if(clientBalls[id] === undefined && id !== socket.id){
+            clientBalls[id] = new Ball(players[id].x,players[id].y, 20)
+        }
+    }
+})
 
 function mainLoop() {
     socket.emit('cords', {x:Ball1.x,y:Ball1.y})

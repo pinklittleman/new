@@ -29,10 +29,12 @@ io.on('connection', (socket) => {
     socket.on('cords', data => {
         players[socket.id] = data
         console.log(players)
+        io.emit('updateplayers',players)
     })
 
     socket.on('disconnect', () => {
-
+        delete players[socket.id]
+        io.emit('updateplayers',players)
     })
 
 })
