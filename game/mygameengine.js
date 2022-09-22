@@ -158,11 +158,21 @@ let Projectiles = []
 
 socket.on('updateplayers', players => {
     ctx.clearRect(0,0, canvas.width, canvas.height)
+    console.log(players)
+    playersFound = {}
     for(let id in players){
         if(clientBalls[id] === undefined && id !== socket.id){
+            console.log(clientBalls[id])
             clientBalls[id] = new Ball(players[id].x,players[id].y, 20)
         }
+        playersFound[id] = true
     }
+    // for(let id in clientBalls){
+    //     if(!playersFound[id]){
+    //         BALLZ.splice
+    //         delete clientBalls[id]
+    //     }
+    // }
 })
 
 function mainLoop() {
