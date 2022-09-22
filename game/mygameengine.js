@@ -12,6 +12,7 @@ let LEFT, UP, RIGHT, DOWN;
 //velocity gets multiplied by (1-friction)
 let friction = 0.06;
 let clientBalls = {}
+let newplayer
 
 // var img = document.getElementById("helpme");
 
@@ -159,13 +160,8 @@ function keyControl(b){
 }
 
 socket.on('nleft', data => {
-    for(i in BALLZ){
-        // BALLZ[1].acc_x
-        if(BALLZ[i].x && BALLZ[i].y === 200){
-            BALLZ[i].acc_x = -1
-            BALLZ[i].drawBall()
-
-        }
+    for(i in clientBalls){
+        clientBalls[i].acc_x = -1
     }
 })
 
@@ -187,6 +183,9 @@ socket.on('updateplayers', data => {
 })
 
 function mainLoop() {
+    for(i in clientBalls){
+        clientBalls[i].drawBall()
+    }
     socket.emit('cords', {x:Ball1.x,y:Ball1.y})
     ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
     BALLZ.forEach((b) => {
