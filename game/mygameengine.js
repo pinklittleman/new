@@ -160,9 +160,9 @@ function keyControl(b){
 }
 
 socket.on('nleft', data => {
-    clientBalls.forEach((ba) =>{
-        ba.vel_x = 8
-    })
+    for(i in clientBalls){
+        clientBalls[i].vel_x = 8
+    }
 })
 
 socket.on('updateplayers', data => {
