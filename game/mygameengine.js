@@ -161,8 +161,7 @@ socket.on('updateplayers', data => {
     playersFound = {}
     for(let id in data){
         if(clientBalls[id] === undefined && id !== socket.id){
-            console.log(data[id])
-            data[id] = new Ball(data[id].x,data[id].y, 20)
+            data[id].socketId = new Ball(data[id].x,data[id].y, 20)
         }
         playersFound[id] = true
     }
