@@ -27,6 +27,8 @@ io.on('connection', (socket) => {
     console.log(users)
 
     socket.on('cords', data => {
+        clientx = data.x
+        clienty = data.y
         playerdata = {
             socketId:socket.id,
             x:data.x,
@@ -36,6 +38,34 @@ io.on('connection', (socket) => {
         console.log(players)
         io.emit('updateplayers',players)
     })
+
+    socket.on('left', move)
+    socket.on('up', move2)
+    socket.on('right',move3)
+    socket.on('down',move4)
+
+    function move(){
+        playerdata = {
+            socketId:socket.id,
+            x:clientx,
+            y:clienty,
+            left: true,
+            up: false,
+            right:false,
+            down:false
+        }
+        console.log(playerdata)
+    }
+    function move2(){
+
+    }
+    function move3(){
+
+    }
+    function move4(){
+
+    }
+
 
     socket.on('disconnect', () => {
         delete players[socket.id]
