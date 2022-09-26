@@ -12,7 +12,6 @@ let friction = 0.06;
 let clientBalls = {}
 let balls = []
 let blocks = []
-let move = {left:false,up:false,right:false,down:false}
 
 class Ball{
     constructor(x,y,w,h){
@@ -21,6 +20,10 @@ class Ball{
         this.w = w
         this.h = h
         this.vel_x = 0;
+        this.left = false
+        this.up = false
+        this.right = false
+        this.down = false
         this.vel_y = 0;
         this.acc_x = 0;
         this.acc_y = 0;
@@ -85,38 +88,38 @@ function keyControl(b){
     document.addEventListener('keydown', function(e){
         if(e.key === 'a'){
             LEFT = true;
-            move.left = false
+            b.left = false
         }
         if(e.key === 'w'){
             UP = true;
-            move.up = false
+            b.up = false
         }
         if(e.key === 'd'){
             RIGHT = true;
-            move.right = false
+            b.right = false
         }
         if(e.key === 's'){
             DOWN = true;
-            move.down = false
+            b.down = false
         }
     });
     
     document.addEventListener('keyup', function(e){
         if(e.key === 'a'){
             LEFT = false;
-            move.left = false
+            b.left = false
         }
         if(e.key === 'w'){
             UP = false;
-            move.up = false
+            b.up = false
         }
         if(e.key === 'd'){
             RIGHT = false;
-            move.right = false
+            b.right = false
         }
         if(e.key === 's'){
             DOWN = false;
-            move.down = false
+            b.down = false
         }
         if(e.key === 't'){
             square1.destruct = true
