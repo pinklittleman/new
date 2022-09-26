@@ -176,6 +176,10 @@ function gameloop(){
     blocks.forEach((bl) => {
         bl.draw()
     });
+
+    setTimeout(() => {
+        console.log(square1)
+    }, 1000);
     
 
     // console.log(intersects(square1.x,square1.y,square1.w,square1.h,Block1.x,Block1.y,Block1.w,Block1.h))
