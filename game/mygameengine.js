@@ -177,7 +177,7 @@ function gameloop(){
     // console.log(intersects(square1.x,square1.y,square1.w,square1.h,Block1.x,Block1.y,Block1.w,Block1.h))
 
     if(intersects(square1.x,square1.y,square1.w,square1.h,Block1.x,Block1.y,Block1.w,Block1.h) === true){
-        square1.vel_x = 8
+        square1.vel_x = 1
     }
     if(intersects(square1.x,square1.y,square1.w,square1.h,Block2.x,Block2.y,Block2.w,Block2.h) === true){
         square1.vel_y = 8
