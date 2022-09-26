@@ -149,7 +149,7 @@ function gameloop(){
     blocks.forEach((bl) => {
         bl.draw()
     });
-    if (intersects(Ball1.x,Ball1.y,Ball1.r,Ball1.r,Block1.x,Block1.y,Block1.w,Block1.h) === true) {
+    if (intersects(square1.x,square1.y,square1.r,square1.r,Block1.x,Block1.y,Block1.w,Block1.h) === true) {
         console.log('pog')
     }
 
