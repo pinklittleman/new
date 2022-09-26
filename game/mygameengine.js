@@ -153,7 +153,7 @@ function gameloop(){
     });
     
     
-    console.log(rect_collision(square1.x,square1.y,square1.w*square1.h,Block1.x,Block1.y,Block1.w*Block1.h))
+    console.log(rect_collision(square1.x,square1.y,square1.w,Block1.x,Block1.y,Block1.w))
 
     requestAnimationFrame(gameloop);
 }
