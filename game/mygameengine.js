@@ -108,11 +108,11 @@ function gameloop(){
             keyControl(b)
         }
     });
-    requestAnimationFrame(mainLoop);
+    requestAnimationFrame(gameloop);
 }
 
 
 let Ball1 = new Ball(200, 200, 30);
 Ball1.player = true;
 
-requestAnimationFrame(mainLoop);
+requestAnimationFrame(gameloop);
