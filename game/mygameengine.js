@@ -39,6 +39,7 @@ class Ball{
 
 function keyControl(b){
     document.addEventListener('keydown', function(e){
+        console.log(e.key)
         if(e.key === 'a'){
             LEFT = true;
         }
@@ -104,7 +105,7 @@ function gameloop(){
     ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight)
     balls.forEach((b) => {
         b.draw()
-        if(balls.player){
+        if(b.player === true){
             keyControl(b)
             console.log('this detection works')
         }
