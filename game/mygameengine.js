@@ -63,6 +63,17 @@ class Block{
     }
 }
 
+function intersects(x1, y1, w1, h1, x2, y2, w2, h2) {
+    w2 += x2;
+    w1 += x1;
+    if (x2 > w1 || x1 > w2) return false;
+    h2 += y2;
+    h1 += y1;
+    if (y2 > h1 || y1 > h2) return false;
+  return true;
+}
+
+
 function keyControl(b){
     document.addEventListener('keydown', function(e){
         if(e.key === 'a'){
@@ -137,6 +148,10 @@ function gameloop(){
     blocks.forEach((bl) => {
         bl.draw()
     });
+    if (intersects(Ball1.x,Ball1.y,Ball1.r,Ball1.r,Block1.x,Block1.y,Block1.w,Block1.h) === true) {
+        console.log('pog')
+    }
+
     requestAnimationFrame(gameloop);
 }
 
