@@ -31,6 +31,9 @@ class Ball{
         ctx.fillStyle = '#343434'
         ctx.fill()
     }
+    update(){
+
+    }
 }
 
 function keyControl(b){
@@ -99,7 +102,7 @@ function keyControl(b){
 function gameloop(){
     ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight)
     requestAnimationFrame(mainLoop);
-    balls.forEach(b => {
+    balls.forEach((b) => {
         b.draw()
         if(balls.player){
             keyControl(b)
