@@ -102,13 +102,13 @@ function keyControl(b){
 
 function gameloop(){
     ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight)
-    requestAnimationFrame(mainLoop);
     balls.forEach((b) => {
         b.draw()
         if(balls.player){
             keyControl(b)
         }
     });
+    requestAnimationFrame(mainLoop);
 }
 
 
