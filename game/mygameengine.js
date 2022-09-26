@@ -20,10 +20,10 @@ class Ball{
         this.w = w
         this.h = h
         this.vel_x = 0;
-        this.left = false
-        this.up = false
-        this.right = false
-        this.down = false
+        this.left
+        this.up
+        this.right
+        this.down
         this.vel_y = 0;
         this.acc_x = 0;
         this.acc_y = 0;
