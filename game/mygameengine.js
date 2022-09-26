@@ -64,16 +64,18 @@ class Block{
     }
 }
 
-function intersects(x1, y1, w1, h1, x2, y2, w2, h2) {
-    w2 += x2;
-    w1 += x1;
-    if (x2 > w1 || x1 > w2) return false;
-    h2 += y2;
-    h1 += y1;
-    if (y2 > h1 || y1 > h2) return false;
-  return true;
-}
-
+function rect_collision(x1, y1, size1, x2, y2, size2) {
+    var bottom1, bottom2, left1, left2, right1, right2, top1, top2;
+    left1 = x1 - size1;
+    right1 = x1 + size1;
+    top1 = y1 - size1;
+    bottom1 = y1 + size1;
+    left2 = x2 - size2;
+    right2 = x2 + size2;
+    top2 = y2 - size2;
+    bottom2 = y2 + size2;
+    return !(left1 > right2 || left2 > right1 || top1 > bottom2 || top2 > bottom1);
+};
 
 function keyControl(b){
     document.addEventListener('keydown', function(e){
@@ -149,9 +151,9 @@ function gameloop(){
     blocks.forEach((bl) => {
         bl.draw()
     });
-    if (intersects(square1.x,square1.y,square1.r,square1.r,Block1.x,Block1.y,Block1.w,Block1.h) === true) {
-        console.log('pog')
-    }
+    
+    
+    console.log(rect_collision(square1.x,square1.y,square1.w*square1.h,Block1.x,Block1.y,Block1.w*Block1.h))
 
     requestAnimationFrame(gameloop);
 }
