@@ -12,6 +12,7 @@ let friction = 0.06;
 let clientBalls = {}
 let balls = []
 let blocks = []
+let move = {left:false,up:false,right:false,down:false}
 
 class Ball{
     constructor(x,y,w,h){
@@ -84,35 +85,47 @@ function keyControl(b){
     document.addEventListener('keydown', function(e){
         if(e.key === 'a'){
             LEFT = true;
+            move.left = false
         }
         if(e.key === 'w'){
             UP = true;
+            move.up = false
         }
         if(e.key === 'd'){
             RIGHT = true;
+            move.right = false
         }
         if(e.key === 's'){
             DOWN = true;
+            move.down = false
         }
     });
     
     document.addEventListener('keyup', function(e){
         if(e.key === 'a'){
             LEFT = false;
+            move.left = false
         }
         if(e.key === 'w'){
             UP = false;
+            move.up = false
         }
         if(e.key === 'd'){
             RIGHT = false;
+            move.right = false
         }
         if(e.key === 's'){
             DOWN = false;
+            move.down = false
         }
         if(e.key === 't'){
             square1.destruct = true
         }
+        if(move.left === true || move.up === true || move.right === true || move.down === true){
+            console.log(move)
+        }
     });
+
     
     //if true, the accelertion component gets a certain value
     if(LEFT){
