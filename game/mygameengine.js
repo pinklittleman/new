@@ -155,6 +155,10 @@ function gameloop(){
     
     console.log(rect_collision(square1.x,square1.y,square1.w,Block1.x,Block1.y,Block1.w))
 
+    if(rect_collision(square1.x,square1.y,square1.w*square1.h,Block1.x,Block1.y,Block1.w*Block1.h) === true){
+        Block1.vel_x = 8
+    }
+
     requestAnimationFrame(gameloop);
 }
 
