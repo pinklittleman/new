@@ -39,7 +39,6 @@ class Ball{
 
 function keyControl(b){
     document.addEventListener('keydown', function(e){
-        console.log(e.key)
         if(e.key === 'a'){
             LEFT = true;
         }
