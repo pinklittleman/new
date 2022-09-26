@@ -111,5 +111,8 @@ function gameloop(){
     });
 }
 
+
 let Ball1 = new Ball(200, 200, 30);
 Ball1.player = true;
+
+requestAnimationFrame(mainLoop);
