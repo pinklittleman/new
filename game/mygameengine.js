@@ -5,83 +5,31 @@ const ctx = canvas.getContext('2d');
 canvas.height = innerHeight -5
 canvas.width = innerWidth -5
 
-const BALLZ = [];
-
 let LEFT, UP, RIGHT, DOWN;
 
 //velocity gets multiplied by (1-friction)
 let friction = 0.06;
 let clientBalls = {}
-let newplayer
-
-// var img = document.getElementById("helpme");
-
-// class Projectile{
-//     constructor(x,y,r,v){
-//         this.x = 200
-//         this.y = 100
-//         this.r = r
-//         this.v = v
-//         this.l = 1
-//     }
-//     draw(){
-//         ctx.beginPath()
-//         ctx.arc(this.x,this.y,this.r,0,Math.PI*2,false)
-//        // ctx.drawImage(img, this.x - 25, this.y - 25);
-//         ctx.fillStyle = '#343434'
-//         ctx.fill()
-//     }
-//     update(){
-//         this.draw()
-//         this.x += this.v.x
-//         this.y += this.v.y
-//         this.l++
-//     }
-// }
+let balls = []
 
 class Ball{
-    constructor(x, y, r){
-        this.x = x;
-        this.y = y;
-        this.r = r;
-        // this.name = socket.id
+    constructor(x,y,r){
+        this.x = x
+        this.y = y
+        this.r = r
         this.vel_x = 0;
         this.vel_y = 0;
         this.acc_x = 0;
         this.acc_y = 0;
         this.acceleration = 1;
         this.player = false;
-        BALLZ.push(this);
+        balls.push(this)
     }
-
-    drawVel(){
-        ctx.fillStyle = "#000000";
-        // ctx.drawImage(img, this.x - 25, this.y - 25);
-        // ctx.fillText('x: '+this.x+' y: '+this.y, this.x - 5, this.y);
-    }
-
-    drawBall(){
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.r, 0, 2*Math.PI);
-        ctx.fillStyle = "#97d4ff";
-        ctx.fill();
-        ctx.closePath();
-    }
-
-    //displaying the current acceleration and the velocity of the ball
-    display(){
-        ctx.beginPath();
-        ctx.moveTo(this.x, this.y);
-        ctx.lineTo(this.x + this.acc_x*100, this.y + this.acc_y*100);
-        ctx.strokeStyle = "green";
-        ctx.stroke();
-        ctx.closePath();
-        ctx.beginPath();
-        ctx.moveTo(this.x, this.y);
-        ctx.lineTo(this.x + this.vel_x*10, this.y + this.vel_y*10);
-        ctx.strokeStyle = "blue";
-        ctx.stroke();
-        ctx.closePath();
+    draw(){
+        ctx.beginPath()
+        ctx.arc(this.x,this.y,this.r,0,Math.PI*2,false)
+        ctx.fillStyle = '#343434'
+        ctx.fill()
     }
 }
 
@@ -114,31 +62,20 @@ function keyControl(b){
         if(e.key === 's'){
             DOWN = false;
         }
-        if(e.key === 't'){
-            // works just like matterjs set values 
-            // Ball1.x = 200
-            // Ball1.y = 200
-            // Ball1.vel_x = 8
-            
-        }
     });
     
     //if true, the accelertion component gets a certain value
     if(LEFT){
         b.acc_x = -b.acceleration;
-        socket.emit('left')
     }
     if(UP){
         b.acc_y = -b.acceleration;
-        socket.emit('up')
     }
     if(RIGHT){
         b.acc_x = b.acceleration;
-        socket.emit('right')
     }
     if(DOWN){
         b.acc_y = b.acceleration;
-        socket.emit('down')
     }
     if(!UP && !DOWN){
         b.acc_y = 0;
@@ -159,61 +96,16 @@ function keyControl(b){
 
 }
 
-socket.on('nleft', data => {
-    for(i in clientBalls){
-        clientBalls[i].vel_x = 8
-    }
-})
-
-socket.on('updateplayers', data => {
-    ctx.clearRect(0,0, canvas.width, canvas.height)
-    playersFound = {}
-    for(let id in data){
-        if(clientBalls[id] === undefined && id !== socket.id){
-            clientBalls[id] = new Ball(data[id].x,data[id].y, 20)
-        }
-        playersFound[id] = true
-    }
-    // for(let id in clientBalls){
-    //     if(!playersFound[id]){
-    //         BALLZ.splice
-    //         delete clientBalls[id]
-    //     }
-    // }
-})
-
-function mainLoop() {
-    for(i in clientBalls){
-        clientBalls[i].drawBall()
-    }
-    socket.emit('cords', {x:Ball1.x,y:Ball1.y})
-    ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
-    BALLZ.forEach((b) => {
-        b.drawBall();
-        if (b.player){
-            keyControl(b);
-        }
-        b.drawVel();
-        // b.display(); shows the velocity and direction
-    });
-    // Projectiles.forEach((projectile, index)=>{
-    //     projectile.update()
-    //     if(projectile.l >= 250){
-    //         Projectiles.splice(projectile, 1)
-    //     }
-    // })
-    // let angle = Math.atan2(Ball1.y - 100, Ball1.x - 200)
-    // let velocity2 = {
-    //     x:Math.cos(angle)*2,
-    //     y:Math.sin(angle)*2
-    // }
-    // Projectiles.push(
-    //     new Projectile(null,null,10,velocity2)
-    // )
+function gameloop(){
+    ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight)
     requestAnimationFrame(mainLoop);
+    balls.forEach(b => {
+        b.draw()
+        if(balls.player){
+            keyControl(b)
+        }
+    });
 }
 
 let Ball1 = new Ball(200, 200, 30);
 Ball1.player = true;
-
-requestAnimationFrame(mainLoop);
