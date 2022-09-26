@@ -172,12 +172,7 @@ function gameloop(){
     });
     blocks.forEach((bl) => {
         bl.draw()
-    });
-
-    setTimeout(() => {
-        console.log(square1)
-    }, 1000);
-    
+    });    
 
     // console.log(intersects(square1.x,square1.y,square1.w,square1.h,Block1.x,Block1.y,Block1.w,Block1.h))
 
@@ -192,7 +187,7 @@ function gameloop(){
 let square1 = new Ball(200,200,30,30);
 let Block1 = new Block(0,0,10,1080)
 let Block2 = new Block(0,0,1920,10)
-let Block3 = new Block(canvas.width,0,10,1080)
+let Block3 = new Block(canvas.width-100,0,10,1080)
 let Block4 = new Block(0,0,10,1080)
 square1.player = true;
 
