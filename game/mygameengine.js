@@ -14,10 +14,11 @@ let balls = []
 let blocks = []
 
 class Ball{
-    constructor(x,y,r){
+    constructor(x,y,w,h){
         this.x = x
         this.y = y
-        this.r = r
+        this.w = w
+        this.h = h
         this.vel_x = 0;
         this.vel_y = 0;
         this.acc_x = 0;
@@ -28,7 +29,7 @@ class Ball{
     }
     draw(){
         ctx.beginPath()
-        ctx.arc(this.x,this.y,this.r,0,Math.PI*2,false)
+        ctx.rect(this.x,this.y,this.w,this.h)
         ctx.fillStyle = '#343434'
         ctx.fill()
         ctx.closePath();
@@ -156,7 +157,7 @@ function gameloop(){
 }
 
 
-let Ball1 = new Ball(200, 200, 30);
+let square1 = new Ball(200,200,30,30);
 let Block1 = new Block(200,400,10,50)
 Ball1.player = true;
 
