@@ -121,12 +121,11 @@ function keyControl(b){
         if(e.key === 't'){
             square1.destruct = true
         }
-        if(move.left === true || move.up === true || move.right === true || move.down === true){
-            console.log(move)
-        }
     });
 
-    
+    if(move.left === true || move.up === true || move.right === true || move.down === true){
+        console.log(move)
+    }
     //if true, the accelertion component gets a certain value
     if(LEFT){
         b.acc_x = -b.acceleration;
