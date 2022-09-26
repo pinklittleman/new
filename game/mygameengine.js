@@ -192,7 +192,7 @@ function gameloop(){
 let square1 = new Ball(200,200,30,30);
 let Block1 = new Block(0,0,10,1080)
 let Block2 = new Block(0,0,1920,10)
-let Block3 = new Block(0,0,10,1080)
+let Block3 = new Block(canvas.width,0,10,1080)
 let Block4 = new Block(0,0,10,1080)
 square1.player = true;
 
