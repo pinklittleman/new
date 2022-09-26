@@ -153,7 +153,7 @@ function gameloop(){
     });
     
 
-    console.log(rect_collision(square1.x,square1.y,square1.w,Block1.x,Block1.y,Block1.w))
+    // console.log(rect_collision(square1.x,square1.y,square1.w,Block1.x,Block1.y,Block1.w))
 
     if(rect_collision(square1.x,square1.y,square1.w,Block1.x,Block1.y,Block1.w) === true){
         square1.vel_x = 8
