@@ -107,7 +107,6 @@ function gameloop(){
         b.draw()
         if(b.player === true){
             keyControl(b)
-            console.log('this detection works')
         }
     });
     requestAnimationFrame(gameloop);
