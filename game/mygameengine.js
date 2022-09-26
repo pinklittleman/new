@@ -164,7 +164,7 @@ function gameloop(){
 
 
 let square1 = new Ball(200,200,30,30);
-let Block1 = new Block(0,0,10,canvas.height)
+let Block1 = new Block(0,0,10,1080)
 square1.player = true;
 
 requestAnimationFrame(gameloop);
