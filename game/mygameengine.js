@@ -180,13 +180,13 @@ function gameloop(){
         square1.vel_x = 8
     }
     if(intersects(square1.x,square1.y,square1.w,square1.h,Block2.x,Block2.y,Block2.w,Block2.h) === true){
-        square1.vel_x = 8
+        square1.vel_y = -8
     }
     if(intersects(square1.x,square1.y,square1.w,square1.h,Block3.x,Block3.y,Block3.w,Block3.h) === true){
-        square1.vel_x = 8
+        square1.vel_x = -8
     }
     if(intersects(square1.x,square1.y,square1.w,square1.h,Block4.x,Block4.y,Block4.w,Block4.h) === true){
-        square1.vel_x = 8
+        square1.vel_y = 8
     }
 
     requestAnimationFrame(gameloop);
