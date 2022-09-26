@@ -23,6 +23,7 @@ class Ball{
         this.vel_y = 0;
         this.acc_x = 0;
         this.acc_y = 0;
+        this.destruct = false
         this.acceleration = 1;
         this.player = false;
         balls.push(this)
@@ -49,6 +50,7 @@ class Block{
         this.vel_y = 0;
         this.acc_x = 0;
         this.acc_y = 0;
+        this.destruct = false
         this.acceleration = 1;
         blocks.push(this)
     }
@@ -106,6 +108,9 @@ function keyControl(b){
         if(e.key === 's'){
             DOWN = false;
         }
+        if(e.key === 't'){
+            square1.destruct = true
+        }
     });
     
     //if true, the accelertion component gets a certain value
@@ -146,6 +151,10 @@ function gameloop(){
         b.draw()
         if(b.player === true){
             keyControl(b)
+        }
+        if(b.destruct === true){
+            pos = balls.indexOf(b)
+            balls.splice(pos,pos+1)
         }
     });
     blocks.forEach((bl) => {
