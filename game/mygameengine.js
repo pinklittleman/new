@@ -85,42 +85,43 @@ function keyControl(b){
     document.addEventListener('keydown', function(e){
         if(e.key === 'a'){
             LEFT = true;
-            b.left = false
+            b.move.left = true
         }
         if(e.key === 'w'){
             UP = true;
-            b.up = false
+            b.move.up = true
         }
         if(e.key === 'd'){
             RIGHT = true;
-            b.right = false
+            b.move.right = true
         }
         if(e.key === 's'){
             DOWN = true;
-            b.down = false
+            b.move.down = true
         }
     });
     
     document.addEventListener('keyup', function(e){
         if(e.key === 'a'){
             LEFT = false;
-            b.left = false
+            b.move.left = false
         }
         if(e.key === 'w'){
             UP = false;
-            b.up = false
+            b.move.up = false
         }
         if(e.key === 'd'){
             RIGHT = false;
-            b.right = false
+            b.move.right = false
         }
         if(e.key === 's'){
             DOWN = false;
-            b.down = false
+            b.move.down = false
         }
         if(e.key === 't'){
             // square1.destruct = true
-            b.move.left = true
+            // b.move.left = true
+            console.log(b.move)
         }
     });
 
