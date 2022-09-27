@@ -170,9 +170,10 @@ function keyControl(b){
 
 }
 
-socket.on('movementup', data => {
+socket.on('movementup',yes)
+function yes(data){
     console.log(data)
-})
+}
 
 function gameloop(){
     ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight)
