@@ -30,13 +30,14 @@ io.on('connection', (socket) => {
 
     function test(data){
         console.log(data)
+        players.socketID = data.socketID
+        console.log(players)
     }
 
     socket.on('disconnect', () => {
         io.emit('updateplayers',players)
         pos = users.indexOf(socket.id)
         users.splice(pos,pos+1)
-        
 
     })
 
