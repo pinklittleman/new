@@ -119,7 +119,8 @@ function keyControl(b){
             b.down = false
         }
         if(e.key === 't'){
-            square1.destruct = true
+            // square1.destruct = true
+            b.move.left = true
         }
     });
 
