@@ -170,8 +170,10 @@ function keyControl(b){
 
 }
 
-
-let newballmove
+socket.on('updateplayers',yes2)
+function yes2(data){
+    console.log(data)
+}
 socket.on('movementup',yes)
 function yes(data){
     console.log(data)
