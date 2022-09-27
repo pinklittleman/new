@@ -26,19 +26,6 @@ io.on('connection', (socket) => {
     users.push(socket.id)
     console.log(users)
 
-    socket.on('cords', data => {
-        clientx = data.x
-        clienty = data.y
-        playerdata = {
-            socketId:socket.id,
-            x:data.x,
-            y:data.y
-        }
-        players[socket.id] = playerdata
-        console.log(players)
-        io.emit('updateplayers',players)
-    })
-
     socket.on('movement', test)
 
     function test(data){
@@ -46,8 +33,11 @@ io.on('connection', (socket) => {
     }
 
     socket.on('disconnect', () => {
-        delete players[socket.id]
         io.emit('updateplayers',players)
+        pos = users.indexOf(socket.id)
+        users.splice(pos,pos+1)
+        
+
     })
 
 })
