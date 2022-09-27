@@ -12,6 +12,7 @@ let friction = 0.06;
 let clientBalls = {}
 let balls = []
 let blocks = []
+let keyup
 
 class Ball{
     constructor(x,y,w,h){
@@ -83,6 +84,7 @@ function intersects(x1, y1, w1, h1, x2, y2, w2, h2) {
 
 function keyControl(b){
     document.addEventListener('keydown', function(e){
+        keyup = false
         if(e.key === 'a'){
             LEFT = true;
             b.move.left = true
@@ -102,6 +104,7 @@ function keyControl(b){
     });
     
     document.addEventListener('keyup', function(e){
+        keyup = true
         if(e.key === 'a'){
             LEFT = false;
             b.move.left = false
@@ -126,6 +129,9 @@ function keyControl(b){
     });
 
     if(b.move.left === true || b.move.up === true || b.move.right === true || b.move.down === true){
+        if(keyup === true){
+            socket.emit('movement',b.move)
+        }
         socket.emit('movement',b.move)
     }
     //if true, the accelertion component gets a certain value
