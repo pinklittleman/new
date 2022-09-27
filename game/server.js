@@ -30,7 +30,7 @@ io.on('connection', (socket) => {
 
     function test(data){
         console.log(data)
-        players.socketID = data.socketID
+        players[socket.id] = data.socketID
         console.log(players)
     }
 
