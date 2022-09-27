@@ -174,6 +174,15 @@ socket.on('movementup',yes)
 function yes(data){
     console.log(data)
     players = data
+    updateplayers()
+}
+
+function updateplayers(){
+    for(let i in players){
+        if (players.hasOwnProperty(i)) {
+            console.log(i + " -> " + players[i]);
+        }
+    }
 }
 
 function gameloop(){
