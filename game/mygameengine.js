@@ -174,6 +174,9 @@ function updateplayers(){
     for(let i in players){
         if (players.hasOwnProperty(i)) {
             console.log(i + " -> " + JSON.stringify(players[i].movement));
+            if(players[i].socketID !== socket.id){
+                socket.id = new Ball(200,300,30,30)
+            }
         }
     }
 }
