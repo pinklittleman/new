@@ -170,6 +170,10 @@ function keyControl(b){
 
 }
 
+socket.on('movementup', data => {
+    console.log(data)
+})
+
 function gameloop(){
     ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight)
     balls.forEach((b) => {

@@ -25,13 +25,14 @@ app.get('/', function(req, res){
 io.on('connection', (socket) => {
     users.push(socket.id)
     console.log(users)
-
+    io.emit('updateplayers',players)
+    
     socket.on('movement', test)
-
+    
     function test(data){
-        console.log(data)
         players[socket.id] = {socketID:data.socketID,movement:data.movement}
         console.log(players)
+        io.emit('movementup',players)
     }
 
     socket.on('disconnect', () => {
