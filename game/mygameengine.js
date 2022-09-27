@@ -175,8 +175,6 @@ let newballmove
 socket.on('movementup',yes)
 function yes(data){
     console.log(data)
-    data.movement = newballmove.left
-    console.log(newballmove)
 }
 
 function gameloop(){
