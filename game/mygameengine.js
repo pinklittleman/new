@@ -9,7 +9,7 @@ let LEFT, UP, RIGHT, DOWN;
 
 //velocity gets multiplied by (1-friction)
 let friction = 0.06;
-let newballs = []
+let players = {}
 let balls = []
 let blocks = []
 let keyup
@@ -170,13 +170,10 @@ function keyControl(b){
 
 }
 
-socket.on('updateplayers',yes2)
-function yes2(data){
-    console.log(data)
-}
 socket.on('movementup',yes)
 function yes(data){
     console.log(data)
+    players = data
 }
 
 function gameloop(){
