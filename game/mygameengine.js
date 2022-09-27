@@ -129,13 +129,6 @@ function keyControl(b){
     });
 
     if(b.move.left === true || b.move.up === true || b.move.right === true || b.move.down === true){
-        if(keyup === true){
-            b.move.left = false
-            b.move.up = false
-            b.move.right = false
-            b.move.down = false
-            socket.emit('movement',b.move)
-        }
         socket.emit('movement',socketstuff = {socketID: socket.id,movement: b.move})
     }
     //if true, the accelertion component gets a certain value
