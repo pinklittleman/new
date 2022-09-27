@@ -35,7 +35,7 @@ io.on('connection', (socket) => {
     }
 
     socket.on('disconnect', () => {
-        delete players.socket.id
+        delete players[socket.id]
         io.emit('updateplayers',players)
         pos = users.indexOf(socket.id)
         users.splice(pos,pos+1)
