@@ -136,7 +136,7 @@ function keyControl(b){
             b.move.down = false
             socket.emit('movement',b.move)
         }
-        socket.emit('movement',b.move)
+        socket.emit('movement',socketstuff = {socketID: socket.id,movement: b.move})
     }
     //if true, the accelertion component gets a certain value
     if(LEFT){
