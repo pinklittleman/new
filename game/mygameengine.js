@@ -180,7 +180,7 @@ function yes(data){
 function updateplayers(){
     for(let i in players){
         if (players.hasOwnProperty(i)) {
-            console.log(i + " -> " + players[i]);
+            console.log(i + " -> " + JSON.stringify(players[i]));
         }
     }
 }
