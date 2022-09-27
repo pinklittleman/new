@@ -126,7 +126,7 @@ function keyControl(b){
     });
 
     if(b.move.left === true || b.move.up === true || b.move.right === true || b.move.down === true){
-        console.log(move)
+        console.log(b.move)
     }
     //if true, the accelertion component gets a certain value
     if(LEFT){
