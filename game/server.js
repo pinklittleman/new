@@ -39,33 +39,11 @@ io.on('connection', (socket) => {
         io.emit('updateplayers',players)
     })
 
-    socket.on('left', move)
-    socket.on('up', move2)
-    socket.on('right',move3)
-    socket.on('down',move4)
+    socket.on('movement', test)
 
-    function move(){
-        playerdata = {
-            socketId:socket.id,
-            x:clientx,
-            y:clienty,
-            left: true,
-            up: false,
-            right:false,
-            down:false
-        }
-        io.emit('nleft',playerdata)
+    function test(data){
+        console.log(data)
     }
-    function move2(){
-
-    }
-    function move3(){
-
-    }
-    function move4(){
-
-    }
-
 
     socket.on('disconnect', () => {
         delete players[socket.id]
