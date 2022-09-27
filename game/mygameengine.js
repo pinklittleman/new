@@ -170,10 +170,13 @@ function keyControl(b){
 
 }
 
+
+let newballmove
 socket.on('movementup',yes)
 function yes(data){
-    console.log(data.movement)
-    newballs.push(data.socketID)
+    console.log(data)
+    data.movement = newballmove
+    console.log(newballmove)
 }
 
 function gameloop(){
