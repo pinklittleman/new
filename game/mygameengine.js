@@ -52,6 +52,7 @@ class Block{
         this.vel_y = 0;
         this.acc_x = 0;
         this.acc_y = 0;
+        this.name = socket.id
         this.destruct = false
         this.acceleration = 1;
         blocks.push(this)
