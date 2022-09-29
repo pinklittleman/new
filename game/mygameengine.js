@@ -85,6 +85,7 @@ class Ball{
         ctx.fillStyle = this.colour
         ctx.fill()
         ctx.closePath();
+        console.log('your mother')
     }
 }
 
@@ -108,7 +109,6 @@ class Block{
         ctx.fillStyle = '#343434'
         ctx.fill()
         ctx.closePath();
-        console.log('your mother')
     }
 }
 
