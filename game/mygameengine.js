@@ -205,8 +205,8 @@ function yes(data){
 }
 
 function updateplayers(){
+    let users = 0
     for(let i in players){
-        let users = 0
         users++
         console.log(users)
         if (players.hasOwnProperty(i)) {
