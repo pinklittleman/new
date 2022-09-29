@@ -218,7 +218,7 @@ function yes(data){
 
 function addnewusers(){
     for(i in userlist){
-        if(userlist[i] !== socket.id){
+        if(userlist[i] ==! socket.id){
             console.log('yes '+userlist[i])
             i = new Ball(100,100,30,30)
         }
