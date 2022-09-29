@@ -217,9 +217,9 @@ function yes(data){
 }
 
 function addnewusers(){
-    let numberofplayers = userlist.length
+    let numberofplayers = userlist.length - 1
     for(i in numberofplayers){
-        new Ball(100,100,30,30)
+        i = new Ball(100,100,30,30)
     }
 }
 
