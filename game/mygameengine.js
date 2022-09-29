@@ -129,7 +129,7 @@ function keyControl(b){
         if(e.key === 't'){
             // square1.destruct = true
             // b.move.left = true
-            console.log(b.move)
+            // console.log(b.move)
             getout = true
         }
     });
@@ -155,7 +155,7 @@ function keyControl(b){
         if(e.key === 't'){
             // square1.destruct = true
             // b.move.left = true
-            console.log(b.move)
+            // console.log(b.move)
             getout = false
         }
     });
