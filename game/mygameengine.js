@@ -157,7 +157,7 @@ function keyControl(b){
             // b.move.left = true
             // console.log(b.move)
             getout = false
-            ctx.rotate(60 * Math.PI / 180);
+            // ctx.rotate(60 * Math.PI / 180);
         }
     });
 
