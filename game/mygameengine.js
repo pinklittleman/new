@@ -21,6 +21,11 @@ class Car{
         this.y = y
         this.w = w
         this.h = h
+        this.vel_x = 0;
+        this.vel_y = 0;
+        this.acc_x = 0;
+        this.acc_y = 0;
+        this.acceleration = 1;
         cars.push(this)
     }
     draw(){
@@ -212,7 +217,13 @@ function gameloop(){
             balls.splice(pos,pos+1)
         }
         if(intersects(b.x,b.y,b.w,b.h,car1.x,car1.y,car1.w,car1.h) === true){
-            console.log('touching car press e to enter')
+            // console.log('touching car press e to enter')
+            b.x = car1.x
+            b.y = car1.y
+            car1.vel_x = b.vel_x
+            car1.vel_x = b.vel_x
+            car1.x += car1.vel_x;
+            car1.y += car1.vel_y;
         }
     });
     blocks.forEach((bl) => {
