@@ -234,8 +234,8 @@ function gameloop(){
             car1.y += car1.vel_y;
             if(getout){
                 console.log('getout')
-                b.x += 10
-                b.y += 5
+                b.x += 100
+                b.y += 50
             }
         }
     });
