@@ -222,6 +222,7 @@ function addnewusers(){
         if(userlist[i] !== socket.id){
             console.log('yes '+userlist[i])
             i = new Ball(100,100,30,30)
+            console.log(i.x)
         }
     }
 }
