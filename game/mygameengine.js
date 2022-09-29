@@ -236,7 +236,9 @@ function updateplayers(data){
 //         }
 //     }
     for(i in balls){
-        console.log(balls[i])
+        if(balls[i].name !== undefined){
+            console.log(balls[i])
+        }
     }
 
 
