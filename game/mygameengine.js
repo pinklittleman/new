@@ -276,6 +276,7 @@ function gameloop(){
                 b.y += 50
                 b.h = 30
                 b.w = 30
+                b.colour = '#343434'
             }
         }
     });
