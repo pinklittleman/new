@@ -213,7 +213,7 @@ socket.on('movementup',yes)
 function yes(data){
     // console.log(data)
     players = data
-    updateplayers()
+    updateplayers(data)
 }
 
 function addnewusers(){
@@ -224,7 +224,7 @@ function addnewusers(){
     }
 }
 
-function updateplayers(){
+function updateplayers(data){
 //     for(let i in players){
 //         users++
 //         console.log(users)
@@ -235,6 +235,7 @@ function updateplayers(){
 //             }
 //         }
 //     }
+    console.log(data)
 
 
 }
