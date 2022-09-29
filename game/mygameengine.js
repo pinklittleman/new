@@ -51,7 +51,7 @@ class Ball{
         this.vel_y = 0;
         this.acc_x = 0;
         this.acc_y = 0;
-        this.name = null
+        this.name = 'beans'
         this.destruct = false
         this.acceleration = 1;
         this.player = false;
