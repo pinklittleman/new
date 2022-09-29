@@ -15,7 +15,6 @@ let cars = []
 let blocks = []
 let keyup
 let getout = false
-let users = 1
 let newballs = []
 
 class Car{
@@ -207,6 +206,7 @@ function yes(data){
 
 function updateplayers(){
     for(let i in players){
+        let users = 1
         users++
         if (players.hasOwnProperty(i)) {
             // console.log(i + " -> " + JSON.stringify(players[i].movement));
