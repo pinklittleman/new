@@ -211,6 +211,9 @@ function gameloop(){
             pos = balls.indexOf(b)
             balls.splice(pos,pos+1)
         }
+        if(intersects(b.x,b.y,b.w,b.h,car1.x,car1.y,car1.w,car1.h) === true){
+            console.log('touching car press e to enter')
+        }
     });
     blocks.forEach((bl) => {
         bl.draw()
