@@ -236,9 +236,7 @@ function updateplayers(data){
 //         }
 //     }
     for(i in balls){
-        if(balls[i].name !== data.socketID){
-            console.log(data)
-        }
+        console.log(balls[i])
     }
 
 
