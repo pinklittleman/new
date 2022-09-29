@@ -32,7 +32,7 @@ io.on('connection', (socket) => {
     
     function test(data){
         players[socket.id] = {socketID:data.socketID,movement:data.movement}
-        console.log(players)
+        // console.log(players)
         io.emit('movementup',players)
     }
 
