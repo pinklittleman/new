@@ -18,33 +18,6 @@ let getout, getin
 let newballs = []
 let userlist = []
 
-class Shape{
-    constructor(p1x,p1y,p2x,p2y,p3x,p3y,p4x,p4y){
-        this.p1x = p1x
-        this.p1y = p1y
-        this.p2x = p2x
-        this.p2y = p2y
-        this.p3x = p3x
-        this.p3y = p3y
-        this.p4x = p4x
-        this.p4y = p4y
-    }
-    draw(){
-        ctx.strokeStyle = 'black';
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(this.p1x, this.p1y);
-        ctx.lineTo(this.p2x, this.p2y);
-        ctx.moveTo(this.p2x, this.p2y);
-        ctx.lineTo(this.p3x, this.p3y);
-        ctx.moveTo(this.p3x, this.p3y);
-        ctx.lineTo(this.p4x, this.p4y);
-        ctx.moveTo(this.p4x, this.p4y);
-        ctx.lineTo(this.p1x, this.p1y);
-        ctx.stroke();
-    }
-}
-
 class Car{
     constructor(x,y,w,h){
         this.x = x
@@ -345,7 +318,6 @@ let Block2 = new Block(0,0,1920,10)
 let Block3 = new Block(canvas.width-5,0,10,1080)
 let Block4 = new Block(0,canvas.height-5,1920,10)
 let car1 = new Car(300,300,50,70)
-let abstract = new Shape(100,100,100,200,300,300,500,500)
 square1.player = true;
 
 requestAnimationFrame(gameloop);
