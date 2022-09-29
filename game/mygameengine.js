@@ -36,6 +36,7 @@ class Shape{
         ctx.moveTo(this.p1x,this.p1y)
         ctx.lineTo(300,this.p2y)
         ctx.stroke()
+        console.log('your mother2')
     }
 }
 
@@ -85,7 +86,6 @@ class Ball{
         ctx.fillStyle = this.colour
         ctx.fill()
         ctx.closePath();
-        console.log('your mother')
     }
 }
 
