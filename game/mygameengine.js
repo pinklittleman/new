@@ -296,6 +296,7 @@ let Block2 = new Block(0,0,1920,10)
 let Block3 = new Block(canvas.width+5,0,10,1080)
 let Block4 = new Block(0,canvas.height+5,1920,10)
 let car1 = new Car(300,300,50,70)
+square1.name = socket.id
 square1.player = true;
 
 requestAnimationFrame(gameloop);
