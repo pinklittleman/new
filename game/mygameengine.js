@@ -55,12 +55,13 @@ class Ball{
         this.destruct = false
         this.acceleration = 1;
         this.player = false;
+        this.colour = '#343434'
         balls.push(this)
     }
     draw(){
         ctx.beginPath()
         ctx.rect(this.x,this.y,this.w,this.h)
-        ctx.fillStyle = '#343434'
+        ctx.fillStyle = this.colour
         ctx.fill()
         ctx.closePath();
     }
@@ -305,8 +306,8 @@ function gameloop(){
 let square1 = new Ball(200,200,30,30,socket.id);
 let Block1 = new Block(0,0,10,1080)
 let Block2 = new Block(0,0,1920,10)
-let Block3 = new Block(canvas.width+5,0,10,1080)
-let Block4 = new Block(0,canvas.height+5,1920,10)
+let Block3 = new Block(canvas.width-5,0,10,1080)
+let Block4 = new Block(0,canvas.height-5,1920,10)
 let car1 = new Car(300,300,50,70)
 square1.player = true;
 
