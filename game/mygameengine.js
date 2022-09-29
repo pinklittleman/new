@@ -11,8 +11,26 @@ let LEFT, UP, RIGHT, DOWN;
 let friction = 0.06;
 let players = {}
 let balls = []
+let cars = []
 let blocks = []
 let keyup
+
+class Car{
+    constructor(x,y,w,h){
+        this.x = x
+        this.y = y
+        this.w = w
+        this.h = h
+        cars.push(this)
+    }
+    draw(){
+        ctx.beginPath()
+        ctx.rect(this.x,this.y,this.w,this.h)
+        ctx.fillStyle = '#2b43c2'
+        ctx.fill()
+        ctx.closePath();
+    }
+}
 
 class Ball{
     constructor(x,y,w,h){
@@ -25,7 +43,7 @@ class Ball{
         this.vel_y = 0;
         this.acc_x = 0;
         this.acc_y = 0;
-        this.name = socket.id
+        this.name
         this.destruct = false
         this.acceleration = 1;
         this.player = false;
@@ -196,7 +214,10 @@ function gameloop(){
     });
     blocks.forEach((bl) => {
         bl.draw()
-    });    
+    });
+    cars.forEach((car) => {
+        car.draw()
+    })
 
     // console.log(intersects(square1.x,square1.y,square1.w,square1.h,Block1.x,Block1.y,Block1.w,Block1.h))
 
@@ -222,6 +243,7 @@ let Block1 = new Block(0,0,10,1080)
 let Block2 = new Block(0,0,1920,10)
 let Block3 = new Block(canvas.width-5,0,10,1080)
 let Block4 = new Block(0,canvas.height-5,1920,10)
+let car1 = new Car(300,300,50,50)
 square1.player = true;
 
 requestAnimationFrame(gameloop);
