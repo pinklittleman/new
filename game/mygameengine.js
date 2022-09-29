@@ -14,7 +14,7 @@ let balls = []
 let cars = []
 let blocks = []
 let keyup
-let getout = false
+let getout, getin
 let newballs = []
 
 class Car{
@@ -133,6 +133,9 @@ function keyControl(b){
             // console.log(b.move)
             getout = true
         }
+        if(e.key === 'e'){
+            getin = true
+        }
     });
     
     document.addEventListener('keyup', function(e){
@@ -159,6 +162,9 @@ function keyControl(b){
             // console.log(b.move)
             getout = false
             // ctx.rotate(60 * Math.PI / 180);
+        }
+        if(e.key === 'e'){
+            getin = false
         }
     });
 
@@ -229,7 +235,7 @@ function gameloop(){
             pos = balls.indexOf(b)
             balls.splice(pos,pos+1)
         }
-        if(intersects(b.x,b.y,b.w,b.h,car1.x,car1.y,car1.w,car1.h) === true){
+        if(intersects(b.x,b.y,b.w,b.h,car1.x,car1.y,car1.w,car1.h) === true && getin === true){
             // console.log('touching car press e to enter')
             b.x = car1.x
             b.y = car1.y
