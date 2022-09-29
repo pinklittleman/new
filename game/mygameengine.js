@@ -218,11 +218,9 @@ function yes(data){
 
 function addnewusers(){
     for(i in userlist){
-        console.log(userlist[i])
         if(userlist[i] !== socket.id){
-            console.log('yes '+userlist[i])
             i = new Ball(100,100,30,30)
-            console.log(i.x)
+            i.name = userlist[i]
         }
     }
 }
@@ -262,7 +260,7 @@ function gameloop(){
             car1.x += car1.vel_x;
             car1.y += car1.vel_y;
             if(getout){
-                console.log('getout')
+                // console.log('getout')
                 b.x += 100
                 b.y += 50
             }
