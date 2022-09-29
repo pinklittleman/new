@@ -108,6 +108,7 @@ class Block{
         ctx.fillStyle = '#343434'
         ctx.fill()
         ctx.closePath();
+        console.log('your mother')
     }
 }
 
