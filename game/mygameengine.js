@@ -262,6 +262,8 @@ function gameloop(){
             // console.log('touching car press e to enter')
             b.x = car1.x
             b.y = car1.y
+            b.h = 5
+            b.w = 5
             car1.vel_x = b.vel_x
             car1.vel_y = b.vel_y
             car1.x += car1.vel_x;
@@ -270,6 +272,8 @@ function gameloop(){
                 // console.log('getout')
                 b.x += 100
                 b.y += 50
+                b.h = 30
+                b.w = 30
             }
         }
     });
