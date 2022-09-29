@@ -41,7 +41,7 @@ class Car{
 }
 
 class Ball{
-    constructor(x,y,w,h){
+    constructor(x,y,w,h,name){
         this.x = x
         this.y = y
         this.w = w
@@ -51,7 +51,7 @@ class Ball{
         this.vel_y = 0;
         this.acc_x = 0;
         this.acc_y = 0;
-        this.name = []
+        this.name = name
         this.destruct = false
         this.acceleration = 1;
         this.player = false;
@@ -219,8 +219,7 @@ function yes(data){
 function addnewusers(){
     for(i in userlist){
         if(userlist[i] !== socket.id){
-            i = new Ball(100,100,30,30)
-            i.name.push(userlist[i])
+            i = new Ball(100,100,30,30,userlist[i])
         }
     }
 }
@@ -292,13 +291,12 @@ function gameloop(){
 }
 
 
-let square1 = new Ball(200,200,30,30);
+let square1 = new Ball(200,200,30,30,socket.id);
 let Block1 = new Block(0,0,10,1080)
 let Block2 = new Block(0,0,1920,10)
 let Block3 = new Block(canvas.width+5,0,10,1080)
 let Block4 = new Block(0,canvas.height+5,1920,10)
 let car1 = new Car(300,300,50,70)
-square1.name = socket.id
 square1.player = true;
 
 requestAnimationFrame(gameloop);
