@@ -235,7 +235,13 @@ function updateplayers(data){
 //             }
 //         }
 //     }
-    console.log(data)
+    for(i in balls){
+        if(balls[i].name === data.socketID){
+            if(data.move.right){
+                balls[i].vel_x = 8
+            }
+        }
+    }
 
 
 }
