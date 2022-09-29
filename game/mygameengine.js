@@ -237,7 +237,10 @@ function updateplayers(data){
 //     }
     for(i in balls){
         if(balls[i].name !== undefined){
-            console.log(balls[i])
+            // console.log(balls[i])
+            if(data.movement.left){
+                balls[i].vel_x = 8
+            }
         }
     }
 
