@@ -14,7 +14,7 @@ let balls = []
 let cars = []
 let blocks = []
 let keyup
-let getout
+let getout = false
 
 class Car{
     constructor(x,y,w,h){
