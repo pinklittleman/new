@@ -30,11 +30,17 @@ class Shape{
         this.p4y = p4y
     }
     draw(){
-        ctx.strokeStyle = 'red';
-        ctx.lineWidth = 5;
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(this.p1x, this.p1y);
         ctx.lineTo(this.p2x, this.p2y);
+        ctx.moveTo(this.p2x, this.p2y);
+        ctx.lineTo(this.p3x, this.p3y);
+        ctx.moveTo(this.p3x, this.p3y);
+        ctx.lineTo(this.p4x, this.p4y);
+        ctx.moveTo(this.p4x, this.p4y);
+        ctx.lineTo(this.p1x, this.p1y);
         ctx.stroke();
     }
 }
