@@ -205,9 +205,10 @@ function yes(data){
 }
 
 function updateplayers(){
+    let users = 1
     for(let i in players){
-        let users = 1
         users++
+        console.log(users)
         if (players.hasOwnProperty(i)) {
             // console.log(i + " -> " + JSON.stringify(players[i].movement));
             if(players[i].socketID !== socket.id){
