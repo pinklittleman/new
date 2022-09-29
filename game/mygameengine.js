@@ -265,6 +265,7 @@ function gameloop(){
             b.y = car1.y
             b.h = 5
             b.w = 5
+            b.colour = '#424242'
             car1.vel_x = b.vel_x
             car1.vel_y = b.vel_y
             car1.x += car1.vel_x;
