@@ -32,11 +32,10 @@ class Shape{
     draw(){
         ctx.strokeStyle = 'red';
         ctx.lineWidth = 5;
-        ctx.beginPath()
-        ctx.moveTo(this.p1x,this.p1y)
-        ctx.lineTo(300,this.p2y)
-        ctx.stroke()
-        console.log('your mother2')
+        ctx.beginPath();
+        ctx.moveTo(100, 100);
+        ctx.lineTo(300, 100);
+        ctx.stroke();
     }
 }
 
@@ -54,7 +53,6 @@ class Car{
         cars.push(this)
     }
     draw(){
-        ctx.beginPath()
         ctx.rect(this.x,this.y,this.w,this.h)
         ctx.fillStyle = '#2b43c2'
         ctx.fill()
