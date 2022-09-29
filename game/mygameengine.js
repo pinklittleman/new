@@ -237,7 +237,9 @@ function updateplayers(data){
 //     }
     for(i in balls){
         if(balls[i].name !== data.socketID){
-            console.log(data)
+            if(data.movement.left){
+                data.vel_x = 8
+            }
         }
     }
 
