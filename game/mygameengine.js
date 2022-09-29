@@ -21,20 +21,20 @@ let userlist = []
 class Shape{
     constructor(p1x,p1y,p2x,p2y,p3x,p3y,p4x,p4y){
         this.p1x = p1x
-        this.p1x = p1y
-        this.p1x = p2x
-        this.p1x = p2y
-        this.p1x = p3x
-        this.p1x = p3y
-        this.p1x = p4x
-        this.p1x = p4y
+        this.p1y = p1y
+        this.p2x = p2x
+        this.p2y = p2y
+        this.p3x = p3x
+        this.p3y = p3y
+        this.p4x = p4x
+        this.p4y = p4y
     }
     draw(){
         ctx.strokeStyle = 'red';
         ctx.lineWidth = 5;
         ctx.beginPath();
-        ctx.moveTo(100, 100);
-        ctx.lineTo(300, 100);
+        ctx.moveTo(this.p1x, this.p1y);
+        ctx.lineTo(this.p2x, this.p2y);
         ctx.stroke();
     }
 }
