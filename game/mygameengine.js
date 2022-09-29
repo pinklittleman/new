@@ -262,8 +262,8 @@ function gameloop(){
             // console.log('touching car press e to enter')
             b.x = car1.x
             b.y = car1.y
-            b.h = 1
-            b.w = 1
+            b.h = 5
+            b.w = 5
             car1.vel_x = b.vel_x
             car1.vel_y = b.vel_y
             car1.x += car1.vel_x;
