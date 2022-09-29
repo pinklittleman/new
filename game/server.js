@@ -26,6 +26,7 @@ io.on('connection', (socket) => {
     users.push(socket.id)
     console.log(users)
     io.emit('updateplayers',players)
+    io.emit('userlist',users)
     
     socket.on('movement', test)
     
@@ -40,6 +41,7 @@ io.on('connection', (socket) => {
         io.emit('updateplayers',players)
         pos = users.indexOf(socket.id)
         users.splice(pos,pos+1)
+        io.emit('userlist',users)
 
     })
 

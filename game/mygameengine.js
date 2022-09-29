@@ -16,6 +16,7 @@ let blocks = []
 let keyup
 let getout, getin
 let newballs = []
+let userlist = []
 
 class Car{
     constructor(x,y,w,h){
@@ -203,6 +204,10 @@ function keyControl(b){
 
 }
 
+socket.on('userlist', yes2)
+function yes2(data){
+    userlist = data
+}
 socket.on('movementup',yes)
 function yes(data){
     // console.log(data)
@@ -211,17 +216,18 @@ function yes(data){
 }
 
 function updateplayers(){
-    let users = 0
-    for(let i in players){
-        users++
-        console.log(users)
-        if (players.hasOwnProperty(i)) {
-            // console.log(i + " -> " + JSON.stringify(players[i].movement));
-            if(players[i].socketID !== socket.id){
-                socket.id = new Ball(200,300,30,30)
-            }
-        }
-    }
+//     for(let i in players){
+//         users++
+//         console.log(users)
+//         if (players.hasOwnProperty(i)) {
+//             // console.log(i + " -> " + JSON.stringify(players[i].movement));
+//             if(players[i].socketID !== socket.id){
+//                 socket.id = new Ball(200,300,30,30)
+//             }
+//         }
+//     }
+
+
 }
 
 function gameloop(){
