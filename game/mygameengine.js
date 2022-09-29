@@ -51,7 +51,7 @@ class Ball{
         this.vel_y = 0;
         this.acc_x = 0;
         this.acc_y = 0;
-        this.name = 'beans'
+        this.name = {socketID:null}
         this.destruct = false
         this.acceleration = 1;
         this.player = false;
@@ -220,7 +220,7 @@ function addnewusers(){
     for(i in userlist){
         if(userlist[i] !== socket.id){
             i = new Ball(100,100,30,30)
-            i.name = userlist[i]
+            i.name.socketID = userlist[i]
         }
     }
 }
