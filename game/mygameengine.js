@@ -14,6 +14,7 @@ let balls = []
 let cars = []
 let blocks = []
 let keyup
+let getout
 
 class Car{
     constructor(x,y,w,h){
@@ -125,6 +126,12 @@ function keyControl(b){
             DOWN = true;
             b.move.down = true
         }
+        if(e.key === 't'){
+            // square1.destruct = true
+            // b.move.left = true
+            console.log(b.move)
+            getout = true
+        }
     });
     
     document.addEventListener('keyup', function(e){
@@ -149,6 +156,7 @@ function keyControl(b){
             // square1.destruct = true
             // b.move.left = true
             console.log(b.move)
+            getout = false
         }
     });
 
@@ -221,9 +229,12 @@ function gameloop(){
             b.x = car1.x
             b.y = car1.y
             car1.vel_x = b.vel_x
-            car1.vel_x = b.vel_x
+            car1.vel_y = b.vel_y
             car1.x += car1.vel_x;
             car1.y += car1.vel_y;
+            if(getout){
+                console.log('getout')
+            }
         }
     });
     blocks.forEach((bl) => {
