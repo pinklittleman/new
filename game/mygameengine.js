@@ -207,12 +207,20 @@ function keyControl(b){
 socket.on('userlist', yes2)
 function yes2(data){
     userlist = data
+    addnewusers()
 }
 socket.on('movementup',yes)
 function yes(data){
     // console.log(data)
     players = data
     updateplayers()
+}
+
+function addnewusers(){
+    let numberofplayers = userlist.length
+    for(i in numberofplayers){
+        new Ball(100,100,30,30)
+    }
 }
 
 function updateplayers(){
