@@ -9,9 +9,11 @@
   <title>Welcome to Pinky.uk.to</title>
 </head>
 <body>
-  <script src="demo2.js" ></script>
-  <div class="pot">Hi, nice to see you found your way here</div>
+  <div class="pot"> 
+  <div class="below"> Hi, nice to see you found your way here, see what we have to offer below</div>
+  </div>
   <div class="div1">Welcome <div class="float">welcome</div></div>
+  <script src="demo2.js" ></script>
   <ul>
     <li><a href="game/index.html">beans</a></li>
     <li><a href="https://pinky.uk.to:5000">beans</a></li>
@@ -32,6 +34,18 @@
   font-family: reg;
   src: url('LEMONMILK-Light.otf');
 }
+canvas{
+  display: block;
+  margin: auto;
+  position: sticky;
+  margin-top: 300px;
+}
+.below{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+}
 .float{
   display: flex;
   position: absolute;
@@ -44,6 +58,8 @@
   height: 100%;
   position:absolute;
   top: 300px;
+  font-size:20px ;
+  text-align: center;
   background-color: #2d2c30;
   font-family: reg;
   color: #ff8484;
