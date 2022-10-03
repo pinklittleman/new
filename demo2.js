@@ -180,19 +180,19 @@ async function makeColorGradient(frequency1, frequency2, frequency3,
     center, width, len)
     {
         
-        if (center == undefined)   center = 128;
-        if (width == undefined)    width = 127;
+        if (center == undefined)   center = 90;
+        if (width == undefined)    width = 70;
         if (len == undefined)      len = Infinity;
         
         for (var i = 0; i < len; ++i)
         {
-        await sleep(28)
+        await sleep(50)
         var red = Math.sin(frequency1*i + phase1) * width + center;
         var grn = Math.sin(frequency2*i + phase2) * width + center;
         var blu = Math.sin(frequency3*i + phase3) * width + center;
 
         setTimeout(() => {
-            document.getElementById("glow2").style.boxShadow = `0 0 25px 10px rgb(${red}, ${grn}, ${blu})`
+            document.getElementById("glow2").style.boxShadow = `0 0 14px 12px rgb(${red}, ${grn}, ${blu})`
         }, 500);
     }
 }
