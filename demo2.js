@@ -171,3 +171,38 @@ setInterval(() => {
     }
 }, 500);
 
+const sleep = (time) => {
+    return new Promise((resolve) => setTimeout(resolve, time))
+}
+
+async function makeColorGradient(frequency1, frequency2, frequency3,
+    phase1, phase2, phase3,
+    center, width, len)
+    {
+        
+        if (center == undefined)   center = 128;
+        if (width == undefined)    width = 127;
+        if (len == undefined)      len = Infinity;
+        
+        for (var i = 0; i < len; ++i)
+        {
+        await sleep(28)
+        var red = Math.sin(frequency1*i + phase1) * width + center;
+        var grn = Math.sin(frequency2*i + phase2) * width + center;
+        var blu = Math.sin(frequency3*i + phase3) * width + center;
+
+        setTimeout(() => {
+            document.getElementById("glow2").style.boxShadow = `0 0 25px 10px rgb(${red}, ${grn}, ${blu})`
+        }, 500);
+    }
+}
+
+  
+const doSomething = async () => {
+    for (let i = 0; i < 100; i++) {
+      await sleep(1000)
+    }
+}
+
+makeColorGradient(.3,.3,.3,0,2,4);
+doSomething()
