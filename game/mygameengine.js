@@ -1,4 +1,4 @@
-const socket = io.connect('wss://pinky.uk.to:5000');
+onst socket = io.connect('wss://pinky.uk.to:5000');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
@@ -8,7 +8,7 @@ canvas.width = innerWidth -5
 let LEFT, UP, RIGHT, DOWN;
 
 //velocity gets multiplied by (1-friction)
-let friction = 0.06;
+let friction = 1.2;
 let players = {}
 let balls = []
 let cars = []
@@ -52,7 +52,7 @@ class Ball{
         this.acc_y = 0;
         this.name = name
         this.destruct = false
-        this.acceleration = 1;
+        this.acceleration = 0.5;
         this.player = false;
         this.colour = '#343434'
         balls.push(this)
