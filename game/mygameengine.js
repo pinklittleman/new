@@ -8,7 +8,7 @@ canvas.width = innerWidth -5
 let LEFT, UP, RIGHT, DOWN;
 
 //velocity gets multiplied by (1-friction)
-let friction = 1.2;
+let friction = 0.2;
 let players = {}
 let balls = []
 let cars = []
