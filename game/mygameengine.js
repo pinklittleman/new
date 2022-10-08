@@ -1,4 +1,4 @@
-onst socket = io.connect('wss://pinky.uk.to:5000');
+const socket = io.connect('wss://pinky.uk.to:5000');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
