@@ -273,7 +273,9 @@ function gameloop(){
             }
         }
     });
+    ctx.fillStyle = '#343434'
     blocks.forEach((bl) => {
+        ctx.fillStyle = '#343434'
         bl.draw()
     });
     cars.forEach((car) => {
