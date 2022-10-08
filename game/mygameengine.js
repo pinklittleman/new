@@ -2,8 +2,8 @@ const socket = io.connect('wss://pinky.uk.to:5000');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-canvas.height = innerHeight -5
-canvas.width = innerWidth -5
+canvas.height = innerHeight
+canvas.width = innerWidth
 
 let LEFT, UP, RIGHT, DOWN;
 
@@ -273,12 +273,13 @@ function gameloop(){
             }
         }
     });
-    blocks.forEach((bl) => {
-        bl.draw()
-    });
     cars.forEach((car) => {
         car.draw()
     })
+    blocks.forEach((bl) => {
+        bl.draw()
+        ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight)
+    });
 
     // console.log(intersects(square1.x,square1.y,square1.w,square1.h,Block1.x,Block1.y,Block1.w,Block1.h))
 
@@ -315,7 +316,7 @@ let square1 = new Ball(200,200,30,30,socket.id);
 let Block1 = new Block(0,0,10,1080)
 let Block2 = new Block(0,0,1920,10)
 let Block3 = new Block(canvas.width-5,0,10,1080)
-// let Block4 = new Block(0,canvas.height-5,1920,10)
+let Block4 = new Block(0,canvas.height-5,1920,10)
 let car1 = new Car(300,300,50,70)
 square1.player = true;
 
