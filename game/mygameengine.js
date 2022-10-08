@@ -278,7 +278,6 @@ function gameloop(){
     })
     blocks.forEach((bl) => {
         bl.draw()
-        ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight)
     });
 
     // console.log(intersects(square1.x,square1.y,square1.w,square1.h,Block1.x,Block1.y,Block1.w,Block1.h))
