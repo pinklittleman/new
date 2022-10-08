@@ -274,14 +274,12 @@ function gameloop(){
         }
     });
     blocks.forEach((bl) => {
-        ctx.fillStyle = '#343434'
         bl.draw()
     });
-    setTimeout(() => {
-        cars.forEach((car) => {
-            car.draw()
-        })
-    }, 10);
+    cars.forEach((car) => {
+        car.draw()
+    })
+    
 
     // console.log(intersects(square1.x,square1.y,square1.w,square1.h,Block1.x,Block1.y,Block1.w,Block1.h))
 
