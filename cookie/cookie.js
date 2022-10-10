@@ -1,6 +1,6 @@
 let cookies = 0
 let multiplier = 1, adding = 1
-let clicked, multi
+let clicked = false, multi
 
 setTimeout(() => {
 
