@@ -6,6 +6,7 @@ setTimeout(() => {
     let deg = 90
     let cookie2 = document.getElementById('cookie')
     let loading = document.getElementById('loading')
+    let cookienum = document.getElementById('cookie1')
 
     canh = innerHeight / 2 - 100
 
@@ -15,6 +16,7 @@ setTimeout(() => {
         cookie2.style.transform = "rotate("+(deg)+"deg)"
         deg += Math.floor((Math.random()* 20) + -10)
         cookies++
+        cookienum.innerHTML = cookies
     }
 
 document.addEventListener("click", cookie)
