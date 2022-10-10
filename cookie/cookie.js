@@ -32,12 +32,10 @@ setTimeout(() => {
     }
 
 document.addEventListener("click", cookie)
-multi = document.getElementById('multi')
-
 loading.style.visibility = 'hidden'
 
 }, 1000);
 
-multi.addEventListener("click", function(){
+function click2(){
     clicked = true
-})
+}
