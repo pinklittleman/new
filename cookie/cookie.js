@@ -5,7 +5,7 @@ setTimeout(() => {
 
     canh = innerHeight / 2
 
-    cookie2.style.top = canh
+    cookie2.style.top = canh+"px"
 
     function cookie() {
         cookie2.style.transform = "rotate("+(deg)+"deg)"
