@@ -16,9 +16,9 @@ setTimeout(() => {
     function cookie() {
         cookie2.style.transform = "rotate("+(deg)+"deg)"
         deg += Math.floor((Math.random()* 20) + -10)
-        cookies += adding * multiplier
+        Math.floor(cookies += adding * multiplier)
         cookienum.innerHTML = cookies
-        if(cookies === 100){
+        if(cookies >= 100){
             document.getElementById('mult').style.visibility = 'visible'
             cookies -= 100
             multiplier += 0.2
