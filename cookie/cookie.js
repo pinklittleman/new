@@ -17,4 +17,4 @@ document.addEventListener("click", cookie)
 
 loading.style.visibility = 'hidden'
     
-}, 5000);
+}, 1000);
