@@ -25,3 +25,13 @@ document.addEventListener("click", cookie)
 loading.style.visibility = 'hidden'
     
 }, 1000);
+
+
+if(cookies >= 100){
+    document.getElementById('mult').style.visibility = 'visable'
+    cookies -= 100
+    multiplier += 0.2
+}
+else{
+    document.getElementById('mult').style.visibility = 'hidden'
+}
