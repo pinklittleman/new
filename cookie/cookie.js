@@ -6,7 +6,7 @@ setTimeout(() => {
     let deg = 90
     let cookie2 = document.getElementById('cookie')
     let loading = document.getElementById('loading')
-    let cookienum = document.getElementById('cookie1')
+    let cookienum = document.getElementById('cookie2')
 
     canh = innerHeight / 2 - 100
 
