@@ -18,6 +18,14 @@ setTimeout(() => {
         deg += Math.floor((Math.random()* 20) + -10)
         cookies += adding * multiplier
         cookienum.innerHTML = cookies
+        if(cookies === 100){
+            document.getElementById('mult').style.visibility = 'visable'
+            cookies -= 100
+            multiplier += 0.2
+        }
+        else{
+            document.getElementById('mult').style.visibility = 'hidden'
+        }
     }
 
 document.addEventListener("click", cookie)
