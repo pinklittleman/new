@@ -1,5 +1,9 @@
+deg = 90
+
 function cookie() {
-    alert('yes')
+    let cookie = document.getElementById('cookie')
+    cookie.style.transform(rotate(`${deg}deg`))
+    deg += 90
 }
 
 document.addEventListener("click", cookie)
