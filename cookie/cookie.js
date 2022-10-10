@@ -14,6 +14,7 @@ setTimeout(() => {
     cookie2.style.top = canh+"px"
 
     function cookie() {
+        clicked = false
         cookie2.style.transform = "rotate("+(deg)+"deg)"
         deg += Math.floor((Math.random()* 20) + -10)
         Math.floor(cookies += adding * multiplier)
