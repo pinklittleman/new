@@ -19,7 +19,7 @@ setTimeout(() => {
         cookies += adding * multiplier
         cookienum.innerHTML = cookies
         if(cookies === 100){
-            document.getElementById('mult').style.visibility = 'visable'
+            document.getElementById('mult').style.visibility = 'visible'
             cookies -= 100
             multiplier += 0.2
         }
