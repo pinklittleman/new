@@ -14,4 +14,4 @@ setTimeout(() => {
 
 document.addEventListener("click", cookie)
     
-}, 1000);
+}, 500);
