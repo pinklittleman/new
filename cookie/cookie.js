@@ -22,7 +22,7 @@ setTimeout(() => {
             document.getElementById('mult').style.visibility = 'visible'
             if (clicked === true) {
                 cookies -= 100
-                multiplier += 1.5
+                multiplier += 2
                 clicked = false
             }
         }
