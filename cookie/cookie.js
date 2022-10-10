@@ -1,7 +1,6 @@
 let cookies = 0
-let multiplier = 1
-let adding = 1
-let dull
+let multiplier = 1, adding = 1
+let clicked, multi
 
 setTimeout(() => {
 
@@ -20,11 +19,12 @@ setTimeout(() => {
         Math.floor(cookies += adding * multiplier)
         cookienum.innerHTML = cookies
         if(cookies >= 100){
-            dull = document.getElementById('mult').style.visibility = 'visible'
-            dull.addEventListener('click', function () {
+            document.getElementById('mult').style.visibility = 'visible'
+            if (clicked === true) {
                 cookies -= 100
                 multiplier += 1.5
-            } )
+                clicked = false
+            }
         }
         else{
             document.getElementById('mult').style.visibility = 'hidden'
@@ -32,6 +32,10 @@ setTimeout(() => {
     }
 
 document.addEventListener("click", cookie)
+multi = document.getElementById('multi')
+multi.addEventListener("click", function(){
+    clicked = true
+})
 
 loading.style.visibility = 'hidden'
     
