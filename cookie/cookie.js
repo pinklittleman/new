@@ -2,6 +2,7 @@ setTimeout(() => {
 
     let deg = 90
     let cookie2 = document.getElementById('cookie')
+    let loading = document.getElementById('loading')
 
     canh = innerHeight / 2
 
@@ -13,5 +14,7 @@ setTimeout(() => {
     }
 
 document.addEventListener("click", cookie)
+
+loading.style.visibility = 'hidden'
     
-}, 50);
+}, 5000);
