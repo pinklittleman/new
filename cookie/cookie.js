@@ -4,7 +4,7 @@ setTimeout(() => {
     let cookie2 = document.getElementById('cookie')
     let loading = document.getElementById('loading')
 
-    canh = innerHeight / 2
+    canh = innerHeight / 2 - 100
 
     cookie2.style.top = canh+"px"
 
