@@ -1,5 +1,6 @@
 let cookies = 0
-
+let multiplier = 0
+let adding = 1
 
 setTimeout(() => {
 
@@ -15,7 +16,7 @@ setTimeout(() => {
     function cookie() {
         cookie2.style.transform = "rotate("+(deg)+"deg)"
         deg += Math.floor((Math.random()* 20) + -10)
-        cookies++
+        cookies += adding * multiplier
         cookienum.innerHTML = cookies
     }
 
