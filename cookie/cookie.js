@@ -1,5 +1,5 @@
 let cookies = 0
-let multiplier = 0
+let multiplier = 1
 let adding = 1
 
 setTimeout(() => {
