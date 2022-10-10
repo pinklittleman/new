@@ -1,12 +1,12 @@
 let deg = 90
-let cookie = document.getElementById('cookie')
+let cookie2 = document.getElementById('cookie')
 
 canh = innerHeight / 2
 
-cookie.style.top = canh
+cookie2.style.top = canh
 
 function cookie() {
-    cookie.style.transform = "rotate("+(deg)+"deg)"
+    cookie2.style.transform = "rotate("+(deg)+"deg)"
     deg += Math.floor((Math.random()* 20) + -10)
 }
 
