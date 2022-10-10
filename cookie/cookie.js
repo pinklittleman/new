@@ -27,7 +27,7 @@ loading.style.visibility = 'hidden'
 }, 1000);
 
 
-if(cookies >= 100){
+if(cookies = 100){
     document.getElementById('mult').style.visibility = 'visable'
     cookies -= 100
     multiplier += 0.2
