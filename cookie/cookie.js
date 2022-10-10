@@ -1,3 +1,6 @@
+let cookies = 0
+
+
 setTimeout(() => {
 
     let deg = 90
@@ -11,6 +14,7 @@ setTimeout(() => {
     function cookie() {
         cookie2.style.transform = "rotate("+(deg)+"deg)"
         deg += Math.floor((Math.random()* 20) + -10)
+        cookies++
     }
 
 document.addEventListener("click", cookie)
