@@ -39,3 +39,7 @@ loading.style.visibility = 'hidden'
 function click2(){
     clicked = true
 }
+
+setInterval(() => {
+    console.log(clicked)
+}, 100);
