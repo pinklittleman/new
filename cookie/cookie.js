@@ -22,9 +22,6 @@ function cookie() {
             clicked = false
         }
     }
-    else{
-        document.getElementById('mult').style.visibility = 'hidden'
-    }
 }
 
 function click2(){
