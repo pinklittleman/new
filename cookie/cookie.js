@@ -8,7 +8,7 @@ const sleep = (time) => {
 }
 
 async function cookie() {
-    await sleep(500)
+    await sleep(5000)
     let cookie2 = document.getElementById('cookie')
     let loading = document.getElementById('loading')
     let cookienum = document.getElementById('cookie2')
