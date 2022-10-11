@@ -1,7 +1,7 @@
 let cookies = 0
 let multiplier = 1, adding = 1
 let clicked = false, multi
-let deg = 90, cookie2, loading, cookienum
+let deg = 90, cookie2, loading2, cookienum
 
 const sleep = (time) => {
     return new Promise((resolve) => setTimeout(resolve, time))
@@ -9,16 +9,15 @@ const sleep = (time) => {
 
 
 async function loading(){
-    await sleep(50)
     cookie2 = document.getElementById('cookie')
-    loading = document.getElementById('loading')
+    loading2 = document.getElementById('loading')
     cookienum = document.getElementById('cookie2')
     canh = innerHeight / 2 - 100
     cookie2.style.top = canh+"px"
 }
 
 async function cookie(){
-    loading.style.visibility = 'hidden'
+    loading2.style.visibility = 'hidden'
     cookie2.style.transform = "rotate("+(deg)+"deg)"
     deg += Math.floor((Math.random()* 20) + -10)
     Math.floor(cookies += adding * multiplier)
