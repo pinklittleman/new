@@ -3,7 +3,12 @@ let multiplier = 1, adding = 1
 let clicked = false, multi
 let deg = 90
 
-function cookie() {
+const sleep = (time) => {
+    return new Promise((resolve) => setTimeout(resolve, time))
+}
+
+async function cookie() {
+    await sleep(500)
     let cookie2 = document.getElementById('cookie')
     let loading = document.getElementById('loading')
     let cookienum = document.getElementById('cookie2')
