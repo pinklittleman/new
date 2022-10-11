@@ -3,7 +3,7 @@ let multiplier = 1, adding = 1
 let clicked = false, multi
 
 setTimeout(() => {
-
+    
     let deg = 90
     let cookie2 = document.getElementById('cookie')
     let loading = document.getElementById('loading')
@@ -30,8 +30,6 @@ setTimeout(() => {
             document.getElementById('mult').style.visibility = 'hidden'
         }
     }
-
-document.addEventListener("click", cookie)
 loading.style.visibility = 'hidden'
 
 }, 1000);
