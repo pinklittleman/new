@@ -14,7 +14,6 @@ setTimeout(() => {
     cookie2.style.top = canh+"px"
 
     function cookie() {
-        clicked = false
         cookie2.style.transform = "rotate("+(deg)+"deg)"
         deg += Math.floor((Math.random()* 20) + -10)
         Math.floor(cookies += adding * multiplier)
@@ -39,7 +38,6 @@ loading.style.visibility = 'hidden'
 
 function click2(){
     clicked = true
-    alert('yes')
 }
 
 setInterval(() => {
