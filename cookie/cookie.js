@@ -14,10 +14,10 @@ function loading(){
     cookienum = document.getElementById('cookie2')
     canh = innerHeight / 2 - 100
     cookie2.style.top = canh+"px"
+    loading2.style.visibility = 'hidden'
 }
 
 async function cookie(){
-    loading2.style.visibility = 'hidden'
     cookie2.style.transform = "rotate("+(deg)+"deg)"
     deg += Math.floor((Math.random()* 20) + -10)
     Math.floor(cookies += adding * multiplier)
