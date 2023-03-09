@@ -1,0 +1,189 @@
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Body = Matter.Body,
+    Composite = Matter.Composite,
+    Composites = Matter.Composites,
+    Query = Matter.Query,
+    Constraint = Matter.Constraint,
+    MouseConstraint = Matter.MouseConstraint,
+    Mouse = Matter.Mouse,
+    Events = Matter.Events,
+    Bodies = Matter.Bodies;
+
+    let engine = Engine.create();
+    let render = Render.create({
+        element: document.body,
+        engine: engine,
+        options: {
+            width: 800,
+            height: 600,
+            wireframes: false,
+            // showAngleIndicator: true
+        },
+    });
+
+    Matter.Runner.run(engine);
+    Render.run(render);
+
+    let floorColl = Body.nextGroup(true);
+    let bottom = Bodies.rectangle(0, 600, 3500, 50,{isStatic: true, friction: 0.001})
+    let topw = Bodies.rectangle(100, 0, 3500, 50,{isStatic: true})
+    let left = Bodies.rectangle(0, 600, 50, 3500,{isStatic: true})
+    let right = Bodies.rectangle(800, 100, 50, 3500,{isStatic: true})
+    let player = Bodies.rectangle(400,560,30,30, {friction: 0.0001})
+    let enemy = Bodies.rectangle(800,560,20,20,{collisionFilter: { group: floorColl }})
+    let doublejump = 0
+    let find
+    let loop1 = null
+    let loop2 = null
+    let stopping = true
+    let angle
+    let bullet2
+    let bullets = []
+    let UP = false , DOWN = false , LEFT = false , RIGHT = false , JUMP = false
+    
+    Matter.Body.setInertia(player, Infinity)
+    Composite.add(engine.world,[bottom,topw,left,right,player,enemy])
+
+    function detectloop(){
+
+            if((Matter.Collision.collides(player, bottom) != null)){
+                doublejump = 0
+                stopping = true
+            }
+            if((Matter.Collision.collides(player, left) != null) || (Matter.Collision.collides(player, right) != null)){
+                stopping = false
+                doublejump = 0
+            }
+            find = Composite.allConstraints(engine.world)
+
+            if(UP === true){
+                
+            }
+            if(Matter.Collision.collides(player, bottom) != null || doublejump <= 1){
+                Matter.Body.setVelocity(player, {x:player.velocity.x,y:-8})
+                doublejump++
+            }
+
+            requestAnimationFrame(detectloop)
+    }
+
+    function walljump(){
+        loop2 = setInterval(() => {
+            
+        }, 1);
+    }
+
+    document.onkeydown = function(e){
+        console.log(e.key)
+        if(e.key === "w"){
+            UP = true
+        }
+        if(e.key === "a"){
+            // Matter.Body.setVelocity(player, {x:-5,y:player.velocity.y})
+            LEFT = true
+        }
+        if(e.key === "d"){
+            // Matter.Body.setVelocity(player, {x:5,y:player.velocity.y})
+            RIGHT = true
+        }
+        if(e.key === " "){
+            // space = true
+            // if(Matter.Collision.collides(player, left) != null){
+            //     Matter.Body.setVelocity(player, {x:player.velocity.x+4,y:player.velocity.y})
+            //     setTimeout(() => {
+            //         Matter.Body.setVelocity(player, {x:player.velocity.x,y:-3})
+            //     }, 50);
+            // }
+            // if(Matter.Collision.collides(player, right) != null ){
+            //     Matter.Body.setVelocity(player, {x:player.velocity.x-4,y:player.velocity.y})
+            //     setTimeout(() => {
+            //         Matter.Body.setVelocity(player, {x:player.velocity.x,y:-3})
+            //     }, 50);
+            // }
+            JUMP = true
+            
+        }
+
+    
+    }
+
+    document.onkeyup = function(e){
+        if(e.key === "w"){
+            UP = false
+        }
+        if(e.key === "a"){
+            LEFT = false
+        }
+        if(e.key === "d"){
+            RIGHT = fasle
+        }
+        if(e.key === " "){
+            JUMP = fasle
+        }
+    }
+
+
+    let mouse = Mouse.create(render.canvas),
+        mouseConstraint = MouseConstraint.create(engine, {
+            mouse: mouse,
+            constraint: {
+                stiffness: 0.2,
+                render: {
+                    visible: false
+                }
+            }
+        });
+
+    Composite.add(engine.world, mouseConstraint);
+
+    // let constraint1 = Constraint.create({
+    //     bodyB: player,
+    //     pointA: {x:mouse.position.x,y:mouse.position.y},
+    //     pointB: {x:0,y:0},
+    //     stiffness: 0.00005
+    // })
+
+    function addnewcon(){
+        return Constraint.create({bodyB: player, pointA:{x:mouse.position.x,y:mouse.position.y}, pointB: {x:0,y:0}, stiffness: 0.005})
+    }
+
+    function bullet(){
+        return bullet2 = Bodies.rectangle(enemy.position.x,enemy.position.y,20,10,{render: {fillStyle: '#000000'},collisionFilter: { group: floorColl }})
+    }
+    
+    // Composite.add(engine.world,[constraint1])
+
+    setInterval(() => {
+        angle = Math.atan2(player.position.y - enemy.position.y,player.position.x - enemy.position.x)
+        Composite.add(engine.world,bullet())
+        bullets.push(bullet2)
+        for(i in bullets){
+            Matter.Body.setVelocity(bullets[i], {x:Math.cos(angle),y:Math.sin(angle)})
+            Composite.remove(engine.world,[bullets[i]])
+                
+            
+        }
+    }, 100);
+
+    document.addEventListener("click", function(){
+        // Composite.add(engine.world, addnewcon())
+        // setTimeout(() => {
+        //     for(i in find){
+        //         Composite.remove(engine.world,[find[1]])
+        //     }
+        // }, 1500);
+
+        // angle = Math.atan2(player.position.y - enemy.position.y,player.position.x - enemy.position.x)
+        // Composite.add(engine.world,bullet())
+        // bullets.push(bullet2)
+        // setInterval(() => {
+        //     Matter.Body.setVelocity(bullet2, {x:Math.cos(angle)*4,y:Math.sin(angle)*4})
+        // }, 1);
+
+    })
+
+detectloop()
+walljump()
+
