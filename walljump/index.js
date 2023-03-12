@@ -1,4 +1,4 @@
-let LEFT, RIGHT, UP, WJUMP, doublejump = 0, stopping = false
+let LEFT, RIGHT, UP, WJUMP, doublejump = 0, collidingL = false, collidingR = false, crouch = false
 var Engine = Matter.Engine,
     Render = Matter.Render,
     Runner = Matter.Runner,
@@ -27,6 +27,7 @@ let render = Render.create({
 Matter.Runner.run(engine);
 Render.run(render);
 
+let isCrouched = false;
 let floorColl = Body.nextGroup(true);
 let bottom = Bodies.rectangle(0, 600, 3500, 50,{isStatic: true, friction: 0.001})
 let topw = Bodies.rectangle(100, 0, 3500, 50,{isStatic: true})
@@ -39,27 +40,47 @@ Composite.add(engine.world,[bottom,topw,left,right,player,enemy])
 
 
 function mainloop(){
-    if(LEFT === true){
+
+    player.render.fillStyle = "#ffffba" 
+
+    if((Matter.Collision.collides(player, right) != null)){
+        collidingR = true
+    }
+    else{
+        collidingR = false
+    }
+
+    if((Matter.Collision.collides(player, left) != null)){
+        collidingL = true
+    }
+    else{
+        collidingL = false
+    }
+
+    if(collidingR){
+        Matter.Body.setVelocity(player, {x:0.75,y:-0.01})
+    }
+    if(collidingL){
+        Matter.Body.setVelocity(player, {x:-0.75,y:-0.01})
+    }
+
+    if(LEFT && !collidingL){
         Matter.Body.setVelocity(player, {x:-4,y:player.velocity.y})
     }
-    if(RIGHT === true){
+    if(RIGHT && !collidingR){
         Matter.Body.setVelocity(player, {x:4,y:player.velocity.y})
     }
     if(WJUMP === true){
-        if(Matter.Collision.collides(player, left) != null){
+        if(collidingL){
             Matter.Body.setVelocity(player, {x:player.velocity.x+6,y:player.velocity.y})
             setTimeout(() => {
                 Matter.Body.setVelocity(player, {x:player.velocity.x,y:-3})
-                setTimeout(() => {
-                    stopping = false
-                }, 1000);
-            }, 50);
+            }, 50)
         }
-        if(Matter.Collision.collides(player, right) != null){
+        if(collidingR){
             Matter.Body.setVelocity(player, {x:player.velocity.x-6,y:player.velocity.y})
             setTimeout(() => {
                 Matter.Body.setVelocity(player, {x:player.velocity.x,y:-3})
-                stopping = false
             }, 50);
         }
         
@@ -74,25 +95,28 @@ function mainloop(){
     if((Matter.Collision.collides(player, bottom) != null)){
         doublejump = 0
     }
-    // if((Matter.Collision.collides(player, left) != null) || (Matter.Collision.collides(player, right) != null)){
-    //     doublejump = 1
-    // }
-    if(stopping === false){
-        if((Matter.Collision.collides(player, right) != null)){
-            Matter.Body.setVelocity(player, {x:0.75,y:-0.001})
+
+    if(crouch){
+        if(!isCrouched){
+            Matter.Body.scale(player, 1, 0.5,{x:player.position.x,y:player.position.y+10})
+            isCrouched = true;
         }
-        if((Matter.Collision.collides(player, left) != null)){
-            Matter.Body.setVelocity(player, {x:-0.75,y:-0.001})
-        }
+    }
+    else if(isCrouched){
+        Matter.Body.scale(player, 1, 2)
+        isCrouched = false;
     }
 
     requestAnimationFrame(mainloop)
 }
 
 document.onkeydown = function(e){
-    
+
+    if(e.key === "Control"){
+        crouch = true
+    }
     if(e.key === "w"){
-        UP = true
+        
     }
     if(e.key === "a"){
         LEFT = true
@@ -102,15 +126,18 @@ document.onkeydown = function(e){
     }
     if(e.key === " "){
         WJUMP = true
-        stopping = true
+        UP = true
     }
 }
 
 
 document.onkeyup = function(e){
-    
+
+    if(e.key === "Control"){
+        crouch = false
+    }
     if(e.key === "w"){
-        UP = false
+        
     }
     if(e.key === "a"){
         LEFT = false
@@ -120,6 +147,7 @@ document.onkeyup = function(e){
     }
     if(e.key === " "){
         WJUMP = false
+        UP = false
     }
 }
 
