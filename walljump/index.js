@@ -59,9 +59,7 @@ function mainloop(){
             Matter.Body.setVelocity(player, {x:player.velocity.x-6,y:player.velocity.y})
             setTimeout(() => {
                 Matter.Body.setVelocity(player, {x:player.velocity.x,y:-3})
-                setTimeout(() => {
-                    stopping = false
-                }, 1000);
+                stopping = false
             }, 50);
         }
         
@@ -81,10 +79,10 @@ function mainloop(){
     // }
     if(stopping === false){
         if((Matter.Collision.collides(player, right) != null)){
-            Matter.Body.setVelocity(player, {x:0.75,y:-0.2})
+            Matter.Body.setVelocity(player, {x:0.75,y:-0.001})
         }
         if((Matter.Collision.collides(player, left) != null)){
-            Matter.Body.setVelocity(player, {x:-0.75,y:-0.2})
+            Matter.Body.setVelocity(player, {x:-0.75,y:-0.001})
         }
     }
 
