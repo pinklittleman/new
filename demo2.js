@@ -147,7 +147,7 @@ let stackk = Composites.stack(600,400,10,10,0,0,function(x,y){
     return Bodies.rectangle(x,y,15,15)
 })
 
-// add to the world the containing walls and any other bodies
+// add to the world, the containing walls and any other bodies
 Composite.add(engine.world,[
     ball,
     Bodies.rectangle(0, 600, 3500, 50,{isStatic: true, collisionFilter: { group: floorColl }}),
@@ -160,7 +160,7 @@ Composite.add(engine.world,[
     stackk
 ]);
 
-//check weather the ball is out of bounds and if it is then put it back in bounds
+//check wether the ball is out of bounds and if it is then put it back in bounds
 setInterval(() => {
     if(ball.position.y > 560 || ball.position.y < 30){
         setTimeout(() => {
@@ -193,7 +193,7 @@ async function makeColorGradient(frequency1, frequency2, frequency3,
 
         setTimeout(() => {
             document.getElementById("glow2").style.boxShadow = `0 0 14px 12px rgb(${red}, ${grn}, ${blu})`
-        }, 500);
+        }, 200);
     }
 }
 
